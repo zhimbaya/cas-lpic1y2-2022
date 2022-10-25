@@ -190,6 +190,6 @@ S socket
 - set -+o noclobber (warning)
 - . (se ejecute en el mismo proceso)
 
-- 
+- https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 
