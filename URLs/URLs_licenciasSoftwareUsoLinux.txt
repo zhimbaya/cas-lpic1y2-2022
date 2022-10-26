@@ -1,0 +1,66 @@
+SO más usado 
+https://es.statista.com/estadisticas/576870/cuota-de-mercado-mundial-de-los-sistemas-operativos/
+
+Servidores
+https://www.profesionalreview.com/2022/07/20/sistemas-operativos-para-servidores/
+
+Linux en la nube 
+https://openwebinars.net/blog/el-poder-de-linux-en-el-cloud-computing/
+
+Servidores Web ... ¿y qué SO usarán?
+https://www.stackscale.com/es/blog/top-servidores-web/
+
+AZURE linux
+https://www.zdnet.com/article/microsoft-developer-reveals-linux-is-now-more-used-on-azure-than-windows-server/
+
+Licencias software
+
+https://es.wikipedia.org/wiki/Licencia_de_software
+
+GNU 
+https://www.gnu.org/home.es.html
+
+https://www.gnu.org/philosophy/free-sw.es.html#four-freedoms
+
+Creative commons
+https://creativecommons.org/licenses/?lang=es_ES
+
+https://es.wikipedia.org/wiki/Licencias_Creative_Commons
+
+ Sistema operativo
+https://es.wikipedia.org/wiki/Sistema_operativo
+
+UNIX
+https://es.wikipedia.org/wiki/Unix
+
+https://es.wikipedia.org/wiki/System_V 
+
+https://es.wikipedia.org/wiki/POSIX
+
+ 
+Kernels varios 
+https://es.wikipedia.org/wiki/Unix 
+
+https://es.wikipedia.org/wiki/XNU
+
+https://es.wikipedia.org/wiki/Ntoskrnl.exe
+
+https://es.wikipedia.org/wiki/GNU_Hurd
+
+https://es.wikipedia.org/wiki/Berkeley_Software_Distribution
+
+
+Interfaces
+https://es.wikipedia.org/wiki/Archivo:CLI-GUI-NUI.png
+
+http://navclasses.blogspot.com/2018/03/user-interfacecommand-line-interface.html
+
+Shell unix
+
+https://es.wikipedia.org/wiki/Shell_de_Unix
+
+
+
+
+
+
