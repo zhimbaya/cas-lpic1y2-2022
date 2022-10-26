@@ -7,6 +7,6 @@ Happy Code! 🚀
 Índice:
 
 - [Linux Essential](basic.md)
-- [Website of help and interest](ayuda.md)
+- [Website of help and interest](help.md)
 
 
