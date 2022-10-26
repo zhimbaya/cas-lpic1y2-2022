@@ -1,4 +1,33 @@
 # ✌ 📘 EMPEZAMOS EL CURSO 📘 ✌
+
+## Linux essentials (40 h) 8d 13/10/22 - 24/10/22
+
+### CONOCIMIENTO DE LA COMUNIDAD LINUX Y DE UNA CARRERA EN EL CÓDIGO ABIERTO
+1. Evolución de Linux y sistemas operativos populares
+2.	Principales aplicaciones de código abierto
+3.	Software de código abierto y licencias
+4.	Habilidades TIC y trabajo en Linux
+### ORIENTACIÓN EN UN SISTEMA LINUX
+1.	Fundamentos de la línea de comandos
+2.	Uso de la línea de comandos para obtener ayuda
+3.	Uso de directorios y listado de archivos
+4.	Crear, mover y borrar archivos
+### UTILIZACIÓN DE UNA LÍNEA DE COMANDOS
+1.	Gestión de archivos en la línea de comandos
+2.	Búsqueda y extracción de datos de archivos
+3.	Cómo convertir los comandos en un script
+### ESPECIFICACIONES SOBRE EL SISTEMA OPERATIVO LINUX
+1.	Elección del sistema operativo
+2.	Entender el hardware de los ordenadores
+3.	Dónde se almacenan los datos
+4.	Su ordenador en la red
+### CONFIGURACIÓN SEGURIDAD Y PERMISOS DE ARCHIVOS
+1.	Seguridad básica e identificación de tipos de usuarios
+2.	Creación de usuarios y grupos
+3.	Gestión de los permisos y la propiedad de los archivos
+4.	Directorios y archivos especiales
+
+
 ## 📅 13/10/2022
 - Inicio
 - Presentación
