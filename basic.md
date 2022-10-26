@@ -170,11 +170,11 @@
 - dd if=/dev/zero of=fichero bs=1024 (crea un fichero con un tamaño, nombre y contenido)
 - mount fichero /mnt/ (comando - ruta donde se montan los ficheros)
 - kill -l (lista los diferentes señales)
-  1 (iniciar demonios)
-  2(interrupcion)
-  3(salir)
-  9(kill)
-  15(terminar)
+  - 1 (iniciar demonios)
+  - 2 (interrupcion)
+  - 3 (salir)
+  - 9 (kill)
+  - 15 (terminar)
 - echo $$ (muestra el pid)
 - jobs (muestra los trabajos en ejecución en segundo plano)
 - fg (envía un proceso a primer plano) y bg (envia un proceso a segundo plano)
@@ -183,24 +183,32 @@
 - shift (quita la variable posicional)
 - echo ${17} (muestra el valor de la variable
 - unset (liberar espacio de memoria)
-- export (exportar variables entre bash)
+- export (exportar variables entre bash's)
 - POSIX -> ( [:UPPER:] )
-- [[ -> evaluar la expresion que contiene los dos corchetes en  POSIX ( C )
-- locale (forma de interpretar los signos)
+- [ [ ] ]-> evalua la expresion que contiene los dos corchetes en  POSIX ( C )
+- locale (muestra la forma de interpretar los signos)
 - echo -> ( \ escape )
-- ls -l A???
+- ls -l A??? (lista detalla que empiece por A mayúscula y sea de cuatro caractéres)
 - 1> , 2> , &> (1 y 2) , >>, tail , head
 - tee (visualiza por la pantalla y escribe en el fichero)
-- /dev/null 
-- alias , unalias ( borra de memoria los alias)
-- type (información de comando)
-- comando interno o ejecutable -> echo --version , /usr/bin/echo --version (primero los alias (memoria), interno (binario), ejecutable (programa))
-- whereis = which -a
-- ps --no-heading
+- /dev/null (ruta donde no tiene nada)
+- alias (muestra los alias del usuario)
+- unalias nombreAlias (borra de memoria los alias)
+- type (muestra información de comando)
+  - comando interno o ejecutable -> echo --version , /usr/bin/echo --version 
+  - (primero los alias (memoria), interno (binario), ejecutable (programa))
+- whereis (muestra mas información que which) = which -a comando (muestra la ruta del comando o ejecutable)
+- ps --no-heading (muestra los procesos quitando el head de la información)
 - ` ` (contra comilla)
 - set -+o noclobber (warning)
-- . (se ejecute en el mismo proceso)
-
+- . (punto) (se ejecute en el mismo proceso)
+- w (muestra quien esta conectado en el servidor o numero de tty)
 - https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+## 📅 25/10/2022
+
+- zypper install stat (forma de instalar paquetes en openSuse)
+- $(which bash) --version (vemos la versión de bash)
+- estudiar comandos de Vi (ver pdf)
 
 
