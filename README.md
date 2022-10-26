@@ -2,8 +2,11 @@
 
 📲 Iniciamos un nuevo curso de LPIC para la certificación en LPIC 1 y 2. En este repositorio iré subiendo todo lo relacionado con el curso y la certificación. Espero que nos sea de mucha ayuda.
 
-Code Happy! 🚀
+Happy Code! 🚀
 
 Índice:
 
-- [Básico](basic.md)
+- [Linux Essential](basic.md)
+- [Website of help and interest](ayuda.md)
+
+
