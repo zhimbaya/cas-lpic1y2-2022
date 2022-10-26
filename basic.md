@@ -9,7 +9,6 @@
 - Descarga de máquinas virtuale e isos
 
 ## 📅 17/10/2022
-
 - instalación de SO en VirtualBox
 - debian (distribución que se va a utilizar)
 - hostname (nombre de máquina)
@@ -31,7 +30,6 @@
 - cd (cambiar de directorio)
 
 ## 📅 18/10/2022
-
 - echo -e "adios \nmundo"
 - echo (imprime por pantalla)
 - which -a comando (ruta del comando interno o ejecutable)
@@ -54,88 +52,96 @@
 - who a mi (muestra usuario terminal fecha corta)
 - id (muestra el id del usurio)
 - date (muestra la fecha)
-- variables a=1, echo $a
-- env , echo $PATH
-- PATH=$PATH:/sbin
-- utilizar _
-- proceso en segundo plano &
-- && , : , ||, *´, ? , >
-- "", ' '
+- variables 
+  - a=1; echo $a (asignación de una variable e impresión por pantalla)
+- env (muestra las variables de entorno)
+- echo $PATH (muestra la información de la variable)
+- PATH=$PATH:/sbin (añade una ruta al PATH)
+- _ (al momento de forma variables con nombres largo es recomndable utilizar _)
+- & (proceso en segundo plano)
+- && , : , ||, *, ´, ? , > <
+- "", ' ' (doble comillas - muestran el valor de las variables y comillas simples - imprime de forma literal)
 - bash (reiniciar el terminal)
 
 ## 📅 19/10/2022
-- cat << EOF
-+ apt install info
-- 10.1.1.111 - user1
-- apropos hostname
-- man -k hostname
-- file (tipo de fichero)
-- cp origen destino
-- ln (enlace duro) mismo inodo , numero
+- cat << EOF (termina en el momento que aparece un EOF
++ apt install info (aplicación que muestra la información del comando o sistema en sustitución de man)
+- 10.1.1.111 - user7 (dirección de cubo y usuario)
+- apropos hostname (muestra las informaión, secciones del comando , )
+- man -k hostname (es igual que utilizar apropos)
+- file (muetra el tipo de fichero)
+- cp origen destino (copia un fichero)
+- ln origna destino (enlace duro) mismo inodo , numero
 - ln -s origen destino (enlace simbolico)
 - * (varios ) ? (uno)
-- \
-- ls [gz][rp]*
-- grep
-- ^ (que empiece)
-- grep -v (excepto)
-- /dev/null
-- ssh user@ip -p 
-- vi
-- bash
-- $( comando )
+- \ (contra barra, sirve para escapar caractéres)
+- ls [gz][rp]* (lista desde un rango a otro)
+- grep (filtra)
+- ^ (acento circunflejo que nos dice que empiece)
+- grep -v (filtra excepto)
+- /dev/null (ruta donde no hay nada)
+- ssh user@ip -p (conexión shh y puerto)
+- vi (editor de texto)
+- bash (cli con el que estamos trabajando)
+- $(comando) (variable que guarda lo que el comando muestra)
 
 ## 📅 20/10/2022
-
-- if
-- for
-- while
-- until
-- function
-- sh archivo
+- bash:
+  - if
+  - for
+  - while
+  - until
+  - function
+- sh archivo (ejecutar un archivo)
 - r w x (lectura escritura ejecución)
-- usuario grupo otros
-- ./archivo
-- chmod
-- umask
+- r w x (usuario grupo otros)
+- chmod (cambiar permisos de un fichero)
+- ./archivo (ejecutar un archivo)
+- umask (muestra los permisos del fichero en forma octal)
 - bitSUID (s) 4
-- bitSGID (s) 6
-- stickybit (t) 7
-- uptime
-- dpkg (.deb)
+- bitSGID (s) 2
+- stickybit (t) 1 
+- uptime (muestra el tiempo de ejecución del servidor)
+- dpkg (.deb) ()
 + apt install ksh (echo $0, ver que bash tengo)
-- top
-+ apt install htop
-+ apt install binutils
-- string /bin/bash
-+ apt install lynx
-- ps
-- signal
-- kill -9 pid (sleep 100 &)
-- vmstat
-- dmesg
-- head
-- tail -f
-- wc -lwc
-- who -p -u
-- netstat
-+ apt install nettool
-- ss
-- arp
-- dig
-- ping
-- traceroute
-- ssh
-- users , useradd, userdel, usermod
-- adduser, deluser, 
-- /etc/sudoers.d
-- /etc/shadow
-- /etc/passwd
-- /etc/resolv.conf
-- /etc/network/interfaces
-- /etc/group
-- .bashrc , .profile
-+ apt install finger
+- top (muestra los procesos en ejecución)
++ apt install htop (aplicación muy parecida a top)
++ apt install binutils (aplicación con herramientas muy utiles)
+- string /bin/bash (muestra la información o permite la lectura de ficheros binarios)
++ apt install lynx (aplicación navegador web por terminal)
+- ps (muestra los procesos)
+- man signal (muestra los diferentes tipos de señales)
+- kill -9 pid (comando que mata un proceso)
+- sleep 100 & (se duerme o se produce un delay de 100 milesegundos)
+- vmstat (muestra información de la memoria virtual)
+- dmesg (muetra los mensajes de error
+- head (muestra la 10 primeras líneas de un fichero)
+- tail -f (muestra las 10 últimas líneas de un fichero y esta en constante escucha)
+- wc -lwc (comando que cuenta los número de líneas letras, palabras, bites)
+- who -p -u (muestra información de tty y su PID)
+- netstat (comando de red para mostrar información de la conexión de red - muestra los saltos)
++ apt install nettool (paquete que instala herramientas de red)
+- ss (muestra el número de sockets)
+- arp (muestra información del equipo)
+- dig (muestra información de una dirección IP)
+- ping (envia paquetes a una dirección IP)
+- traceroute dirección-web (muestra el número de saltos)
+- ssh (protocolo de conexión segura)
+- users (muestra los usuarios del sistema)
+- useradd (crea un usuario añadiendole los parametros)
+- userdel (elimina un usuario)
+- usermod (cambia los permisos de un usuario o usuarios)
+- adduser (crea un usuario de forma interactiva)
+- deluser (elimina usarios de fomra interactiva) 
+- Ficheros de configuración:
+  - /etc/sudoers.d
+  - /etc/shadow
+  - /etc/passwd
+  - /etc/resolv.conf
+  - /etc/network/interfaces
+  - /etc/group
+  - .bashrc , .profile
++ apt install finger (paquete que muestra información sobre las terminales)
 
 ## 21/10/2022
 + apt install finger
