@@ -10,49 +10,50 @@
 
 ## 📅 17/10/2022
 
-- instalación de SO
-- debian
-- hostname
+- instalación de SO en VirtualBox
+- debian (distribución que se va a utilizar)
+- hostname (nombre de máquina)
+  - /etc/hostname (ruta de nombre de máquina)
 - ($) usuario regular
 - (#) superusuario
-- pwd 
-- ls
-- - (opciones) y argumentos
-- host
-- uname -a
-- man man
-- man 5 hostname
+- pwd (ruta donde me encuentro)
+- ls (listar)
+  - comando - (opciones) - argumentos
+- host nombreHost (muestra las ip's y nombre de máquina)
+- uname -a (muestra la información del hardware y S.O)
+- man man (ayuda del man)
+- man 5 hostname (ayuda de man en la sección 5)
 - hostname --help
+- help hostname
 - . , .. , ~ , - 
-- ls -la
+- ls -la (listar detallada total)
 - usr (unix source)
-- pwd
-- cd
+- cd (cambiar de directorio)
 
 ## 📅 18/10/2022
 
 - echo -e "adios \nmundo"
-- echo (comando interno y ejecutable)
-- which -a
-- touch (cambia la fecha de un archivo)
+- echo (imprime por pantalla)
+- which -a comando (ruta del comando interno o ejecutable)
+- touch (cambia la fecha de un archivo, crea un archivo)
 - cat (concatena archivos y los muestra por la salida estándar)
-- nano
+- nano (editor de texto)
 - descriptores de ficheros stdin 0, stdout 1, stderr 2
 - modifica la salida std >, >> (añade)
 - modifica la salida stderr 2>
-- tty
-- mv
-- less, more, |
-- man
-+ apt install locate
-- locate -> updatedb
-- mkdir -p
-- apt install tree
+- tty (muestra los terminales en uso)
+- mv origen destino (mueve los ficheros, o los renombra)
+- less (visualiza de línea en línea), more (visualiza el contenido a trozos), | (tuberia, pasa el argumento)
+- man (manual de ayuda del sistema)
++ apt install locate (aplicación para localizar archivos)
+- locate -> updatedb (crea y actuliza la base de datos)
+- mkdir -p (crear directorios recursivos)
+- apt install tree (aplicación que muestra el contenido en forma de árbol)
 - rmdir (borra directorios vacios)
-- rm -r 
-- who a mi
-- id
-- date
+- rm -r (borra ficheros de forma recursiva)
+- who a mi (muestra usuario terminal fecha corta)
+- id (muestra el id del usurio)
+- date (muestra la fecha)
 - variables a=1, echo $a
 - env , echo $PATH
 - PATH=$PATH:/sbin
