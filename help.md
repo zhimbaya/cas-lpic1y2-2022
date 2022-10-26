@@ -1,0 +1,27 @@
+Revolution OS:
+https://www.youtube.com/watch?v=sujZg7jwKdk
+
+loquendo version:
+https://www.youtube.com/watch?v=jfYBeWHc3GE
+
+Bash:
+https://es.wikipedia.org/wiki/Bash
+
+Expresiones regulares:
+https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular#El_signo_de_admiraci%C3%B3n_%22!%22
+
+Dobles corchetes:
+https://www.delftstack.com/es/howto/linux/difference-between-single-and-double-square-brackets-in-bash/
+
+Pero y con POSIX ...
+http://licodeli.blogspot.com/2016/06/clases-de-caracteres-posix.html
+
+¿Qué define este valor de PS1?
+
+`PS1="\[\033[0;31m\]\342\224\214\342\224\200$([[ $? != 0 ]] && echo "[\[\033[0;31m\]\342\234\227\[\033[0;37m\]]\342\224\200")[\[\033[0;39m\]\u\[\033[01;33m\]@\[\033[01;96m\]\h\[\033[0;31m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;31m\]]\n\[\033[0;31m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\$\[\e[0m\]"`
+
+
+Resumen comandos vi:
+https://docs.oracle.com/cd/E19620-01/805-7644/6j76klopr/index.html
+
+
