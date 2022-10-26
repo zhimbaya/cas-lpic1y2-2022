@@ -145,39 +145,43 @@
 
 ## 21/10/2022
 + apt install finger
-+ apt install info
-+ apt install pinfo
-- /usr/share/doc/
++ apt install info (paquete que muestra información sobre un comando o sistema)
++ apt install pinfo (paquete muy parecido a info)
+- /usr/share/doc/ (ruta de información sobre comandos)
 - 7 tipos de ficheros:
-(-) fichero
-d directorio
-l enlace simbólico (es un archivo) y enlace duro ()
-c dispositivo carácter
-b dispositivo bloque
-p pipe
-S socket
-- stat ruta (información del estado de un fichero)
-- /etc/motd
+  (-) fichero
+  d directorio
+  l enlace simbólico (es un archivo) y enlace duro ()
+  c dispositivo carácter
+  b dispositivo bloque
+  p pipe
+  S socket
+- stat ruta-fichero (información del estado de un fichero)
+- /etc/motd (ruta de fichero de bienvenida al iniciar el S.O)
 - setfacl ( + al final del archivo)
 
 ## 📅 MARTES 30 PREGUNTAS
 ## 📅 24/10/2022
-- shopt (elemento interno)
+- shopt (muestra si es un elemento interno)
 - getent (ver base de datos)
 - getent services
 - /etc/magic (file)
-+ apt-cache search ^dosfstools
-- dd if=/dev/zero of=fichero bs=1024
-- mount fichero /mnt/
-- kill -l
-1 (iniciar demonios), 2(interrupcion),3(salir),9(kill),15(terminar)
++ apt-cache search ^dosfstools (busca paquetes que se encuentran disponibles en los repositorios)
+- dd if=/dev/zero of=fichero bs=1024 (crea un fichero con un tamaño, nombre y contenido)
+- mount fichero /mnt/ (comando - ruta donde se montan los ficheros)
+- kill -l (lista los diferentes señales)
+  1 (iniciar demonios)
+  2(interrupcion)
+  3(salir)
+  9(kill)
+  15(terminar)
 - echo $$ (muestra el pid)
-- jobs
-- fg y bg
-- env , se, printev
-- PS1
+- jobs (muestra los trabajos en ejecución en segundo plano)
+- fg (envía un proceso a primer plano) y bg (envia un proceso a segundo plano)
+- env (muestra las variables de entorno), se, printev
+- PS1 (prompt)
 - shift (quita la variable posicional)
-- echo ${17}
+- echo ${17} (muestra el valor de la variable
 - unset (liberar espacio de memoria)
 - export (exportar variables entre bash)
 - POSIX -> ( [:UPPER:] )
