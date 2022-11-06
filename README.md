@@ -8,5 +8,7 @@ Happy Code! 🚀
 
 - [Linux Essential](basic.md)
 - [Website of help and interest](help.md)
+- [Interesting Things](interesting.md)
+-  
 
 
