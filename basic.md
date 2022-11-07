@@ -40,6 +40,21 @@
 ## 📅 17/10/2022
 - instalación de SO en VirtualBox
 - debian (distribución que se va a utilizar)
+- CLI
+  - CTRL + l (limpiar)  
+  - CTRL + a (inicio)
+  - CTRL + e (final)
+  - CTRL + u (cortar)
+  - CTRL + y (pegar)
+  - CTRL + k (borrar)
+  - CTRL + w (borrar palabra)
+  - CTRL + h (borrar letra <-)
+  - CTRL + d (borrar letra ->)
+  - CTRL + c (cerrar)
+  - CTRL + t (cambiar letras de posición)
+  - SHIT + ESC + t (cambiar palabras de posición)
+  - CTRL + r (buscar)
+  - CTRL + p (historial)  
 - hostname (nombre de máquina)
   - /etc/hostname (ruta de nombre de máquina)
 - ($) usuario regular
@@ -47,7 +62,10 @@
 - pwd (ruta donde me encuentro)
 - ls (listar)
   - comando - (opciones) - argumentos
-- host nombreHost (muestra las ip's y nombre de máquina)
+  - apt install exa
+  - apt instal lsd (alternativa ls)
+  - apt install moar (reemplaza a less)
+- host -v nombre_host (muestra las ip's y nombre de máquina)
 - uname -a (muestra la información del hardware y S.O)
 - man man (ayuda del man)
 - man 5 hostname (ayuda de man en la sección 5)
@@ -232,7 +250,6 @@
 - set -+o noclobber (warning)
 - . (punto) (se ejecute en el mismo proceso)
 - w (muestra quien esta conectado en el servidor o numero de tty)
-- https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 ## 📅 25/10/2022
 
