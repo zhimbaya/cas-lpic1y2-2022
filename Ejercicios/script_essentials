@@ -1,0 +1,90 @@
+#!/bin/bash
+# verifica que se haya pasado algún argumento. Se tratan como 
+#variables posicionales
+if test $# -eq 0
+	then
+	echo "debes escribir, al menos un argumento"
+	sleep 1;clear; exit 1
+fi
+#compruebo si eres el root y paso de seguir. Cambiadlo con vi
+if test `id -u` = 0
+	then
+	echo "Eres root. No sigo"
+	#código de salida para depurar
+	exit 3
+fi
+# Si me lo han facilitado los enumero
+echo "El número de argumentos es la variable \$# y, en este caso me has pasado $# argumentos"
+sleep 1
+# muestro el valor del primer argumento
+echo " El primera argumento es \$1 y, en este caso, el valor es $1"
+# compruebo si me han pasado más argumentos
+if test $# -gt 1
+	then
+	# creo un bucle para enumerarlos
+	#Primero los muestro todos con $@ o $* que parecen iguales pero veremos que no lo son
+	echo "todos los argumentos se muestran con \$@ o con \$* y, en este caso todos son $@"
+	while test $# -ne 0
+		do
+		echo "$1" #y lo reseteo con el comando shift
+		shift
+	done
+fi
+# Comruebo el valor del PID del proceso con $$. y el valor del PPID (padre)
+# estos valores deben ser diferentes si se ejcuta el script como ./nombre_script o . ./nombre_script
+# en el segundo caso el pid del shell y el del script es el mismo
+clear
+echo "La variable \$$ muestra el pid. En este caso es $$"
+echo " el valor del pid del padre lo muestra la variable \$PPID y es $PPID"
+sleep 2
+# inicializo dentro del script las variables posicionales ya que han sido reseteadas
+set {1..5}
+# Ahora voya a operar con los valores numéricos que he generado
+# se puede hacer de diferentes formas por ejemplo con el comando expr
+echo ' Vamos a realizar operaciones con el comando expr cuya sintaxis es expr operando1 operación operando2. Siendo operando la adición +, sustracción -'
+echo ' producto *, división / y módulo %'
+echo ' pulsa una tecla para continuar'
+read 
+clear 
+echo "Muestro la adición de $3 y $5"
+expr $3 + $5
+sleep 2
+echo "muestro el producto"
+expr $3 \* $5
+# señalar el caracter de escape en el producto para que el shell no lo entienda como un comodin
+echo "sin el carcater de escape se produce este error"
+expr $3 * $5
+# en este caso el código de salida de la ejecución del último comando debe ser diferente de 0
+sleep 2
+echo " Como el comando ha fallado su código de salida debe ser diferente de 0. Se comprueba con \$?"
+$?
+sleep 2
+# sigo operando pero ahora con la sintaxis de dobles paréntesis que mola más 
+echo ' cambio de método de operación con los (()) y los mismos operandos'
+echo "Módulo de $5 y $2"
+echo $((($5%$2))) # con tres paréntesis ya que se añade a la ejecución del comando
+# ahora uso let que es más lento pero tiene algunas ventajas a l ser comando interno
+echo ' ahora usamos let con sintaxis let var=operando1 operación operando2'
+let resultado=$5+$2
+# la operación se realiza y para ver el resultado nos sirve un simple echo
+echo $resultado
+# genero otro read para ser interactivo y, en este caso capturo el valor para mostrarlo y usar un switch
+echo -e "Pulsa una tecla para continuar\n"
+read respuesta
+case $respuesta in
+	[A-Z]) echo "pulsaste mayúscula";sleep2;;
+	[a-z]) echo "pulsaste minúscula";sleep 2;;
+	*) echo "pulsaste la tecla $respuesta";sleep 2;;
+esac
+#Ahora comprobamos el comando test con la sintaxis de corchetes que es la más habitual
+clear
+echo '¿Existe el fichero /etc/hostname?'
+sleep 3
+[ -e /etc/hostname ] && echo "si existe" || echo " No existe" # esto es como un if then else
+# permisos por ejemplo
+# tiene permiso de ejecución este mismo script $0
+echo "tiene permiso de ejecución este script"
+[ -x $0 ] && echo "si" || echo "no"
+# y ya no me da tiempo a más 
+clear 
+echo " BYE"

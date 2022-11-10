@@ -1,0 +1,27 @@
+ ALMACENAMIENTO
+ HDD
+ https://es.wikipedia.org/wiki/Unidad_de_disco_duro
+ 
+SSD
+ https://es.wikipedia.org/wiki/Unidad_de_estado_s%C3%B3lido
+ 
+NVME
+
+https://es.wikipedia.org/wiki/NVM_Express
+
+ARRANQUE
+
+BIOS
+
+https://es.wikipedia.org/wiki/BIOS
+
+https://es.wikipedia.org/wiki/OpenBIOS
+
+UEFI
+
+https://es.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface
+
+
+
+
+ 
