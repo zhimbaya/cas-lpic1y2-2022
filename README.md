@@ -4,11 +4,14 @@
 
 Happy Code! 🚀
 
-Índice:
+Index:
 
 - [Linux Essential](basic.md)
 - [Website of help and interest](help.md)
 - [Interesting Things](interesting.md)
--  
+- [LPIC 1](lpic1.md)
+- [LPIC 2](lpic2.md)
+
+Enjoy! ;)
 
 
