@@ -77,10 +77,10 @@
 - `man hier` (muestra toda la información de cada directorio de archivo )
 
 ## 📅 18/10/2022
-- echo -e "adios \nmundo"
-- echo (imprime por pantalla)
-- which -a comando (ruta del comando interno o ejecutable)
-- touch (cambia la fecha de un archivo, crea un archivo)
+- `echo` (imprime por pantalla)
+- `echo -e "adios \nmundo" ` (imprime por pantalla)
+- `which -a comando` (ruta del comando interno o ejecutable)
+- `touch` (cambia la fecha de un archivo, crea un archivo)
 - cat (concatena archivos y los muestra por la salida estándar)
 - nano (editor de texto)
 - descriptores de ficheros stdin 0, stdout 1, stderr 2
