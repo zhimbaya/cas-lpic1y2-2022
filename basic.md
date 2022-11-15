@@ -53,26 +53,28 @@
   - SHIT + ESC + t (cambiar palabras de posición)
   - CTRL + r (buscar)
   - CTRL + p (historial)  
-- hostname (nombre de máquina)
-  - /etc/hostname (ruta de nombre de máquina)
+- ` hostname ` (nombre de máquina)
+  + /etc/hostname (ruta de nombre de máquina)
 - ($) usuario regular
 - (#) superusuario
-- pwd (ruta donde me encuentro)
-- ls (listar)
+- ` pwd ` (ruta donde me encuentro)
+- ` ls ` (listar)
+- `ls -la` (lista detallada total)
   - comando - (opciones) - argumentos
-  - apt install exa
-  - apt instal lsd (alternativa ls)
-  - apt install moar (reemplaza a less)
-- host -v nombre_host (muestra las ip's y nombre de máquina)
-- uname -a (muestra la información del hardware y S.O)
-- man man (ayuda del man)
-- man 5 hostname (ayuda de man en la sección 5)
-- hostname --help
-- help hostname
-- . , .. , ~ , - 
-- ls -la (listar detallada total)
+  - ` apt install exa `
+  - ` apt instal lsd ` (alternativa ls)
+  - ` apt install moar ` (reemplaza a less)
+- ` host -v nombre_host ` (muestra las ip's y nombre de máquina)
+- ` uname -a` (muestra la información del hardware y S.O)
+- `man man` (ayuda del man)
+- `man 5 hostname` (ayuda de man en la sección 5)
+- `hostname --help` (muestra la ayuda)
+- `help hostname` (muestra la ayuda)
+- `hostname -h` (muestra la ayuda)
+- . , .. , ~ (vigulilla) , - , ^ (acento circunflejo)
 - usr (unix source)
-- cd (cambiar de directorio)
+- `cd`(cambiar de directorio)
+- `man hier` (muestra toda la información de cada directorio de archivo )
 
 ## 📅 18/10/2022
 - echo -e "adios \nmundo"
