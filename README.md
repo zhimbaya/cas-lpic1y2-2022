@@ -8,6 +8,7 @@ Index:
 - [Linux Essential](basic.md)
 - [LPIC 1](lpic1.md)
 - [LPIC 2](lpic2.md)
+- [Ejercicios](ejercicios)
 
 Help:
 - [Website of help and interest](help.md)
