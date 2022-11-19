@@ -80,18 +80,40 @@
 - `echo` (imprime por pantalla)
 - `echo -e "adios \nmundo" ` (imprime por pantalla)
 - `which -a comando` (ruta del comando interno o ejecutable)
+- `stat fichero`(ver información del fichero)
 - `touch` (cambia la fecha de un archivo, crea un archivo)
-- cat (concatena archivos y los muestra por la salida estándar)
-- nano (editor de texto)
-- descriptores de ficheros stdin 0, stdout 1, stderr 2
-- modifica la salida std >, >> (añade)
-- modifica la salida stderr 2>
-- tty (muestra los terminales en uso)
-- mv origen destino (mueve los ficheros, o los renombra)
-- less (visualiza de línea en línea), more (visualiza el contenido a trozos), | (tuberia, pasa el argumento)
-- man (manual de ayuda del sistema)
-+ apt install locate (aplicación para localizar archivos)
-- locate -> updatedb (crea y actuliza la base de datos)
+  - Access: Se actualiza cuando abrimos el fichero, por ejemplo, cuando utilizamos comandos tipo: car, grep, tail, etc..
+  - Modify: Se actualiza cuando cambiamos el contenido del fichero.
+  - Change: Se actualiza cuando cambiamos permisos, propietario: usuario, grupo, etc...
+  - atime: Access time, mtime: Modify time, ctime: Change time
+  - Cuando ejecutamos ls -l, estamos listando el: mtime
+  - Cuando ejecutamos ls -lu, estamos listando el: atime
+  - Cuando ejecutamos ls -lc, estamos listando el: ctime
+  - `touch -a --date="2001-05-10" fichero-sysadmit.txt`
+  - `touch -m --date="2001-05-10" fichero-sysadmit.txt`
+  - ` Modificamos el change time: Ahora=$(date)` 
+  - ` Cambiamos la hora del sistema: date --set "2001-05-10" `
+  - ` Actualizamos la hora del fichero, con la fecha actual: touch fichero-sysadmit.txt`
+  - ` Volvemos a la fecha actual: date --set "$Ahora" `
+- `cat fichero1 fichero2` (concatena archivos y los muestra por la salida estándar)
+- `nano fichero.texto` (editor de texto)
+- `vi fichero.texto` (editor de texto)
+- stdin 0, stdout 1, stderr 2 (descriptores de ficheros)
+- modifica la salida std `>, >> (añade)`
+- modifica la salida stderr `2>`
+- `tty` (muestra los terminales en uso)
+- `Ctrl + Alt + F3` hará que aparezca el mensaje de inicio de sesión de tty3.
+- `mv archivo|carpeta archivo|carpeta` origen destino (renombra los ficheros)
+- `mv fichero /destino`(mueve los ficheros)
+- `less` (visualiza de línea en línea), `more` (visualiza el contenido a trozos), ` | ` (tuberia, pasa el argumento)
+- `man` (manual de ayuda del sistema)
++ `apt install locate` (aplicación para localizar archivos)
+- `locate -> updatedb` (crea y actuliza la base de datos)
+- `locate -r my-file$ ` (busqueda exacta)
+- `locate -c my-file` (cuenta el nº de ficheros)
+- `locate -i my-file` (ignora mayusc y minusc)
+- `locate my-file n 10` (limita los resultados)
+-  [find y locate](https://www.hostinger.es/tutoriales/como-usar-comando-find-locate-en-linux/)
 - mkdir -p (crear directorios recursivos)
 - apt install tree (aplicación que muestra el contenido en forma de árbol)
 - rmdir (borra directorios vacios)
