@@ -165,62 +165,65 @@
   - while
   - until
   - function
-- sh archivo (ejecutar un archivo)
+- `sh archivo` (ejecutar un archivo)
 - r w x (lectura escritura ejecución)
 - r w x (usuario grupo otros)
-- chmod (cambiar permisos de un fichero)
-- ./archivo (ejecutar un archivo)
-- umask (muestra los permisos del fichero en forma octal)
+- `chmod` (cambiar permisos de un fichero)
+- `./archivo` (ejecutar un archivo)
+- `umask` (muestra los permisos del fichero en forma octal - resta)
 - bitSUID (s) 4
 - bitSGID (s) 2
-- stickybit (t) 1 
-- uptime (muestra el tiempo de ejecución del servidor)
-- dpkg (.deb) ()
-+ apt install ksh (echo $0, ver que bash tengo)
-- top (muestra los procesos en ejecución)
-+ apt install htop (aplicación muy parecida a top)
-+ apt install binutils (aplicación con herramientas muy utiles)
-- string /bin/bash (muestra la información o permite la lectura de ficheros binarios)
-+ apt install lynx (aplicación navegador web por terminal)
-- ps (muestra los procesos)
-- man signal (muestra los diferentes tipos de señales)
-- kill -9 pid (comando que mata un proceso)
-- sleep 100 & (se duerme o se produce un delay de 100 milesegundos)
-- vmstat (muestra información de la memoria virtual)
-- dmesg (muetra los mensajes de error
-- head (muestra la 10 primeras líneas de un fichero)
-- tail -f (muestra las 10 últimas líneas de un fichero y esta en constante escucha)
-- wc -lwc (comando que cuenta los número de líneas letras, palabras, bites)
-- who -p -u (muestra información de tty y su PID)
-- netstat (comando de red para mostrar información de la conexión de red - muestra los saltos)
-+ apt install nettool (paquete que instala herramientas de red)
-- ss (muestra el número de sockets)
-- arp (muestra información del equipo)
-- dig (muestra información de una dirección IP)
-- ping (envia paquetes a una dirección IP)
-- traceroute dirección-web (muestra el número de saltos)
-- ssh (protocolo de conexión segura)
-- users (muestra los usuarios del sistema)
-- useradd (crea un usuario añadiendole los parametros)
-- userdel (elimina un usuario)
-- usermod (cambia los permisos de un usuario o usuarios)
-- adduser (crea un usuario de forma interactiva)
-- deluser (elimina usarios de fomra interactiva) 
+- stickybit (t) 1
+- `uptime -p` (muestra el tiempo de ejecución del servidor)
+- `dpkg` (.deb) ()
++ `apt install ksh` (echo $0, ver que bash tengo)
+- `top` (muestra los procesos en ejecución) (alt +f)
++ `apt install htop` (aplicación muy parecida a top)
++ `apt install binutils` (aplicación con herramientas muy utiles como strings) 
+- `string /bin/bash` (muestra la información o permite la lectura de ficheros binarios)
++ `apt install lynx` (aplicación navegador web por terminal)
+- `ps -ef` (muestra los procesos)
+- `man signal` (muestra los diferentes tipos de señales)
+- `kill -9 pid` (comando que mata un proceso)
+- (SIGHUP 1 , SIGINT 2, SIGQUIT 3, SIGKILL 9, SIGALRM 14,SIGTERM 15, SIGTSTP 20)
+- `sleep 100 &` (se duerme o se produce un delay de 100 milesegundos)
+- `vmstat` (muestra información de la memoria virtual)
+- `dmesg` (muetra los mensajes de error)
+- `dmesg --level=alert,info`
+- `dmesg -u` , `dmesg | grep -i usb` , `dmesg -c` (limpia)
+- `head` (muestra la 10 primeras líneas de un fichero)
+- `tail -f` (muestra las 10 últimas líneas de un fichero y esta en constante escucha)
+- `wc -lwc fichero` (comando que cuenta los número de líneas letras, palabras, bites)
+- `who -p -u` (muestra información de tty y su PID)
+- `netstat` (comando de red para mostrar información de la conexión de red - muestra los saltos)
++ `apt install nettool` (paquete que instala herramientas de red)
+- `ss` (muestra el número de sockets)
+- `arp` (muestra información del equipo)
+- `dig` (muestra información de una dirección IP o hostname)
+- `ping` (envia paquetes a una dirección IP)
+- `traceroute dirección-web` (muestra el número de saltos)
+- `ssh` (protocolo de conexión segura)
+- `users` (muestra los usuarios del sistema)
+- `useradd` (crea un usuario añadiendole los parametros)
+- `userdel` (elimina un usuario)
+- `usermod` (cambia los permisos de un usuario o usuarios)
+- `adduser` (crea un usuario de forma interactiva)
+- `deluser` (elimina usarios de fomra interactiva) 
 - Ficheros de configuración:
-  - /etc/sudoers.d
-  - /etc/shadow
-  - /etc/passwd
-  - /etc/resolv.conf
-  - /etc/network/interfaces
-  - /etc/group
-  - .bashrc , .profile
-+ apt install finger (paquete que muestra información sobre las terminales)
+  - `/etc/sudoers`
+  - `/etc/shadow`
+  - `/etc/passwd`
+  - `/etc/resolv.conf`
+  - `/etc/network/interfaces`
+  - `/etc/group`
+  - `.bashrc , .profile`
++ `apt install finger` (paquete que muestra información sobre las terminales) `who -a`
 
-## 21/10/2022
-+ apt install finger
-+ apt install info (paquete que muestra información sobre un comando o sistema)
-+ apt install pinfo (paquete muy parecido a info)
-- /usr/share/doc/ (ruta de información sobre comandos)
+## 📅 21/10/2022
++ `apt install finger`
++ `apt install info` (paquete que muestra información sobre un comando o sistema)
++ `apt install pinfo` (paquete muy parecido a info)
+- `/usr/share/doc/` (ruta de información sobre comandos)
 - 7 tipos de ficheros:
   (-) fichero
   d directorio
@@ -229,9 +232,10 @@
   b dispositivo bloque
   p pipe
   S socket
-- stat ruta-fichero (información del estado de un fichero)
-- /etc/motd (ruta de fichero de bienvenida al iniciar el S.O)
-- setfacl ( + al final del archivo)
+- `stat ruta-fichero` (información del estado de un fichero)
+- `apt install figlet`(dibuja letras en ascii)
+- `/etc/motd` (ruta de fichero de bienvenida al iniciar el S.O)
+- `setfacl ( + al final del archivo)
 
 ## 📅 MARTES 30 PREGUNTAS
 ## 📅 24/10/2022
@@ -271,16 +275,16 @@
   - comando interno o ejecutable -> echo --version , /usr/bin/echo --version 
   - (primero los alias (memoria), interno (binario), ejecutable (programa))
 - whereis (muestra mas información que which) = which -a comando (muestra la ruta del comando o ejecutable)
-- ps --no-heading (muestra los procesos quitando el head de la información)
+- `ps --no-heading` (muestra los procesos quitando el head de la información)
 - ` ` (contra comilla)
 - set -+o noclobber (warning)
-- . (punto) (se ejecute en el mismo proceso)
-- w (muestra quien esta conectado en el servidor o numero de tty)
+- ` . ` (punto) (se ejecute en el mismo proceso)
+- `w` (muestra quien esta conectado en el servidor o numero de tty)
 
 ## 📅 25/10/2022
 
-- zypper install stat (forma de instalar paquetes en openSuse)
-- $(which bash) --version (vemos la versión de bash)
+- `zypper install stat` (forma de instalar paquetes en openSuse)
+- `$(which bash) --version` (vemos la versión de bash)
 - estudiar comandos de Vi (ver pdf)
 
 
