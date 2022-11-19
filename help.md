@@ -1,7 +1,8 @@
 Sala jitsi:
-  - Curso221168-
-  - Curso221268-
-  - Ricardo
+
+- Curso221168-
+- Curso221268-
+- Ricardo
 
 Máquinas virtuales:
 https://mega.nz/folder/38kWVazR#SffOX61C8mUYzbd6sW7T1w
@@ -87,5 +88,3 @@ http://licodeli.blogspot.com/2016/06/clases-de-caracteres-posix.html
 
 Resumen comandos vi:
 https://docs.oracle.com/cd/E19620-01/805-7644/6j76klopr/index.html
-
-

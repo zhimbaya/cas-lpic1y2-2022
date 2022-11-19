@@ -1,83 +1,94 @@
 # LPIC 1 (110h) 22d 25/10/22-25/11/22
+
 ## DISEÑO DE ARQUITECTURA DEL SISTEMA (LPIC1-101)
-1.	Determinación y configuración de los ajustes de hardware
-2.	Boot del sistema
-3.	Cambio de los niveles de ejecución, boot selectivo, apagar o reiniciar el sistema
-## INSTALACIÓN DE LINUX Y GESTIÓN DE PAQUETES (LPIC1-101)
-1.	Configuración del disco de almacenamiento
-2.	Instalación de la gestión del boot
-3.	Gestión de las bibliotecas compartidas
-4.	Uso de la gestión de paquetes de Debian
-5.	Uso de la gestión de paquetes RPM y YUM
-6.	Virtualización con Linux
-## EJECUCIÓN DE COMANDOS GNU E UNIX (LPIC1-101)
-1.	Trabajo en la línea de comandos
-2.	Procesamiento de flujos de texto mediante filtros
-3.	Realización de la gestión básica de archivos
-4.	Utilización de streams, pipes y redireccionamientos
-5.	Creación, supervisión y eliminación de procesos
-6.	Modificación de las prioridades de ejecución de los procesos
-7.	Búsqueda de archivos de texto mediante expresiones regulares
-8.	Edición básica de archivos
-## ESPECIFICACIONES SOBRE DISPOSITIVOS, SISTEMAS DE ARCHIVOS LINUX, ESTÁNDAR DE JERARQUÍA DE SISTEMAS DE ARCHIVOS (LPIC1-101)
-1.	Creación de particiones y sistemas de archivos
-2.	Mantenimiento de la integridad de los sistemas de archivos
-3.	Control del montaje y desmontaje de los sistemas de archivos
-4.	Administración de los permisos y los propietarios de los archivos
-5.	Creación y cambio de enlaces duros y simbólicos
-6.	Localización de archivos de sistema y ubicación de archivos en el lugar correspondiente
-7.	Identificación y manejo Shells y scripts (LPIC1-102)
-8.	Personalización y uso del entorno de shell
-9.	Personalización y uso de scripts sencillos
-## INTERFACES DE USUARIO Y ESCRITORIOS (LPIC1-102)
-1.	Instalación y configuración X11
-2.	Escritorios gráficos
-3.	Accesibilidad
-## ESPECIFICACIONES SOBRE TAREAS ADMINISTRATIVAS (LPIC1-102)
-1.	Administración de cuentas de usuario y de grupo y los archivos de sistema relacionados con ellas
-2.	Automatización tareas administrativas del sistema mediante la programación de trabajos
-3.	Localización e internacionalización
-## IDENTIFICACIÓN DE LOS SERVICIOS ESENCIALES DEL SISTEMA (LPIC1-102)
-1.	Mantenimiento hora del sistema
-2.	Registros del sistema
-3.	Conceptos básicos del Agente de Transferencia de Correo
-4.	Gestión de la impresión y de las impresoras
-## IDENTIFICACIÓN DE LOS FUNDAMENTOS DE REDES (LPIC1-102)
-1.	Fundamentos de los protocolos de Internet
-2.	Configuración de red persistente
-3.	Resolución de problemas básicos de red
-4.	Configuración DNS en el lado del cliente
-## CONFIGURACIÓN Y ADMINISTRACIÓN SEGURIDAD (LPIC1-102)
-1.	Tareas de administración de seguridad
-2.	Configuración de la seguridad del sistema
-3.	Protección de datos mediante cifrado
+
+1. Determinación y configuración de los ajustes de hardware
+2. Boot del sistema
+3. Cambio de los niveles de ejecución, boot selectivo, apagar o reiniciar el sistema
+   
+   ## INSTALACIÓN DE LINUX Y GESTIÓN DE PAQUETES (LPIC1-101)
+4. Configuración del disco de almacenamiento
+5. Instalación de la gestión del boot
+6. Gestión de las bibliotecas compartidas
+7. Uso de la gestión de paquetes de Debian
+8. Uso de la gestión de paquetes RPM y YUM
+9. Virtualización con Linux
+   
+   ## EJECUCIÓN DE COMANDOS GNU E UNIX (LPIC1-101)
+10. Trabajo en la línea de comandos
+11. Procesamiento de flujos de texto mediante filtros
+12. Realización de la gestión básica de archivos
+13. Utilización de streams, pipes y redireccionamientos
+14. Creación, supervisión y eliminación de procesos
+15. Modificación de las prioridades de ejecución de los procesos
+16. Búsqueda de archivos de texto mediante expresiones regulares
+17. Edición básica de archivos
+    
+    ## ESPECIFICACIONES SOBRE DISPOSITIVOS, SISTEMAS DE ARCHIVOS LINUX, ESTÁNDAR DE JERARQUÍA DE SISTEMAS DE ARCHIVOS (LPIC1-101)
+18. Creación de particiones y sistemas de archivos
+19. Mantenimiento de la integridad de los sistemas de archivos
+20. Control del montaje y desmontaje de los sistemas de archivos
+21. Administración de los permisos y los propietarios de los archivos
+22. Creación y cambio de enlaces duros y simbólicos
+23. Localización de archivos de sistema y ubicación de archivos en el lugar correspondiente
+24. Identificación y manejo Shells y scripts (LPIC1-102)
+25. Personalización y uso del entorno de shell
+26. Personalización y uso de scripts sencillos
+    
+    ## INTERFACES DE USUARIO Y ESCRITORIOS (LPIC1-102)
+27. Instalación y configuración X11
+28. Escritorios gráficos
+29. Accesibilidad
+    
+    ## ESPECIFICACIONES SOBRE TAREAS ADMINISTRATIVAS (LPIC1-102)
+30. Administración de cuentas de usuario y de grupo y los archivos de sistema relacionados con ellas
+31. Automatización tareas administrativas del sistema mediante la programación de trabajos
+32. Localización e internacionalización
+    
+    ## IDENTIFICACIÓN DE LOS SERVICIOS ESENCIALES DEL SISTEMA (LPIC1-102)
+33. Mantenimiento hora del sistema
+34. Registros del sistema
+35. Conceptos básicos del Agente de Transferencia de Correo
+36. Gestión de la impresión y de las impresoras
+    
+    ## IDENTIFICACIÓN DE LOS FUNDAMENTOS DE REDES (LPIC1-102)
+37. Fundamentos de los protocolos de Internet
+38. Configuración de red persistente
+39. Resolución de problemas básicos de red
+40. Configuración DNS en el lado del cliente
+    
+    ## CONFIGURACIÓN Y ADMINISTRACIÓN SEGURIDAD (LPIC1-102)
+41. Tareas de administración de seguridad
+42. Configuración de la seguridad del sistema
+43. Protección de datos mediante cifrado
 
 ## 📅 LPIC 1
+
 ricardo.instructor.formacion@gmail.com
 
 ## 📅 26/10/2022
+
 - Teoria de sistema operativo
 - scp origen destino (curso@10.1.1.151:/home/curso)
 - /etc/ssh/sshd_config
 - systemctl restart sshd
 
-
 ## 📅 27/10/2022
+
 - Hardware compatible
 - Distribución
 - Ver instalación
 - Instalación de ubuntu server 22.04
 
-
-Nombre del bootloader	Descripción
-Bootmgr	Gestor de arranque de Microsoft desde Windows Vista / Windows Server 2008
-NT-Loader (NTLDR)	Gestor de arranque de Microsoft hasta Windows XP /Windows Server 2003
-barebox	Bootloader para sistemas integrados en impresoras, cámaras, coches, aviones, etc.
-boot.efi	Bootloader EFI utilizado desde 2006 en dispositivos Mac
-BootX	Antiguo bootloader de sistemas operativos Mac
-Grand Unified Bootloader (GRUB)	Bootloader libre para sistemas operativos unixoides como Linux
-ARM Core Bootloader	Bootloader para microcontroladores (usado, por ejemplo, en iPhones)
-OpenBIOS	Gestor de arranque libre y portátil con licencia GNU-GPL
+Nombre del bootloader    Descripción
+Bootmgr    Gestor de arranque de Microsoft desde Windows Vista / Windows Server 2008
+NT-Loader (NTLDR)    Gestor de arranque de Microsoft hasta Windows XP /Windows Server 2003
+barebox    Bootloader para sistemas integrados en impresoras, cámaras, coches, aviones, etc.
+boot.efi    Bootloader EFI utilizado desde 2006 en dispositivos Mac
+BootX    Antiguo bootloader de sistemas operativos Mac
+Grand Unified Bootloader (GRUB)    Bootloader libre para sistemas operativos unixoides como Linux
+ARM Core Bootloader    Bootloader para microcontroladores (usado, por ejemplo, en iPhones)
+OpenBIOS    Gestor de arranque libre y portátil con licencia GNU-GPL
 
 - Instalar guest addition en debian
 - Crear una carperta compartida en virtualbox
@@ -87,6 +98,7 @@ OpenBIOS	Gestor de arranque libre y portátil con licencia GNU-GPL
 - umount /mnt
 
 ## 📅 02/11/2022
+
 - PAQUETES -
 - rpm -qiln (redhat)
 - dpkg (debian)
@@ -101,17 +113,17 @@ OpenBIOS	Gestor de arranque libre y portátil con licencia GNU-GPL
 - /etc/apt/sources.list
 - apt update
 - apt install <paquete>
-apt install –reinstall <paquete>
--apt upgrade
-apt full-upgrade
-apt remove <paquete>
-apt purge <paquete>
-apt autoremove
-apt autoremove –purge
-apt search <criterio>
-apt show <paquete>
-apt-get clean
-apt-clean autoclean
+  apt install –reinstall <paquete>
+  -apt upgrade
+  apt full-upgrade
+  apt remove <paquete>
+  apt purge <paquete>
+  apt autoremove
+  apt autoremove –purge
+  apt search <criterio>
+  apt show <paquete>
+  apt-get clean
+  apt-clean autoclean
 - yum instal hwinfo
 - cambiar las contraseñas
 - sensores hardware
@@ -141,128 +153,241 @@ apt-clean autoclean
 - snap (funciona con contenedores)
 
 ## 📅 03/11/2022
+
 - squashfs
+
 - gdebi
+
 - gcc (compilador de C) C++ (orienta a objetos), make (ficheros 'makefile' )
+
 - ^- necesitamos código fuente.
+
 - source code bash -> GNU Project (bash) -> github -> git
+
 - Source Forge ()
+
 - bash --version
+
 - instalar wget (sino esta instalado)
+
 - wget https://ftp.gnu.org/gnu/bash/bash-5.2.tar.gz
+
 - descargar archivo
+
 - gzip, bzip2 (instalar apps)
+
 - DEBIAN Y ALMA -
+
 - tar zxvf fichero (app para descomprimir) (no tiene guion)
+
 - ./configure --help
+
 - Programación secuencial.
+
 - README
+
 - ./configure -> makefile
+
 - make
+
 - ./bash --version
+
 - make install
+
 - bash --version
+
 - make unistall
-#include <stdio.h> (cabecera)
-void main (void)
-{
+  #include <stdio.h> (cabecera)
+  void main (void)
+  {
+  
         printf("Hola mundo");
         return;
-}
+  
+  }
 
 - gcc -o bash codigo.c ()
+
 - ./bash
+
 - librerias lib lib64
+
 - ldd (ver de que librerias depende un comando)
+
 - ldd /bin/bash
+
 - ldd /bin/wall
+
 - printenv
+
 - ldconfig -> donde esta la cache (pregunta)
+
 - SHELL -
+
 - pwd
+
 - usermod -a -G sudo
+
 - cal 19
+
 - ncal
+
 - ;
+
 - echo
+
 - type cd
+
 - alias echo="ls -l"
-- 
-## 📅 04/11/2022
+
+- ## 📅 04/11/2022
+
 - type cat
+
 - type ls
+
 - date +%s
+
 - alias fecha="date +%s"
+
 - unalias nombre_alias
+
 - CTRL + z (segundo plano)
+
 - jobs, fg %1
+
 - history
+
 - fc -l (los utlimos)
+
 - rm -r *
+
 - fc -s w (busca)
+
 - .bash_history (historia de comando)
+
 - .bash_logout (fichero para hacer cuando apaga)
+
 - FCEDIT=nano (guarda el editor por defecto pero en memoria)
+
 - GESTION DE ARCHIVOS -
+
 - - (fichero regular)
+
 - l (enlace simbolico)
+
 - d (directorios) (organiza los ficheros)
+
 - s (sockets)
+
 - P (tuberias) (se comunican los procesos) (/var/run)
+
 - c (archivos carácter) (sistemas de ficheros -> herramientas que reparan) 
+
 - b (archivos en bloque) b -> /dev/sda
+
 - SISTEMAS FICHEROS -
+
 - bin
+
 - boot 
+
 - dev 
+
 - etc (apt, configuración, ...)
+
 - home (usuarios) 
+
 - lib 
+
 - lib64
+
 - mnt 
+
 - opt 
+
 - proc
+
 - usr (fuentes de unix)
+
 - sbin
+
 - sys (sistema hardware)
+
 - tmp
+
 - var (base de datos de repositorios, run (ejecutanto))
+
 - &;()~ \/| ` ? - (no utilizar)
+
 - cd . (misma ubicacion, ruta absoluta)
+
 - cd ../ (ruta relativa)
+
 - cd - (regresa)
+
 - ls -ld (solo el directorio)
+
 - ls -Z ()
+
 - + al final (lista control acceso)
+
 - . al final ()
+
 - touch (cambia la fecha)
+
 - mkfifo (crear ficheros)
+
 - cp (copiar)
+
 - cpio
+
 - mv 
+
 - rm -ri ruta
+
 - alias rm="rm -i"
+
 - \rm bash
+
 - alias, interno, externo
+
 - \ (salta el alias)
+
 - ln -s archivo vínculo
+
 - crear enlace de ksh con ln
+
 - ls -F (* indicador con enlace simbolico)
+
 - comodines 
+
 - * ? [ {
+
 - \
+
 - " "
+
 - ´ ´
+
 - find (localizar informacion) 
+
 - find / -name "ba*" 2>/dev/null
+
 - 2>/dev/null
+
 - type -f -l -d
+
 - user
+
 - find / -perm -2111 -exec stat {} \; 2>/dev/null
+
 - whereis date
+
 - which
 
 ## 📅 07/11/2022
+
 - vi - :1,$s/BASH/bash/g
 - tres modos
 - hacer ejercicios
@@ -298,31 +423,42 @@ void main (void)
 - paste
 
 ## 📅 8/11/2022
+
 - Condicionales
-if condicion
-then
-comandos
-fi
+  if condicion
+  then
+  comandos
+  fi
+
 ---
+
 case valor
 nº) comandos;;
 esac
+
 ---
+
 for variable in casos
 do
 comandos
 done
+
 ---
+
 while condición true
 do
 comandos
 done
+
 ---
+
 until condición false
 do
 comandos
 done
+
 ---
+
 - cut -d: -f4 /etc/passwd | sort -n | uniq 
 - rev (del reves)
 - paste fichero1 fichero2
@@ -368,6 +504,7 @@ done
 - IFS
 
 ## 📅 9/11/2022
+
 - pkill
 - echo $$ (pid de la shell) 
 - echo $? (pid del proceso en segundo plano) 
@@ -408,6 +545,7 @@ done
 - shift (reorganización de los parámetros)
 
 ## 📅 10/11/2022
+
 - - , l , c , b , s , p , 
 - test -d /mnt; echo $?
 - [ -d /mnt ]; echo $?
