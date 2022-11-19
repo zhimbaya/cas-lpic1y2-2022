@@ -86,9 +86,9 @@
   - Modify: Se actualiza cuando cambiamos el contenido del fichero.
   - Change: Se actualiza cuando cambiamos permisos, propietario: usuario, grupo, etc...
   - atime: Access time, mtime: Modify time, ctime: Change time
-  - Cuando ejecutamos ls -l, estamos listando el: mtime
-  - Cuando ejecutamos ls -lu, estamos listando el: atime
-  - Cuando ejecutamos ls -lc, estamos listando el: ctime
+  - Cuando ejecutamos `ls -l` , estamos listando el: mtime
+  - Cuando ejecutamos `ls -lu` , estamos listando el: atime
+  - Cuando ejecutamos `ls -lc` , estamos listando el: ctime
   - `touch -a --date="2001-05-10" fichero-sysadmit.txt`
   - `touch -m --date="2001-05-10" fichero-sysadmit.txt`
   - ` Modificamos el change time: Ahora=$(date)` 
@@ -98,6 +98,7 @@
 - `cat fichero1 fichero2` (concatena archivos y los muestra por la salida estándar)
 - `nano fichero.texto` (editor de texto)
 - `vi fichero.texto` (editor de texto)
+- `column -s ":" -t /etc/passwd` (muestra el archivo en columnas)
 - stdin 0, stdout 1, stderr 2 (descriptores de ficheros)
 - modifica la salida std `>, >> (añade)`
 - modifica la salida stderr `2>`
@@ -113,45 +114,48 @@
 - `locate -c my-file` (cuenta el nº de ficheros)
 - `locate -i my-file` (ignora mayusc y minusc)
 - `locate my-file n 10` (limita los resultados)
--  [find y locate](https://www.hostinger.es/tutoriales/como-usar-comando-find-locate-en-linux/)
-- mkdir -p (crear directorios recursivos)
-- apt install tree (aplicación que muestra el contenido en forma de árbol)
-- rmdir (borra directorios vacios)
-- rm -r (borra ficheros de forma recursiva)
-- who a mi (muestra usuario terminal fecha corta)
-- id (muestra el id del usurio)
-- date (muestra la fecha)
-- variables 
-  - a=1; echo $a (asignación de una variable e impresión por pantalla)
-- env (muestra las variables de entorno)
-- echo $PATH (muestra la información de la variable)
-- PATH=$PATH:/sbin (añade una ruta al PATH)
-- _ (al momento de forma variables con nombres largo es recomndable utilizar _)
-- & (proceso en segundo plano)
-- && , : , ||, *, ´, ? , > <
-- "", ' ' (doble comillas - muestran el valor de las variables y comillas simples - imprime de forma literal)
-- bash (reiniciar el terminal)
+- [Ayuda: find y locate](https://www.hostinger.es/tutoriales/como-usar-comando-find-locate-en-linux/)
+- `mkdir -p directorio/otro` (crear directorios recursivos)
+- `mkdir -ma=rwx fichero`(crear directorio con modo)
+- `chdir -m 777 mydir` (cambiar el modo)
+- `apt install tree` (aplicación que muestra el contenido en forma de árbol)
+- `rmdir directorio` (borra directorios vacios)
+- `rm -r ficheros` (borra ficheros de forma recursiva)
+- `who a mi` (muestra usuario terminal fecha corta)
+- `id` (muestra el id del usurio)
+- `date` (muestra la fecha)
+- `date +"Año: %Y, Mes: %m, Día: %d"`
+- __Variables__ 
+- `a=1; echo $a` (asignación de una variable e impresión por pantalla)
+- `env` (muestra las variables de entorno)
+- `echo $PATH` (muestra la información de la variable)
+- `PATH=$PATH:/sbin` (añade una ruta al PATH)
+- `_` (al momento de forma variables con nombres largo es recomndable utilizar _)
+- `& `(proceso en segundo plano)
+- ` && , : , || , * , ´ , ? , > < `
+- ` "", ' ' ` (doble comillas - muestran el valor de las variables y comillas simples - imprime de forma literal)
+- `bash` (reiniciar el terminal)
 
 ## 📅 19/10/2022
-- cat << EOF (termina en el momento que aparece un EOF
-+ apt install info (aplicación que muestra la información del comando o sistema en sustitución de man)
+- `cat << EOF` (termina en el momento que aparece un EOF)
++ `apt install info` (aplicación que muestra la información del comando o sistema en sustitución de man)
++ `info cat`
 - 10.1.1.111 - user7 (dirección de cubo y usuario)
-- apropos hostname (muestra las informaión, secciones del comando , )
-- man -k hostname (es igual que utilizar apropos)
-- file (muetra el tipo de fichero)
-- cp origen destino (copia un fichero)
-- ln origna destino (enlace duro) mismo inodo , numero
-- ln -s origen destino (enlace simbolico)
+- `apropos hostname` (muestra la informaión, secciones del comando ,... )
+- `man -k hostname` (es igual que utilizar apropos)
+- `file fichero` (muetra el tipo de fichero)
+- `cp origen destino` (copia un fichero)
+- `ln origen destino` (enlace duro) mismo inodo , numero de enlaces `ls -l`
+- `ln -s` origen destino (enlace simbolico)
 - * (varios ) ? (uno)
-- \ (contra barra, sirve para escapar caractéres)
-- ls [gz][rp]* (lista desde un rango a otro)
-- grep (filtra)
-- ^ (acento circunflejo que nos dice que empiece)
-- grep -v (filtra excepto)
-- /dev/null (ruta donde no hay nada)
-- ssh user@ip -p (conexión shh y puerto)
-- vi (editor de texto)
-- bash (cli con el que estamos trabajando)
+- `\` (contra barra, sirve para escapar caractéres)
+- `ls [gz][rp]*` (lista desde un rango a otro)
+- `grep` (filtra)
+- `grep -icvrwh 'Model' /proc/cpuinfo`(h = elimina ruta, v = filtra excepto , i = ignora mayus , c = cuenta , r = recursivo, w = palabra específica)
+- `^ ` (acento circunflejo que nos dice que empiece)
+- `/dev/null` (ruta donde no hay nada)
+- `ssh user@ip -p` (conexión shh y puerto)
+- bash (CLI con el que estamos trabajando)
 - $(comando) (variable que guarda lo que el comando muestra)
 
 ## 📅 20/10/2022
