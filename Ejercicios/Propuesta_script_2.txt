@@ -40,22 +40,21 @@ then
 			read respuesta2
 			case $respuesta2 in
 				[nN]) echo "Pues ahora mismo, no"; exit 5;;
-				*) nombre_fichero=$nombre_fichero.cp ;;
+				*) nombre_fichero=$nombre_fichero.cp 
+				
+				DIR=$DIR/$nombre_fichero;;
 			esac
 	esac
 fi
 
-
-
-#ruta=~/
-#cp $FILE "$(ruta)$FILE-COPIA"
 cp $FILE $DIR
 if [ "$?" != "0" ]
 then
-	echo -e "Algo salió mañ. \n SALIMOS"
+	echo -e "Algo salió mal. \n SALIMOS"
 	exit 6
 fi
+NFILE=$nombre_fichero=
 echo -e "compresión. PROCEDEMOS"
 sleep 1
-${GZIP} ~/$(basename $FILE)
-ls -l ~/$(basename $FILE).gz
+${GZIP} $DIR/$NFILE
+ls -l $DIR/$NFILE.gz

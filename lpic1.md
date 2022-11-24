@@ -3,63 +3,105 @@
 ## DISEÑO DE ARQUITECTURA DEL SISTEMA (LPIC1-101)
 
 1. Determinación y configuración de los ajustes de hardware
+
 2. Boot del sistema
+
 3. Cambio de los niveles de ejecución, boot selectivo, apagar o reiniciar el sistema
    
    ## INSTALACIÓN DE LINUX Y GESTIÓN DE PAQUETES (LPIC1-101)
+
 4. Configuración del disco de almacenamiento
+
 5. Instalación de la gestión del boot
+
 6. Gestión de las bibliotecas compartidas
+
 7. Uso de la gestión de paquetes de Debian
+
 8. Uso de la gestión de paquetes RPM y YUM
+
 9. Virtualización con Linux
    
    ## EJECUCIÓN DE COMANDOS GNU E UNIX (LPIC1-101)
+
 10. Trabajo en la línea de comandos
+
 11. Procesamiento de flujos de texto mediante filtros
+
 12. Realización de la gestión básica de archivos
+
 13. Utilización de streams, pipes y redireccionamientos
+
 14. Creación, supervisión y eliminación de procesos
+
 15. Modificación de las prioridades de ejecución de los procesos
+
 16. Búsqueda de archivos de texto mediante expresiones regulares
+
 17. Edición básica de archivos
     
     ## ESPECIFICACIONES SOBRE DISPOSITIVOS, SISTEMAS DE ARCHIVOS LINUX, ESTÁNDAR DE JERARQUÍA DE SISTEMAS DE ARCHIVOS (LPIC1-101)
+
 18. Creación de particiones y sistemas de archivos
+
 19. Mantenimiento de la integridad de los sistemas de archivos
+
 20. Control del montaje y desmontaje de los sistemas de archivos
+
 21. Administración de los permisos y los propietarios de los archivos
+
 22. Creación y cambio de enlaces duros y simbólicos
+
 23. Localización de archivos de sistema y ubicación de archivos en el lugar correspondiente
+
 24. Identificación y manejo Shells y scripts (LPIC1-102)
+
 25. Personalización y uso del entorno de shell
+
 26. Personalización y uso de scripts sencillos
     
     ## INTERFACES DE USUARIO Y ESCRITORIOS (LPIC1-102)
+
 27. Instalación y configuración X11
+
 28. Escritorios gráficos
+
 29. Accesibilidad
     
     ## ESPECIFICACIONES SOBRE TAREAS ADMINISTRATIVAS (LPIC1-102)
+
 30. Administración de cuentas de usuario y de grupo y los archivos de sistema relacionados con ellas
+
 31. Automatización tareas administrativas del sistema mediante la programación de trabajos
+
 32. Localización e internacionalización
     
     ## IDENTIFICACIÓN DE LOS SERVICIOS ESENCIALES DEL SISTEMA (LPIC1-102)
+
 33. Mantenimiento hora del sistema
+
 34. Registros del sistema
+
 35. Conceptos básicos del Agente de Transferencia de Correo
+
 36. Gestión de la impresión y de las impresoras
     
     ## IDENTIFICACIÓN DE LOS FUNDAMENTOS DE REDES (LPIC1-102)
+
 37. Fundamentos de los protocolos de Internet
+
 38. Configuración de red persistente
+
 39. Resolución de problemas básicos de red
+
 40. Configuración DNS en el lado del cliente
     
     ## CONFIGURACIÓN Y ADMINISTRACIÓN SEGURIDAD (LPIC1-102)
+
 41. Tareas de administración de seguridad
+
 42. Configuración de la seguridad del sistema
+
 43. Protección de datos mediante cifrado
 
 ## 📅 LPIC 1
@@ -564,4 +606,371 @@ done
 - seq
 - while
 - until
+
+## 11/11/2022
+- bc -l <<< "89%5" (calculadora)
+- eval 
+- trap comandos señales
+- kill -l
+- multiplexores
+- apt install screen > ctrl + a y c
+- apt install tmux > 
+- ctrl + b y c (crea una ventana)
+- ctrl + b y w (muestra todas las ventanas) 
+- ctrl + b y < (menu)
+- ctrl + b y x (mata panel)
+- ctrl + b y > (menu paneles)t
+- ctrl + b y q y 0..9
+- ctrl + b y fecla (pasas de un panel a otro)
+- ctrl + b (sin soltar ) y fecla (redimensionar)
+- ctrl + b y d (salir del todo)
+- tmux attach
+- basename
+- dirname
 - 
+
+## 14/11/2022
+- Discos IDE - PATA
+- Discos Sata
+- S.M.A.R.T
+- RAID
+- SCSI, SATA, USB, FIREWIRE 
+- NVME -> /dev/nvme
+- Sistema de archivos (tienen metadatos)
+- Nombres de ficheros -> inodos
+- ext2 
+- ext3 Journal (registro de transacciones)
+- ext4 
+- BTRFS
+- XFS 
+- XFAT
+- FUSE
+- lsblk -fm (lista información de todos los discos)
+- su - (como root y el home del root)
+- apt install hdparm
+- apt install sdparm
+- apt install nvme-cli
+- BIOS -> CMOS -> POST -> BOOT -> MBR -> 64B TABLA DE PARTICIONES
+- MBR -> 4PPrimarias -> 3PP Y 1PExtentida (particiones lógicas)
+- GPT -> 128 Particiones 
+- apt -qq list nano (ver si esta instalado)
+- apt-cache policy nano
+- fdisk -l
+- fdisk /dev/sdc
+	-n (nuevo)
+	-g (una forma de borrar todas las particiones)
+	-w (escribir)
+	-p (imprime)
+	-m (ayuda)
+- dd  (clonar o copiar ficheros o discos)
+- bc (calculadora)
+- apt install gdisk (otra herramienta de particionado)
+- gdisk /dev/sdc (comando para particionar)
+- 1) ADD DIKS 2) PARTICIONAR 3) FORMATEAR 4) MONTAR
+- apt install ntfs-3g (plugin para poder particionar en ntfs)
+
+## 15/11/2022
+- `efibootmgr` (comando para ver la tabla de particiones)
+- /boot/efi/EFI/debian (ruta donde se guarda información de la tabla de particiones)
+- `apt install hexedit` (ver ficheros en binario)
+- `cfdisk /dev/sdb` (modo interactivo)
+- `sfdisk /dev/sdc < archivo` (copia el mismo particionado que contiene el archivo en el nuevo disco)
+- `sfdisk --delete /dev/sdc` (elimino la tabla de particiones)
+- `dumpe2fs` muestra información de sistemas de ficheros ext2/3/4
+- `e2label` cambia la etiqueta de un sistema ext2/3/4
+- `stat fichero`
+- `find / -inum 217` (encontrar el fichero por el inodo)
+- `ls -li` (ver inodo y enlaces del fichero)
+- `mkfs [-V] [-t filesystem] dispositivo [n_bloques] `
+- `mount disco ruta` (montar el disco)
+- `mount -o ro,noexec,relatime /dev/sdb1` (opciones)
+- `umount ruta` (desmonta)
+- `debugfs` -> ls
+- `apt install translate` (traductor)
+- apt-get install dict-freedict-eng-spa
+- dict -D palabra
+- `tune2fs -j /dev/sdc1` (particiona a ext3)
+- `tune2fs -O extents /dev/sdc1` (particiona a ext4)
+- `fsck /dev/sdb1` - check and repair a Linux filesystem
+- `/etc/fstab` (fichero que muestra los puntos de montaje)
+- `e2label /dev/sdc1 disco_3_part_1`
+- `blkid` (muestra el UUID)
+
+## 16/11/2022
+- ver gparte en modo gráfico
+- `/proc/partitions` (muestra las particiones)
+- `df -Th` (muestra las particiones y sus tipos)
+-  `du -hk`(muestra )
+- `fsck -fV /dev/sdb1`(repara)
+- `badblocks -V /dev/sdb1`
+- `dumpe2fs /dev/sda2`
+- `debugfs -R 'ls -l' /dev/sda1 | tee
+- `apt install xfsprogs`
+- `xfs_
+- `mkswap /dev/sdb1`(montar la partition swap)
+- `free -h` (cantidad de memoria swap)
+- `swapoff -a` (desactivar la swap)
+- `swapon -a` (activar la swap)
+- `swapon  --show
+- `fallocate -l 4G /ruta` (crea un fichero de 4G)
+- `cat /proc/sys/vm/swappiness` (ver el nivel de swappiness)
+- Cuotas en disco
+- `apt install quota`
+- `mount | grep part3`
+- `quotacheck ruta` (chequeo la quota)
+- `quotaon ruta` (activo la quota)
+- `quota` (muestra la quota del disco)
+- edquota
+- repquota -a
+- Permisos y usuarios
+- `useradd -m nombre`
+- `stat`
+- `umask` (quita el valor predefenido)
+- chmod
+- chgrp
+- chown usuario:grupo fichero
+- Permisos de acceso extendido
+- ldconfig
+- find / -perm -2000
+- chmod u+s fichero
+- chmod 1777 fichero - t
+- chmod 2644 fichero - s
+
+
+## 17/11/2022
+- Inicio de Linux
+- BIOS - MBR
+- UEFI - GPT
+- GRUB 1 Y 2 (cargador universal)
+- `/boot/grub/grub.cfg`
+- `/etc/default/grub` (grup)
+- `/etc/grub.d` (ficheros de configuración)
+- `cat README`
+- `update-grub`
+- `/boot` (se encuentran los ficheros, de arranque y modulos)
+- initrd.img-* (modulos)
+- `lsmod` (lista todos los módulos)
+- 1) boot -> hardware bios/UEFI -> cargador GRUB -> cargar en memoria el Kernel (operaciones básicas) -> carga módulos -> Inicia
+- vmlinz-* (kernel)
+- shimx64.efi (arranque del grub firmado)
+- /sbin/grub-install /dev/sda (donde se instala el grub en una instalación)
+- `/etc/init.d` (arrancar los programas)
+- inittab (definie niveles)(SYSV - BSD)
+- `who -r` (ver el nivel de ejecución)
+- `/etc/inittab` (fichero de configuración)
+- `/etc/init.d/rc` 
+- `/etc/rc` (varios archivos de los niveles de ejecución)
+- `/etc/init.d/ssh start|stop|reload` (iniciar parar un demonio)
+- `telinit 5` (cambiar el nivel de ejecución)
+- `runlevel`  (ver en que nivel estoy y estuve)`ç
+- `ip link set dev eth0 up` (levantar eth0)
+- `service sshd stop` (levantar, parar el demonio)
+- /usr/lib/system (archivos ya estan compilados)
+
+## 18/11/2022
+- systemctl contiene targets llamada a otros archivos
+- systemctl list-units --type=service --all
+- `systemctl list-units`
+- `systemctl list-units --type=target`
+- `systemctl get-default` == runlevel
+- `/etc/systemd/system` (archivos de system)
+- `/lib/systemd`
+- `systemd-cgls` (ver árbol)
+- `systemctl get-default`
+- `systemctl set-default multi-user.target`
+- `systemctl isolate poweroff.target`
+- `apt install telned`
+- `systemctl status inetd` (estado del servicio)
+- `systemctl start|stop|reload inetd`
+- `systemctl enable|desenable inetd` (habilita o deshabilita el demonio al iniciar el server)
+- `systemctl list-dependencies` (ver los servicios)
+- apt purge telnetd
+- `logger -p emerg hola`
+- `os-prober` (ve los sitemas operativos que tiene)
+- `dmesg == journalctl`
+- `/var/log` (logs)
+- Nucleo
+- [Web Kernel Linux](https://www.kernel.org/)
+- `xz -d linux-5.15.79.tar.xz` (descomprime)
+- tar -xvf linux-5.15.79.tar
+- apt install gcc make bison openssl dkms 
+- apt install libncurses-dev libssl-dev libelf-dev libudev-dev libpci-dev libiberty-dev autoconf -y
+- yum install kernel-devel
+- cp /boot/config-5.14.0-162.6.1.el9_1.x86_64 ./.config
+- make oldconfig
+- apt install flex
+- make menuconfig
+- apt install bc
+- make
+- 
+
+## 21/11/2022
+
+- lsmod (lista los módulos)
+- insmod (instala los móduos)
+- rmmod (desintala los módulos)
+- cat /pro (modulos) (pseudo sitemas de ficheros)
+- modprobe (carga los módulos con las dependencias)
+--INSTALAR EL KERNEL - FACIL
+deb http://deb.debian.org/debian bullseye-backports main contrib non-free
+deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free
+# /etc/apt/source.list.d/agregarFichero.list
+---
+- apt update && apt upgrade
+- apt -t bullseye-backports upgrade
+- initrd , initramfs
+- cpio (copias de seguridad)
+- binwalk (proceso de seguimiento de cualquier ejecutable)
+- sysctl -a (consulta las opciones de configuración del núcleo)
+- /etc/sysctl.d/ (fichero de configuración)
+- sysctl -n net.ipv4.ip_forward=1 (lo hace premanente)
+- Archivos de perifericos
+- c , b se crea en un pseudo sistemas de ficheros en /dev
+- mknod (fichero de dispositivo)
+- lspci (extrae información del /proc)
+- lsof (lista la fichero abiertos)
+- apt install hwinfo (herramienta de info de hardware)
+- hwinfo = dmidecode
+- /dev/disk
+- TAREAS ADMINISTRATIVAS
+- locale (variables del sistema la configuración del sistema)
+- `id` (cmd info)
+- /etc/passwd 
+- 256 carac, pass, uid, gid, descripción, path, shell
+- /etc/shadow
+- login, pass, numero de dias desde 1/1/1970,dias para cambiar la contraseña, desactiva la cuenta, dias de aviso 
+- $1$: md5 , $2a$: blowfish, $5: SHA-256 , $6: SHA-512, Otro: DES
+- /etc/group  (grupos secundario)
+- nombre grupo, contraseña, id del grupo, usuarios del grupo secundario
+- usermod -a -G maquina curso
+- /etc/gshadow
+- Plantilla por defecto que como se creará la configuración del home del usuario
+- /etc/skel
+- useradd -D (información de la cuenta del usuario)
+- /etc/login.defs (fichero de configuración de loggin)
+- useradd -m -s /bin/ksh -g maquina -G user1 -c "Cuentafake" tester
+- /etc/default (opciones por defecto)
+- /etc/default/useradd (cambiar opciones por defecto del usuario
+- `ch` (comandos ch que cambian algo)
+- chfn (cambia la información del usuario)
+- newgrp (cambia el grupo a grupo principal si esta incluido sino no)
+- gpasswd (cambiar la contraseña del grupo)
+
+## 22/11/2022
+- useradd -D -s /bin/bash (cambiamos la shell)
+- adduser (interactivo)
+- pwck (comprobar la integridad de la base de datos)
+- pwunconv (solo deja una base de datos de passwd y shadow)
+- pwconv (o vuelve al shadow)
+- /etc/adduser.conf (fichero de configuración)
+- useradd -m -p $(grep tester01 /etc/shadow | cut -d ":" -f 2) tester03
+- existe contraseña para el grupo secundario cuando un usuario que no pertence al grupo quiere pertenecer al grupo.
+- cat login.defs | sed -e '/^#/d' -e '/^$/d'
+- /etc/pam.d (archivo de configuración)
+- pam (módulos) (se procesan por pilas)
+- last (/var/log/wtmp) (consulta la información de la siguiente ruta)
+- include (si da fallo no sigue)
+- require (si da fallo sigue)
+- /etc/pam.d./common-password (cambiar el sha512 o encryptación)
+- /etc/pam.d./common-session (fichero de configuración de inicio de sesión de los usuarios)
+- usermod -l diego tester01 (cambiar el nombre de usuario)
+- userdel -r user (borra todo) userdel user (no borra el home)
+- su -c "make install"
+- getent (realizar el proceso de consulta de la base de datos) (hay varios)
+- cat /etc/nsswitch.conf (fichero el orden de consulta de la base de datos)
+- ----
+#!/bin/bash
+if [ $(id -u) != 0 ]
+then
+	echo "El script $0 se debe ejecutar como root"
+	exit 1
+else 
+	echo "hola root"
+fi
+echo -e "Indicame el nombre de usuariao, xf:\n"
+read nombre
+echo -e "¿Quieres las opciones predeterminadas? [S/n]\n"
+read op
+case $op in
+	[nN]) echo "son las $(date)";;
+	*) ;;
+esac
+useradd -m $nombre && passwd $nombre
+-----
+- cups (common unix printer system)
+--KERNEL
+apt install gcc bison flex bc build-essential dwarves linux-source cpio libssl-dev libncurses-dev libelf-dev
+wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.79.tar.xz
+tar xJvf linux-5.15.79.tar.xz
+cd linux-5.15.79
+cp /boot/config-5.10.0-19-amd64 .config
+make bzImage
+make[1]: *** No hay ninguna regla para construir el objetivo 'debian/certs/debian-uefi-certs.pem', necesario para 'certs/x509_certificate_list'.  Alto.
+make: *** [Makefile:1900: certs] Error 2
+make localmodconfig
+make bzImage
+-----
+make modules
+make modules_install
+make install
+------
+uname -a
+--
+
+## 23/11/2022
+- pgrep cupsd
+- apt install cups
+- avahi-daemon
+- systemctl start | enable cups
+- http://localhost:631
+- apt install net-tools
+- netstat
+- netstat -an | grep 631
+- cupsctl (configuración de cups)
+- cupsctl --remote-admin --remote-admin --share-printers
+- netstat -an | grep 631
+- systemctl stop firewalld
+- lpadmin -p IMP01 -v /print/impresora01
+- /etc/cups/ (ficheros de configuración)
+- cups-files.conf (FileDivice yes) - descomentar
+- systemctl restart | start cups
+- lpstat -t (ver si estan habilitadas - listar)
+- lpadmin -p IMP02 -E (habilitar la impresora)
+- lpstat (cola de trabajo)
+- lp -d IMP02 /etc/passwd (imprimir)
+- lpadmin -d IMP02 (hacer impresora predeterminada)
+- cancel IMP02-2 (cancela el trabajo)
+- cancel -u root (cancela impresoras de solo root)
+- lpinfo -v (opciones)
+- lpoptions ()
+- ---herramienta moderna
+- cupsdisable IMP02
+- cupsenable IMP02
+- lpadmin -p parrot -c POOLIMPRESORAS (creo un pool o clase)
+- cupsenable POOLIMPRESORAS
+- /etc/cups/cups.conf (servicio web)(archivo de configuración)
+- lppasswd -a usuario
+- AUTOMATIZACIÓN
+- cron
+- /etc/crontab (info)
+- /var/spool/cron/crontabs
+- /etc/cron.daily (colocamos aqui los ficheros o scripts)
+- anacron (ejecuta tareas que no se han ejecutado9
+- apt install anacron
+- run-parts
+- crontab -e
+- /var/spool/cron/crontabs (aparece los crontabs que nos hemos creado)
+- crontab -l (lista)
+- crontab -e (edita)
+- crontab -r (borrado)
+- crontab -u user
+- /etc/cron.allow (solo los usuarios podrán ejecutar el crontab)
+- /etc/cron.deny (todos los usuarios podrán ejecutar el crontab)
+- at (una vez, ejecuta comando cuando queremos y lo borra, de forma interactiva)
+- at now + 5 minutes
+- /var/spool/cron/atjobs (donde se almacenan los ficheros temporalmente)
+- atq (ver las tareas o trabajos)
+- systemd
+- systemctl list-timers
+
+

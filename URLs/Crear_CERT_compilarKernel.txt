@@ -1,0 +1,8 @@
+root@debfi:/borrame/linux-5.15.79/certs# openssl genrsa -out private.key 4096
+Generating RSA private key, 4096 bit long modulus (2 primes)
+............++++
+..................++++
+e is 65537 (0x010001)
+root@debfi:/borrame/linux-5.15.79/certs# openssl req -new -x509 -days 10000 -key private.key -subj '/C=ES/ST=MD/L=CAM/CN=Profe' -out debian.pem
+root@debfi:/borrame/linux-5.15.79/certs# cat private.key >> debian.pem
+

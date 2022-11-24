@@ -1,0 +1,14 @@
+Herramientas de discos habituales. No entran en la certificación actual.
+
+SDPARM
+https://linux.die.net/man/8/sdparm
+
+NVME-CLI
+https://nvmexpress.org/open-source-nvme-management-utility-nvme-command-line-interface-nvme-cli/
+
+SMART
+https://www.smartmontools.org/
+
+https://linux.die.net/man/8/smartctl
+
+
