@@ -3,105 +3,71 @@
 ## DISEÑO DE ARQUITECTURA DEL SISTEMA (LPIC1-101)
 
 1. Determinación y configuración de los ajustes de hardware
-
 2. Boot del sistema
-
 3. Cambio de los niveles de ejecución, boot selectivo, apagar o reiniciar el sistema
    
-   ## INSTALACIÓN DE LINUX Y GESTIÓN DE PAQUETES (LPIC1-101)
+## INSTALACIÓN DE LINUX Y GESTIÓN DE PAQUETES (LPIC1-101)
 
 4. Configuración del disco de almacenamiento
-
 5. Instalación de la gestión del boot
-
 6. Gestión de las bibliotecas compartidas
-
 7. Uso de la gestión de paquetes de Debian
-
 8. Uso de la gestión de paquetes RPM y YUM
-
 9. Virtualización con Linux
    
-   ## EJECUCIÓN DE COMANDOS GNU E UNIX (LPIC1-101)
+## EJECUCIÓN DE COMANDOS GNU E UNIX (LPIC1-101)
 
 10. Trabajo en la línea de comandos
-
 11. Procesamiento de flujos de texto mediante filtros
-
 12. Realización de la gestión básica de archivos
-
 13. Utilización de streams, pipes y redireccionamientos
-
 14. Creación, supervisión y eliminación de procesos
-
 15. Modificación de las prioridades de ejecución de los procesos
-
 16. Búsqueda de archivos de texto mediante expresiones regulares
-
 17. Edición básica de archivos
     
-    ## ESPECIFICACIONES SOBRE DISPOSITIVOS, SISTEMAS DE ARCHIVOS LINUX, ESTÁNDAR DE JERARQUÍA DE SISTEMAS DE ARCHIVOS (LPIC1-101)
+## ESPECIFICACIONES SOBRE DISPOSITIVOS, SISTEMAS DE ARCHIVOS LINUX, ESTÁNDAR DE JERARQUÍA DE SISTEMAS DE ARCHIVOS (LPIC1-101)
 
 18. Creación de particiones y sistemas de archivos
-
 19. Mantenimiento de la integridad de los sistemas de archivos
-
 20. Control del montaje y desmontaje de los sistemas de archivos
-
 21. Administración de los permisos y los propietarios de los archivos
-
 22. Creación y cambio de enlaces duros y simbólicos
-
 23. Localización de archivos de sistema y ubicación de archivos en el lugar correspondiente
-
 24. Identificación y manejo Shells y scripts (LPIC1-102)
-
 25. Personalización y uso del entorno de shell
-
 26. Personalización y uso de scripts sencillos
     
-    ## INTERFACES DE USUARIO Y ESCRITORIOS (LPIC1-102)
+## INTERFACES DE USUARIO Y ESCRITORIOS (LPIC1-102)
 
 27. Instalación y configuración X11
-
 28. Escritorios gráficos
-
 29. Accesibilidad
     
-    ## ESPECIFICACIONES SOBRE TAREAS ADMINISTRATIVAS (LPIC1-102)
+## ESPECIFICACIONES SOBRE TAREAS ADMINISTRATIVAS (LPIC1-102)
 
 30. Administración de cuentas de usuario y de grupo y los archivos de sistema relacionados con ellas
-
 31. Automatización tareas administrativas del sistema mediante la programación de trabajos
-
 32. Localización e internacionalización
     
-    ## IDENTIFICACIÓN DE LOS SERVICIOS ESENCIALES DEL SISTEMA (LPIC1-102)
+## IDENTIFICACIÓN DE LOS SERVICIOS ESENCIALES DEL SISTEMA (LPIC1-102)
 
 33. Mantenimiento hora del sistema
-
 34. Registros del sistema
-
 35. Conceptos básicos del Agente de Transferencia de Correo
-
 36. Gestión de la impresión y de las impresoras
     
-    ## IDENTIFICACIÓN DE LOS FUNDAMENTOS DE REDES (LPIC1-102)
+## IDENTIFICACIÓN DE LOS FUNDAMENTOS DE REDES (LPIC1-102)
 
 37. Fundamentos de los protocolos de Internet
-
 38. Configuración de red persistente
-
 39. Resolución de problemas básicos de red
-
 40. Configuración DNS en el lado del cliente
     
-    ## CONFIGURACIÓN Y ADMINISTRACIÓN SEGURIDAD (LPIC1-102)
+## CONFIGURACIÓN Y ADMINISTRACIÓN SEGURIDAD (LPIC1-102)
 
 41. Tareas de administración de seguridad
-
 42. Configuración de la seguridad del sistema
-
 43. Protección de datos mediante cifrado
 
 ## 📅 LPIC 1
@@ -122,22 +88,23 @@ ricardo.instructor.formacion@gmail.com
 - Ver instalación
 - Instalación de ubuntu server 22.04
 
-Nombre del bootloader    Descripción
-Bootmgr    Gestor de arranque de Microsoft desde Windows Vista / Windows Server 2008
-NT-Loader (NTLDR)    Gestor de arranque de Microsoft hasta Windows XP /Windows Server 2003
-barebox    Bootloader para sistemas integrados en impresoras, cámaras, coches, aviones, etc.
-boot.efi    Bootloader EFI utilizado desde 2006 en dispositivos Mac
-BootX    Antiguo bootloader de sistemas operativos Mac
-Grand Unified Bootloader (GRUB)    Bootloader libre para sistemas operativos unixoides como Linux
-ARM Core Bootloader    Bootloader para microcontroladores (usado, por ejemplo, en iPhones)
-OpenBIOS    Gestor de arranque libre y portátil con licencia GNU-GPL
+| Nombre del bootloader	  |  Descripción |
+|-------------------------|--------------|
+| Bootmgr | Gestor de arranque de Microsoft desde Windows Vista / Windows Server 2008 |
+| NT-Loader (NTLDR) |Gestor de arranque de Microsoft hasta Windows XP /Windows Server 2003 |
+| barebox |Bootloader para sistemas integrados en impresoras, cámaras, coches, aviones, etc. |
+| boot.efi |Bootloader EFI utilizado desde 2006 en dispositivos Mac |
+| BootX |Antiguo bootloader de sistemas operativos Mac |
+| Grand Unified Bootloader (GRUB) |Bootloader libre para sistemas operativos unixoides como Linux |
+| ARM Core Bootloader |Bootloader para microcontroladores (usado, por ejemplo, en iPhones) |
+| OpenBIOS |Gestor de arranque libre y portátil con licencia GNU-GPL |
 
 - Instalar guest addition en debian
 - Crear una carperta compartida en virtualbox
-- lsblk (lista los directorios del sistema)
-- mount origen /mnt (destino)
-- apt install gcc make perl
-- umount /mnt
+- `lsblk` (lista los directorios del sistema)
+- `mount origen /mnt` (destino) (monta el directorio en la ruata indicada)
+- `apt install gcc make perl` (instalación de paquetes necesarios)
+- `umount /mnt` (desmonta el directorio)
 
 ## 📅 02/11/2022
 
@@ -917,60 +884,72 @@ make install
 uname -a
 --
 
-## 23/11/2022
-- pgrep cupsd
-- apt install cups
-- avahi-daemon
-- systemctl start | enable cups
-- http://localhost:631
-- apt install net-tools
-- netstat
-- netstat -an | grep 631
-- cupsctl (configuración de cups)
-- cupsctl --remote-admin --remote-admin --share-printers
-- netstat -an | grep 631
-- systemctl stop firewalld
-- lpadmin -p IMP01 -v /print/impresora01
-- /etc/cups/ (ficheros de configuración)
-- cups-files.conf (FileDivice yes) - descomentar
-- systemctl restart | start cups
-- lpstat -t (ver si estan habilitadas - listar)
-- lpadmin -p IMP02 -E (habilitar la impresora)
-- lpstat (cola de trabajo)
-- lp -d IMP02 /etc/passwd (imprimir)
-- lpadmin -d IMP02 (hacer impresora predeterminada)
-- cancel IMP02-2 (cancela el trabajo)
-- cancel -u root (cancela impresoras de solo root)
-- lpinfo -v (opciones)
-- lpoptions ()
-- ---herramienta moderna
-- cupsdisable IMP02
-- cupsenable IMP02
-- lpadmin -p parrot -c POOLIMPRESORAS (creo un pool o clase)
-- cupsenable POOLIMPRESORAS
-- /etc/cups/cups.conf (servicio web)(archivo de configuración)
-- lppasswd -a usuario
-- AUTOMATIZACIÓN
-- cron
-- /etc/crontab (info)
-- /var/spool/cron/crontabs
-- /etc/cron.daily (colocamos aqui los ficheros o scripts)
-- anacron (ejecuta tareas que no se han ejecutado9
-- apt install anacron
-- run-parts
-- crontab -e
-- /var/spool/cron/crontabs (aparece los crontabs que nos hemos creado)
-- crontab -l (lista)
-- crontab -e (edita)
-- crontab -r (borrado)
-- crontab -u user
-- /etc/cron.allow (solo los usuarios podrán ejecutar el crontab)
-- /etc/cron.deny (todos los usuarios podrán ejecutar el crontab)
-- at (una vez, ejecuta comando cuando queremos y lo borra, de forma interactiva)
-- at now + 5 minutes
-- /var/spool/cron/atjobs (donde se almacenan los ficheros temporalmente)
-- atq (ver las tareas o trabajos)
-- systemd
-- systemctl list-timers
-
-
+## 📅 23/11/2022
+- `apt install cups` (instalación del demonio de impresión)
+- `pgrep -a cups`(buscar el id de un demonio en concreto)
+- `pgrep -u depruebas` (buscar el id de un usuario en concreto)
+- `kill -9 $(pgrep apache2)` (matar varios id de un servicio en concreto)
+- avahi-daemon (demonio que se instala con el servicio de impresión y es muy importante)
+- `systemctl status | start | enable cups` (inicializar el demonio) (habilitarlo al momento de iniciar)
+- http://localhost:631 (página de configuración de cups)
+- `apt install net-tools` (herramientas del sistema)
+- netstat (estadísticas del sistema)
+- `netstat -an | grep 631`
+- `netstat -i` (muestra las interfaces)
+- `netstat -r` (kernel)
+- `netstat -s` (protocolos)
+- `netstat -l` (lista todo)
+- `netstat -natu | grep 'ESTABLISHED' `
+- `netstat -an | grep 'LISTEN' `
+- `cupsctl` (muestra la configuración de cups)
+- `cupsctl --remote-admin --remote-admin --share-printers` (habilitar estas opciones de cups)
+- `systemctl stop firewalld` (demonio de firewall, se para)
+- `lpadmin -p IMP01 -v /print/impresora01` ()
+- `/etc/cups/...` (ficheros de configuración)
+- `cups-files.conf` (FileDivice yes) - descomentar
+- `lpstat -t` (ver si estan habilitadas - listar)
+- `lpadmin -p IMP02 -E` (habilitar la impresora)
+- `lpstat` (ver cola de trabajo)
+- `lp -d IMP01 /etc/passwd` (imprimir)
+- `lpadmin -d IMP02` (hacer impresora predeterminada)
+- `cancel IMP02-2` (cancela el trabajo)
+- `cancel -u root` (cancela impresoras de solo root)
+- `lpinfo -v` (lista los dispositivos disponibles)
+- `lpoptions` (visualiza las opciones por defecto)
+- __HERRAMIENTA MODERNA__
+- `cupsdisable IMP01` (deshabilitar la impresora)
+- `cupsenable IMP02`(habilitar la impresora)
+- `lpadmin -p parrot -c POOLIMPRESORAS` (creo un pool o clase)
+- `cupsenable POOLIMPRESORAS`(habilitar pool)
+- `/etc/cups/cups.conf` (servicio web)(archivo de configuración)
+- `lppasswd -a usuario`(colocar contraseña al usuario)
+- __AUTOMATIZACIÓN__
+- cron (programación de tareas, demonio, se utiliza en servidores)
+- `/etc/crontab` (ficheros creados)
+- `/var/spool/cron/crontabs`(ruta donde mira cron cada minuto)
+- `/etc/cron.daily` (colocamos aqui los ficheros o scripts)
+- `anacron` (ejecuta tareas que no se han ejecutado)(se utiliza en equipos de escritorio)
+- `apt install anacron`(instalación si no esta instalado en alguna distro)
+- `/etc/anacrontab` (fichero donde se crearan las tareas y opciones)
+- `7 10 backup.weekly /bin/bash /home/joan/scripts/backup.sh`
+- `anacron -f` (forzar las tareas)
+- run-parts (Ejecuta scripts o programas en un directorio)
+- `crontab fichero.sh`(
+- `crontab -e` (crear un cron)
+- `/var/spool/cron/crontabs` (aparece los crontabs que nos hemos creado)
+- `crontab -l` (lista)
+- `crontab -e` (edita)
+- `crontab -r` (borrado)
+- `crontab -u user`
+- `/etc/cron.allow` (solo los usuarios podrán ejecutar el crontab)
+- `/etc/cron.deny` (todos los usuarios podrán ejecutar el crontab)
+- `apt install at` (instalar la app)
+- `at` (una vez, ejecuta comando cuando queremos y lo borra, de forma interactiva)
+- `at now + 5 minutes` , `at 10:00 AM 6/22/2021` ...
+- `atq`(listar)
+- `atrm`(borrar)
+- `at -c 1`(ver como esta echa la tarea)
+- `/var/spool/cron/atjobs` (donde se almacenan los ficheros temporalmente)
+- `systemd`
+- `systemctl list-timers`
+- Generador https://crontab-generator.org/
