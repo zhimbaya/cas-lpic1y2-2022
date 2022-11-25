@@ -5,7 +5,7 @@
 1. Determinación y configuración de los ajustes de hardware
 2. Boot del sistema
 3. Cambio de los niveles de ejecución, boot selectivo, apagar o reiniciar el sistema
-   
+
 ## INSTALACIÓN DE LINUX Y GESTIÓN DE PAQUETES (LPIC1-101)
 
 4. Configuración del disco de almacenamiento
@@ -108,23 +108,22 @@ ricardo.instructor.formacion@gmail.com
 
 ## 📅 02/11/2022
 
-- PAQUETES -
+- __PAQUETES__
 - rpm -qiln (redhat)
 - dpkg (debian)
 - gpg
 - rpm2cpio 
-- alien (app que convierte un tipo de paquete a otro)
+- `apt install alien` (app que convierte un tipo de paquete a otro)
 - /var/lib/rpm - /var/lib/dpkg
 - dpkg -l
 - dpkg-reconfigure
 - repositorios
-- /etc/yum.repos.d/centos.repo
-- /etc/apt/sources.list
-- apt update
-- apt install <paquete>
-  apt install –reinstall <paquete>
-  -apt upgrade
-  apt full-upgrade
+- `/etc/yum.repos.d/centos.repo` (fichero de repositorios de centos)
+- `/etc/apt/sources.list` (fichero de repositorios de debian)
+- `apt update && apt upgrade`
+- `apt install <paquete>`
+- `apt install –reinstall <paquete>`
+- `apt full-upgrade
   apt remove <paquete>
   apt purge <paquete>
   apt autoremove
