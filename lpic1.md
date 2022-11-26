@@ -166,152 +166,82 @@ ricardo.instructor.formacion@gmail.com
 - `bash --version` (versión de la bash)
 - instalar wget (sino esta instalado)
 - `wget https://ftp.gnu.org/gnu/bash/bash-5.2.tar.gz` (descargar archivo)
-
-- gzip, bzip2 (instalar apps)
-
-- DEBIAN Y ALMA -
-
-- tar zxvf fichero (app para descomprimir) (no tiene guion)
-
+- `dnf install gzip bzip2` (instalar apps)
+- __DEBIAN Y ALMA__
+- `tar zxvf fichero` (app para descomprimir) (no tiene guion)
 - ./configure --help
-
-- Programación secuencial.
-
+- Programación secuencial
 - README
-
 - ./configure -> makefile
-
 - make
-
 - ./bash --version
-
 - make install
-
-- bash --version
-
+- `bash --version`
 - make unistall
-  #include <stdio.h> (cabecera)
+` #include <stdio.h> (cabecera)
   void main (void)
   {
-  
         printf("Hola mundo");
         return;
   
-  }
-
-- gcc -o bash codigo.c ()
-
-- ./bash
-
+  } `
+- `gcc -o file file.c` (compilar el script)
+- `./file` (ejecutar el script)
 - librerias lib lib64
-
-- ldd (ver de que librerias depende un comando)
-
-- ldd /bin/bash
-
-- ldd /bin/wall
-
-- printenv
-
-- ldconfig -> donde esta la cache (pregunta)
-
-- SHELL -
-
-- pwd
-
-- usermod -a -G sudo
-
-- cal 19
-
-- ncal
-
-- ;
-
-- echo
-
-- type cd
-
-- alias echo="ls -l"
+- `ldd` (ver de que librerias depende un comando)
+- `ldd /bin/bash` , `ldd /bin/wall`
+- `printenv` (imprime variables)
+- `ldconfig -p | more` (imprime la librerias actuales)
+- `pwd` (print working directory)
+- `usermod -a -G sudo`
+- `cal 19` (calendario)
+- `ncal` (calendario)
+- ` ; ` (separador de cmd)
+- `echo`
+- `type cd` (tipo de comando interno o ejecutable)
+- `alias echo="ls -l"` (alias)
 
 - ## 📅 04/11/2022
-
-- type cat
-
-- type ls
-
-- date +%s
-
-- alias fecha="date +%s"
-
-- unalias nombre_alias
-
-- CTRL + z (segundo plano)
-
-- jobs, fg %1
-
-- history
-
-- fc -l (los utlimos)
-
-- rm -r *
-
-- fc -s w (busca)
-
-- .bash_history (historia de comando)
-
-- .bash_logout (fichero para hacer cuando apaga)
-
-- FCEDIT=nano (guarda el editor por defecto pero en memoria)
-
-- GESTION DE ARCHIVOS -
-
-- - (fichero regular)
-
-- l (enlace simbolico)
-
+- `type cat`
+- `type ls`
+- `date +%s` (fecha en segundo desde 1970)
+- `alias fecha="date +%s" ` (se crea un alias)
+- `unalias nombre_alias` (elimina el alias)
+- `CTRL + z` (segundo plano)
+- `jobs, fg %1` (mirar los procesos que se ejecutan)
+- `history` (historial de la termina) `!12` (ejecutar el comando 12)
+- `history -c`(limpia el historial)
+- `fc -l` (los utlimos comandos de history)
+- `fc -s w` (busca)
+- `rm -r *` (borrar recursivamente todo)
+- `.bash_history` (historia de comando)
+- `.bash_logout` (fichero para hacer cuando apaga)
+- `FCEDIT=nano` (guarda el editor por defecto pero en memoria)
+- __GESTION DE ARCHIVOS__
+- (-) (fichero regular)
+- l (enlace simbólico)
 - d (directorios) (organiza los ficheros)
-
 - s (sockets)
-
 - P (tuberias) (se comunican los procesos) (/var/run)
-
 - c (archivos carácter) (sistemas de ficheros -> herramientas que reparan) 
-
-- b (archivos en bloque) b -> /dev/sda
-
-- SISTEMAS FICHEROS -
-
-- bin
-
+- b (archivos en bloque) -> /dev/sda
+- __SISTEMAS FICHEROS__
+- bin (ejecutables)
 - boot 
-
 - dev 
-
 - etc (apt, configuración, ...)
-
-- home (usuarios) 
-
+- home (usuarios)
 - lib 
-
 - lib64
-
 - mnt 
-
 - opt 
-
 - proc
-
 - usr (fuentes de unix)
-
 - sbin
-
 - sys (sistema hardware)
-
 - tmp
-
 - var (base de datos de repositorios, run (ejecutanto))
-
-- &;()~ \/| ` ? - (no utilizar)
+- `&;()~ \/| ` ? - ` (no utilizar)
 
 - cd . (misma ubicacion, ruta absoluta)
 
