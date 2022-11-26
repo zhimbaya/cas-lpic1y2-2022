@@ -30,6 +30,7 @@
 - Inicio
 - Presentación
 - Toma de contacto
+- 10.1.1.111 - user7 (dirección de cubo y usuario)
 
 ## 📅 14/10/2022
 - Creación de máquina virtuales
@@ -108,8 +109,8 @@
 - `mv fichero /destino`(mueve los ficheros)
 - `less` (visualiza de línea en línea), `more` (visualiza el contenido a trozos), ` | ` (tuberia, pasa el argumento)
 - `man` (manual de ayuda del sistema)
-+ `apt install locate` (aplicación para localizar archivos)
-- `locate -> updatedb` (crea y actuliza la base de datos)
+- `apt install locate` (aplicación para localizar archivos)
+- `locate -> updatedb` (crea y actualiza la base de datos)
 - `locate -r my-file$ ` (busqueda exacta)
 - `locate -c my-file` (cuenta el nº de ficheros)
 - `locate -i my-file` (ignora mayusc y minusc)
@@ -138,25 +139,26 @@
 
 ## 📅 19/10/2022
 - `cat << EOF` (termina en el momento que aparece un EOF)
-+ `apt install info` (aplicación que muestra la información del comando o sistema en sustitución de man)
-+ `info cat`
-- 10.1.1.111 - user7 (dirección de cubo y usuario)
+- `tee NewFile` (crea un fichero y editas, Ctrl + D (salir))
+- `apt install info` (aplicación que muestra la información del comando o sistema en sustitución de man)
+- `info cat`
 - `apropos hostname` (muestra la informaión, secciones del comando ,... )
 - `man -k hostname` (es igual que utilizar apropos)
 - `file fichero` (muetra el tipo de fichero)
 - `cp origen destino` (copia un fichero)
 - `ln origen destino` (enlace duro) mismo inodo , numero de enlaces `ls -l`
-- `ln -s` origen destino (enlace simbolico)
+- `ln -s` origen destino (enlace simbólico)
 - * (varios ) ? (uno)
 - `\` (contra barra, sirve para escapar caractéres)
 - `ls [gz][rp]*` (lista desde un rango a otro)
 - `grep` (filtra)
-- `grep -icvrwh 'Model' /proc/cpuinfo`(h = elimina ruta, v = filtra excepto , i = ignora mayus , c = cuenta , r = recursivo, w = palabra específica)
+- `grep -icvrwh 'Model' /proc/cpuinfo`
+- (h = elimina ruta, v = excepto , i = ignora mayus , c = cuenta , r = recursivo, w = palabra específica)
 - `^ ` (acento circunflejo que nos dice que empiece)
 - `/dev/null` (ruta donde no hay nada)
 - `ssh user@ip -p` (conexión shh y puerto)
-- bash (CLI con el que estamos trabajando)
-- $(comando) (variable que guarda lo que el comando muestra)
+- bash (CLI con el que estamos trabajando) `echo $0` (muestra el bash utilizado)
+- __$(comando)__ (variable que guarda lo que el comando muestra)
 
 ## 📅 20/10/2022
 - bash:
