@@ -241,146 +241,100 @@ ricardo.instructor.formacion@gmail.com
 - sys (sistema hardware)
 - tmp
 - var (base de datos de repositorios, run (ejecutanto))
-- `&;()~ \/| ` ? - ` (no utilizar)
-
-- cd . (misma ubicacion, ruta absoluta)
-
-- cd ../ (ruta relativa)
-
-- cd - (regresa)
-
-- ls -ld (solo el directorio)
-
-- ls -Z ()
-
-- + al final (lista control acceso)
-
-- . al final ()
-
-- touch (cambia la fecha)
-
-- mkfifo (crear ficheros)
-
-- cp (copiar)
-
-- cpio
-
-- mv 
-
-- rm -ri ruta
-
-- alias rm="rm -i"
-
-- \rm bash
-
+- & ; ( ) ~ \ / | ? - (no utilizar)
+- `cd .` (misma ubicacion, ruta absoluta)
+- `cd ../` (ruta relativa)
+- `cd -` (regresa)
+- `ls -ld` (lista solo directorios)
+- `ls -Z` ()
+- + (si aparece al final, lista control acceso)
+- . (al final )
+- `touch fichero` (cambia la fecha)
+- `mkfifo nombre` (crear ficheros tuberias ejemplo con bc)
+- `cp -aipr origen destino` (misma configuración, copiar pide permiso, hereda, recursivo)
+- `cp -ls origen destino` (crea un enlace duro, enlace simbolico)
+- `cp -vu` (mensaje al terminar, copia si es mas antiguo)
+- `cpio -i -o` (copia de entrada y salida de varias directorios)
+- `find /var/log/apache2/ | cpio -o > /tmp/apache2.cpio` (Empaquetar los archivos)
+- `find /etc/apache2/ | cpio -o > /tmp/apache2.cpio`
+- `cpio -tv < /tmp/apache2.cpio` (Ver el contenido de un archivo empaquetado)
+- `cpio -vid < /tmp/apache2conf.cpio` (desempaquetar)
+- `mv fichero ruta` (mover)
+- `rm -ri ruta` (elimina recursiva, permiso)
+- `alias rm="rm -i"` (crear alias)
 - alias, interno, externo
-
-- \ (salta el alias)
-
-- ln -s archivo vínculo
-
-- crear enlace de ksh con ln
-
-- ls -F (* indicador con enlace simbolico)
-
-- comodines 
-
-- * ? [ {
-
-- \
-
-- " "
-
-- ´ ´
-
-- find (localizar informacion) 
-
-- find / -name "ba*" 2>/dev/null
-
-- 2>/dev/null
-
-- type -f -l -d
-
-- user
-
-- find / -perm -2111 -exec stat {} \; 2>/dev/null
-
-- whereis date
-
-- which
+- ` \ ` (salta el alias) `\rm fichero`
+- `ln -s archivo` (enlace simbólico)
+- `ls -F` (@ indicador con enlace simbolico, lista)
+- `* ? [ { ` (comodines)
+- \ (backslash)
+- " " ' ' (comillas simples y dobles)
+- `find -name -type -size -user -perm` (localizar informacion, ficheros , archivos) 
+- `find / -name "ba*" 2>/dev/null`
+- `find / -perm -2111 -exec stat {} \; 2>/dev/null` (exec placeholder, delimitador)
+- [Más información find](https://www.ionos.es/digitalguide/servidores/configuracion/comando-linux-find/?ac=OM.WE.WEo42K356300T7073a&itc=L0Q5C23R-FAC1E9-&utm_source=google&utm_medium=cpc&utm_campaign=SGE-ES-MYW-MIXX---PERFORMANCE_MAX---&utm_term=&matchtype=&utm_content=&gclid=Cj0KCQiAj4ecBhD3ARIsAM4Q_jFZ78sbaIRbbjBTHUuSR_4KBaNMCQpPGqpA1mJXwizusbsx4JwKkfYaAuAOEALw_wcB&gclsrc=aw.ds)
+- `type -a comando` (muestra ruta de los ejecutables)
+- `type -t comando` (muestra si es una función, alias, ejecutable, archiv)
+- `whereis date` (muestra ruta de los ejecutables)
+- `which -a comando` (muestra ruta de los ejecutables)
 
 ## 📅 07/11/2022
-
-- vi - :1,$s/BASH/bash/g
-- tres modos
+- vi - :1,$s/BASH/bash/g (sustituye) (tres modos)
 - hacer ejercicios
-- 0 standar input
-- 1 stdout
-- 2 error standar
-- hostname 1>fichero_salida_estandar.dos
-- uname -ñ >fichero_salida_estandar 2>error_standar
-- ls -l /proc/6551/fd (muestra las salidas)
-- echo "usuario2" >> usuarios.txt
-- tr "[a-z]" "[A-Z]" < /etc/hostname
-- cat << EOF
-- cat <<< "ljaljflkjsfl sdklfjlsjf"
-- cat /etc/hostname | tr 'd' 'D' > fichero
-- ls -l > archivo 2>&1 (&1 es archivo)
-- wc < resultado > cuenta
-- exec 3>&-
-- descriptor
-- basename
-- dirname
-- grep 
-- cat datos01 | grep "^[21]" ( [] <- esto es un O) ($ termina)
-- cat datos01.txt | grep -o "\S*"
-- ip addr | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}\S*'
-- ip addr | grep -Eo '([0-9a-f]{1,2}\:){3}[0-9a-f]{1,2}\S*' | grep -v '^00'
-- sed -e 's/usuario/user/g' datos01.txt (-i modifica)
-- sed -e '/^ *$/d' (quita lineas en blanco)
-- cut -f1 -d ":"
-- expand unexpand
-- sort
-- uniq
-- join
-- paste
+- 0 standar input, 1 stdout, 2 error standar
+- `hostname 1>fichero_salida_estandar`
+- `uname -a >fichero_salida_estandar 2>error_standar`
+- `ls -l /proc/6551/fd` (muestra las salidas)
+- `echo "usuario2" >> usuarios.txt` (añade)
+- `tr "[a-z]" "[A-Z]" < /etc/hostname` (sustituye, a mayúsculas)
+- `cat << EOF` (termina hasta que encuentra un EOF)
+- `cat <<< "ljaljflkjsfl sdklfjlsjf" `
+- `cat /etc/hostname | tr 'd' 'D' > fichero`
+- `ls -l > archivo 2>&1` (&1 es archivo)
+- `wc < resultado > cuenta`
+- `exec 3>&- `
+- descriptor (0 1 2)
+- `basename` (elimina  la  parte  de  directorios y sufijos de los nombres de archivos)
+- `dirname` (muestra la ruta de un archivo)
+- `grep ` (filtro)
+- `cat datos01 | grep "^[21]" ` ( [] <- esto es un O) ($ termina)
+- `cat datos01.txt | grep -o "\S*" `
+- `ip addr | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}\S*' `
+- `ip addr | grep -Eo '([0-9a-f]{1,2}\:){3}[0-9a-f]{1,2}\S*' | grep -v '^00' `
+- `sed -e 's/usuario/user/g' datos01.txt` (-i modifica) (busca y sustituye)
+- `sed -e '/^ *$/d' fichero` (quita lineas en blanco)
+- `cut -f1 -d ":" /etc/passwd` (muestra la fila 1)
+- `expand | unexpand -t 4 fichero` (convierte las tabulaciones en espacios)
+- `sort archivo` (ordena)
+- `uniq archivo` (elimina repetidos)
+- `join file1 file2` (une las filas coincidentes)
+- `paste file1 file2` (pega las filas de los archivos)
 
 ## 📅 8/11/2022
-
-- Condicionales
-  if condicion
-  then
-  comandos
-  fi
-
----
+- __Condicionales__
+if condicion then
+comandos
+fi
 
 case valor
 nº) comandos;;
+*) ;;
 esac
-
----
 
 for variable in casos
 do
 comandos
 done
 
----
-
 while condición true
 do
 comandos
 done
 
----
-
 until condición false
 do
 comandos
 done
-
----
 
 - cut -d: -f4 /etc/passwd | sort -n | uniq 
 - rev (del reves)
