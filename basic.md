@@ -131,6 +131,7 @@
 - `env` (muestra las variables de entorno)
 - `echo $PATH` (muestra la información de la variable)
 - `PATH=$PATH:/sbin` (añade una ruta al PATH)
+- `echo $PATH | tr : \\n`
 - `_` (al momento de forma variables con nombres largo es recomndable utilizar _)
 - `& `(proceso en segundo plano)
 - ` && , : , || , * , ´ , ? , > < `
@@ -162,28 +163,44 @@
 
 ## 📅 20/10/2022
 - bash:
-  - if
-  - for
-  - while
-  - until
-  - function
+  - `#!/bin/bash`
+  - `var=2`
+  - `$(var)`
+  - `nombre=$1` (variables dinámicas)
+  - `$#` (cuenta el nº de parametros enviados)
+  - `$*` (cuenta todos los parámetros)
+  - `read -p " texto " name` (en tiempo de ejecución) (declarar antes la varibales)
+  - `echo " "`
+  - `if (($var))[ $var ] then else fi`
+  - `case $op in "A") ;; *) esac`
+  - `n=(1 2 3)` (array de nombre)
+  - `rango=({A..Z})` (array de rangos)
+  - `echo = ${n[*]}` (imprimir arrays)
+  - `echo = ${#n[*]}` (imprimir tamaño del array)
+  - `echo = ${#n[3]}` (imprimir el elemento del array)
+  - `unset n[0]` (quito el valor del array)
+  - `n[0]=1` (asignar el valor)
+  - `for n in longitud do done`
+  - `while cond= read line do done < $var`
+  - `until`
+  - `function () { } `  (llamar a la función para que funcione)
 - `sh archivo` (ejecutar un archivo)
 - r w x (lectura escritura ejecución)
 - r w x (usuario grupo otros)
-- `chmod` (cambiar permisos de un fichero)
+- `chmod modo fichero` (cambiar permisos de un fichero)
 - `./archivo` (ejecutar un archivo)
-- `umask` (muestra los permisos del fichero en forma octal - resta)
-- bitSUID (s) 4
-- bitSGID (s) 2
-- stickybit (t) 1
+- `umask` (muestra los permisos por defecto de los fichero en forma octal - resta)
+  - bitSUID (s) 4
+  - bitSGID (s) 2
+  - stickybit (t) 1
 - `uptime -p` (muestra el tiempo de ejecución del servidor)
-- `dpkg` (.deb) ()
-+ `apt install ksh` (echo $0, ver que bash tengo)
+- `dpkg` (.deb) (comando de instalación)
+- `apt install ksh` (echo $0, ver que bash tengo)
 - `top` (muestra los procesos en ejecución) (alt +f)
-+ `apt install htop` (aplicación muy parecida a top)
-+ `apt install binutils` (aplicación con herramientas muy utiles como strings) 
+- `apt install htop` (aplicación muy parecida a top)
+- `apt install binutils` (aplicación con herramientas muy utiles como strings) 
 - `string /bin/bash` (muestra la información o permite la lectura de ficheros binarios)
-+ `apt install lynx` (aplicación navegador web por terminal)
+- `apt install lynx` (aplicación navegador web por terminal)
 - `ps -ef` (muestra los procesos)
 - `man signal` (muestra los diferentes tipos de señales)
 - `kill -9 pid` (comando que mata un proceso)
@@ -193,19 +210,19 @@
 - `dmesg` (muetra los mensajes de error)
 - `dmesg --level=alert,info`
 - `dmesg -u` , `dmesg | grep -i usb` , `dmesg -c` (limpia)
-- `head` (muestra la 10 primeras líneas de un fichero)
+- `head -n10` (muestra la 10 primeras líneas de un fichero)
 - `tail -f` (muestra las 10 últimas líneas de un fichero y esta en constante escucha)
-- `wc -lwc fichero` (comando que cuenta los número de líneas letras, palabras, bites)
+- `wc -lmwc fichero` (comando que cuenta los número de líneas, letras, palabras, bites)
 - `who -p -u` (muestra información de tty y su PID)
 - `netstat` (comando de red para mostrar información de la conexión de red - muestra los saltos)
-+ `apt install nettool` (paquete que instala herramientas de red)
+- `apt install net-tools` (paquete que instala herramientas de red)
 - `ss` (muestra el número de sockets)
 - `arp` (muestra información del equipo)
 - `dig` (muestra información de una dirección IP o hostname)
 - `ping` (envia paquetes a una dirección IP)
 - `traceroute dirección-web` (muestra el número de saltos)
 - `ssh` (protocolo de conexión segura)
-- `users` (muestra los usuarios del sistema)
+- `users` (muestra el usuario actual del sistema)
 - `useradd` (crea un usuario añadiendole los parametros)
 - `userdel` (elimina un usuario)
 - `usermod` (cambia los permisos de un usuario o usuarios)
@@ -219,12 +236,11 @@
   - `/etc/network/interfaces`
   - `/etc/group`
   - `.bashrc , .profile`
-+ `apt install finger` (paquete que muestra información sobre las terminales) `who -a`
+- `apt install finger` (paquete que muestra información sobre las terminales) `who -a`
 
 ## 📅 21/10/2022
-+ `apt install finger`
-+ `apt install info` (paquete que muestra información sobre un comando o sistema)
-+ `apt install pinfo` (paquete muy parecido a info)
+- `apt install info` (paquete que muestra información sobre un comando o sistema)
+- `apt install pinfo` (paquete muy parecido a info)
 - `/usr/share/doc/` (ruta de información sobre comandos)
 - 7 tipos de ficheros:
   (-) fichero
@@ -237,36 +253,38 @@
 - `stat ruta-fichero` (información del estado de un fichero)
 - `apt install figlet`(dibuja letras en ascii)
 - `/etc/motd` (ruta de fichero de bienvenida al iniciar el S.O)
-- `setfacl ( + al final del archivo)
 
-## 📅 MARTES 30 PREGUNTAS
 ## 📅 24/10/2022
-- shopt (muestra si es un elemento interno)
-- getent (ver base de datos)
-- getent services
-- /etc/magic (file)
-+ apt-cache search ^dosfstools (busca paquetes que se encuentran disponibles en los repositorios)
-- dd if=/dev/zero of=fichero bs=1024 (crea un fichero con un tamaño, nombre y contenido)
-- mount fichero /mnt/ (comando - ruta donde se montan los ficheros)
-- kill -l (lista los diferentes señales)
+- `shopt -psu` (muestra opciones del BASH, lista , activa, desactiva)
+- `getent passwd` (ver base de datos)
+- `getent services` (muestra los servicios)
+- `/etc/magic` (file)
+- `apt-cache search ^dosfstools` (busca paquetes que se encuentran disponibles en los repositorios)
+- `dd if=/dev/zero of=fichero bs=1024` (crea un fichero con un tamaño, nombre y contenido Data Duplicator)
+- `mount fichero /mnt/` (comando - ruta donde se montan los ficheros)
+- `kill -l` (lista los diferentes señales)
   - 1 (iniciar demonios)
   - 2 (interrupcion)
   - 3 (salir)
   - 9 (kill)
   - 15 (terminar)
-- echo $$ (muestra el pid)
-- jobs (muestra los trabajos en ejecución en segundo plano)
-- fg (envía un proceso a primer plano) y bg (envia un proceso a segundo plano)
-- env (muestra las variables de entorno), se, printev
-- PS1 (prompt)
-- shift (quita la variable posicional)
-- echo ${17} (muestra el valor de la variable
-- unset (liberar espacio de memoria)
-- export (exportar variables entre bash's)
-- POSIX -> ( [:UPPER:] )
-- [ [ ] ]-> evalua la expresion que contiene los dos corchetes en  POSIX ( C )
-- locale (muestra la forma de interpretar los signos)
-- echo -> ( \ escape )
+- `echo $$` (muestra el pid)
+- `jobs` (muestra los trabajos en ejecución en segundo plano)
+- `fg %1` (envía un proceso a primer plano) y `bg %1` (envia un proceso a segundo plano)
+- `set, env , printenv` (muestra las variables de entorno) 
+- `PS1` (prompt)
+- `set red blue green` (creo  variables)
+- `echo $1` (recupero el valor de la variable)
+- `set *`(borro las variables)
+- `echo "$*" ` (recupero todas las variables)
+- `shift 1` (quita la variable posicional)
+- `echo ${17}` (muestra el valor de la variable)
+- `unset var` (liberar espacio de memoria)
+- `export var` (exportar variables entre bash's) (se puede introducir en .bashrc)
+- POSIX ( [:UPPER:] )
+- `[ [ ] ]` (evalua la expresion que contiene los dos corchetes en  POSIX ( C ) )
+- `locale` (muestra la forma de interpretar los signos)
+- `echo` ( \ escape )
 - `ls -l A???` (lista detalla que empiece por A mayúscula y sea de cuatro caractéres)
 - 1> , 2> , &> (1 y 2) , >>, tail , head
 - `tee` (visualiza por la pantalla y escribe en el fichero)
@@ -274,19 +292,48 @@
 - `alias nombre="cmd" ` (muestra los alias del usuario)
 - `unalias nombreAlias` (borra de memoria los alias)
 - `type` (muestra información de comando)
-  - comando interno o ejecutable -> echo --version , /usr/bin/echo --version 
+  - `echo --version` , `/usr/bin/echo --versio` (comando interno o ejecutable)
   - (primero los alias (memoria), interno (binario), ejecutable (programa))
-- `whereis` (muestra mas información que which) = `which -a` comando (muestra la ruta del comando o ejecutable)
-- `ps --no-heading` (muestra los procesos quitando el head de la información)
-- ` ` (contra comilla)
-- set -+o noclobber (warning)
+- `whereis` (muestra más información que which)
+- `which -a comando` (muestra la ruta del comando o ejecutable)
+- `ps -ef --no-heading` (muestra los procesos quitando el head de la información)
+- ` hola mundo ` (contra comilla)
+- `set -o` (lista)  `set -+o noclobber` (opciones de la shell HEREDADAS)(evitar sobreescritura accidental)
 - ` . ` (punto) (se ejecute en el mismo proceso)
 - `w` (muestra quien esta conectado en el servidor o numero de tty)
 
 ## 📅 25/10/2022
-
 - `zypper install stat` (forma de instalar paquetes en openSuse)
 - `$(which bash) --version` (vemos la versión de bash)
 - estudiar comandos de Vi (ver pdf)
-
-
+- vi
+  - :w (guardar)
+  - shift + zz (salir)  
+  - * (busca la siguiente palabra)
+  - :x (sale guardando)
+  - hjkl (izquierda, abajo, arriba, derecha)
+  - i (insertar)
+  - a (insertar al principio)
+  - b (back)
+  - v (seleccionar)
+  - p (pegar)
+  - yy (copiar)
+  - u (deshacer)
+  - dw (borra una palabra)
+  - db (borra una palabra hacia atras)
+  - x (borra una letra)
+  - v (selecionar) + G (seleccionar todo)
+  - r (reemplazar)
+  - o (insertar un linea)
+  - 0 (ir al inicio) $ (ir al final)
+  - /buscar
+  - set showmode
+  - set autoident
+  - set tabstop=4
+  - set expandtab
+  - sysntax on
+- `apt list --installed` (paquetes instalados)
+- `pkg -l` (paquetes instalados)
+- `snap list´ (ver paquetes snap)
+ 
+## 📅 MARTES 30 PREGUNTAS
