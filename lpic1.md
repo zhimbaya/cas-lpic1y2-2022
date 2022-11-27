@@ -353,50 +353,48 @@ ricardo.instructor.formacion@gmail.com
 - bi() {pwd; env;}
 - `export`
 - `set a b ; echo $1 ; echo ${12}`
-- `cho ${v:=-?} 
+- `cho ${v:=-?} `
 - `PS1,PS2....`
 - `IFS`
 
 ## 📅 9/11/2022
 
-- pkill
-- echo $$ (pid de la shell) 
-- echo $? (pid del proceso en segundo plano) 
-- echo $! (pid del ultimo comando)
-- echo $- (opciones de la shell)
-- echo $# (ver variables posicionales)
+- `pkill`
+- `echo $$` (pid de la shell) 
+- `echo $?` (pid del proceso en segundo plano) 
+- `echo $!` (pid del último comando)
+- `echo $-` (opciones de la shell)
+- `echo $#` (ver variables posicionales)
 - ver capitulos las variables???
 - () simples paréntesis
-- (()) dobles paréntesis
-- echo $((3/2))
-- bc (basic calculator)
-- etc/profile (lo primero que lo procesa el bash y es comun a todos los usuarios)
-- /.profile
-- /.bash_profile
-- /.bashrc
-- echo $(id -u) (muestra el id del usuario)
+- (( )) dobles paréntesis
+- `echo $((3/2))`
+- `bc` (basic calculator)
+- `etc/profile` (lo primero que procesa el bash y es común a todos los usuarios)
+- `/.profile`
+- `/.bash_profile`
+- `/.bashrc`
+- `echo $(id -u)` (muestra el id del usuario)
 - id = 0 (es el root)
-- set
+- `set`
 - test (evalua una condición)
-- test -d /etc/hostname ; echo $?
-- 1 (no)
-- 0 (si)
+- `test -d /etc/hostname ; echo $?`
+- 1 (no) , 0 (si)
 - a (si existe) ,d (directorio) , x (ejecutable) , w (se puede escribir) , s (si esta vacio), n (si exite y no esta vacio)
 - test = [ a esto ] y [[ no da error ]]
 - gt (mayor q) , lt (menor que), ne (diferente), eq (igual)
 - . (ejecuta en el mismo espacio del padre)
-- shopt (comando interno para cambiar las opciones del shell)
-- eval (permite una doble evaluación de la línea)
+- `shopt` (comando interno para cambiar las opciones del shell)
+- `eval` (permite una doble evaluación de la línea)
 - Consola solo una, terminales varias clear_console
-- set -o noclobber (proteger sobreescribura de un ficheor)
+- `set -o noclobber` (proteger sobreescritura de un fichero)
 - + (descativa), - (activa)
-- shopt (muestra las opciones de la shell)
 - # (comentario)
-- !# (shiban)
-- apt install sudo -> (etc/sudoers)
-- apt install figlet (crear imagenes en asiic)
+- #! (shiban)
+- `apt install sudo` (etc/sudoers)
+- `apt install figlet` (crear imagenes en asiic)
 - variables posicionales
-- shift (reorganización de los parámetros)
+- `shift` (reorganización de los parámetros)
 
 ## 📅 10/11/2022
 
