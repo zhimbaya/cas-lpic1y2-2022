@@ -218,13 +218,9 @@ ricardo.instructor.formacion@gmail.com
 - `.bash_logout` (fichero para hacer cuando apaga)
 - `FCEDIT=nano` (guarda el editor por defecto pero en memoria)
 - __GESTION DE ARCHIVOS__
-- (-) (fichero regular)
-- l (enlace simbólico)
-- d (directorios) (organiza los ficheros)
-- s (sockets)
-- P (tuberias) (se comunican los procesos) (/var/run)
-- c (archivos carácter) (sistemas de ficheros -> herramientas que reparan) 
-- b (archivos en bloque) -> /dev/sda
+- (-) (fichero regular), l (enlace simbólico), d (directorios) (organiza los ficheros)
+- s (sockets), P (tuberias) (se comunican los procesos) (/var/run)
+- c (archivos carácter) (sistemas de ficheros -> herramientas que reparan), b (archivos en bloque) -> /dev/sda
 - __SISTEMAS FICHEROS__
 - bin (ejecutables)
 - boot 
@@ -263,20 +259,20 @@ ricardo.instructor.formacion@gmail.com
 - `rm -ri ruta` (elimina recursiva, permiso)
 - `alias rm="rm -i"` (crear alias)
 - alias, interno, externo
+- \ (backslash)
 - ` \ ` (salta el alias) `\rm fichero`
 - `ln -s archivo` (enlace simbólico)
 - `ls -F` (@ indicador con enlace simbolico, lista)
 - `* ? [ { ` (comodines)
-- \ (backslash)
 - " " ' ' (comillas simples y dobles)
 - `find -name -type -size -user -perm` (localizar informacion, ficheros , archivos) 
 - `find / -name "ba*" 2>/dev/null`
 - `find / -perm -2111 -exec stat {} \; 2>/dev/null` (exec placeholder, delimitador)
-- [Más información find](https://www.ionos.es/digitalguide/servidores/configuracion/comando-linux-find/?ac=OM.WE.WEo42K356300T7073a&itc=L0Q5C23R-FAC1E9-&utm_source=google&utm_medium=cpc&utm_campaign=SGE-ES-MYW-MIXX---PERFORMANCE_MAX---&utm_term=&matchtype=&utm_content=&gclid=Cj0KCQiAj4ecBhD3ARIsAM4Q_jFZ78sbaIRbbjBTHUuSR_4KBaNMCQpPGqpA1mJXwizusbsx4JwKkfYaAuAOEALw_wcB&gclsrc=aw.ds)
 - `type -a comando` (muestra ruta de los ejecutables)
 - `type -t comando` (muestra si es una función, alias, ejecutable, archiv)
 - `whereis date` (muestra ruta de los ejecutables)
 - `which -a comando` (muestra ruta de los ejecutables)
+- [Más información find](https://www.ionos.es/digitalguide/servidores/configuracion/comando-linux-find/?ac=OM.WE.WEo42K356300T7073a&itc=L0Q5C23R-FAC1E9-&utm_source=google&utm_medium=cpc&utm_campaign=SGE-ES-MYW-MIXX---PERFORMANCE_MAX---&utm_term=&matchtype=&utm_content=&gclid=Cj0KCQiAj4ecBhD3ARIsAM4Q_jFZ78sbaIRbbjBTHUuSR_4KBaNMCQpPGqpA1mJXwizusbsx4JwKkfYaAuAOEALw_wcB&gclsrc=aw.ds)
 
 ## 📅 07/11/2022
 - vi - :1,$s/BASH/bash/g (sustituye) (tres modos)
@@ -312,73 +308,54 @@ ricardo.instructor.formacion@gmail.com
 
 ## 📅 8/11/2022
 - __Condicionales__
-if condicion then
-comandos
-fi
-
-case valor
-nº) comandos;;
-*) ;;
-esac
-
-for variable in casos
-do
-comandos
-done
-
-while condición true
-do
-comandos
-done
-
-until condición false
-do
-comandos
-done
-
-- cut -d: -f4 /etc/passwd | sort -n | uniq 
-- rev (del reves)
-- paste fichero1 fichero2
-- split -b 1k fichero parte
-- echo 8.8.8.8 | xargs ping   
-- fmt, pr
-- tee 
-- diff cmp
-- pv (barra de estado)
-- apt install pv ( [======================================================>] 100%)
-- pv /boot/vmlinuz-5.10.0-19-amd64 | gzip > test.zip
-- sha512sum
-- kill -l
-- ps -ef
-- sleep 10000 &
-- descriptores de ficheros
-- jobs
-- ctrl + z
-- fg
-- bg
-- kill -9 15 20
-- top
-- apt install htop
-- nice -10 sleep 8023840284028 &
-- renice -5 -p 7740
-- time fc -s pv /boot/vmlinuz-5.10.0-19-amd64 | gzip > test.zip
-- echo $$
-- alias
-- ; (ejercutar diferentes comandos)
-- shopt -u opción
-- set -o
-- &&
-- ||
-- env
-- set (variable posicionales)
+- if condicion then comandos fi
+- case valor nº) comandos;; *) ;; esac
+- for variable in casos do comandos done
+- while condición true do comandos done
+- until condición false do comandos done
+- `cut -d: -f4 /etc/passwd | sort -n | uniq`
+- `rev archivo` (del reves)
+- `split -d -b 1k fichero log_` (divide el archivo numerado, en bloques de 1k) ( -n , número de partes)
+- `echo 8.8.8.8 | xargs ping`   
+- `fmt -w 5 fichero` (Modificación y control de visualización de caracteres por anchura)
+- `pr archivo` (preparar un archivo para imprimir)
+- `du -h | tee -a disk_usage.txt` (tee, crea un archivo y escribe)
+- `diff file1 file2` (muestra las diferencias)
+- `cmp file1 file2` (compara y devuelve un true o false)
+- pv (barra de progreso)
+- `pv -p /etc/hosts | wc` ( [=============barra de progreso===========>] 100%)
+- `pv /boot/vmlinuz-5.10.0-19-amd64 | gzip > test.zip`
+- `sha512sum`
+- `kill -l` (lista las señales del sistema)
+- `kill -9 15 20`
+- `ps -ef` (lista todos procesos del sistema)
+- `sleep 10000 &` (sleemp en segundo plano)
+- descriptores de ficheros (stdin, stdout, stderr)
+- `jobs` (procesos en segundo plano)
+- `ctrl + z`(se envia el proceso a segundo plano)
+- `fg %1` (se recupera el proceso de segundo plano)
+- `bg %1` (se envia el proceso a segundo plano)
+- `top` (muestra los procesos)
+- `apt install htop` (herramienta parecida a top)
+- `nice -10 sleep 8023840284028 &` (-19 0 +20) urgencia o prioridad de un comando
+- `renice -5 -p 7740` (cambia la prioriodad)
+- `time fc -s pv /boot/vmlinuz-5.10.0-19-amd64 | gzip > test.zip` (mide el tiempo)
+- `echo $$` (muestra el pid)
+- `alias` (comando alias o atajos)
+- ` ; ` (ejercutar diferentes comandos)
+- `shopt -u opción` (muestra opciones de la shell)
+- `set -o option` (cambia + - las opciones de la shell heredada)
+- && , || (and , or)
+- `env`(muestra las variables de entorno)
+- `set` (variable posicionales)
 - PATH=$PATH:/usr/sbin
-- for i in $(env); do echo "$i"; done
+-`for i in $(env); do echo "$i"; done`
 - bi() {pwd; env;}
-- export
-- set a b ; echo $1 ; echo ${12}
-- cho ${v:=-?}
-- PS1,PS2....
-- IFS
+- `export`
+- `set a b ; echo $1 ; echo ${12}`
+- `cho ${v:=-?} 
+- `PS1,PS2....`
+- `IFS`
 
 ## 📅 9/11/2022
 
