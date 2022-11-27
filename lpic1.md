@@ -410,8 +410,7 @@ ricardo.instructor.formacion@gmail.com
 - if, case, seq, while, until
 - `read -p " texto " ` (capturas la variable)
 
-
-## 11/11/2022
+## 📅 11/11/2022
 - bc -l <<< "89%5" (calculadora)
 - `eval` 
 - trap comandos señales
@@ -432,7 +431,7 @@ ricardo.instructor.formacion@gmail.com
 - `basename`
 - `dirname`
 
-## 14/11/2022
+## 📅 14/11/2022
 - Discos IDE - PATA
 - Discos Sata
 - S.M.A.R.T
@@ -448,50 +447,51 @@ ricardo.instructor.formacion@gmail.com
 - XFS 
 - XFAT
 - FUSE
-- lsblk -fm (lista información de todos los discos)
-- su - (como root y el home del root)
-- apt install hdparm
-- apt install sdparm
-- apt install nvme-cli
+- `lsblk -fm` (lista información de todos los discos)
+- `su -` (como root y el home del root)
+- `apt install hdparm && apt install sdparm && apt install nvme-cli`
 - BIOS -> CMOS -> POST -> BOOT -> MBR -> 64B TABLA DE PARTICIONES
 - MBR -> 4PPrimarias -> 3PP Y 1PExtentida (particiones lógicas)
 - GPT -> 128 Particiones 
-- apt -qq list nano (ver si esta instalado)
-- apt-cache policy nano
-- fdisk -l
-- fdisk /dev/sdc
+- `apt -qq list nano` (ver si esta instalado)
+- `apt-cache policy nano` (información del paquete)
+- `fdisk -l` (lista los discos)
+- `fdisk /dev/sdc` 
 	-n (nuevo)
 	-g (una forma de borrar todas las particiones)
 	-w (escribir)
 	-p (imprime)
 	-m (ayuda)
-- dd  (clonar o copiar ficheros o discos)
-- bc (calculadora)
-- apt install gdisk (otra herramienta de particionado)
-- gdisk /dev/sdc (comando para particionar)
+- `dd if=Descargas/mini.iso of=/dev/sdb` (clonar o copiar ficheros o discos)
+- `bc` (calculadora)
+- `apt install gdisk` (otra herramienta de particionado)
+- `gdisk /dev/sdc` (comando para particionar)
 - 1) ADD DIKS 2) PARTICIONAR 3) FORMATEAR 4) MONTAR
-- apt install ntfs-3g (plugin para poder particionar en ntfs)
+- `apt install ntfs-3g` (plugin para poder particionar en ntfs)
+- `df –hT` (espacio total, ocupado y libre en nuestro sistema) (-i inodos)
 
-## 15/11/2022
+## 📅 15/11/2022
 - `efibootmgr` (comando para ver la tabla de particiones)
-- /boot/efi/EFI/debian (ruta donde se guarda información de la tabla de particiones)
+- `/boot/efi/EFI/debian` (ruta donde se guarda información de la tabla de particiones)
 - `apt install hexedit` (ver ficheros en binario)
+- `sfdisk -l` (lista las particiones)
 - `cfdisk /dev/sdb` (modo interactivo)
 - `sfdisk /dev/sdc < archivo` (copia el mismo particionado que contiene el archivo en el nuevo disco)
 - `sfdisk --delete /dev/sdc` (elimino la tabla de particiones)
-- `dumpe2fs` muestra información de sistemas de ficheros ext2/3/4
-- `e2label` cambia la etiqueta de un sistema ext2/3/4
-- `stat fichero`
+- `dumpe2fs -h /dev/sda1` muestra información de sistemas de ficheros ext2/3/4
+- `e2label /dev/sdd1 nueva_etiqueta` cambia la etiqueta de un sistema ext2/3/4
+- `stat fichero` (información del fichero)
 - `find / -inum 217` (encontrar el fichero por el inodo)
 - `ls -li` (ver inodo y enlaces del fichero)
-- `mkfs [-V] [-t filesystem] dispositivo [n_bloques] `
+- `mkfs [-V] [-t filesystem] dispositivo`
+- `mkfs.ext2 /dev/sda1` (ext2,3,4,vfat,msdos)
 - `mount disco ruta` (montar el disco)
 - `mount -o ro,noexec,relatime /dev/sdb1` (opciones)
 - `umount ruta` (desmonta)
 - `debugfs` -> ls
 - `apt install translate` (traductor)
-- apt-get install dict-freedict-eng-spa
-- dict -D palabra
+- `apt-get install dict-freedict-eng-spa`
+- `dict -D palabra`
 - `tune2fs -j /dev/sdc1` (particiona a ext3)
 - `tune2fs -O extents /dev/sdc1` (particiona a ext4)
 - `fsck /dev/sdb1` - check and repair a Linux filesystem
