@@ -440,13 +440,8 @@ ricardo.instructor.formacion@gmail.com
 - NVME -> /dev/nvme
 - Sistema de archivos (tienen metadatos)
 - Nombres de ficheros -> inodos
-- ext2 
-- ext3 Journal (registro de transacciones)
-- ext4 
-- BTRFS
-- XFS 
-- XFAT
-- FUSE
+- ext2, ext3 Journal (registro de transacciones), ext4 
+- BTRFS, XFS, XFAT, FUSE
 - `lsblk -fm` (lista información de todos los discos)
 - `su -` (como root y el home del root)
 - `apt install hdparm && apt install sdparm && apt install nvme-cli`
@@ -478,8 +473,8 @@ ricardo.instructor.formacion@gmail.com
 - `cfdisk /dev/sdb` (modo interactivo)
 - `sfdisk /dev/sdc < archivo` (copia el mismo particionado que contiene el archivo en el nuevo disco)
 - `sfdisk --delete /dev/sdc` (elimino la tabla de particiones)
-- `dumpe2fs -h /dev/sda1` muestra información de sistemas de ficheros ext2/3/4
-- `e2label /dev/sdd1 nueva_etiqueta` cambia la etiqueta de un sistema ext2/3/4
+- `dumpe2fs -h /dev/sda1` (muestra información de sistemas de ficheros ext2/3/4)
+- `e2label /dev/sdd1 nueva_etiqueta` (cambia la etiqueta de un sistema ext2/3/4)
 - `stat fichero` (información del fichero)
 - `find / -inum 217` (encontrar el fichero por el inodo)
 - `ls -li` (ver inodo y enlaces del fichero)
@@ -499,45 +494,47 @@ ricardo.instructor.formacion@gmail.com
 - `e2label /dev/sdc1 disco_3_part_1`
 - `blkid` (muestra el UUID)
 
-## 16/11/2022
+## 📅 16/11/2022
 - ver gparte en modo gráfico
 - `/proc/partitions` (muestra las particiones)
 - `df -Th` (muestra las particiones y sus tipos)
--  `du -hk`(muestra )
-- `fsck -fV /dev/sdb1`(repara)
+- `du -hk`(muestra )
+- `fsck -fV /dev/sdb1` (repara)
 - `badblocks -V /dev/sdb1`
 - `dumpe2fs /dev/sda2`
-- `debugfs -R 'ls -l' /dev/sda1 | tee
+- `debugfs -R 'ls -l' /dev/sda1 | tee`
 - `apt install xfsprogs`
-- `xfs_
+- `xfs_*` (varios comandos)
 - `mkswap /dev/sdb1`(montar la partition swap)
 - `free -h` (cantidad de memoria swap)
 - `swapoff -a` (desactivar la swap)
 - `swapon -a` (activar la swap)
-- `swapon  --show
+- `swapon  --show` (muestra información de la partición de swap)
 - `fallocate -l 4G /ruta` (crea un fichero de 4G)
 - `cat /proc/sys/vm/swappiness` (ver el nivel de swappiness)
-- Cuotas en disco
+- __Cuotas en disco__
 - `apt install quota`
 - `mount | grep part3`
 - `quotacheck ruta` (chequeo la quota)
 - `quotaon ruta` (activo la quota)
 - `quota` (muestra la quota del disco)
-- edquota
-- repquota -a
+- `edquota`
+- `repquota -a`
+- [Cuotas de disco](https://www.linuxtotal.com.mx/index.php?cont=info_admon_018)
 - Permisos y usuarios
 - `useradd -m nombre`
 - `stat`
 - `umask` (quita el valor predefenido)
-- chmod
-- chgrp
-- chown usuario:grupo fichero
-- Permisos de acceso extendido
-- ldconfig
-- find / -perm -2000
-- chmod u+s fichero
-- chmod 1777 fichero - t
-- chmod 2644 fichero - s
+- `chmod`
+- `chgrp`
+- `chown usuario:grupo fichero`
+- __Permisos de acceso extendido__
+- `ldconfig -v` (ver todas las bibliotecas)
+- `ldd` (ver bibliotecas compartidas)
+- `find / -perm -2000`
+- `chmod u+s fichero`
+- `chmod 1777 fichero - t`
+- `chmod 2644 fichero - s`
 
 ## 17/11/2022
 - Inicio de Linux
@@ -567,11 +564,11 @@ ricardo.instructor.formacion@gmail.com
 - `runlevel`  (ver en que nivel estoy y estuve)`ç
 - `ip link set dev eth0 up` (levantar eth0)
 - `service sshd stop` (levantar, parar el demonio)
-- /usr/lib/system (archivos ya estan compilados)
+- `/usr/lib/system` (archivos ya estan compilados)
 
 ## 18/11/2022
 - systemctl contiene targets llamada a otros archivos
-- systemctl list-units --type=service --all
+- `systemctl list-units --type=service --all`
 - `systemctl list-units`
 - `systemctl list-units --type=target`
 - `systemctl get-default` == runlevel
@@ -586,39 +583,39 @@ ricardo.instructor.formacion@gmail.com
 - `systemctl start|stop|reload inetd`
 - `systemctl enable|desenable inetd` (habilita o deshabilita el demonio al iniciar el server)
 - `systemctl list-dependencies` (ver los servicios)
-- apt purge telnetd
+- `apt purge telnetd`
 - `logger -p emerg hola`
 - `os-prober` (ve los sitemas operativos que tiene)
 - `dmesg == journalctl`
 - `/var/log` (logs)
-- Nucleo
+- __Nucleo__
 - [Web Kernel Linux](https://www.kernel.org/)
 - `xz -d linux-5.15.79.tar.xz` (descomprime)
-- tar -xvf linux-5.15.79.tar
-- apt install gcc make bison openssl dkms 
-- apt install libncurses-dev libssl-dev libelf-dev libudev-dev libpci-dev libiberty-dev autoconf -y
-- yum install kernel-devel
-- cp /boot/config-5.14.0-162.6.1.el9_1.x86_64 ./.config
-- make oldconfig
-- apt install flex
-- make menuconfig
-- apt install bc
-- make
+- `tar -xvf linux-5.15.79.tar`
+- `apt install gcc make bison openssl dkms`
+- `apt install libncurses-dev libssl-dev libelf-dev libudev-dev libpci-dev libiberty-dev autoconf`
+- `yum install kernel-devel`
+- `cp /boot/config-5.14.0-162.6.1.el9_1.x86_64 ./.config`
+- `make oldconfig`
+- `apt install flex`
+- `make menuconfig`
+- `apt install bc` (calculadora)
+- `make`
 
-## 21/11/2022
-- lsmod (lista los módulos)
-- insmod (instala los móduos)
-- rmmod (desintala los módulos)
+## 📅 21/11/2022
+- `lsmod` (lista los módulos)
+- `insmod` (instala los móduos)
+- `rmmod` (desinstala los módulos)
 - cat /pro (modulos) (pseudo sitemas de ficheros)
-- modprobe (carga los módulos con las dependencias)
+- `modprobe` (carga los módulos con las dependencias)
 -__INSTALAR EL KERNEL - FACIL__
-- deb http://deb.debian.org/debian bullseye-backports main contrib non-free
-- deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free
-- /etc/apt/source.list.d/agregarFichero.list
-- apt update && apt upgrade
-- apt -t bullseye-backports upgrade
+- `deb http://deb.debian.org/debian bullseye-backports main contrib non-free`
+- `deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free`
+- `/etc/apt/source.list.d/agregarFichero.list`
+- `apt update && apt upgrade`
+- `apt -t bullseye-backports upgrade` (agrega el repositorio)
 - initrd , initramfs
-- cpio (copias de seguridad)
+- `cpio` (copias de seguridad)
 - binwalk (proceso de seguimiento de cualquier ejecutable)
 - sysctl -a (consulta las opciones de configuración del núcleo)
 - /etc/sysctl.d/ (fichero de configuración)
@@ -655,29 +652,29 @@ ricardo.instructor.formacion@gmail.com
 - newgrp (cambia el grupo a grupo principal si esta incluido sino no)
 - gpasswd (cambiar la contraseña del grupo)
 
-## 22/11/2022
-- useradd -D -s /bin/bash (cambiamos la shell)
-- adduser (interactivo)
-- pwck (comprobar la integridad de la base de datos)
-- pwunconv (solo deja una base de datos de passwd y shadow)
-- pwconv (o vuelve al shadow)
-- /etc/adduser.conf (fichero de configuración)
-- useradd -m -p $(grep tester01 /etc/shadow | cut -d ":" -f 2) tester03
-- existe contraseña para el grupo secundario cuando un usuario que no pertence al grupo quiere pertenecer al grupo.
-- cat login.defs | sed -e '/^#/d' -e '/^$/d'
-- /etc/pam.d (archivo de configuración)
+## 📅 22/11/2022
+- `useradd -D -s /bin/bash` (cambiamos la shell)
+- `adduser` (interactivo)
+- `pwck` (comprobar la integridad de la base de datos)
+- `pwunconv` (solo deja UNA base de datos de passwd y shadow)
+- `pwconv` (vuelve al shadow o lo creaa)
+- `/etc/adduser.conf` (fichero de configuración)
+- `useradd -m -p $(grep tester01 /etc/shadow | cut -d ":" -f 2) tester03`
+- Existe contraseña para el grupo secundario cuando un usuario que no pertence al grupo quiere pertenecer al grupo.
+- `cat login.defs | sed -e '/^#/d' -e '/^$/d' `
+- `/etc/pam.d` (archivo de configuración de autenticación)
 - pam (módulos) (se procesan por pilas)
-- last (/var/log/wtmp) (consulta la información de la siguiente ruta)
-- include (si da fallo no sigue)
-- require (si da fallo sigue)
-- /etc/pam.d./common-password (cambiar el sha512 o encryptación)
-- /etc/pam.d./common-session (fichero de configuración de inicio de sesión de los usuarios)
-- usermod -l diego tester01 (cambiar el nombre de usuario)
-- userdel -r user (borra todo) userdel user (no borra el home)
-- su -c "make install"
-- getent (realizar el proceso de consulta de la base de datos) (hay varios)
-- cat /etc/nsswitch.conf (fichero el orden de consulta de la base de datos)
-- ----
+- `last` (/var/log/wtmp) (consulta la información de la siguiente ruta)
+- `include` (si da fallo no sigue)
+- `require` (si da fallo sigue)
+- `/etc/pam.d./common-password` (cambiar el sha512 o encryptación)
+- `/etc/pam.d./common-session` (fichero de configuración de inicio de sesión de los usuarios)
+- `usermod -l diego tester01` (cambiar el nombre de usuario)
+- `userdel -r user` (borra todo) `userdel user` (no borra el home)
+- `su -c "make install" ` 
+- `getent` (realizar el proceso de consulta de la base de datos) (hay varios)
+- `cat /etc/nsswitch.conf` (fichero el orden de consulta de la base de datos)
+```
 #!/bin/bash
 if [ $(id -u) != 0 ]
 then
@@ -694,26 +691,25 @@ case $op in
 	[nN]) echo "son las $(date)";;
 	*) ;;
 esac
+```
 - `useradd -m $nombre && passwd $nombre`
 - cups (common unix printer system)
 - __KERNEL__
-apt install gcc bison flex bc build-essential dwarves linux-source cpio libssl-dev libncurses-dev libelf-dev
-wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.79.tar.xz
-tar xJvf linux-5.15.79.tar.xz
-cd linux-5.15.79
-cp /boot/config-5.10.0-19-amd64 .config
-make bzImage
-make[1]: *** No hay ninguna regla para construir el objetivo 'debian/certs/debian-uefi-certs.pem', necesario para 'certs/x509_certificate_list'.  Alto.
-make: *** [Makefile:1900: certs] Error 2
-make localmodconfig
-make bzImage
------
-make modules
-make modules_install
-make install
-------
-uname -a
---
+- `apt install gcc bison flex bc build-essential dwarves linux-source cpio libssl-dev libncurses-dev libelf-dev`
+- `wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.79.tar.xz`
+- `tar -xJvf linux-5.15.79.tar.xz`
+- `cd linux-5.15.79`
+- `cp /boot/config-5.10.0-19-amd64 .config`
+- `make bzImage`
+- `make[1]: *** No hay ninguna regla para construir el objetivo 'debian/certs/debian-uefi-certs.pem', necesario para 'certs/x509_certificate_list'.  Alto.
+make: *** [Makefile:1900: certs] Error 2`
+- `make localmodconfig`
+- `make bzImage`
+- __Compilar__
+- `make modules`
+- `make modules_install`
+- `make install`
+- `uname -a`
 
 ## 📅 23/11/2022
 - `apt install cups` (instalación del demonio de impresión)
