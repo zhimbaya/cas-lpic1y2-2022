@@ -358,7 +358,6 @@ ricardo.instructor.formacion@gmail.com
 - `IFS`
 
 ## 📅 9/11/2022
-
 - `pkill`
 - `echo $$` (pid de la shell) 
 - `echo $?` (pid del proceso en segundo plano) 
@@ -397,34 +396,29 @@ ricardo.instructor.formacion@gmail.com
 - `shift` (reorganización de los parámetros)
 
 ## 📅 10/11/2022
-
 - - , l , c , b , s , p , 
-- test -d /mnt; echo $?
-- [ -d /mnt ]; echo $?
-- [[ , {{ , 
-- set (ver funciones)
-- set -o (opciones de la shell)
-- set 1 (define una variable posicional)
-- echo ${var[1]}
-- echo ${var:-4}
-- echo ${var:-} (sino exite le un valor )
-- shift (descargando)
-- env 
-- if
-- case
-- read (capturas la var )
-- seq
-- while
-- until
+- `test -d /mnt; echo $?` , `[ -d /mnt ]; echo $? `
+- `[[ , {{ , `
+- `set` (ver variables, funciones)
+- `set -o` (opciones de la shell)
+- `set 1` (define una variable posicional)
+- `echo ${var[1]} `
+- `echo ${var:-4} `
+- `echo ${var:-}` (sino existe lee un valor)
+- `shift` (descargando)
+- `env `
+- if, case, seq, while, until
+- `read -p " texto " ` (capturas la variable)
+
 
 ## 11/11/2022
 - bc -l <<< "89%5" (calculadora)
-- eval 
+- `eval` 
 - trap comandos señales
-- kill -l
+- `kill -l`
 - multiplexores
-- apt install screen > ctrl + a y c
-- apt install tmux > 
+- `apt install screen` (ctrl + a y c)
+- `apt install tmux` 
 - ctrl + b y c (crea una ventana)
 - ctrl + b y w (muestra todas las ventanas) 
 - ctrl + b y < (menu)
@@ -435,9 +429,8 @@ ricardo.instructor.formacion@gmail.com
 - ctrl + b (sin soltar ) y fecla (redimensionar)
 - ctrl + b y d (salir del todo)
 - tmux attach
-- basename
-- dirname
-- 
+- `basename`
+- `dirname`
 
 ## 14/11/2022
 - Discos IDE - PATA
@@ -546,7 +539,6 @@ ricardo.instructor.formacion@gmail.com
 - chmod 1777 fichero - t
 - chmod 2644 fichero - s
 
-
 ## 17/11/2022
 - Inicio de Linux
 - BIOS - MBR
@@ -612,20 +604,17 @@ ricardo.instructor.formacion@gmail.com
 - make menuconfig
 - apt install bc
 - make
-- 
 
 ## 21/11/2022
-
 - lsmod (lista los módulos)
 - insmod (instala los móduos)
 - rmmod (desintala los módulos)
 - cat /pro (modulos) (pseudo sitemas de ficheros)
 - modprobe (carga los módulos con las dependencias)
---INSTALAR EL KERNEL - FACIL
-deb http://deb.debian.org/debian bullseye-backports main contrib non-free
-deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free
-# /etc/apt/source.list.d/agregarFichero.list
----
+-__INSTALAR EL KERNEL - FACIL__
+- deb http://deb.debian.org/debian bullseye-backports main contrib non-free
+- deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free
+- /etc/apt/source.list.d/agregarFichero.list
 - apt update && apt upgrade
 - apt -t bullseye-backports upgrade
 - initrd , initramfs
@@ -642,7 +631,7 @@ deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free
 - apt install hwinfo (herramienta de info de hardware)
 - hwinfo = dmidecode
 - /dev/disk
-- TAREAS ADMINISTRATIVAS
+- __TAREAS ADMINISTRATIVAS__
 - locale (variables del sistema la configuración del sistema)
 - `id` (cmd info)
 - /etc/passwd 
@@ -705,10 +694,9 @@ case $op in
 	[nN]) echo "son las $(date)";;
 	*) ;;
 esac
-useradd -m $nombre && passwd $nombre
------
+- `useradd -m $nombre && passwd $nombre`
 - cups (common unix printer system)
---KERNEL
+- __KERNEL__
 apt install gcc bison flex bc build-essential dwarves linux-source cpio libssl-dev libncurses-dev libelf-dev
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.79.tar.xz
 tar xJvf linux-5.15.79.tar.xz
