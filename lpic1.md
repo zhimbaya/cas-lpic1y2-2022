@@ -536,7 +536,7 @@ ricardo.instructor.formacion@gmail.com
 - `chmod 1777 fichero - t`
 - `chmod 2644 fichero - s`
 
-## 17/11/2022
+## 📅 17/11/2022
 - Inicio de Linux
 - BIOS - MBR
 - UEFI - GPT
@@ -566,7 +566,7 @@ ricardo.instructor.formacion@gmail.com
 - `service sshd stop` (levantar, parar el demonio)
 - `/usr/lib/system` (archivos ya estan compilados)
 
-## 18/11/2022
+## 📅 18/11/2022
 - systemctl contiene targets llamada a otros archivos
 - `systemctl list-units --type=service --all`
 - `systemctl list-units`
@@ -776,4 +776,37 @@ make: *** [Makefile:1900: certs] Error 2`
 - `/var/spool/cron/atjobs` (donde se almacenan los ficheros temporalmente)
 - `systemd`
 - `systemctl list-timers`
-- Generador https://crontab-generator.org/
+- [Generador](https://crontab-generator.org/)
+- 
+## 📅 24/11/2022
+- Ver el pdf de como crear un timer.
+- `syslog`
+- `/etc/syslog.conf` (fichero de configuración)(origen importancia destino)
+- tcp / udp , 514
+- Debian -> rsyslog -> accion -> target + puerto -> modo tcp 514
+- `/var/log/journal` , `/run/log/journal`
+- `journal` 
+- `systemctl restart systemd-journal-flush.service` (cambia con el texto del libro)
+- `systemctl list-units --all`
+- `/etc/systemd/journald.conf` (archivo de configuración)
+- `journalctl -p 4`
+- `logger -p 0 ELFIN` (generar un error)
+- `systemd-cat`
+- `journalctl _[tab]` (muestra mas opciones)
+- `/etc/logratate.d`
+
+## 📅 25/11/2022
+- Archivado y backup
+- `yum install cockpit` (cpanel ligero)
+- `sestatus`
+- `reloj`
+- `hwclock`
+- `timedatectl`
+- `find /etc -name [ab]* -exec cp {} . \;`
+- `time`
+- `tar czvf curso01-00.tar.gz curso/`
+- `tar xvf curso01-00.tar -C extraer/`
+- `tar tvf ../curso01-00.tar | grep pdf`
+- `tar cvf martes.tar -g lunes.snap ../test`
+- `bzip2, bunxip2`
+- `zip`
