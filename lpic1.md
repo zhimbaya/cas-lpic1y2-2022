@@ -617,52 +617,48 @@ ricardo.instructor.formacion@gmail.com
 - initrd , initramfs
 - `cpio` (copias de seguridad)
 - binwalk (proceso de seguimiento de cualquier ejecutable)
-- sysctl -a (consulta las opciones de configuración del núcleo)
-- /etc/sysctl.d/ (fichero de configuración)
-- sysctl -n net.ipv4.ip_forward=1 (lo hace premanente)
+- `sysctl -a` (consulta las opciones de configuración del núcleo)
+- `/etc/sysctl.d/` (fichero de configuración)
+- `sysctl -n net.ipv4.ip_forward=1` (lo hace permanente)
 - Archivos de perifericos
 - c , b se crea en un pseudo sistemas de ficheros en /dev
-- mknod (fichero de dispositivo)
-- lspci (extrae información del /proc)
-- lsof (lista la fichero abiertos)
-- apt install hwinfo (herramienta de info de hardware)
+- `mknod` (fichero de dispositivo)
+- `lspci` (extrae información del /proc)
+- `lsof` (lista la fichero abiertos)
+- `apt install hwinfo` (herramienta de info de hardware)
 - hwinfo = dmidecode
-- /dev/disk
+- `/dev/disk`
 - __TAREAS ADMINISTRATIVAS__
-- locale (variables del sistema la configuración del sistema)
+- `locale` (variables del sistema la configuración del sistema)
 - `id` (cmd info)
-- /etc/passwd 
-- 256 carac, pass, uid, gid, descripción, path, shell
-- /etc/shadow
-- login, pass, numero de dias desde 1/1/1970,dias para cambiar la contraseña, desactiva la cuenta, dias de aviso 
+- `/etc/passwd` (256 carac, pass, uid, gid, descripción, path, shell)
+- `/etc/shadow` (login, pass, numero de dias desde 1/1/1970,dias para cambiar la contraseña, desactiva la cuenta, dias de aviso)
 - $1$: md5 , $2a$: blowfish, $5: SHA-256 , $6: SHA-512, Otro: DES
-- /etc/group  (grupos secundario)
-- nombre grupo, contraseña, id del grupo, usuarios del grupo secundario
-- usermod -a -G maquina curso
-- /etc/gshadow
-- Plantilla por defecto que como se creará la configuración del home del usuario
-- /etc/skel
-- useradd -D (información de la cuenta del usuario)
-- /etc/login.defs (fichero de configuración de loggin)
-- useradd -m -s /bin/ksh -g maquina -G user1 -c "Cuentafake" tester
-- /etc/default (opciones por defecto)
-- /etc/default/useradd (cambiar opciones por defecto del usuario
+- `/etc/group`  (grupos secundario) (nombre grupo, contraseña, id del grupo, usuarios del grupo secundario)
+- `usermod -a -G maquina curso` (agrega al grupo secundario)
+- `/etc/gshadow` (contraseñas de grupo)
+- `/etc/skel` (Plantilla por defecto que como se creará la configuración del home del usuario)
+- `useradd -D` (información de la cuenta del usuario)
+- `/etc/login.defs` (fichero de configuración de loggin)
+- `useradd -m -s /bin/ksh -g maquina -G user1 -c "Cuentafake" tester`
+- `/etc/default` (opciones por defecto)
+- `/etc/default/useradd` (cambiar opciones por defecto del usuario
 - `ch` (comandos ch que cambian algo)
-- chfn (cambia la información del usuario)
-- newgrp (cambia el grupo a grupo principal si esta incluido sino no)
-- gpasswd (cambiar la contraseña del grupo)
+- `chfn` (cambia la información del usuario)
+- `newgrp` (cambia el grupo a grupo principal si esta incluido sino no)
+- `gpasswd` (cambiar la contraseña del grupo)
+- Existe contraseña para el grupo secundario cuando un usuario que no pertence al grupo quiere pertenecer al grupo.
 
 ## 📅 22/11/2022
 - `useradd -D -s /bin/bash` (cambiamos la shell)
 - `adduser` (interactivo)
 - `pwck` (comprobar la integridad de la base de datos)
 - `pwunconv` (solo deja UNA base de datos de passwd y shadow)
-- `pwconv` (vuelve al shadow o lo creaa)
+- `pwconv` (devuelve el shadow o lo crea)
 - `/etc/adduser.conf` (fichero de configuración)
 - `useradd -m -p $(grep tester01 /etc/shadow | cut -d ":" -f 2) tester03`
-- Existe contraseña para el grupo secundario cuando un usuario que no pertence al grupo quiere pertenecer al grupo.
 - `cat login.defs | sed -e '/^#/d' -e '/^$/d' `
-- `/etc/pam.d` (archivo de configuración de autenticación)
+- `/etc/pam.d/*` (archivo de configuración de autenticación)
 - pam (módulos) (se procesan por pilas)
 - `last` (/var/log/wtmp) (consulta la información de la siguiente ruta)
 - `include` (si da fallo no sigue)
@@ -670,6 +666,7 @@ ricardo.instructor.formacion@gmail.com
 - `/etc/pam.d./common-password` (cambiar el sha512 o encryptación)
 - `/etc/pam.d./common-session` (fichero de configuración de inicio de sesión de los usuarios)
 - `usermod -l diego tester01` (cambiar el nombre de usuario)
+- `usermod -mdpsug diego tester01` (cambiar el home, password, shell, uid, guid )
 - `userdel -r user` (borra todo) `userdel user` (no borra el home)
 - `su -c "make install" ` 
 - `getent` (realizar el proceso de consulta de la base de datos) (hay varios)
