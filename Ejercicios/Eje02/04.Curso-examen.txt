@@ -1,0 +1,32 @@
+#!/bin/bash
+[[$# = 0]] && exit 0
+arg=$1
+clear
+echo " El argumento facilitado a las $(date +%H:%M:%S) es: $arg"
+if ![-f $arg] 
+then
+	touch $arg
+	
+	if [ $? = 0 ] 
+	then
+		echo "fichero $arg creado con éxito"
+	else
+		echo "Ocurrió un error y no se ha podido crear el fichero $arg"
+	fi
+else
+	echo "el fichero $arg existe y es un fichero regular. No se puede crear"
+	echo "¿Quiero crerlo como directorio? [n|N]"
+	read i
+		case $i in
+			[nN]) echo "OK. No se realiza ninguna opción"; exit 1;;
+			*) echo "Procedemos a crear el directoriio $arg"
+			mkdir -p $arg
+			[[ $? = 0 ]] && echo "Directorio $arg creado" || echo "Ocurrió algún error y no se ha podido crear el directorio $arg" ;;
+		esac
+fi		
+		
+		
+		
+		
+		
+		

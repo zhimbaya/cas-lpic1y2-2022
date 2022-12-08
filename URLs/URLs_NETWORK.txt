@@ -1,0 +1,75 @@
+¿Qué son las RFCs?
+
+https://es.wikipedia.org/wiki/Request_for_Comments
+
+
+RFCs en español
+
+https://www.rfc-es.org/
+
+Agregar varias IP (volatil) a una interfaz
+
+# ip addr add IP_ADDRESS dev IFACE_NAME
+
+EJEMPLOS DIRECCIONAMIENTO EStÄTICO
+
+Debian:================================================================================================
+root@debian:~# cat /etc/network/interfaces
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+#allow-hotplug enp0s3
+#iface enp0s3 inet dhcp
+auto	enp0s3
+iface enp0s3 inet static
+address 172.16.1.140
+netmask 255.255.255.0
+gateway 172.16.1.1
+dns-nameservers 172.16.1.1 8.8.8.8
+
+REDHAT =================================================================================
+[root@ROCKY ~]# cat /etc/NetworkManager/system-connections/enp0s3.nmconnection 
+[connection]
+id=enp0s3
+uuid=2be2ebca-5fa1-3de7-ab86-8cadef3aa314
+type=ethernet
+autoconnect-priority=-999
+interface-name=enp0s3
+timestamp=1669482981
+
+[ethernet]
+
+[ipv4]
+address1=172.16.1.197/24,172.16.1.1
+dns=172.16.1.1;
+method=manual
+
+[ipv6]
+addr-gen-mode=eui64
+method=auto
+
+[proxy]
+UBUNTU ===================================================================================
+
+root@ubuntu-server:~# cat /etc/netplan/00-installer-config.yaml
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    enp0s3:
+      addresses: [172.16.1.101/24]
+      routes:
+        - to: default
+          via: 172.16.1.1
+      nameservers:
+        addresses: [172.16.1.1, 8.8.8.8]
+
+205
+
+
