@@ -5,13 +5,13 @@
 🚀 Happy Code! 
 
 Index:
-- [Linux Essential](basic.md)
-- [LPIC 1](lpic1.md)
-- [LPIC 2](lpic2.md)
+- [Linux Essential](Paginas/basic.md)
+- [LPIC 1](Paginas/lpic1.md)
+- [LPIC 2](Paginas/lpic2.md)
 
 Help:
-- [Website of help and interest](help.md)
-- [Interesting Things](interesting.md)
+- [Website of help and interest](Paginas/help.md)
+- [Interesting Things](Paginas/interesting.md)
 
 🤩 Enjoy!
 
