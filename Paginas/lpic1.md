@@ -912,23 +912,77 @@ ricardo.instructor.formacion@gmail.com
 - `systemd`
 - `systemctl list-timers`
 - [Generador](https://crontab-generator.org/)
-- ## 📅 24/11/2022
+ 
+## 📅 24/11/2022
 - Ver el pdf de como crear un timer.
-- `syslog`
+- `syslog` (grabación secuencial de todas las acciones que afectan a un sistema informático o una aplicación y se recogen en una base de datos.)
 - `/etc/syslog.conf` (fichero de configuración)(origen importancia destino)
 - tcp / udp , 514
 - Debian -> rsyslog -> accion -> target + puerto -> modo tcp 514
-- `/var/log/journal` , `/run/log/journal`
-- `journal` 
+- `/var/log/journal` (debian)
+- `/run/log/journal` (alma)
+- `apt install rsyslog` (instalación)
+- `systemctl start rsyslog`
+- `vi /etc/rsyslog.conf` (archivo de configuración de rsyslog)
+- Aquí creamos nuestros propios log en `/var/log`
+```
+local1.* /var/log/milog.log
+```
+- __Niveles de recurso__
+```
+0 (kernel - kern) mensajes del kernel
+1 (Usuario - user) mensajes del nivel de usuario
+2 (Mail - mail) sistema de correo
+3 (Demonio - daemon) demonios del sistema
+4 (Autentication - auth) seguridad-autorización
+5 (Syslog - syslog) mensajes generados internamente por syslogd
+6 (Impresión - lpr)
+7 (Noticias - news)
+8 (uucp)
+9 (demonios del reloj)
+10 (Autorización - authpriv)
+11 (FTP - ftp)
+12 (Subsistema de NTP)
+13 (Inspección del registro)
+14 (Alerta sobre el registro)
+15 (Clock)
+16 (local0) - 23 (local7)
+```
+- [Como configurar un server centralizado](https://www.ochobitshacenunbyte.com/2018/10/29/registros-centralizados-en-linux-con-rsyslog/)
+- `recurso*8+nivel` (cálculo de nivel de prioridad)
+- Journal o diario
+- `journald` (demonio)
 - `systemctl restart systemd-journal-flush.service` (cambia con el texto del libro)
 - `systemctl list-units --all`
 - `/etc/systemd/journald.conf` (archivo de configuración)
-- `journalctl -p 4`
+- `journalctl --list-boots` (registro de reinicios del sistema)
+- `journalctl --disk-usage` (espacio ocupado por los diferentes logs)
+- `journalctl --since "2017-08-16 18:46:30" --until "2017-08-16 18:55:00" `
+- `journalctl --since yesterday`
+- `journalctl --since 17:00 --until "2 hour ago" `
+- `journalctl –u docker-service`
+- `journalctl /dev/sda2`
+- `journalctl -k -b`
+- `journalctl –n 7`
+- __Niveles de serveridad__
+``` 
+    “emerg” (0)
+    ”alert” (1)
+    “crit” (2)
+    “warning” (4)
+    “notice” (5)
+    ”info” (6)
+    “debug” (7)
+```
+- `journalctl -p 4` (ver información del sistema con prioridad 4)
+- `journalctl -f` (muestra los registros últimos, esta a la escucha)
 - `logger -p 0 ELFIN` (generar un error)
-- `systemd-cat`
+- `echo "URGE" | systemd-cat -p emerg` (systemd-cat es parecido a logger)
 - `journalctl _[tab]` (muestra mas opciones)
-- `/etc/logratate.d`
-
+- `/etc/logrotate.d` (contiene ficheros de configuración de otras aplicaciones instaladas)
+- `logrotate -vf /etc/logrotate.conf` (ejecutar el comando manualmente)
+- `/etc/crontab` (aquí estan los logratated)
+- `/etc/cron.*`(cron diarios, semanales, ...)
 ## 📅 25/11/2022
 
 - Archivado y backup
