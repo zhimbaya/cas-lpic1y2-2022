@@ -1,0 +1,39 @@
+#!/bin/bash
+# Autor: Diego Armando Simbaña
+# Título: Convertir de decimal a binario
+
+# echo "=========================================="
+# echo "=======Convertir Decimal a bianrio========"
+# echo "=========================================="
+
+#read -p "Introduce una dirección IP: " ip
+#echo "ibase=2;$ip" | bc
+
+if [[ $# = 0 ]]
+then
+	echo "No hay ningún argumento"
+	exit 0
+else
+	arg=$1
+	echo "El argumento es: $1"
+fi
+
+letras='^[A-Za-zÁÉÍÓÚáéíóú]+$'
+
+if  [[ $arg =~ $letras ]] 
+then
+	echo "Es una letra, debes introducir una IP"
+	exit 1
+else
+
+	num=`echo $arg | sed 's/[.]//g' `
+
+	if [[ $num -lt 0 ]]  
+	then
+		echo "El decimal $arg: NO VALIDO"
+		exit 1
+	else
+		echo -e "El binario es:"
+		echo "obase=2;$num" | bc
+	fi
+fi
