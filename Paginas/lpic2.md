@@ -174,8 +174,11 @@
 ## 📅 01/12/2022
 
 - `dhclient -v` (asigna una ip)
+
 - `netplan apply` () 10.1.1. 208 (ubuntu server)
+
 - [Cambiar de nombre](https://www.linuxadictos.com/cambiar-de-nombre-de-usuario.html)
+
 - [Mensajes DHCP](https://sites.google.com/site/sriasir20152016/dhcp/4-tipos-de-mensajes-dhcp)
   
   ```
@@ -184,14 +187,23 @@
   set expandtab
   set number
   ```
+
 - `cd /etc/xinetd.d/`
+
 - `apt install xinetd` ()
+
 - `dnf install nmap-ncat` (instala y crear socket alma)
+
 - `ncat -l 666` (ponemos a la escucha el puerto 666)
+
 - `nmap -sS alma` (escanear puertos)
+
 - `firewall-cmd --list-ports` (alma)
+
 - `firewall-cmd --add-port=666/tcp`
+
 - `apt install isc-dhcp-server` (internet system consourci)
+
 - `/etc/dhcp/dhcpd.conf`
   
   ```
@@ -290,8 +302,6 @@ subnet 10.1.1.0 netmask 255.255.255.0 {
 - NIS (Network Information System)
 - RBAC (mirar esto)
 - En alma esta mejor comentado el fichero sudoers.!!
-- 
-- 
 
 ---------
 
@@ -304,3 +314,92 @@ curl ifconfig.me
 [Bash Prompt Generator](https://scriptim.github.io/bash-prompt-generator/)
 
 [Gestión centralizada de Logs con Rsyslog - YouTube](https://www.youtube.com/watch?v=TpXZmtVoTQg&ab_channel=DenisEspinoza)
+
+## 12/12/2022
+
+- Seguriad
+- netstat
+- nmap
+
+```
+pct@cas-training.com
+
+SI PRÁCTICAS
+Asunto: CV+nombre y apellidos+22/1268
+CV en formato Word
+PLAZO 19/12/22
+
+NO PRÁCTICAS
+Asunto: Renuncia prácticas+Nombre y Apellidos+22/1268
+PLAZO 19/12/22
+Mª José/Jon 91.55.36.162
+```
+
+- apt install tshark (ubuntu)
+- apt install tcpdump (ubuntu)
+- xinetd
+- ldd (muestra los enlaces)
+- tcp_wrappers 
+- strings -f /usr/sbin/in.telnetd | grep hosts (para ver quien utiliza wrappers)
+- /usr/sbin/in.telnetd: (agregar esto en el fichero hosts.deny)
+- systemctl stop xinetd.service
+- netfilter (permiter filtrar paquetes)(no es secuencial, por referencias)
+- systemctl status ufw (firewall) (ubuntu)
+- systemctl status firewald (alma)
+- iptables (casi en deshuso)(de forma secuencial)
+- nftables (mas complicado)
+- TCP: tamaño de ventana (caudal), ACK, Timer, SYCN, RST (netfilter, llega hasta el nivel muy bajo)
+- __IPTABLES__
+- iptables -L
+- cat /proc/sys/net/ipv4/ip_forward (reenvío)
+- iptables -A INPUT -j DROP -p icmp (crea la regla)
+- iptables -D INPUT -j DROP -p icmp (elimina la regla)
+- iptables -A INPUT -j REJECT -p icmp
+- iptables -A INPUT -j DROP -p tcp --dport 23
+- iptables -A INPUT -j DROP -p tcp --dport 23 --source alma
+
+## 13/12/2022
+
+- Xwindows 
+
+- Instalación fedora
+
+```
+8GB
+4 Nucleos
+efi
+50
+49 ip bridge
+linuxmint 64
+32mb grafica
+```
+
+Cambiar ip a Suse
+
+dws service
+
+debian
+
+apt search gnome
+
+tasksel
+
+/etc/x11
+
+`apt install xrdp` (instalar)
+
+`sestatus` (mirar si esta habilitado o no)
+
+`vi /etc/selinux/config` (editar el fichero)
+
+`SELINUX=disabled` (deshabilitar)
+
+`systemctl status xrdp`
+
+`systemctl start xrdp`
+
+`firewall-cmd --permanet --add-port=3389/tcp`
+
+`netstat -an | grep 3389` (mirar si esta el puerto abierto)
+
+- apt install 

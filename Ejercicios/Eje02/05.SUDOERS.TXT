@@ -1,0 +1,31 @@
+## ELIMINA CACHE de almacenamiento de la password
+
+Defaults timestamp_timeout=0
+
+## ALIAS para agrupar usuarios regulares, y que tendrán permisos administrativos.
+## para comprobarlo habrá que CREAR LOS USUARIOS CORRESPONDIENTES
+##
+User_Alias	REGUSERS = usuario01, usuario02, usuario03
+User_Alias	WEBMASTER = admin01, admin02
+
+## ALIAS para ejecutar como otro usuario
+##
+Runas_Alias	SYSOP = root, operador
+
+
+## ALIAS de comandos para apapgra el sistema, administración de usuarios y administración del servidor web
+##
+Cmnd_Alias	SHUTDOWN = /usr/sbin/shutdown, /usr/sbin/reboot
+Cmnd_Alias 	USUARIOS = /usr/sbin/useradd, /usr/sbin/userdel, /usr/sbin/usermod, /usr/sbin/groupadd, \
+		/usr/sbin/groupdel, /usr/sbin/groupmod
+Cmnd_Alias 	WEB = /usr/bin/systemctl start apache2, /usr/bin/systemctl stop apache2, /usr/bin/systemctl reload apache2,\ 
+/usr/bin/systemctl restart apache2, /usr/bin/systemctl status apache2, /usr/bin/systemctl enable apache2, /usr/bin/systemctl disable apache2
+
+###PERMISOS PARA LOS USUARIOS - CREACIÓN COMO FICHEROS INDEPENDEINTES EN /etc/sudoers.d/
+###
+usuario01	ALL=(SYSOP)SHUTDOWN
+REGUSERS        ALL=(root) USUARIOS 
+WEBMASTER	ALL=(root)	NOPASSWD: WEB
+operador	ALL= /usr/bin/passwd [a-z]*, !/usr/bin/passwd root
+
+

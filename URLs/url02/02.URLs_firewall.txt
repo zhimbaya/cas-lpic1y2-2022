@@ -1,0 +1,12 @@
+FIREWALL recomendación de uso
+https://access.redhat.com/documentation/es-es/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/using-and-configuring-firewalld_configuring-and-managing-networking
+
+https://firewalld.org/documentation/man-pages/firewall-cmd.html
+
+UFW
+https://help.ubuntu.com/community/UFW
+
+NFT
+https://www.netfilter.org/projects/nftables/manpage.html
+
+

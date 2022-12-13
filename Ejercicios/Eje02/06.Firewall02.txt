@@ -1,0 +1,61 @@
+IPTABLES
+Listas y ejecución secuencial
+#Listado de las tablas
+sudo iptables -L
+
+#Control de ping (en realidad de todo el tráfico ICMP)
+ sudo iptables -A INPUT -j DROP -p icmp
+ #eliminarla
+ sudo iptables -D INPUT -j DROP -p icmp
+ #observad la diferencia con REJECT (en el equipo que esté realizando el acceso mediante ICMP)
+ sudo iptables -A INPUT -j REJECT -p icmp
+ #Procesamiento secuencial de la lista iptables (analizar las diferencias)
+ sudo iptables -A INPUT -j ACCEPT -p icmp
+ sudo iptables -A INPUT -j REJECT -p icmp
+ # eliminarlas y cambiar el orden
+ sudo iptables -D INPUT -j ACCEPT -p icmp  # en este momento debe ser visible el resultado de la ejecución secuencial (iptables -L)
+ 
+ # Rechazo puertos TCP (rechazo completo a todos los clientes)
+ sudo iptables -A INPUT -j REJECT  -p tcp --dport 13
+ 
+ #Rechado selectivo por IP origen
+ sudo iptables -A INPUT -j REJECT  -p tcp --dport 13 --source 172.16.1.140 #sustituir por la ip del escenario que utilices
+ 
+ UBUNTU ufw
+ sudo ufw enable
+ sudo ufw app list
+ sudo ufw allow 13/tcp
+ sudo ufw deny 13/tcp
+ sudo ufw reject 13/tcp
+ sudo ufw status numbered 
+ sudo ufw allow 19/tcp
+ sudo ufw status numbered
+ sudo ufw allow  from 172.16.1.197 # permisos completos
+ sudo ufw allow  from 172.16.1.140 proto tcp to any port 19 #permisoa una aplicación (puerto) concreto.
+ #comprobar los resultados de esta lista y si estuviera la rule 3 en la posición 1
+ sudo ufw status numbered                                        
+Status: active 
+[ 1] 13/tcp                     DENY IN     172.16.1.140                      
+[ 2] 19/tcp                     DENY IN     172.16.1.197                      
+[ 3] Anywhere                   ALLOW IN    172.16.1.0/24  
+ 
+ RED HAT firewall-cmd
+ firewall-cmd --state
+ systemctl status firewalld.service
+firewall-offline-cmd --enable
+firewall-offline-cmd --disable
+firewall-cmd --list-services
+firewall-cmd --list-ports
+firewall-cmd --add-port=13/tcp
+firewall-cmd --remove-port=13/tcp
+firewall-cmd --get-zones
+firewall-cmd --info-zone=trusted #modificar trusted por cualquier otra delas que aparezcan
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 

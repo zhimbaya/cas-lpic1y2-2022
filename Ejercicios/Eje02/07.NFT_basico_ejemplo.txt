@@ -1,0 +1,44 @@
+#Creamos una tabla llamada FILTRO
+
+nft add table inet FILTRO
+
+#Creamos las cadenas base: ENTRADA, REENVIO y SALIDA. La política de input y forward será drop (descarte). La política de output será accept (permitido).
+
+nft add chain inet FILTRO ENTRADA { type filter hook input priority 0 \; policy drop \; }
+nft add chain inet FILTRO REENVIO { type filter hook forward priority 0 \; policy drop \; }
+nft add chain inet FILTRO SALIDA { type filter hook output priority 0 \; policy accept \; }
+# Agregamos dos cadenas normales que se asociarán con tcp y udp:
+
+nft add chain inet FILTRO TCP
+nft add chain inet FILTRO UDP
+# El tráfico relacionado («related») y el ya establecido («established») será aceptado («accept»):
+
+nft add rule inet FILTRO ENTRADA ct state related,established accept
+#Se aceptará todo el tráfico procedente de la interfaz loopback:
+
+nft add rule inet FILTRO ENTRADA iif lo accept
+#Se establecerá la política de descartar («drop») para cualquier tráfico no válido:
+
+nft add rule inet FILTRO ENTRADA ct state invalid drop
+#Se permiten  solicitudes de echo (pings):
+
+nft add rule inet FILTRO ENTRADA ip protocol icmp icmp type echo-request ct state new accept
+#El tráfico udp saltará («jump») a la cadena UDP:
+
+nft add rule inet FILTRO ENTRADA ip protocol udp ct state new jump UDP
+#El nuevo tráfico tcp saltará («jump») a la cadena TCP:
+
+nft add rule inet FILTRO ENTRADA ip protocol tcp tcp flags \& \(fin\|syn\|rst\|ack\) == syn ct state new jump TCP
+#Se rechazá («reject») todo el tráfico no procesado por la restantes reglas:
+
+nft add rule inet FILTRO ENTRADA ip protocol udp reject
+nft add rule inet FILTRO ENTRADA ip protocol tcp reject with tcp reset
+nft add rule inet FILTRO ENTRADA counter reject with icmp type prot-unreachable
+#Abrir conexiones entrantes mediante las cadenas TCP y UDP. Para web (80 y 443):
+
+nft add rule inet FILTRO TCP tcp dport 80 accept
+nft add rule inet FILTRO TCP tcp dport 443 accept
+#Para aceptar el tráfico SSH en el puerto 22:
+
+nft add rule inet FILTRO TCP tcp dport 22 accept
+
