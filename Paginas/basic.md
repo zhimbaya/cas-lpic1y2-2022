@@ -34,7 +34,7 @@
 
 ## 📅 14/10/2022
 - Creación de máquina virtuales
-- Descarga de máquinas virtuale e isos
+- Descarga de máquinas virtuales e isos
 
 ## 📅 17/10/2022
 - instalación de SO en VirtualBox
@@ -55,18 +55,18 @@
   - CTRL + r (buscar)
   - CTRL + p (historial)  
 - ` hostname ` (nombre de máquina)
-  + /etc/hostname (ruta de nombre de máquina)
+- vi /etc/hostname (ruta de nombre de máquina)
 - ($) usuario regular
 - (#) superusuario
-- ` pwd ` (ruta donde me encuentro)
-- ` ls ` (listar)
+- `pwd` (ruta donde me encuentro)
+- `ls` (listar)
 - `ls -la` (lista detallada total)
-  - comando - (opciones) - argumentos
-  - ` apt install exa `
-  - ` apt instal lsd ` (alternativa ls)
-  - ` apt install moar ` (reemplaza a less)
-- ` host -v nombre_host ` (muestra las ip's y nombre de máquina)
-- ` uname -a` (muestra la información del hardware y S.O)
+- comando - (opciones) - argumentos
+  - `apt install exa`
+  - `apt instal lsd` (alternativa ls)
+  - `apt install xq` (reemplaza a less)
+- `host -v nombre_host` (muestra las ip's y nombre de máquina)
+- `uname -a` (muestra la información del hardware y S.O)
 - `man man` (ayuda del man)
 - `man 5 hostname` (ayuda de man en la sección 5)
 - `hostname --help` (muestra la ayuda)
