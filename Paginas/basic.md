@@ -54,8 +54,8 @@
   - SHIT + ESC + t (cambiar palabras de posición)
   - CTRL + r (buscar)
   - CTRL + p (historial)  
-- ` hostname ` (nombre de máquina)
-- vi /etc/hostname (ruta de nombre de máquina)
+- `hostname` (nombre de máquina)
+- `vi /etc/hostname` (ruta de nombre de máquina)
 - ($) usuario regular
 - (#) superusuario
 - `pwd` (ruta donde me encuentro)
@@ -67,72 +67,94 @@
   - `apt install xq` (reemplaza a less)
 - `host -v nombre_host` (muestra las ip's y nombre de máquina)
 - `uname -a` (muestra la información del hardware y S.O)
+- `cat /etc/*relea*` (mirar nombre de la distribución)
+- `man hier` (muestra toda la información de cada directorio de archivo)
 - `man man` (ayuda del man)
 - `man 5 hostname` (ayuda de man en la sección 5)
 - `hostname --help` (muestra la ayuda)
 - `help hostname` (muestra la ayuda)
 - `hostname -h` (muestra la ayuda)
-- . , .. , ~ (vigulilla) , - , ^ (acento circunflejo)
+- . , .. , ~ (virgulilla) , - , ^ (acento circunflejo)
 - usr (unix source)
-- `cd`(cambiar de directorio)
-- `man hier` (muestra toda la información de cada directorio de archivo )
+- `cd /ruta`(cambiar de directorio)
 
 ## 📅 18/10/2022
-- `echo` (imprime por pantalla)
-- `echo -e "adios \nmundo" ` (imprime por pantalla)
+- `echo hola mundo` (imprime por pantalla)
+- `echo -e "adios \nmundo" ` (imprime con formato por pantalla)
 - `which -a comando` (ruta del comando interno o ejecutable)
 - `stat fichero`(ver información del fichero)
 - `touch` (cambia la fecha de un archivo, crea un archivo)
-  - Access: Se actualiza cuando abrimos el fichero, por ejemplo, cuando utilizamos comandos tipo: car, grep, tail, etc..
+  - Access: Se actualiza cuando abrimos el fichero, por ejemplo, cuando utilizamos comandos tipo: cat, grep, tail, etc..
   - Modify: Se actualiza cuando cambiamos el contenido del fichero.
   - Change: Se actualiza cuando cambiamos permisos, propietario: usuario, grupo, etc...
   - atime: Access time, mtime: Modify time, ctime: Change time
-  - Cuando ejecutamos `ls -l` , estamos listando el: mtime
   - Cuando ejecutamos `ls -lu` , estamos listando el: atime
+  - Cuando ejecutamos `ls -l` , estamos listando el: mtime
   - Cuando ejecutamos `ls -lc` , estamos listando el: ctime
   - `touch -a --date="2001-05-10" fichero-sysadmit.txt`
   - `touch -m --date="2001-05-10" fichero-sysadmit.txt`
-  - ` Modificamos el change time: Ahora=$(date)` 
-  - ` Cambiamos la hora del sistema: date --set "2001-05-10" `
-  - ` Actualizamos la hora del fichero, con la fecha actual: touch fichero-sysadmit.txt`
-  - ` Volvemos a la fecha actual: date --set "$Ahora" `
+  - Modificamos el change time: `Ahora=$(date)` 
+  - Cambiamos la hora del sistema: `date --set "2001-05-10" `
+  - Actualizamos la hora del fichero, con la fecha actual: `touch fichero-sysadmit.txt`
+  - Volvemos a la fecha actual: `date --set "$Ahora" `
 - `cat fichero1 fichero2` (concatena archivos y los muestra por la salida estándar)
 - `nano fichero.texto` (editor de texto)
 - `vi fichero.texto` (editor de texto)
+```
+3 modos
+__Modo comando__
+- hjkl desplazarnos
+- dd borrar
+- yy copia
+- p pega
+- o nueva linea
+- u deshacer
+- /palabra buscar hacia abajo
+- ?palabra buscar hacia arriba
+- i insertar antes
+- a despues del cursor
+- ZZ guardar
+- v seleccionar
+__Modo insertar__
+__Modo ex__
+- q salir
+- w escribir
+- ! forzar
+```
 - `column -s ":" -t /etc/passwd` (muestra el archivo en columnas)
 - stdin 0, stdout 1, stderr 2 (descriptores de ficheros)
 - modifica la salida std `>, >> (añade)`
 - modifica la salida stderr `2>`
 - `tty` (muestra los terminales en uso)
-- `Ctrl + Alt + F3` hará que aparezca el mensaje de inicio de sesión de tty3.
-- `mv archivo|carpeta archivo|carpeta` origen destino (renombra los ficheros)
+- `Ctrl + Alt + F3` (hará que aparezca el mensaje de inicio de sesión de tty3)
+- `mv archivo|carpeta archivo|carpeta` (origen destino | renombra los ficheros)
 - `mv fichero /destino`(mueve los ficheros)
 - `less` (visualiza de línea en línea), `more` (visualiza el contenido a trozos), ` | ` (tuberia, pasa el argumento)
 - `man` (manual de ayuda del sistema)
 - `apt install locate` (aplicación para localizar archivos)
 - `locate -> updatedb` (crea y actualiza la base de datos)
-- `locate -r my-file$ ` (busqueda exacta)
+- `locate -r my-file` (búsqueda exacta)
 - `locate -c my-file` (cuenta el nº de ficheros)
 - `locate -i my-file` (ignora mayusc y minusc)
-- `locate my-file n 10` (limita los resultados)
+- `locate -l2 my-file` (limita los resultados)
 - [Ayuda: find y locate](https://www.hostinger.es/tutoriales/como-usar-comando-find-locate-en-linux/)
-- `mkdir -p directorio/otro` (crear directorios recursivos)
-- `mkdir -ma=rwx fichero`(crear directorio con modo)
-- `chdir -m 777 mydir` (cambiar el modo)
+- `mkdir -p directorio1/directorio2` (crear directorios recursivos)
+- `mkdir -ma=rwx fichero`(crear directorio con modo u,g,a)
+- `chmod 777 mydir` (cambiar el modo)
 - `apt install tree` (aplicación que muestra el contenido en forma de árbol)
-- `rmdir directorio` (borra directorios vacios)
+- `rmdir directorio` (borra directorios vacíos)
 - `rm -r ficheros` (borra ficheros de forma recursiva)
 - `who a mi` (muestra usuario terminal fecha corta)
 - `id` (muestra el id del usurio)
 - `date` (muestra la fecha)
-- `date +"Año: %Y, Mes: %m, Día: %d"`
-- __Variables__ 
+- `date +"Año: %Y, Mes: %m, Día: %d"` (muestra la fecha con este formato)
+__Variables__ 
 - `a=1; echo $a` (asignación de una variable e impresión por pantalla)
 - `env` (muestra las variables de entorno)
 - `echo $PATH` (muestra la información de la variable)
 - `PATH=$PATH:/sbin` (añade una ruta al PATH)
-- `echo $PATH | tr : \\n`
-- `_` (al momento de forma variables con nombres largo es recomndable utilizar _)
+- `echo $PATH | tr : \\n` (tr sustituye)
+- `_` (al momento de forma variables con nombres largo es recomendable utilizar _)
 - `& `(proceso en segundo plano)
 - ` && , : , || , * , ´ , ? , > < `
 - ` "", ' ' ` (doble comillas - muestran el valor de las variables y comillas simples - imprime de forma literal)
@@ -145,9 +167,9 @@
 - `info cat`
 - `apropos hostname` (muestra la informaión, secciones del comando ,... )
 - `man -k hostname` (es igual que utilizar apropos)
-- `file fichero` (muetra el tipo de fichero)
+- `file fichero` (muestra el tipo de fichero)
 - `cp origen destino` (copia un fichero)
-- `ln origen destino` (enlace duro) mismo inodo , numero de enlaces `ls -l`
+- `ln origen destino` (enlace duro | mismo inodo , número de enlaces `ls -l` )
 - `ln -s` origen destino (enlace simbólico)
 - * (varios ) ? (uno)
 - `\` (contra barra, sirve para escapar caractéres)
@@ -167,24 +189,26 @@
   - `var=2`
   - `$(var)`
   - `nombre=$1` (variables dinámicas)
+  - `$n`(muetra el parámetro)
   - `$#` (cuenta el nº de parametros enviados)
-  - `$*` (cuenta todos los parámetros)
+  - `$@`(cuenta todo)
+  - `$*` (muestra todos los parámetros)
   - `read -p " texto " name` (en tiempo de ejecución) (declarar antes la varibales)
-  - `echo " "`
-  - `if (($var))[ $var ] then else fi`
-  - `case $op in "A") ;; *) esac`
+  - `echo " " ` (imprime)
+  - __`if (($var))[ $var ] then else fi`__
+  - __`case $op in "A") ;; *) esac`__
   - `n=(1 2 3)` (array de nombre)
   - `rango=({A..Z})` (array de rangos)
   - `echo = ${n[*]}` (imprimir arrays)
   - `echo = ${#n[*]}` (imprimir tamaño del array)
-  - `echo = ${#n[3]}` (imprimir el elemento del array)
+  - `echo = ${n[3]}` (imprimir el elemento del array)
   - `unset n[0]` (quito el valor del array)
   - `n[0]=1` (asignar el valor)
-  - `for n in longitud do done`
-  - `while cond= read line do done < $var`
-  - `until`
-  - `function () { } `  (llamar a la función para que funcione)
-- `sh archivo` (ejecutar un archivo)
+  - __`for n in longitud do done`__
+  - __`while cond= read line do done < $var`__
+  - __`until`__
+  - __`function () { } `__ (llamar a la función para que funcione)
+- `sh archivo.sh` (ejecutar un archivo)
 - r w x (lectura escritura ejecución)
 - r w x (usuario grupo otros)
 - `chmod modo fichero` (cambiar permisos de un fichero)
@@ -198,7 +222,7 @@
 - `apt install ksh` (echo $0, ver que bash tengo)
 - `top` (muestra los procesos en ejecución) (alt +f)
 - `apt install htop` (aplicación muy parecida a top)
-- `apt install binutils` (aplicación con herramientas muy utiles como strings) 
+- `apt install binutils` (aplicación con herramientas muy útiles como strings) 
 - `string /bin/bash` (muestra la información o permite la lectura de ficheros binarios)
 - `apt install lynx` (aplicación navegador web por terminal)
 - `ps -ef` (muestra los procesos)
