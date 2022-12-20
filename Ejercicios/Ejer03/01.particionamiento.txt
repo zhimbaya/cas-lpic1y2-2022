@@ -1,0 +1,708 @@
+Script started on 2022-12-17 12:42:16+00:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="158" LINES="20"]
+root@secos: ~root@secos:~# mdadm -C /dev/md0 -l0 -n3 /dev/sdb1 /dev/sdc1 /dev/sdd1 
+
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md0 started.
+root@secos:~#  mdadm -C /dev/md1 -l1 -n2 /dev/sdb2 /dev/sdc2          
+
+mdadm: Note: this array has metadata at the start and
+    may not be suitable as a boot device.  If you plan to
+    store '/boot' on this device please ensure that
+    your boot-loader understands md/v1.x metadata, or use
+    --metadata=0.90
+Continue creating array? y
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md1 started.
+root@secos:~# mdadm -C /dev/md3 -l5 -n3 /dev/sdb3 /dev/sdc3 /dev/sdd3  
+
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md3 started.
+root@secos:~# mdadm -Dsv
+
+ARRAY /dev/md0 level=raid0 num-devices=3 metadata=1.2 name=secos:0 UUID=bb7512a3:7400e75e:cde3a398:38f82c94
+   devices=/dev/sdb1,/dev/sdc1,/dev/sdd1
+ARRAY /dev/md1 level=raid1 num-devices=2 metadata=1.2 name=secos:1 UUID=c02ce5e8:7584ab0d:15a6a7f1:0ee7ba88
+   devices=/dev/sdb2,/dev/sdc2
+ARRAY /dev/md3 level=raid5 num-devices=3 metadata=1.2 name=secos:3 UUID=44b2885a:ca22d9f8:4e148743:021df602
+   devices=/dev/sdb3,/dev/sdc3,/dev/sdd3
+root@secos:~# mkfs.ext4 /dev/md0 
+
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1570560 4k blocks and 393216 inodes
+Filesystem UUID: 4c7283e8-9c50-4fc2-b792-daa912e34df2
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+Allocating group tables:  0/48     done                            
+Writing inode tables:  0/48     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/48     done
+
+root@secos:~# mkfs.ext4 /dev/md1
+
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 523520 4k blocks and 131072 inodes
+Filesystem UUID: d26a2b9c-3a30-4e52-87b0-8858496dfbeb
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912
+
+Allocating group tables:  0/16     done                            
+Writing inode tables:  0/16     done                            
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information:  0/16     done
+
+root@secos:~# mkfs.ext4 /dev/md3
+
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1047040 4k blocks and 262144 inodes
+Filesystem UUID: 280c68e7-4e5b-446c-a8b0-ec8410f18def
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+Allocating group tables:  0/32     done                            
+Writing inode tables:  0/32     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/32     done
+
+root@secos:~# mkdir -p /mds/raid0 /mds/raid1 /mds/raid5 
+
+root@secos:~# echo "UUID=d26a2b9c-3a30-4e52-87b0-8858496dfbeb /mds/raid0 ext4 defaults 0 2"  >> /etc/fstab 
+root@secos:~# echo "UUID=4c7283e8-9c50-4fc2-b792-daa912e34df2 /mds/raid1 ext4 defaults 0 2"  >> /etc/fstab 
+root@secos:~# echo "UUID=280c68e7-4e5b-446c-a8b0-ec8410f18def /mds/raid5 ext4 defaults 0 2"  >> /etc/fstab 
+root@secos:~# mount /mds/raid0
+root@secos:~# mount /mds/raid1
+root@secos:~# mount /mds/raid5
+
+root@secos: ~root@secos:~# df -Th
+
+Filesystem                        Type   Size  Used Avail Use% Mounted on
+tmpfs                             tmpfs  393M  1,3M  392M   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv ext4    12G  5,2G  5,5G  49% /
+tmpfs                             tmpfs  2,0G     0  2,0G   0% /dev/shm
+tmpfs                             tmpfs  5,0M     0  5,0M   0% /run/lock
+/dev/sda2                         ext4   2,0G  127M  1,7G   7% /boot
+tmpfs                             tmpfs  393M  4,0K  393M   1% /run/user/1000
+/dev/md0                          ext4   5,9G   24K  5,5G   1% /mds/raid0
+/dev/md1                          ext4   2,0G   24K  1,9G   1% /mds/raid1
+/dev/md3                          ext4   3,9G   24K  3,7G   1% /mds/raid5
+root@secos:~# mdadm -D /dev/md1 
+
+/dev/md1:
+           Version : 1.2
+     Creation Time : Sat Dec 17 12:44:11 2022
+        Raid Level : raid1
+        Array Size : 2094080 (2045.00 MiB 2144.34 MB)
+     Used Dev Size : 2094080 (2045.00 MiB 2144.34 MB)
+      Raid Devices : 2
+     Total Devices : 2
+       Persistence : Superblock is persistent
+
+       Update Time : Sat Dec 17 13:00:31 2022
+             State : clean 
+    Active Devices : 2
+   Working Devices : 2
+    Failed Devices : 0
+     Spare Devices : 0
+
+Consistency Policy : resync
+
+              Name : secos:1  (local to host secos)
+              UUID : c02ce5e8:7584ab0d:15a6a7f1:0ee7ba88
+            Events : 17
+
+    Number   Major   Minor   RaidDevice State
+       0       8       18        0      active sync   /dev/sdb2
+       1       8       34        1      active sync   /dev/sdc2
+
+root@secos: ~root@secos:~# mdadm /dev/md1 -f /dev/sdb2
+
+/dev/md1:
+           Version : 1.2
+     Creation Time : Sat Dec 17 12:44:11 2022
+        Raid Level : raid1
+        Array Size : 2094080 (2045.00 MiB 2144.34 MB)
+     Used Dev Size : 2094080 (2045.00 MiB 2144.34 MB)
+      Raid Devices : 2
+     Total Devices : 2
+       Persistence : Superblock is persistent
+
+       Update Time : Sat Dec 17 13:02:22 2022
+             State : clean, degraded 
+    Active Devices : 1
+   Working Devices : 1
+    Failed Devices : 1
+     Spare Devices : 0
+
+Consistency Policy : resync
+
+              Name : secos:1  (local to host secos)
+              UUID : c02ce5e8:7584ab0d:15a6a7f1:0ee7ba88
+            Events : 19
+
+    Number   Major   Minor   RaidDevice State
+       -       0        0        0      removed
+       1       8       34        1      active sync   /dev/sdc2
+
+       0       8       18        -      faulty   /dev/sdb2
+root@secos:~# mdadm /dev/md1 -remove /dev/sdb2 
+
+mdadm: hot removed /dev/sdb2 from /dev/md1
+root@secos:~# mdadm -D /dev/md1 
+
+/dev/md1:
+           Version : 1.2
+     Creation Time : Sat Dec 17 12:44:11 2022
+        Raid Level : raid1
+        Array Size : 2094080 (2045.00 MiB 2144.34 MB)
+     Used Dev Size : 2094080 (2045.00 MiB 2144.34 MB)
+      Raid Devices : 2
+     Total Devices : 1
+       Persistence : Superblock is persistent
+
+       Update Time : Sat Dec 17 13:02:34 2022
+             State : clean, degraded 
+    Active Devices : 1
+   Working Devices : 1
+    Failed Devices : 0
+     Spare Devices : 0
+
+Consistency Policy : resync
+
+              Name : secos:1  (local to host secos)
+              UUID : c02ce5e8:7584ab0d:15a6a7f1:0ee7ba88
+            Events : 20
+
+    Number   Major   Minor   RaidDevice State
+       -       0        0        0      removed
+       1       8       34        1      active sync   /dev/sdc2
+
+root@secos: ~root@secos:~# mdadm /dev/md1 -a /dev/sdd2
+mdadm: added /dev/sdd2
+
+root@secos:~# mdadm -D /dev/md1 
+
+/dev/md1:
+           Version : 1.2
+     Creation Time : Sat Dec 17 12:44:11 2022
+        Raid Level : raid1
+        Array Size : 2094080 (2045.00 MiB 2144.34 MB)
+     Used Dev Size : 2094080 (2045.00 MiB 2144.34 MB)
+      Raid Devices : 2
+     Total Devices : 2
+       Persistence : Superblock is persistent
+
+       Update Time : Sat Dec 17 13:02:55 2022
+             State : clean, degraded, recovering 
+    Active Devices : 1
+   Working Devices : 2
+    Failed Devices : 0
+     Spare Devices : 1
+
+Consistency Policy : resync
+
+    Rebuild Status : 19% complete
+
+              Name : secos:1  (local to host secos)
+              UUID : c02ce5e8:7584ab0d:15a6a7f1:0ee7ba88
+            Events : 25
+
+    Number   Major   Minor   RaidDevice State
+       2       8       50        0      spare rebuilding   /dev/sdd2
+       1       8       34        1      active sync   /dev/sdc2
+root@secos:~# mdadm /dev/md3 -a /dev/sdb2 
+
+mdadm: added /dev/sdb2
+root@secos:~# mdadm -D /dev/md3
+
+/dev/md3:
+           Version : 1.2
+     Creation Time : Sat Dec 17 12:44:36 2022
+        Raid Level : raid5
+        Array Size : 4188160 (3.99 GiB 4.29 GB)
+     Used Dev Size : 2094080 (2045.00 MiB 2144.34 MB)
+      Raid Devices : 3
+     Total Devices : 4
+       Persistence : Superblock is persistent
+
+       Update Time : Sat Dec 17 13:03:25 2022
+             State : clean 
+    Active Devices : 3
+   Working Devices : 4
+    Failed Devices : 0
+     Spare Devices : 1
+
+            Layout : left-symmetric
+        Chunk Size : 512K
+
+Consistency Policy : resync
+
+              Name : secos:3  (local to host secos)
+              UUID : 44b2885a:ca22d9f8:4e148743:021df602
+            Events : 19
+
+    Number   Major   Minor   RaidDevice State
+       0       8       19        0      active sync   /dev/sdb3
+       1       8       35        1      active sync   /dev/sdc3
+       3       8       51        2      active sync   /dev/sdd3
+
+       4       8       18        -      spare   /dev/sdb2
+root@secos:~# mdadm /dev/md3 -f /dev/sdb3 
+
+mdadm: set /dev/sdb3 faulty in /dev/md3
+root@secos:~# mdadm -D /dev/md3/
+
+/dev/md3:
+           Version : 1.2
+     Creation Time : Sat Dec 17 12:44:36 2022
+        Raid Level : raid5
+        Array Size : 4188160 (3.99 GiB 4.29 GB)
+     Used Dev Size : 2094080 (2045.00 MiB 2144.34 MB)
+      Raid Devices : 3
+     Total Devices : 4
+       Persistence : Superblock is persistent
+
+       Update Time : Sat Dec 17 13:03:47 2022
+             State : clean, degraded, recovering 
+    Active Devices : 2
+   Working Devices : 3
+    Failed Devices : 1
+     Spare Devices : 1
+
+            Layout : left-symmetric
+        Chunk Size : 512K
+
+Consistency Policy : resync
+
+    Rebuild Status : 54% complete
+
+              Name : secos:3  (local to host secos)
+              UUID : 44b2885a:ca22d9f8:4e148743:021df602
+            Events : 29
+
+    Number   Major   Minor   RaidDevice State
+       4       8       18        0      spare rebuilding   /dev/sdb2
+       1       8       35        1      active sync   /dev/sdc3
+       3       8       51        2      active sync   /dev/sdd3
+
+       0       8       19        -      faulty   /dev/sdb3
+root@secos:~# mdadm /dev/md3 -remove /dev/sdb3 
+
+mdadm: hot removed /dev/sdb3 from /dev/md3
+root@secos:~# mdadm -D /dev/md3/
+
+
+/dev/md3:
+           Version : 1.2
+     Creation Time : Sat Dec 17 12:44:36 2022
+        Raid Level : raid5
+        Array Size : 4188160 (3.99 GiB 4.29 GB)
+     Used Dev Size : 2094080 (2045.00 MiB 2144.34 MB)
+      Raid Devices : 3
+     Total Devices : 3
+       Persistence : Superblock is persistent
+
+       Update Time : Sat Dec 17 13:04:09 2022
+             State : clean 
+    Active Devices : 3
+   Working Devices : 3
+    Failed Devices : 0
+     Spare Devices : 0
+
+            Layout : left-symmetric
+        Chunk Size : 512K
+
+Consistency Policy : resync
+
+              Name : secos:3  (local to host secos)
+              UUID : 44b2885a:ca22d9f8:4e148743:021df602
+            Events : 39
+
+    Number   Major   Minor   RaidDevice State
+       4       8       18        0      active sync   /dev/sdb2
+       1       8       35        1      active sync   /dev/sdc3
+       3       8       51        2      active sync   /dev/sdd3
+root@secos:~# pvcreate /dev/sdb4 /dev/sdb5
+
+  Physical volume "/dev/sdb4" successfully created.
+  Physical volume "/dev/sdb5" successfully created.
+root@secos: ~root@secos:~# pvcreate /dev/sdc4 /dev/sdc5
+
+  Physical volume "/dev/sdc4" successfully created.
+  Physical volume "/dev/sdc5" successfully created.
+root@secos:~#pvs
+
+  PV                     VG        Fmt  Attr PSize  PFree 
+  /dev/mapper/dm_crypt-0 ubuntu-vg lvm2 a--  22,98g 11,49g
+  /dev/sdb4                        lvm2 ---   2,00g  2,00g
+  /dev/sdb5                        lvm2 ---  <2,00g <2,00g
+  /dev/sdc4                        lvm2 ---   2,00g  2,00g
+  /dev/sdc5                        lvm2 ---  <2,00g <2,00g
+root@secos:~# vgs
+
+  VG        #PV #LV #SN Attr   VSize  VFree 
+  ubuntu-vg   1   1   0 wz--n- 22,98g 11,49g
+root@secos: ~root@secos:~# vgsreatecreag
+vgcfgbackup    vgchange       vgconvert      vgdisplay      vgextend       vgimportclone  vgmknodes      vgremove       vgs            vgsplit
+vgcfgrestore   vgck           vgcreate       vgexport       vgimport       vgmerge        vgreduce       vgrename       vgscan         
+root@secos:~# vgcreate almacen01 /dev/sdb4 /dev/sdb5 
+
+  Volume group "almacen01" successfully created
+root@secos:~# vgs
+
+
+  VG        #PV #LV #SN Attr   VSize  VFree 
+  almacen01   3   0   0 wz--n- <5,99g <5,99g
+  ubuntu-vg   1   1   0 wz--n- 22,98g 11,49g
+root@secos:~# vgremove almacen01 /dev/sdb5
+
+  Removed "/dev/sdc5" from volume group "almacen01"
+root@secos:~# vgdisplay almacen01
+
+  --- Volume group ---
+  VG Name               almacen01
+  System ID             
+  Format                lvm2
+  Metadata Areas        2
+  Metadata Sequence No  3
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                0
+  Open LV               0
+  Max PV                0
+  Cur PV                2
+  Act PV                2
+  VG Size               3,99 GiB
+  PE Size               4,00 MiB
+  Total PE              1022
+  Alloc PE / Size       0 / 0   
+  Free  PE / Size       1022 / 3,99 GiB
+  VG UUID               77btrN-1g2m-69Tx-Epkl-r8nY-drWb-2dVtJR
+   
+root@secos:~# lvcreate -L+2G almacen01 -n volog01
+
+  Logical volume "volog01" created.
+root@secos: ~root@secos:~# mkdir /mds/vollvm
+
+root@secos: ~root@secos:~# mfs.ext4 /dev/almacen01/volog01 
+
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 524288 4k blocks and 131072 inodes
+Filesystem UUID: 2c69ada1-ad0a-4343-b84a-f11a2844b071
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912
+
+Allocating group tables:  0/16     done                            
+Writing inode tables:  0/16     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/16     done
+
+root@secos: ~root@secos:~# mkfs.ext4 /dev/almacen01/volog01 
+root@secos:~# echo "/dev/bydisk/by-uuid/2c69ada1-ad0a-4343-b84a-f11a2844b071 /mds/vollvm/ ext4 defaults 0 2" >> /etc/fstab
+root@secos:~# mount /mds/vollvm/
+
+root@secos: ~root@secos:~# df -Th
+
+Filesystem                        Type   Size  Used Avail Use% Mounted on
+tmpfs                             tmpfs  393M  1,3M  392M   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv ext4    12G  5,2G  5,5G  49% /
+tmpfs                             tmpfs  2,0G     0  2,0G   0% /dev/shm
+tmpfs                             tmpfs  5,0M     0  5,0M   0% /run/lock
+/dev/sda2                         ext4   2,0G  127M  1,7G   7% /boot
+tmpfs                             tmpfs  393M  4,0K  393M   1% /run/user/1000
+/dev/md0                          ext4   5,9G   24K  5,5G   1% /mds/raid0
+/dev/md1                          ext4   2,0G   24K  1,9G   1% /mds/raid1
+/dev/md3                          ext4   3,9G   24K  3,7G   1% /mds/raid5
+/dev/mapper/almacen01-volog01     ext4   2,0G   24K  1,8G   1% /mds/vollvm
+root@secos:~# lvextend -L+1G /dev/almacen01/volog01 
+
+  Size of logical volume almacen01/volog01 changed from 2,00 GiB (512 extents) to 3,00 GiB (768 extents).
+  Logical volume almacen01/volog01 successfully resized.
+root@secos:~# df -Th
+
+Filesystem                        Type   Size  Used Avail Use% Mounted on
+tmpfs                             tmpfs  393M  1,3M  392M   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv ext4    12G  5,2G  5,5G  49% /
+tmpfs                             tmpfs  2,0G     0  2,0G   0% /dev/shm
+tmpfs                             tmpfs  5,0M     0  5,0M   0% /run/lock
+/dev/sda2                         ext4   2,0G  127M  1,7G   7% /boot
+tmpfs                             tmpfs  393M  4,0K  393M   1% /run/user/1000
+/dev/md0                          ext4   5,9G   24K  5,5G   1% /mds/raid0
+/dev/md1                          ext4   2,0G   24K  1,9G   1% /mds/raid1
+/dev/md3                          ext4   3,9G   24K  3,7G   1% /mds/raid5
+/dev/mapper/almacen01-volog01     ext4   2,0G   24K  1,8G   1% /mds/vollvm
+root@secos:~#resize2fs /dev/almacen01/volog01 
+
+resize2fs 1.46.5 (30-Dec-2021)
+Filesystem at /dev/almacen01/volog01 is mounted on /mds/vollvm; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/almacen01/volog01 is now 786432 (4k) blocks long.
+
+root@secos:~#df -Th
+
+Filesystem                        Type   Size  Used Avail Use% Mounted on
+tmpfs                             tmpfs  393M  1,3M  392M   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv ext4    12G  5,2G  5,5G  49% /
+tmpfs                             tmpfs  2,0G     0  2,0G   0% /dev/shm
+tmpfs                             tmpfs  5,0M     0  5,0M   0% /run/lock
+/dev/sda2                         ext4   2,0G  127M  1,7G   7% /boot
+tmpfs                             tmpfs  393M  4,0K  393M   1% /run/user/1000
+/dev/md0                          ext4   5,9G   24K  5,5G   1% /mds/raid0
+/dev/md1                          ext4   2,0G   24K  1,9G   1% /mds/raid1
+/dev/md3                          ext4   3,9G   24K  3,7G   1% /mds/raid5
+/dev/mapper/almacen01-volog01     ext4   2,9G   24K  2,8G   1% /mds/vollvm
+
+root@secos:~# btrfs-convert /dev/volalmacen01/volog01 
+
+btrfs-convert from btrfs-progs v5.16.2
+
+ERROR: /dev/almacen01/volog01 is mounted
+root@secos:~# umount /mds/vollvm/
+root@secos:~# btrfs-convert /dev/almacen01/volog01 
+
+btrfs-convert from btrfs-progs v5.16.2
+
+Source filesystem:
+  Type:           ext2
+  Label:          
+  Blocksize:      4096
+  UUID:           2c69ada1-ad0a-4343-b84a-f11a2844b071
+Target filesystem:
+  Label:          
+  Blocksize:      4096
+  Nodesize:       16384
+  UUID:           4f39d1a7-c02b-42f5-a793-89757ee640ae
+  Checksum:       crc32c
+  Features:       extref, skinny-metadata, no-holes (default)
+    Data csum:    yes
+    Inline data:  yes
+    Copy xattr:   yes
+Reported stats:
+  Total space:      3221225472
+  Free space:       2917924864 (90.58%)
+  Inode count:          196608
+  Free inodes:          196597
+  Block count:          786432
+Create initial btrfs filesystem
+Create ext2 image file
+Create btrfs metadata
+Copy inodes [o] [         2/        11]
+
+Conversion complete
+
+root@secos:~# mount /mds/vollvm/
+mount: /mds/vollvm: can't find UUID=2c69ada1-ad0a-4343-b84a-f11a2844b071.
+root@secos:~# vi /etc/fstab
+root@secos:~# mount /mds/vollvm/
+root@secos:~# df -Th
+
+Filesystem                        Type   Size  Used Avail Use% Mounted on
+tmpfs                             tmpfs  393M  1,3M  392M   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv ext4    12G  5,2G  5,5G  49% /
+tmpfs                             tmpfs  2,0G     0  2,0G   0% /dev/shm
+tmpfs                             tmpfs  5,0M     0  5,0M   0% /run/lock
+/dev/sda2                         ext4   2,0G  127M  1,7G   7% /boot
+tmpfs                             tmpfs  393M  4,0K  393M   1% /run/user/1000
+/dev/md0                          ext4   5,9G   24K  5,5G   1% /mds/raid0
+/dev/md1                          ext4   2,0G   24K  1,9G   1% /mds/raid1
+/dev/md3                          ext4   3,9G   24K  3,7G   1% /mds/raid5
+/dev/mapper/almacen01-volog01     btrfs  3,0G  122M  2,9G   5% /mds/vollvm
+
+root@secos:~# cd /mds/raid0/; dd if=/dev/zero of=./discovirtaulual.vdi bs=4M count=1000 status=progress
+
+1719664640 bytes (1,7 GB, 1,6 GiB) copied, 1 s, 1,7 GB/s
+2902458368 bytes (2,9 GB, 2,7 GiB) copied, 2 s, 1,5 GB/s
+1000+0 records in
+1000+0 records out
+4194304000 bytes (4,2 GB, 3,9 GiB) copied, 2,69393 s, 1,6 GB/s
+
+root@secos:# mkfs.btrfs ./discovirtatual.vdi 
+
+btrfs-progs v5.16.2
+See http://btrfs.wiki.kernel.org for more information.
+
+NOTE: several default settings have changed in version 5.15, please make sure
+      this does not affect your deployments:
+      - DUP for metadata (-m dup)
+      - enabled no-holes (-O no-holes)
+      - enabled free-space-tree (-R free-space-tree)
+
+Label:              (null)
+UUID:               f1d1fbac-06c1-42a3-8143-92347cb403c4
+Node size:          16384
+Sector size:        4096
+Filesystem size:    3.91GiB
+Block group profiles:
+  Data:             single            8.00MiB
+  Metadata:         DUP             256.00MiB
+  System:           DUP               8.00MiB
+SSD detected:       no
+Zoned device:       no
+Incompat features:  extref, skinny-metadata, no-holes
+Runtime features:   free-space-tree
+Checksum:           crc32c
+Number of devices:  1
+Devices:
+   ID        SIZE  PATH
+    1     3.91GiB  ./discovirtual.vdi
+
+root@secos:~# mkdir /mds/virtual && mount /mds/raid0/discovirtual.vdi /mds/virtual
+
+root@secos:~# df -Th
+
+Filesystem                        Type   Size  Used Avail Use% Mounted on
+tmpfs                             tmpfs  393M  1,3M  392M   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv ext4    12G  5,2G  5,5G  49% /
+tmpfs                             tmpfs  2,0G     0  2,0G   0% /dev/shm
+tmpfs                             tmpfs  5,0M     0  5,0M   0% /run/lock
+/dev/sda2                         ext4   2,0G  127M  1,7G   7% /boot
+tmpfs                             tmpfs  393M  4,0K  393M   1% /run/user/1000
+/dev/md0                          ext4   5,9G  4,0G  1,6G  72% /mds/raid0
+/dev/md1                          ext4   2,0G   24K  1,9G   1% /mds/raid1
+/dev/md3                          ext4   3,9G   24K  3,7G   1% /mds/raid5
+/dev/mapper/almacen01-volog01     btrfs  3,0G  122M  2,9G   5% /mds/vollvm
+/dev/loop2                        btrfs  4,0G  3,6M  3,4G   1% /mds/virtual
+
+root@secos:~# umount /mds/virtual && umount /mds/raid0 && umount /mds/raid0 && umount /mds/raid5
+
+root@secos:~#btrfs-convert /dev/md0 
+
+btrfs-convert from btrfs-progs v5.16.2
+
+Source filesystem:
+  Type:           ext2
+  Label:          
+  Blocksize:      4096
+  UUID:           4c7283e8-9c50-4fc2-b792-daa912e34df2
+Target filesystem:
+  Label:          
+  Blocksize:      4096
+  Nodesize:       16384
+  UUID:           c3313a9f-3fda-4a83-95d2-732a76cc307d
+  Checksum:       crc32c
+  Features:       extref, skinny-metadata, no-holes (default)
+    Data csum:    yes
+    Inline data:  yes
+    Copy xattr:   yes
+Reported stats:
+  Total space:      6433013760
+  Free space:       2008547328 (31.22%)
+  Inode count:          393216
+  Free inodes:          393204
+  Block count:         1570560
+Create initial btrfs filesystem
+Create ext2 image file
+Create btrfs metadata
+Copy inodes [o] [         0/        12]
+
+Conversion complete
+root@secos:~# btrfs-convert /dev/md1
+
+btrfs-convert from btrfs-progs v5.16.2
+
+Source filesystem:
+  Type:           ext2
+  Label:          
+  Blocksize:      4096
+  UUID:           d26a2b9c-3a30-4e52-87b0-8858496dfbeb
+Target filesystem:
+  Label:          
+  Blocksize:      4096
+  Nodesize:       16384
+  UUID:           3f7ff324-8c71-4c86-a058-f1cd7264a751
+  Checksum:       crc32c
+  Features:       extref, skinny-metadata, no-holes (default)
+    Data csum:    yes
+    Inline data:  yes
+    Copy xattr:   yes
+Reported stats:
+  Total space:      2144337920
+  Free space:       1908146176 (88.99%)
+  Inode count:          131072
+  Free inodes:          131061
+  Block count:          523520
+Create initial btrfs filesystem
+Create ext2 image file
+Create btrfs metadata
+Copy inodes [o] [         2/        11]
+
+Conversion complete
+root@secos:~# btrfs-convert /dev/md5
+
+btrfs-convert from btrfs-progs v5.16.2
+
+ERROR: mount check: cannot open /dev/md5: No such file or directory
+ERROR: could not check mount status: No such file or directory
+root@secos:~# btrfs-convert /dev/md3
+
+btrfs-convert from btrfs-progs v5.16.2
+
+Source filesystem:
+  Type:           ext2
+  Label:          
+  Blocksize:      4096
+  UUID:           280c68e7-4e5b-446c-a8b0-ec8410f18def
+Target filesystem:
+  Label:          
+  Blocksize:      4096
+  Nodesize:       16384
+  UUID:           aafee22a-dd62-48f6-b0de-3b6786767ac3
+  Checksum:       crc32c
+  Features:       extref, skinny-metadata, no-holes (default)
+    Data csum:    yes
+    Inline data:  yes
+    Copy xattr:   yes
+Reported stats:
+  Total space:      4288675840
+  Free space:       3917086720 (91.34%)
+  Inode count:          262144
+  Free inodes:          262133
+  Block count:         1047040
+Create initial btrfs filesystem
+Create ext2 image file
+Create btrfs metadata
+Copy inodes [o] [         2/        11]
+
+Conversion complete
+
+root@secos:~# mountall -a
+
+mount: /mds/raid0: can't find UUID=4c7283e8-9c50-4fc2-b792-daa912e34df2.
+mount: /mds/raid1: can't find UUID=d26a2b9c-3a30-4e52-87b0-8858496dfbeb.
+mount: /mds/raid5: can't find UUID=280c68e7-4e5b-446c-a8b0-ec8410f18def.
+root@secos:~# sed -i '/^UUID/d' /etc/fstab 
+
+root@secos:~# btrfs filesystem show
+
+Label: none  uuid: 4f39d1a7-c02b-42f5-a793-89757ee640ae
+	Total devices 1 FS bytes used 118.53MiB
+	devid    1 size 3.00GiB used 324.15MiB path /dev/mapper/almacen01-volog01
+
+Label: none  uuid: c3313a9f-3fda-4a83-95d2-732a76cc307d
+	Total devices 1 FS bytes used 4.09GiB
+	devid    1 size 5.99GiB used 4.16GiB path /dev/md0
+
+Label: none  uuid: 3f7ff324-8c71-4c86-a058-f1cd7264a751
+	Total devices 1 FS bytes used 70.39MiB
+	devid    1 size 2.00GiB used 260.15MiB path /dev/md1
+
+Label: none  uuid: aafee22a-dd62-48f6-b0de-3b6786767ac3
+	Total devices 1 FS bytes used 144.60MiB
+	devid    1 size 3.99GiB used 389.28MiB path /dev/md3
+
+root@secos:~# echo "UUID=c3313a9f-3fda-4a83-95d2-732a76cc307d /mds/raid0/ btrfs defaults 0 2" >> /etc/fstab 
+root@secos:~# echo "UUID=3f7ff324-8c71-4c86-a058-f1cd7264a751 /mds/raid1/ btrfs defaults 0 2" >> /etc/fstab
+root@secos:~# echo "UUID=aafee22a-dd62-48f6-b0de-3b6786767ac3 /mds/raid5/ btrfs defaults 0 2" >> /etc/fstab
+root@secos:~# mountall -a
+root@secos:~# df -ht btrfs
+
+Filesystem                     Size  Used Avail Use% Mounted on
+/dev/mapper/almacen01-volog01  3,0G  122M  2,9G   5% /mds/vollvm
+/dev/md3                       4,0G  148M  3,9G   4% /mds/raid5
+/dev/md1                       2,0G   74M  1,9G   4% /mds/raid1
+/dev/md0                       6,0G  4,1G  1,9G  69% /mds/raid0
+
+
+exit
+
+Script done on 2022-12-17 16:17:27+00:00 [COMMAND_EXIT_CODE="0"]

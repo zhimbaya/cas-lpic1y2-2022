@@ -1,0 +1,14 @@
+Redirección de X sobre ssh
+CLIENTE
+ForwardX11 yes /etc/ssh/ssh_config o .ssh/config
+
+SERVER
+X11Forwarding yes /etc/ssh/sshd_config
+xauth instalado
+
+Procedimiento
+ssh -v -X servidor-ssh # comprobar Requesting X11 Forwarding
+
+verificar con un 
+xterm & 
+o algo similar

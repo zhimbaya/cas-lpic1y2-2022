@@ -403,3 +403,186 @@ tasksel
 `netstat -an | grep 3389` (mirar si esta el puerto abierto)
 
 - apt install 
+
+## 14/2/2022
+
+- `ifdown interface`
+- `ifup interface`
+- `ip link set interface up/down`
+  EN CASO DE FALLO DE LA INSTALACIÓN DEL ENTORNO GRÁFICO Y SE APIPA.
+- `systemctl stop|disabled NetworkManager.service` (funciona con nmtui)
+- `systemctl start networking`
+- `ifdown enp0s3`
+- `ifup enp0s3`
+- dpkg-reconfigure ssdm
+  Instalar con Fedora una caja o sistema operativo virtualizado.
+- systemctl stop ufw.service (paramos el firewall)
+- `apt install x11vnc` (instalamos el demonio)
+- `ufw allow 5900/tcp` (se habilita el puerto)
+- `x11vnc -auth guess` (correr el servidor remoto)
+- `netstat -na | grep 5900` (mirar si esta escuchado)
+
+```
+Redirección de X sobre ssh
+CLIENTE
+ForwardX11 yes /etc/ssh/ssh_config o .ssh/config
+
+SERVER
+X11Forwarding yes /etc/ssh/sshd_config
+xauth instalado
+
+Procedimiento
+ssh -v -X servidor-ssh # comprobar Requesting X11 Forwarding
+
+verificar con un 
+xterm & 
+o algo similar
+```
+
+apt install xterm
+dpkg-reconfigure gdm3 (seleccionar el gestor de inicio o session)
+
+## 15/12/2022
+
+__Discos__
+
+- fdisk
+- sfdisk
+- RAID
+- RAID 5
+  __Volumenes__
+- Físicos -> Discos
+- Vomumens -> agrupaciones
+- Lógicos
+- fdisk (crar 5 particiones)
+- sfdisk -d /dev/sdb > partsdb (crea un volcado de las particiones que hemos creado)
+- fdisk -I (también se puede crear)
+- sfdisk /dev/sdc < partsdb (creamos las particiones en el disco c)
+- mdadm -C /dev/md/r0 -l0 -n3 /dev/sdb1 /dev/sdc1 /dev/sdd1 (creamos un raid tipo 0)
+- cat /proc/mdstat
+- mkfs.ext4 /dev/md/r0 ()
+- mkdir /meta (crear un directorio para montar)
+- mount /dev/md/r0 /meta/raid0 (montamos)
+- cat /dev/disk/by-uuid/e9f73f6b-42aa-4916-8b61-e35655936971 (pseudo sistema de ficheros)
+- echo "/dev/disk/by-uuid/e9f73f6b-42aa-4916-8b61-e35655936971 /meta/raid0 ext4 defaults 0 2" >> /etc/fstab
+- vi /etc/fstab
+- umount /meta/raid0
+- mount /meta/raid0
+- mdadm -C /dev/md/r1 -l1 -n2 /dev/sdb2 /dev/sdc2
+- mkfs.ext4 /dev/md/r1
+- mount /dev/md/r1 /meta/raid1/
+- mdadm -C /dev/md/r5 -l5 -n3 /dev/sdb3 /dev/sdc3 /dev/sdd3
+- mkfs.ext4 /dev/md/r5
+- echo "UUID=33f798af-763f-4abb-97e4-7f073851b966 /meta/raid5 ext4 defaults 0 2" >> /etc/fstab (dump chequeo)
+- mount /meta/raid5
+- umount /meta/raid5
+  __NUBE__
+- https://app.vagrantup.com/boxes/search (descargar vagrant)
+- https://developer.hashicorp.com/vagrant/downloads (vagrants ya hechos y configurados)
+
+## 16/12/2022
+
+- `df -Th` (ver los discos)
+- `mdadm -Dvs` (lista los raids)
+- `mdadm -D /dev/md/secos\:r1` (información de los tipos de array creados)
+- `mdadm /dev/md/secos\:r1 - f /dev/sdc2` (provocamos un fallo)
+- `mdadm /dev/md/secos\:r1 -remove /dev/sdc2` (quitamos el disco que falla)
+- `mdadm /dev/md/secos\:r1 -a /dev/sdd2` (se añade el disco)
+- `mdadm /dev/md/secos\:r1 -a /dev/sdc2` (se añade el disco como repuesto | emergencia - spare)
+- `dd if=/dev/zero of=/dev/sdb1 bs=4M count=10`
+- `mdadm -Dvs >> /etc/mdadm/mdadm.conf` (introducir la configuración de los raids en el archivo de conf)
+- mdadm -C /dev/md/r1_0 -l1 -n2 /dev/sdb4 /dev/sdc4
+- mdadm -C /dev/md/r1_1 -l1 -n2 /dev/sdd4 /dev/sde4
+- mdadm -C /dev/md/r0_0 -l0 -n2 /dev/md/r1_0 /dev/md/r1_1
+- watch cat /proc/mdstat
+- wipefs (borrado)
+- mdadm -S /dev/md/r0_0 (paramos los metadispositivos)
+- mdadm --zero-superblock /dev/sd[bcde]4 (nos cargamos los superbloques)
+- mdadm -S /dev/md127 (para el radi0)
+- wipefs -af /dev/sd[bcd]1 (borramos)
+- lv (logicos)
+- vg (volúmenes)
+- pv (particiones)
+- pvdisplay
+- pvcreate /dev/sdc4
+- vgcreate volumen01 /dev/sdb4 /dev/sdb5 /dev/sdc4
+- vgdisplay
+- vgs
+- lvcreate -L+2G volumen01
+- lvcreate -L 1G -n lv_linear vg-01
+- lvrename (se puede renombrar)
+- mkfs.ext4 /dev/volumen01/lvol0 (se da formato)
+- lvextend -L+1G /dev/volumen01/lvol0 (se agrega espacio)
+- No crece el sistema de ficheros
+- resize2fs /dev/mapper/volumen01-lvol0 (se redimensiona el sistema de fichero - manual)
+  __Openstack__
+- /opt/stack/devstack# ./unstack.sh && ./stack.sh
+- `vagrant init ubuntu/trusty64`
+- `vagrant up`
+- `vagrant ssh`
+
+## 19/12/2022
+
+- mdadm --zero-superblock /dev/sd[bcde]4
+  __Creamos un fichero como un disco__
+- `/meta/raid5# dd if=/dev/zero of=./dsk.disk bs=4M count=500`
+- `mkfs.btrfs ./dsk.disk`
+- `mount ./dsk.disk /mnt/ `
+
+____
+
+- mkdir /meta/BBDD
+- mkfs.btrfs -d raid1 -m raid1 /dev/sdc5 /dev/sdd5
+- mount /dev/sdc5 /meta/BBDD/
+- umount /meta/BBDD/
+- btrfs filesystem show
+- btrfs device scan
+- mkfs.btrfs -f /dev/sdc5 /dev/sdd5
+- btrfs device add -f /dev/sde5 /meta/BBDD/
+- btrfs subvolume create /meta/BBDD/nodejs
+- btrfs subvolume create /meta/BBDD/oracle
+- btrfs subvolume snapshot /meta/BBDD/oracle/ /meta/BBDD/.orasnaphot
+  __Virtualización__
+- app -> virtualbox hypervisor
+  
+  |so so so|
+  
+  | hypervisor |
+  
+  | hardware |
+  
+  | Vmware |
+- qemu (**QEMU** es un emulador genérico y de código abierto de máquinas virtuales)
+- instalación de máquinas virtuales con qemu
+  __Vagranfile__
+- Ver manual de comandos
+- `vagrant fichero` (aprovisionamos o creamos las máquinas)
+- `vagrant status` (vemos las máquinas)
+- y vemos en virtualbox las tres maquinas
+- `vagrant ssh master` (nos conectamos al vagrant master por ssh)
+
+## 20/12/2022
+
+- Metodos de virtualización
+
+- vmare 
+
+- paravirtualización ()
+  
+  __Contenedores__
+
+- Fichero: Vagrant_provision (mirar)
+
+- Modificar Vagranfile para aprovisionar
+
+- `vagrant up` ( con el nuevo fichero modificado)
+
+- `curl localhost` (agente de http)
+
+- En Secos.mv
+
+- Fichero: instalar_docker
+
+- https://hub.docker.com/
+
+- 

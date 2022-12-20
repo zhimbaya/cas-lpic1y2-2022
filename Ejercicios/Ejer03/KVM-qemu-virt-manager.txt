@@ -1,0 +1,23 @@
+grep -E  '(vmx|svm)' /proc/cpuinfo
+
+apt update 
+apt install qemu-kvm 
+libvirt-clients 
+libvirt-daemon-system 
+bridge-utils 
+virtinst 
+libvirt-daemon
+
+apt install virt-manager
+virsh net-list --all
+virsh net-start default
+modprobe vhost_net
+
+virt-install --name=antixpelado --vcpus=1 --memory=1024 --cdrom=./antiX-22-net.iso --disk size=8 --os-variant=debian10
+
+
+
+ejecutar virt-manager
+
+
+
