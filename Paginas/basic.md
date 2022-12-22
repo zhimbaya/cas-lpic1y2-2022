@@ -191,7 +191,7 @@ __Variables__
   - `nombre=$1` (variables dinámicas)
   - `$n`(muetra el parámetro)
   - `$#` (cuenta el nº de parametros enviados)
-  - `$@`(cuenta todo)
+  - `$@`(muestra todo)
   - `$*` (muestra todos los parámetros)
   - `read -p " texto " name` (en tiempo de ejecución) (declarar antes la varibales)
   - `echo " " ` (imprime)
@@ -228,7 +228,7 @@ __Variables__
 - `ps -ef` (muestra los procesos)
 - `man signal` (muestra los diferentes tipos de señales)
 - `kill -9 pid` (comando que mata un proceso)
-- (SIGHUP 1 , SIGINT 2, SIGQUIT 3, SIGKILL 9, SIGALRM 14,SIGTERM 15, SIGTSTP 20)
+- (SIGHUP 1 , SIGINT 2, SIGQUIT 3, SIGKILL 9, SIGALRM 14, SIGTERM 15, SIGTSTP 20)
 - `sleep 100 &` (se duerme o se produce un delay de 100 milesegundos)
 - `vmstat` (muestra información de la memoria virtual)
 - `dmesg` (muetra los mensajes de error)
@@ -316,11 +316,11 @@ __Variables__
 - `alias nombre="cmd" ` (muestra los alias del usuario)
 - `unalias nombreAlias` (borra de memoria los alias)
 - `type` (muestra información de comando)
-  - `echo --version` , `/usr/bin/echo --versio` (comando interno o ejecutable)
+  - `echo --version` , `/usr/bin/echo --version` (comando interno o ejecutable)
   - (primero los alias (memoria), interno (binario), ejecutable (programa))
 - `whereis` (muestra más información que which)
-- `which -a comando` (muestra la ruta del comando o ejecutable)
-- `ps -ef --no-heading` (muestra los procesos quitando el head de la información)
+- `which -a comando` (muestr:a la ruta del comando o ejecutable)
+- `ps -aux --no-heading` (muestra los procesos quitando el head de la información)
 - ` hola mundo ` (contra comilla)
 - `set -o` (lista)  `set -+o noclobber` (opciones de la shell HEREDADAS)(evitar sobreescritura accidental)
 - ` . ` (punto) (se ejecute en el mismo proceso)
@@ -357,7 +357,7 @@ __Variables__
   - set expandtab
   - sysntax on
 - `apt list --installed` (paquetes instalados)
-- `pkg -l` (paquetes instalados)
-- `snap list´ (ver paquetes snap)
+- `dpkg -l` (paquetes instalados)
+- `snap list` (ver paquetes snap)
  
 ## 📅 MARTES 30 PREGUNTAS
