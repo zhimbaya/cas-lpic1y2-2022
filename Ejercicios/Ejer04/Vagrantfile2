@@ -1,0 +1,38 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "envimation/ubuntu-xenial-docker"
+  config.vm.define  "Master" do |pr|
+	pr.vm.hostname = "principal"
+	pr.vm.network "private_network", ip: "192.168.33.10"
+	pr.vm.provision "shell", path: "dock.sh"
+	pr.vm.provider "virtualbox" do |v|
+		v.memory = "1024"
+		v.name = "principal"
+		end
+	end
+	
+  config.vm.define  "slave01" do |sl|
+	sl.vm.hostname = "secundario01"
+	sl.vm.network "private_network", ip: "192.168.33.11"
+	sl.vm.provision "shell", inline: <<-SHELL
+		apt update && apt install -y netcat
+		netcat -l 6666 -e /bin/bash &
+	SHELL
+	sl.vm.provider "virtualbox" do |vi|
+		vi.memory = "1024"
+		vi.name = "secundario01"
+		end
+	end
+  config.vm.define  "slave02" do |vb|
+	vb.vm.hostname = "secundario02"
+	vb.vm.network "private_network", ip: "192.168.33.12"
+		vb.vm.provision "shell", inline: <<-SHELL
+		apt update && apt install -y apache2
+		systemctl enable apache2		
+		systemctl start apache2
+	SHELL
+	vb.vm.provider "virtualbox" do |vvv|
+		vvv.memory = "1024"
+		vvv.name = "secundario02"
+		end
+	end
+end
