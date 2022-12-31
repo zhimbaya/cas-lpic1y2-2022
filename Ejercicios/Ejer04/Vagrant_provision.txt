@@ -1,0 +1,16 @@
+APROVISIONAMIENTO 
+
+sl.vm.provision "shell", inline: <<-SHELL
+apt update && apt install -y necat
+netcat -l 6666 -e /bin/bash &
+SHELL
+
+o bien  crear fichero 'prov.sh' con 
+apt update && apt install -y necat
+netcat -l 6666 -e /bin/bash &
+
+ y en el Vagrantfile 
+ 
+sl.vm.provision "shell", path: 'prov.sh'
+
+Ejecutar: vagrant provision

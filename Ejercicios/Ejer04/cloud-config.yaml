@@ -1,0 +1,21 @@
+#cloud-config
+# Instalamos algunos paquetes:
+packages:
+  - net-tools
+
+preserve_hostname: false
+fqdn: debian11.local.priv
+hostname: debian11
+
+package_update: true
+package_upgrade: true
+
+timezone: Europe/Madrid
+# Crear un usuario y añadir clave pública ssh
+users:
+  - name: curso
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-rsa ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDs0nzXyyYKKk46KB6w7iVLVoKNn3cqNxFt1uZsMiSaPvJ+ob/EvS5wuSqri/wRqLve46GlmfP/8DUgmJn6rti4YqpsOmP8vq87MAgJarPaeEXfe+7cD4SNx+YrfpBjxy0uvgUw0kQwIWLmP+eqGwgUy2HmimOzxECRPBNlkjulqJHUo/v7Mz/2VYVryKWyiGPeaO/zO1JmiIeZKk62za7saZhB3x9UIyn3XmJSK6BAHTnLwPbcJAUbVzMdutatNs81t8iQ4SFR8d0s4h+UcG+aKbQPbsVCwLm1wg2vkPkCSBQZFmQz/2D1Uy0HO0AAj5F0++B8UgnDGRj9g+kR+6QVb4elc+sHti0rdnfcmdHL96yeBHR7ulD+7fBW0JIx74G2KgAEb1pV+BAJp9aJPLH/382Pg9a9legWBnm9ZRpDt8tPFCKNrNBjZKX1EoueM50HAVoNv+sZUpyLzLzuQrRZ/UYKo5m+pEST5eS32Z6mqTS9S3PBHkMG5RIHv5/fq30= curso@oopenstack
+
