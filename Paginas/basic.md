@@ -66,6 +66,7 @@
   - `apt instal lsd` (alternativa ls)
   - `apt install xq` (reemplaza a less)
 - `host -v nombre_host` (muestra las ip's y nombre de máquina)
+- `hostname -I`(muestra la ip)
 - `uname -a` (muestra la información del hardware y S.O)
 - `cat /etc/*relea*` (mirar nombre de la distribución)
 - `man hier` (muestra toda la información de cada directorio de archivo)
@@ -77,6 +78,8 @@
 - . , .. , ~ (virgulilla) , - , ^ (acento circunflejo)
 - usr (unix source)
 - `cd /ruta`(cambiar de directorio)
+- `cd ..` (directorio anterior)
+- `cd ../..` (directorio anterior, anterior)
 
 ## 📅 18/10/2022
 - `echo hola mundo` (imprime por pantalla)
@@ -120,6 +123,7 @@ __Modo ex__
 - q salir
 - w escribir
 - ! forzar
+- set
 ```
 - `column -s ":" -t /etc/passwd` (muestra el archivo en columnas)
 - stdin 0, stdout 1, stderr 2 (descriptores de ficheros)
@@ -148,7 +152,7 @@ __Modo ex__
 - `id` (muestra el id del usurio)
 - `date` (muestra la fecha)
 - `date +"Año: %Y, Mes: %m, Día: %d"` (muestra la fecha con este formato)
-__Variables__ 
+- __Variables__
 - `a=1; echo $a` (asignación de una variable e impresión por pantalla)
 - `env` (muestra las variables de entorno)
 - `echo $PATH` (muestra la información de la variable)
@@ -175,12 +179,17 @@ __Variables__
 - `\` (contra barra, sirve para escapar caractéres)
 - `ls [gz][rp]*` (lista desde un rango a otro)
 - `grep` (filtra)
-- `grep -icvrwh 'Model' /proc/cpuinfo`
-- (h = elimina ruta, v = excepto , i = ignora mayus , c = cuenta , r = recursivo, w = palabra específica)
+- `grep -i 'Model' /proc/cpuinfo` (i = ignora mayus)
+- `grep -c 'Model' /proc/cpuinfo` (c = cuenta)
+- `grep -v 'Model' /proc/cpuinfo` (v = excepto)
+- `grep -r 'Model' /proc/cpuinfo` (r = recursivo)
+- `grep -w 'Model' /proc/cpuinfo` (w = palabra específica)
+- `grep -h 'Model' /proc/cpuinfo` (h = elimina ruta)
 - `^ ` (acento circunflejo que nos dice que empiece)
 - `/dev/null` (ruta donde no hay nada)
 - `ssh user@ip -p` (conexión shh y puerto)
-- bash (CLI con el que estamos trabajando) `echo $0` (muestra el bash utilizado)
+- bash (CLI con el que estamos trabajando) 
+- `echo $0` (muestra el bash utilizado)
 - __$(comando)__ (variable que guarda lo que el comando muestra)
 
 ## 📅 20/10/2022
