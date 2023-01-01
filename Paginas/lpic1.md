@@ -1,13 +1,11 @@
 # LPIC 1 (110h) 22d 25/10/22-25/11/22
 
 ## DISEÑO DE ARQUITECTURA DEL SISTEMA (LPIC1-101)
-
 1. Determinación y configuración de los ajustes de hardware
 2. Boot del sistema
 3. Cambio de los niveles de ejecución, boot selectivo, apagar o reiniciar el sistema
 
 ## INSTALACIÓN DE LINUX Y GESTIÓN DE PAQUETES (LPIC1-101)
-
 4. Configuración del disco de almacenamiento
 5. Instalación de la gestión del boot
 6. Gestión de las bibliotecas compartidas
@@ -16,7 +14,6 @@
 9. Virtualización con Linux
 
 ## EJECUCIÓN DE COMANDOS GNU E UNIX (LPIC1-101)
-
 10. Trabajo en la línea de comandos
 11. Procesamiento de flujos de texto mediante filtros
 12. Realización de la gestión básica de archivos
@@ -27,7 +24,6 @@
 17. Edición básica de archivos
 
 ## ESPECIFICACIONES SOBRE DISPOSITIVOS, SISTEMAS DE ARCHIVOS LINUX, ESTÁNDAR DE JERARQUÍA DE SISTEMAS DE ARCHIVOS (LPIC1-101)
-
 18. Creación de particiones y sistemas de archivos
 19. Mantenimiento de la integridad de los sistemas de archivos
 20. Control del montaje y desmontaje de los sistemas de archivos
@@ -39,50 +35,42 @@
 26. Personalización y uso de scripts sencillos
 
 ## INTERFACES DE USUARIO Y ESCRITORIOS (LPIC1-102)
-
 27. Instalación y configuración X11
 28. Escritorios gráficos
 29. Accesibilidad
 
 ## ESPECIFICACIONES SOBRE TAREAS ADMINISTRATIVAS (LPIC1-102)
-
 30. Administración de cuentas de usuario y de grupo y los archivos de sistema relacionados con ellas
 31. Automatización tareas administrativas del sistema mediante la programación de trabajos
 32. Localización e internacionalización
 
 ## IDENTIFICACIÓN DE LOS SERVICIOS ESENCIALES DEL SISTEMA (LPIC1-102)
-
 33. Mantenimiento hora del sistema
 34. Registros del sistema
 35. Conceptos básicos del Agente de Transferencia de Correo
 36. Gestión de la impresión y de las impresoras
 
 ## IDENTIFICACIÓN DE LOS FUNDAMENTOS DE REDES (LPIC1-102)
-
 37. Fundamentos de los protocolos de Internet
 38. Configuración de red persistente
 39. Resolución de problemas básicos de red
 40. Configuración DNS en el lado del cliente
 
 ## CONFIGURACIÓN Y ADMINISTRACIÓN SEGURIDAD (LPIC1-102)
-
 41. Tareas de administración de seguridad
 42. Configuración de la seguridad del sistema
 43. Protección de datos mediante cifrado
 
 ## 📅 LPIC 1
-
 ricardo.instructor.formacion@gmail.com
 
 ## 📅 26/10/2022
-
 - Teoria de sistema operativo
-- scp origen destino (curso@10.1.1.151:/home/curso)
-- /etc/ssh/sshd_config
-- systemctl restart sshd
+- `scp origen destino` (curso@10.1.1.151:/home/curso)
+- `/etc/ssh/sshd_config` (fichero de configuración de ssh)
+- `systemctl restart sshd` (reiniciar el demonio)
 
 ## 📅 27/10/2022
-
 - Hardware compatible
 - Distribución
 - Ver instalación
@@ -101,13 +89,12 @@ ricardo.instructor.formacion@gmail.com
 
 - Instalar guest addition en debian
 - Crear una carperta compartida en virtualbox
-- `lsblk` (lista los directorios del sistema)
-- `mount origen /mnt` (destino) (monta el directorio en la ruata indicada)
+- `lsblk -p` (lista los directorios del sistema)
+- `mount origen destino` (monta el directorio en la ruta indicada)
 - `apt install gcc make perl` (instalación de paquetes necesarios)
 - `umount /mnt` (desmonta el directorio)
 
 ## 📅 02/11/2022
-
 - __PAQUETES__
 - `rpm` (gestor redhat)
 - `rpm -ivh paquete.rpm` (instalar, verbose, marcas #)
@@ -133,11 +120,12 @@ ricardo.instructor.formacion@gmail.com
 - `apt install alien` (app que convierte un tipo de paquete .rpm a otro .deb)
 - `/var/lib/rpm - /var/lib/dpkg` (rutas de los diferentes paquetes)
 - __Repositorios__
+- main , contrib, mon-free
 - `/etc/yum.repos.d/centos.repo` (fichero de repositorios de centos)
 - `/etc/apt/sources.list` (fichero de repositorios de debian)
 - `apt update && apt upgrade` (actualización y upgrdate)
 - `apt install paquete`
-- `apt install –reinstall paquete`
+- `apt install --reinstall paquete`
 - `apt full-upgrade`
 - `apt remove paquete`
 - `apt purge paquete`
@@ -145,54 +133,41 @@ ricardo.instructor.formacion@gmail.com
 - `apt autoremove purge`
 - `apt search paquete`
 - `apt show paquete`
-- `apt-get clean`
+- `apt clean`
 - `apt autoclean`
+- __Alma__
 - `dnf install hwinfo` (información del hw del sistema)
 - `hwinfo --short` (información corta)
 - dnf | more
 - `dnf search sensor` (sensor de movimiento)
 - `dnf install lm_sensors`
 - `dnf install dmidecode`
-- `apt install lm_sensors`
-- `apt search sensors` (No es posible porque no tenemos hardwar) No tiene el path
-- main , contrib, mon-free
-- 'dnf install yum-utils`
+- `dnf install yum-utils`
+- `apt search sensors` (No es posible porque no tenemos hardware) No tiene el path
 - `apt install aptitude` (otro gestor de paquete mas lento familia debian)
 - aptitude (desarrollado con ncurses)
 - `aptitude install cowsay` (la vaca que habla)
 - `find / -name cowsay`
 - `aptitude remove cowsay`
+- `aptitude sysvbanner`
 - zypper (gestor de paquetes de alma centos)
 - `/etc/zypp/repos.d` (archivo de repositorios de alma)
 - `zypper search refresh`
 - `zypper install hwinfo`
-- `aptitude sysvbanner`
 - `snap` (funciona con contenedores)
 
 ## 📅 03/11/2022
-
 - squashfs (sistema de ficheros)
-
 - `apt install squashfs-tools`
-
 - gdebi (gestor de paquetes gráfico)
-
 - gcc (compilador de C) C++ (orienta a objetos), make (ficheros 'makefile' ) necesitamos código fuente.
-
 - source code bash -> GNU Project (bash) -> github -> git
-
 - Source Forge ()
-
 - `bash --version` (versión de la bash)
-
 - instalar wget (sino esta instalado)
-
 - `wget https://ftp.gnu.org/gnu/bash/bash-5.2.tar.gz` (descargar archivo)
-
 - `dnf install gzip bzip2` (instalar apps)
-
 - __DEBIAN Y ALMA__
-
 - `tar zxvf fichero` (app para descomprimir) (no tiene guion)
 
 - ./configure --help
@@ -248,11 +223,9 @@ ricardo.instructor.formacion@gmail.com
 - `echo`
 
 - `type cd` (tipo de comando interno o ejecutable)
-
 - `alias echo="ls -l"` (alias)
 
 - ## 📅 04/11/2022
-
 - `type cat`
 
 - `type ls`
