@@ -198,13 +198,13 @@ __Modo ex__
   - `var=2`
   - `$(var)`
   - `nombre=$1` (variables dinámicas)
-  - `$n`(muetra el parámetro)
+  - `$n`(muestra el parámetro)
   - `$#` (cuenta el nº de parametros enviados)
   - `$@`(muestra todo)
   - `$*` (muestra todos los parámetros)
   - `read -p " texto " name` (en tiempo de ejecución) (declarar antes la varibales)
   - `echo " " ` (imprime)
-  - __`if (($var))[ $var ] then else fi`__
+  - __`if (($var))[ $var ]; then else fi`__
   - __`case $op in "A") ;; *) esac`__
   - `n=(1 2 3)` (array de nombre)
   - `rango=({A..Z})` (array de rangos)
@@ -235,6 +235,7 @@ __Modo ex__
 - `string /bin/bash` (muestra la información o permite la lectura de ficheros binarios)
 - `apt install lynx` (aplicación navegador web por terminal)
 - `ps -ef` (muestra los procesos)
+- `ps -aux` (procesos)
 - `man signal` (muestra los diferentes tipos de señales)
 - `kill -9 pid` (comando que mata un proceso)
 - (SIGHUP 1 , SIGINT 2, SIGQUIT 3, SIGKILL 9, SIGALRM 14, SIGTERM 15, SIGTSTP 20)
@@ -269,7 +270,9 @@ __Modo ex__
   - `/etc/network/interfaces`
   - `/etc/group`
   - `.bashrc , .profile`
-- `apt install finger` (paquete que muestra información sobre las terminales) `who -a`
+- `apt install finger` (paquete que muestra información sobre las terminales)
+- `who -a` (información de usuarios y terminales)
+- `w` (información de usuarios conectados)
 
 ## 📅 21/10/2022
 - `apt install info` (paquete que muestra información sobre un comando o sistema)
