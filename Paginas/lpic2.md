@@ -80,7 +80,6 @@
 40. OpenVPN
 
 ## 📅 29/11/2022
-
 - `date -s "01/01/1970 00:00" ` (no deja cambiar la hora al principio de todo)
 - `hwclock` (muetra el reloj del hardware)`
 - `ntp` (esta un poco en deshuso)
@@ -92,20 +91,29 @@
 - `ssh-keygen -f .ssh\known_hosts -R ip` (quitar la keygen) (windows)
 - Protocolo una serie de reglas de los RFCs
 - `/etc/chrony.conf/* ` (varios archivos de configuración)
-- __Parametros regionales__
-- `locale` (variables)
+- __Parámetros regionales__
+- `locale` (The system locale defines the language and country-specific setting for the programs running on your system and the shell sessions.)
 - `cat /etc/locale.conf` (fichero de configuración de locale de alma)
-- `dpkg-reconfigure locales` (configuración en debian)
+- `vi /etc/default/locale`(fichero configuración en debian)
+- `update-locale LANG=en_GB.utf8`
+- `dpkg-reconfigure locales` (configuración regional en debian, si queremos uno)
 - `dpkg-reconfigure tzdata` (configuración en debian del time zone)
+- `/etc/locale.gen`(si queremos varios)
+- `locale-gen` (actualizar una vez se ha editado el fichero anterior)
 - `ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime` (eliminar fichero y reemplazarlo por el de Madrid)(debian)
-- A 00000000 / 01111111 = 0 - 127 - 8 (mascara)
-- B 10000000 / 10111111 = 128 - 191 - 16 
-- C 11000000 / 11011111 = 192 - 223 - 24
-- D 111 MULTICAST
-- E 1111 EXPERIMENTACION
+- `localectl list-locales`(mirar locales)
+- `localectl set-locale LANG=es_CO` (se cambia)
+- `localectl status` (se comprueba)
+```
+   - A 00000000 / 01111111 = 0 - 127 / 8 (máscara)
+   - B 10000000 / 10111111 = 128 - 191 / 16 
+   - C 11000000 / 11011111 = 192 - 223 / 24
+   - D 111 MULTICAST
+   - E 1111 EXPERIMENTACION
+```
 - `bc <<< "obase=2;255" ` (calcular el binario)
 - [Ejercicios Bash](https://es.linux-console.net/?p=632#gsc.tab=0)
-- NAT (direcciones públicas y privadas)
+- NAT (network address translation | direcciones públicas y privadas)
 - 10/8
 - 172.16/12
 - 192.168/16
@@ -115,22 +123,30 @@
 - ip del route / nuestra ip , gateway , mascara , flag , ventanas, interfaz
 
 ## 📅 30/11/2022
-
-- Cambiar la ip automática a fija
+- Cambiar la ip automática a fija.
 - `vi /etc/network/interfaces`
 - `systemctl restart networking`
 - `vi /etc/NetworkManager/system-connections/enp0s3.nmconnection`
 - `systemctl status NetworkManager`
 - `nmtui` (interfaz de texto en alma)
 - `ip address add 10.1.1.205/24 dev enp0s3` (agregar ip, alma, momentanea)
-- 9
 - `ifconfig enp0s8 up` (alma, levantar la red)
 - `ifconfig enp0s8 down` (alma, desactivar la red)
 - `nmcli dev status` (alma, ver el estado de la red)
-- `sysctl` (ver configuración de la red)
-- system-connections (archivos de configuración de las redes en alma)
+- `sysctl` (ver configuración de la red, command allows you to view and change Linux kernel parameters.)
+- `sysctl -w kernel.sysrq="1"` (cambio de manera temporal)
+- `echo 1 > /proc/sys/kernel/sysrq` (temporal, como un router)
+- `sysctl -w net.ipv4.ip_forward=1`
+- `/etc/sysctl.conf` o `/etc/sysctl.d` (de manera permanente)
+- `sysctl -p /etc/sysctl.d/file_name.conf` (muestra los valores del fichero)
+- __system-connections__ (archivos de configuración de las redes en alma)
 - `cd /etc/NetworkManager/system-connections` (archivos que se han creado con la creación de la red)
-- `nmcli con mod "Conexión cableada 1" ipv4.method manual ipv4.addr "192.168.1.9/16" (colocar la ip manual en modo cmd)`
+- `nmcli device`
+- `nmcli connection show` (ver estado)
+- `nmcli dev status` (alma, ver el estado de la red)
+- `nmcli con mod "Conexión cableada 1" ipv4.method manual ipv4.addr "192.168.1.9/16" ` (colocar la ip manual en modo cmd)
+- `nmcli connection up connection_name`
+- `nmcli connection down connection_name`
 - `tracepath google.com` (va mostrando los números de saltos)
 - `apt install traceroute` (ver número de saltos)
 - `apt install nmap` (sniffer)
@@ -139,13 +155,21 @@
 - `vi /etc/protocols`
 - `getent services | grep 13` (que protocolo es)
 - `apt install xinetd` ( the extended Internet services daemon)
+- `ncat -l 80` (ver si el puerto esta en uso)
+- `ncat -v web.com 443` (host remoto puerto específico)
+- `ncat -l -u 161` (udp)
 - `nc -l -p 666` (se abre un puerto)
 - `nc localhost 17` (intento conectarme al puerto)
-- `nc -l - 666 -e /bin/bash` (una shell reverse)
-- `apt install apache2` ()
+- `nc -l -p 666 -e /bin/bash` (una shell reverse)
+- `mkfifo 2way`
+- `ncat -l 80 0<2way | ncat 192.168.0.200 80 1>2way` (crear un servidor proxy de ida y vuelta)
+- `ncat -u -l 80 -c  'ncat -u -l 8180' ` (redirección de puertos)
+- `apt install apache2` (servidor web)
+- `dnf install httpd` (alma)
+- `systemctl start httpd.service`
+- `systemctl enable httpd.service`
 
 ## 📅 01/12/2022
-
 - `dhclient -v` (asigna una ip)
 
 - `netplan apply` () 10.1.1. 208 (ubuntu server)
@@ -199,7 +223,6 @@ subnet 10.1.1.0 netmask 255.255.255.0 {
 - `sshd_config`
 - `apt install sshfs`
 ```
-
 10.1.1.111    cubo
 10.1.1.180    debian
 10.1.1.181    alma
@@ -219,10 +242,9 @@ subnet 10.1.1.0 netmask 255.255.255.0 {
 - `SSH_AUTH_SOCK=/tmp/ssh-XXXXXXPZGjBF/agent.1131; export SSH_AUTH_SOCK; SSH_AGENT_PID=1132; export SSH_AGENT_PID;` (en terminal)
 - `ssh alma` (nos solicita la palabra de paso)
 ```
-
 - `eval $(ssh-agent)` (para automatizar lo cargamos en el inicio de sesión del usuario)
 - `ssh-add`
-  ```
+```
 - `vi .agente` (y agrego el eval)
 - `chmod 755 .agente` (damos permisos de ejecución)
 - `vi .bashrc` ( . .agente) (agregar)
@@ -242,7 +264,7 @@ subnet 10.1.1.0 netmask 255.255.255.0 {
 - `/etc/bin/*` (más archivos de configuración del dominio)
 - `vi /etc/resolv.conf` (fichero de configuración de dns del cliente)(insertar el dominio)
 - `dig`
-- `` (dns raices)
+- `.` (dns raices)
 
 ## 09/12/2022
 
