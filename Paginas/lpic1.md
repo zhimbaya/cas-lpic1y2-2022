@@ -898,9 +898,11 @@ ricardo.instructor.formacion@gmail.com
 - `systemctl start rsyslog`
 - `vi /etc/rsyslog.conf` (archivo de configuración de rsyslog)
 - Aquí creamos nuestros propios log en `/var/log`
-```
-local1.* /var/log/milog.log
-```
+- local1.* /var/log/milog.log
+- `/etc/logrotate.d` (contiene ficheros de configuración de otras aplicaciones instaladas)
+- `logrotate -vf /etc/logrotate.conf` (ejecutar el comando manualmente)
+- `/etc/crontab` (aquí estan los logratated)
+- `/etc/cron.*`(cron diarios, semanales, ...)
 - __Niveles de recurso__
 ```
 0 (kernel - kern) mensajes del kernel
@@ -921,6 +923,16 @@ local1.* /var/log/milog.log
 15 (Clock)
 16 (local0) - 23 (local7)
 ```
+- __Niveles de serveridad__
+``` 
+    “emerg” (0)
+    ”alert” (1)
+    “crit” (2)
+    “warning” (4)
+    “notice” (5)
+    ”info” (6)
+    “debug” (7)
+```
 - [Como configurar un server centralizado](https://www.ochobitshacenunbyte.com/2018/10/29/registros-centralizados-en-linux-con-rsyslog/)
 - `recurso*8+nivel` (cálculo de nivel de prioridad)
 - Journal o diario
@@ -937,25 +949,12 @@ local1.* /var/log/milog.log
 - `journalctl /dev/sda2`
 - `journalctl -k -b`
 - `journalctl –n 7`
-- __Niveles de serveridad__
-``` 
-    “emerg” (0)
-    ”alert” (1)
-    “crit” (2)
-    “warning” (4)
-    “notice” (5)
-    ”info” (6)
-    “debug” (7)
-```
 - `journalctl -p 4` (ver información del sistema con prioridad 4)
 - `journalctl -f` (muestra los registros últimos, esta a la escucha)
 - `logger -p 0 ELFIN` (generar un error)
 - `echo "URGE" | systemd-cat -p emerg` (systemd-cat es parecido a logger)
 - `journalctl _[tab]` (muestra mas opciones)
-- `/etc/logrotate.d` (contiene ficheros de configuración de otras aplicaciones instaladas)
-- `logrotate -vf /etc/logrotate.conf` (ejecutar el comando manualmente)
-- `/etc/crontab` (aquí estan los logratated)
-- `/etc/cron.*`(cron diarios, semanales, ...)
+
 ## 📅 25/11/2022
 
 - Archivado y backup
