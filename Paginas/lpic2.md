@@ -133,13 +133,15 @@
 - `ifconfig enp0s8 up` (alma, levantar la red)
 - `ifconfig enp0s8 down` (alma, desactivar la red)
 - `nmcli dev status` (alma, ver el estado de la red)
+- `systemctl status systemd-networkd` (ubuntu netplan)
 - `sysctl` (ver configuración de la red, command allows you to view and change Linux kernel parameters.)
 - `sysctl -w kernel.sysrq="1"` (cambio de manera temporal)
 - `echo 1 > /proc/sys/kernel/sysrq` (temporal, como un router)
 - `sysctl -w net.ipv4.ip_forward=1`
 - `/etc/sysctl.conf` o `/etc/sysctl.d` (de manera permanente)
 - `sysctl -p /etc/sysctl.d/file_name.conf` (muestra los valores del fichero)
-- __system-connections__ (archivos de configuración de las redes en alma)
+- __system-connections__ 
+- Archivos de configuración de las redes en alma
 - `cd /etc/NetworkManager/system-connections` (archivos que se han creado con la creación de la red)
 - `nmcli device`
 - `nmcli connection show` (ver estado)
@@ -150,9 +152,9 @@
 - `tracepath google.com` (va mostrando los números de saltos)
 - `apt install traceroute` (ver número de saltos)
 - `apt install nmap` (sniffer)
-- `/etc/nsswitch.conf` 
+- `/etc/nsswitch.conf` (define el orden de búsqueda de las bases de datos de red, comutador de servicio de nombres)
 - `vi /etc/hosts` (agregar nombres de hosts)
-- `vi /etc/protocols`
+- `vi /etc/protocols` (se identifican todos los protocolos de transporte reconocidos junto a su número de protocolo y sus aliases)
 - `getent services | grep 13` (que protocolo es)
 - `apt install xinetd` ( the extended Internet services daemon)
 - `ncat -l 80` (ver si el puerto esta en uso)
@@ -170,23 +172,31 @@
 - `systemctl enable httpd.service`
 
 ## 📅 01/12/2022
-- `dhclient -v` (asigna una ip)
-
-- `netplan apply` () 10.1.1. 208 (ubuntu server)
-
-- [Cambiar de nombre](https://www.linuxadictos.com/cambiar-de-nombre-de-usuario.html)
-
-- [Mensajes DHCP](https://sites.google.com/site/sriasir20152016/dhcp/4-tipos-de-mensajes-dhcp)
-  
+- `dhclient -v` (asigna una ip, o muestra la información del servidor dhcp)
+- `dhclient -r` (renueva la ip)
+- `dhclient -k` (chekea la ip)
+- `vi /etc/netplan/00...) (configuración de red ubuntu)
+- `netplan try` (comprueba si esta bien)
+- `netplan apply` (aplica los cambios)
+- `ip a s eth0` (muestra y renueva la ip)
+- `/etc/resolv.conf`(resolución de nombres)
+- `systemctl start systemd-resolved` 
+- `systemctl enable systemd-resolved`
+- `hostnamectl` (ver nombre del equipo y más información interesante)
+- [Cambiar de nombre de usuario](https://www.linuxadictos.com/cambiar-de-nombre-de-usuario.html)
+- `usermod -l nuevo-nombre viejo-nombre` (cambiar de nombre)
+- `usermod -u UID username` (0-99 cambiar el uid)
+- `groupmod -n nuevo-nombre viejo-nombre` (cambiar de grupo)
+- `usermod -d /home/nuevo -m nuevo` (cambiar de directorio)
+- 
+ ![Tabla Mensaje dhcp](https://d7677e76-a-62cb3a1a-s-sites.googlegroups.com/site/sriasir20152016/dhcp/4-tipos-de-mensajes-dhcp/4.%20dhcp.jpg?attachauth=ANoY7crgMWW4yjgojKglSMFbn3EP0ojWFfoZVcq-YqdV4wvKFgA3uxBcxymUyenjtGFH_GuVwpcuf4ZokhUyxPj4ZlbE2gQM4kiDYGD20tJ1gtVKu63V3hiX6blS6UizFwRvlNtoIY5MWfdC0J1fdHQlkkbxaqdymI3uHOJelJuYhlDOQEFVzlq07Nbkgn70mYkECTtVQ4bJetzmfIFWwdg6x6_iopxHUOhjoA9t2wlkT99MIi2ZV_IpsKctSAULmuj0jJ9Y2iDx&attredirects=0)
   ```
   set tabstop=4 
   set shiftwidth=4 
   set expandtab
   set number
   ```
-
 - `cd /etc/xinetd.d/`
-
 - `apt install xinetd` ()
 
 - `dnf install nmap-ncat` (instala y crear socket alma)
