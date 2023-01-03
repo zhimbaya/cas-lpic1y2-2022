@@ -816,9 +816,8 @@ ricardo.instructor.formacion@gmail.com
 - `uname -a`
 
 ## 📅 23/11/2022
-
 - `apt install cups` (instalación del demonio de impresión)
-- `pgrep -a cups`(buscar el id de un demonio en concreto)
+- `pgrep -a cups` (buscar el id de un demonio en concreto)
 - `pgrep -u depruebas` (buscar el id de un usuario en concreto)
 - `kill -9 $(pgrep apache2)` (matar varios id de un servicio en concreto)
 - avahi-daemon (demonio que se instala con el servicio de impresión y es muy importante)
@@ -901,7 +900,7 @@ ricardo.instructor.formacion@gmail.com
 - local1.* /var/log/milog.log
 - `/etc/logrotate.d` (contiene ficheros de configuración de otras aplicaciones instaladas)
 - `logrotate -vf /etc/logrotate.conf` (ejecutar el comando manualmente)
-- `/etc/crontab` (aquí estan los logratated)
+- `vi /etc/crontab` (aquí estan los logratated)
 - `/etc/cron.*`(cron diarios, semanales, ...)
 - __Niveles de recurso__
 ```
@@ -953,14 +952,13 @@ ricardo.instructor.formacion@gmail.com
 - `journalctl -f` (muestra los registros últimos, esta a la escucha)
 - `logger -p 0 ELFIN` (generar un error)
 - `echo "URGE" | systemd-cat -p emerg` (systemd-cat es parecido a logger)
-- `journalctl _[tab]` (muestra mas opciones)
+- `journalctl _[tab]` (muestra más opciones)
 
 ## 📅 25/11/2022
-
 - Archivado y backup
 - `yum install cockpit` (cpanel ligero)
-- `sestatus`
-- `reloj`
+- sestatus
+- reloj
 - `hwclock`
 - `timedatectl`
 - `find /etc -name [ab]* -exec cp {} . \;`
