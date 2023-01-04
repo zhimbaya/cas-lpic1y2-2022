@@ -157,219 +157,160 @@ ricardo.instructor.formacion@gmail.com
 - `snap` (funciona con contenedores)
 
 ## 📅 03/11/2022
-- squashfs (sistema de ficheros)
+- squashfs (sistema de ficheros root de solo lectura, crea archivos de copia de seguridad de solo lectura altamente comprimidos de sistemas completos.)
+- [Copia de seguridad](https://killer-os-oficial.github.io/wiki/backup/squashfs/#reducir-una-partici%C3%B3n-con-mksquashfs)
 - `apt install squashfs-tools`
+- `mkfs.ext4 -L "root" -U "$(blkid -o value -s UUID /dev/sda5)" /dev/sda5`
 - gdebi (gestor de paquetes gráfico)
-- gcc (compilador de C) C++ (orienta a objetos), make (ficheros 'makefile' ) necesitamos código fuente.
+- gcc (compilador de C), make (ficheros 'makefile' ) necesitamos código fuente.
+- C++ (orienta a objetos)
 - source code bash -> GNU Project (bash) -> github -> git
 - Source Forge ()
 - `bash --version` (versión de la bash)
-- instalar wget (sino esta instalado)
+- `dnf install wget` (instalar wget, sino esta instalado)
 - `wget https://ftp.gnu.org/gnu/bash/bash-5.2.tar.gz` (descargar archivo)
+- - __DEBIAN Y ALMA__
 - `dnf install gzip bzip2` (instalar apps)
-- __DEBIAN Y ALMA__
 - `tar zxvf fichero` (app para descomprimir) (no tiene guion)
-
+```
+tar función  [modificador...]  [fichero...]
+-c	Crear un archivo
+-r	Añadir a un archivo
+-x	Extraer de un archivo
+-t	Listar los miembros de un archivo
+-u	Actualizar los miembros de un archivo si no existen o son más recientes  
+--delete	Eliminar miembros de un archivo
+-
+-v	Muestra información sobre la evolución del trabajo que está haciendo la orden tar.
+-f archivo	Indica cual va a ser el fichero que hará de archivo. Se le suele poner la extensión .tar.
+-f -	Hace que el archivo sea la entrada estándar o la salida estándar según la función con la que se trabaje.
+-z	Comprime a la vez que archiva. Usa gzip. A un archivo comprimido se le suele poner la extensión .tar.gz o tgz.
+-j	Comprime con bzip2.
+--totals	Muestra el total de bytes de los miembros con los que ha trabajado.
+-C directorio	Especifica el directorio donde extraer los miembros. Por defecto es el directorio de trabajo.
+-P	No quita la / del inicio de los nombres de los ficheros, por lo que guarda las rutas absolutas cuando estas se especifican así
+```
 - ./configure --help
-
-- Programación secuencial
-
+- __Programación secuencial__
 - README
-
 - ./configure -> makefile
-
 - make
-
 - ./bash --version
-
 - make install
-
 - `bash --version`
-
 - make unistall
-  ` #include <stdio.h> (cabecera)
+```
+#include <stdio.h> (cabecera)
   void main (void)
-  {
-  
+  { 
         printf("Hola mundo");
         return;
-  
-  } `
+  }
+ ```
 
 - `gcc -o file file.c` (compilar el script)
-
 - `./file` (ejecutar el script)
-
 - librerias lib lib64
-
 - `ldd` (ver de que librerias depende un comando)
-
-- `ldd /bin/bash` , `ldd /bin/wall`
-
+- `ldd -v test` (más info)
+- `ldd /bin/bash` 
+- `ldd /bin/wall`
 - `printenv` (imprime variables)
-
 - `ldconfig -p | more` (imprime la librerias actuales)
-
 - `pwd` (print working directory)
-
-- `usermod -a -G sudo`
-
+- [Usermod](https://www.zeppelinux.es/el-comando-usermod-modificar-usuarios-en-linux/)
+- `usermod -G sudo usuario` (cambia y borra , grupo secundario)
+- `usermod -a -G sudo usuario` (añade , grupo secundario)
+- `usermod -g sudo usuario` (cambia , grupo primario)
+- `groupadd filemon` (crear un grupo nuevo)
+- `usermod -l filemon -g filemon -d /home/filemon -m mortadelo`
+- `groupdel mortadelo`
 - `cal 19` (calendario)
-
 - `ncal` (calendario)
-
 - ` ; ` (separador de cmd)
-
-- `echo`
-
+- `echo hola; cal 2022`
 - `type cd` (tipo de comando interno o ejecutable)
-- `alias echo="ls -l"` (alias)
+- `alias echo="ls -l"` (se crea alias)
+- `alias` (listar los alias)
 
 - ## 📅 04/11/2022
 - `type cat`
-
 - `type ls`
-
 - `date +%s` (fecha en segundo desde 1970)
-
 - `alias fecha="date +%s" ` (se crea un alias)
-
 - `unalias nombre_alias` (elimina el alias)
-
 - `CTRL + z` (segundo plano)
-
-- `jobs, fg %1` (mirar los procesos que se ejecutan)
-
-- `history` (historial de la termina) `!12` (ejecutar el comando 12)
-
+- `jobs` (mirar los procesos que se ejecutan)
+- `fg %1` (recupero el proc)
+- `history` (historial de la terminal)
+- `!12` (ejecutar el comando 12)
 - `history -c`(limpia el historial)
-
-- `fc -l` (los utlimos comandos de history)
-
+- `fc -l` (los últimos comandos de history)
 - `fc -s w` (busca)
-
-- `rm -r *` (borrar recursivamente todo)
-
 - `.bash_history` (historia de comando)
-
 - `.bash_logout` (fichero para hacer cuando apaga)
-
 - `FCEDIT=nano` (guarda el editor por defecto pero en memoria)
-
 - __GESTION DE ARCHIVOS__
-
 - (-) (fichero regular), l (enlace simbólico), d (directorios) (organiza los ficheros)
-
 - s (sockets), P (tuberias) (se comunican los procesos) (/var/run)
-
 - c (archivos carácter) (sistemas de ficheros -> herramientas que reparan), b (archivos en bloque) -> /dev/sda
-
 - __SISTEMAS FICHEROS__
-
 - bin (ejecutables)
-
-- boot 
-
+- boot
 - dev 
-
 - etc (apt, configuración, ...)
-
 - home (usuarios)
-
 - lib 
-
 - lib64
-
 - mnt 
-
 - opt 
-
 - proc
-
 - usr (fuentes de unix)
-
 - sbin
-
 - sys (sistema hardware)
-
 - tmp
-
 - var (base de datos de repositorios, run (ejecutanto))
-
 - & ; ( ) ~ \ / | ? - (no utilizar)
-
 - `cd .` (misma ubicacion, ruta absoluta)
-
 - `cd ../` (ruta relativa)
-
 - `cd -` (regresa)
-
 - `ls -ld` (lista solo directorios)
-
-- `ls -Z` ()
-
+- `ls -Z` (imprime seguridad del fichero)
 - + (si aparece al final, lista control acceso)
-
-- . (al final )
-
+- punto . (al final )
 - `touch fichero` (cambia la fecha)
-
 - `mkfifo nombre` (crear ficheros tuberias ejemplo con bc)
-
 - `cp -aipr origen destino` (misma configuración, copiar pide permiso, hereda, recursivo)
-
 - `cp -ls origen destino` (crea un enlace duro, enlace simbolico)
-
 - `cp -vu` (mensaje al terminar, copia si es mas antiguo)
-
 - `cpio -i -o` (copia de entrada y salida de varias directorios)
-
 - `find /var/log/apache2/ | cpio -o > /tmp/apache2.cpio` (Empaquetar los archivos)
-
 - `find /etc/apache2/ | cpio -o > /tmp/apache2.cpio`
-
 - `cpio -tv < /tmp/apache2.cpio` (Ver el contenido de un archivo empaquetado)
-
 - `cpio -vid < /tmp/apache2conf.cpio` (desempaquetar)
-
+- `cpio -ov -H tar > archive` (crear .tar)
+- `cpio -iv -F < archive` (descomprimir .tar)
 - `mv fichero ruta` (mover)
-
 - `rm -ri ruta` (elimina recursiva, permiso)
-
+- `rm -r *` (borrar recursivamente todo)
 - `alias rm="rm -i"` (crear alias)
-
-- alias, interno, externo
-
+- alias, interno, externo (orden de búsqueda)
 - \ (backslash)
-
 - ` \ ` (salta el alias) `\rm fichero`
-
 - `ln -s archivo` (enlace simbólico)
-
 - `ls -F` (@ indicador con enlace simbolico, lista)
-
 - `* ? [ { ` (comodines)
-
 - " " ' ' (comillas simples y dobles)
-
 - `find -name -type -size -user -perm` (localizar informacion, ficheros , archivos) 
-
 - `find / -name "ba*" 2>/dev/null`
-
 - `find / -perm -2111 -exec stat {} \; 2>/dev/null` (exec placeholder, delimitador)
-
 - `type -a comando` (muestra ruta de los ejecutables)
-
 - `type -t comando` (muestra si es una función, alias, ejecutable, archiv)
-
 - `whereis date` (muestra ruta de los ejecutables)
-
 - `which -a comando` (muestra ruta de los ejecutables)
-
 - [Más información find](https://www.ionos.es/digitalguide/servidores/configuracion/comando-linux-find/?ac=OM.WE.WEo42K356300T7073a&itc=L0Q5C23R-FAC1E9-&utm_source=google&utm_medium=cpc&utm_campaign=SGE-ES-MYW-MIXX---PERFORMANCE_MAX---&utm_term=&matchtype=&utm_content=&gclid=Cj0KCQiAj4ecBhD3ARIsAM4Q_jFZ78sbaIRbbjBTHUuSR_4KBaNMCQpPGqpA1mJXwizusbsx4JwKkfYaAuAOEALw_wcB&gclsrc=aw.ds)
 
 ## 📅 07/11/2022
-
 - vi - :1,$s/BASH/bash/g (sustituye) (tres modos)
 - hacer ejercicios
 - 0 standar input, 1 stdout, 2 error standar
