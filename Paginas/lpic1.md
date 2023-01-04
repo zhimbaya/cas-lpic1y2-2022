@@ -169,7 +169,7 @@ ricardo.instructor.formacion@gmail.com
 - `bash --version` (versión de la bash)
 - `dnf install wget` (instalar wget, sino esta instalado)
 - `wget https://ftp.gnu.org/gnu/bash/bash-5.2.tar.gz` (descargar archivo)
-- - __DEBIAN Y ALMA__
+- __DEBIAN Y ALMA__
 - `dnf install gzip bzip2` (instalar apps)
 - `tar zxvf fichero` (app para descomprimir) (no tiene guion)
 ```
@@ -233,7 +233,7 @@ tar función  [modificador...]  [fichero...]
 - `alias echo="ls -l"` (se crea alias)
 - `alias` (listar los alias)
 
-- ## 📅 04/11/2022
+## 📅 04/11/2022
 - `type cat`
 - `type ls`
 - `date +%s` (fecha en segundo desde 1970)
@@ -323,19 +323,19 @@ tar función  [modificador...]  [fichero...]
 - `cat <<< "ljaljflkjsfl sdklfjlsjf" `
 - `cat /etc/hostname | tr 'd' 'D' > fichero`
 - `ls -l > archivo 2>&1` (&1 es archivo)
-- `wc < resultado > cuenta`
+- `wc -cmlw < resultado > cuenta`
 - `exec 3>&- `
 - descriptor (0 1 2)
 - `basename` (elimina  la  parte  de  directorios y sufijos de los nombres de archivos)
 - `dirname` (muestra la ruta de un archivo)
-- `grep ` (filtro)
+- `grep` (filtro)
 - `cat datos01 | grep "^[21]" ` ( [] <- esto es un O) ($ termina)
 - `cat datos01.txt | grep -o "\S*" `
 - `ip addr | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}\S*' `
 - `ip addr | grep -Eo '([0-9a-f]{1,2}\:){3}[0-9a-f]{1,2}\S*' | grep -v '^00' `
 - `sed -e 's/usuario/user/g' datos01.txt` (-i modifica) (busca y sustituye)
 - `sed -e '/^ *$/d' fichero` (quita lineas en blanco)
-- `cut -f1 -d ":" /etc/passwd` (muestra la fila 1)
+- `cut -f 1 -d : /etc/passwd` (muestra la fila 1)
 - `expand | unexpand -t 4 fichero` (convierte las tabulaciones en espacios)
 - `sort archivo` (ordena)
 - `uniq archivo` (elimina repetidos)
@@ -343,13 +343,14 @@ tar función  [modificador...]  [fichero...]
 - `paste file1 file2` (pega las filas de los archivos)
 
 ## 📅 8/11/2022
-
 - __Condicionales__
-- if condicion then comandos fi
-- case valor nº) comandos;; *) ;; esac
-- for variable in casos do comandos done
-- while condición true do comandos done
-- until condición false do comandos done
+```
+if condicion; then comandos fi
+case valor nº) comandos;; *) ;; esac
+for variable in casos do comandos done
+while condición true do comandos done
+until condición false do comandos done
+```
 - `cut -d: -f4 /etc/passwd | sort -n | uniq`
 - `rev archivo` (del reves)
 - `split -d -b 1k fichero log_` (divide el archivo numerado, en bloques de 1k) ( -n , número de partes)
@@ -364,9 +365,9 @@ tar función  [modificador...]  [fichero...]
 - `pv /boot/vmlinuz-5.10.0-19-amd64 | gzip > test.zip`
 - `sha512sum`
 - `kill -l` (lista las señales del sistema)
-- `kill -9 15 20`
+- `kill -9 15 20` (mata los procesos)
 - `ps -ef` (lista todos procesos del sistema)
-- `sleep 10000 &` (sleemp en segundo plano)
+- `sleep 10000 &` (sleep en segundo plano)
 - descriptores de ficheros (stdin, stdout, stderr)
 - `jobs` (procesos en segundo plano)
 - `ctrl + z`(se envia el proceso a segundo plano)
@@ -383,19 +384,18 @@ tar función  [modificador...]  [fichero...]
 - `shopt -u opción` (muestra opciones de la shell)
 - `set -o option` (cambia + - las opciones de la shell heredada)
 - && , || (and , or)
-- `env`(muestra las variables de entorno)
+- `env` (muestra las variables de entorno)
 - `set` (variable posicionales)
 - PATH=$PATH:/usr/sbin
-  -`for i in $(env); do echo "$i"; done`
-- bi() {pwd; env;}
+ -`for i in $(env); do echo "$i"; done`
+- `bi() {pwd; env;} `
 - `export`
-- `set a b ; echo $1 ; echo ${12}`
+- `set a b ; echo $1 ; echo ${12} `
 - `cho ${v:=-?} `
 - `PS1,PS2....`
 - `IFS`
 
 ## 📅 9/11/2022
-
 - `pkill`
 - `echo $$` (pid de la shell) 
 - `echo $?` (pid del proceso en segundo plano) 
