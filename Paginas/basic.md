@@ -66,6 +66,7 @@
   - `apt instal lsd` (alternativa ls)
   - `apt install xq` (reemplaza a less)
 - `host -v nombre_host` (muestra las ip's y nombre de máquina)
+- `hostname -I`(muestra la ip)
 - `uname -a` (muestra la información del hardware y S.O)
 - `cat /etc/*relea*` (mirar nombre de la distribución)
 - `man hier` (muestra toda la información de cada directorio de archivo)
@@ -77,6 +78,8 @@
 - . , .. , ~ (virgulilla) , - , ^ (acento circunflejo)
 - usr (unix source)
 - `cd /ruta`(cambiar de directorio)
+- `cd ..` (directorio anterior)
+- `cd ../..` (directorio anterior, anterior)
 
 ## 📅 18/10/2022
 - `echo hola mundo` (imprime por pantalla)
@@ -120,6 +123,7 @@ __Modo ex__
 - q salir
 - w escribir
 - ! forzar
+- set
 ```
 - `column -s ":" -t /etc/passwd` (muestra el archivo en columnas)
 - stdin 0, stdout 1, stderr 2 (descriptores de ficheros)
@@ -148,7 +152,7 @@ __Modo ex__
 - `id` (muestra el id del usurio)
 - `date` (muestra la fecha)
 - `date +"Año: %Y, Mes: %m, Día: %d"` (muestra la fecha con este formato)
-__Variables__ 
+- __Variables__
 - `a=1; echo $a` (asignación de una variable e impresión por pantalla)
 - `env` (muestra las variables de entorno)
 - `echo $PATH` (muestra la información de la variable)
@@ -175,12 +179,17 @@ __Variables__
 - `\` (contra barra, sirve para escapar caractéres)
 - `ls [gz][rp]*` (lista desde un rango a otro)
 - `grep` (filtra)
-- `grep -icvrwh 'Model' /proc/cpuinfo`
-- (h = elimina ruta, v = excepto , i = ignora mayus , c = cuenta , r = recursivo, w = palabra específica)
+- `grep -i 'Model' /proc/cpuinfo` (i = ignora mayus)
+- `grep -c 'Model' /proc/cpuinfo` (c = cuenta)
+- `grep -v 'Model' /proc/cpuinfo` (v = excepto)
+- `grep -r 'Model' /proc/cpuinfo` (r = recursivo)
+- `grep -w 'Model' /proc/cpuinfo` (w = palabra específica)
+- `grep -h 'Model' /proc/cpuinfo` (h = elimina ruta)
 - `^ ` (acento circunflejo que nos dice que empiece)
 - `/dev/null` (ruta donde no hay nada)
 - `ssh user@ip -p` (conexión shh y puerto)
-- bash (CLI con el que estamos trabajando) `echo $0` (muestra el bash utilizado)
+- bash (CLI con el que estamos trabajando) 
+- `echo $0` (muestra el bash utilizado)
 - __$(comando)__ (variable que guarda lo que el comando muestra)
 
 ## 📅 20/10/2022
@@ -189,13 +198,13 @@ __Variables__
   - `var=2`
   - `$(var)`
   - `nombre=$1` (variables dinámicas)
-  - `$n`(muetra el parámetro)
+  - `$n`(muestra el parámetro)
   - `$#` (cuenta el nº de parametros enviados)
   - `$@`(muestra todo)
   - `$*` (muestra todos los parámetros)
   - `read -p " texto " name` (en tiempo de ejecución) (declarar antes la varibales)
   - `echo " " ` (imprime)
-  - __`if (($var))[ $var ] then else fi`__
+  - __`if (($var))[ $var ]; then else fi`__
   - __`case $op in "A") ;; *) esac`__
   - `n=(1 2 3)` (array de nombre)
   - `rango=({A..Z})` (array de rangos)
@@ -226,6 +235,7 @@ __Variables__
 - `string /bin/bash` (muestra la información o permite la lectura de ficheros binarios)
 - `apt install lynx` (aplicación navegador web por terminal)
 - `ps -ef` (muestra los procesos)
+- `ps -aux` (procesos)
 - `man signal` (muestra los diferentes tipos de señales)
 - `kill -9 pid` (comando que mata un proceso)
 - (SIGHUP 1 , SIGINT 2, SIGQUIT 3, SIGKILL 9, SIGALRM 14, SIGTERM 15, SIGTSTP 20)
@@ -260,7 +270,10 @@ __Variables__
   - `/etc/network/interfaces`
   - `/etc/group`
   - `.bashrc , .profile`
-- `apt install finger` (paquete que muestra información sobre las terminales) `who -a`
+- `apt install finger` (paquete que muestra información sobre las terminales)
+- `who -a` (información de usuarios y terminales)
+- `w` (información de usuarios conectados)
+- `tty`(terminal)
 
 ## 📅 21/10/2022
 - `apt install info` (paquete que muestra información sobre un comando o sistema)
@@ -284,7 +297,7 @@ __Variables__
 - `getent services` (muestra los servicios)
 - `/etc/magic` (file)
 - `apt-cache search ^dosfstools` (busca paquetes que se encuentran disponibles en los repositorios)
-- `dd if=/dev/zero of=fichero bs=1024` (crea un fichero con un tamaño, nombre y contenido Data Duplicator)
+- `dd if=/dev/zero of=fichero bs=1024` (Data Duplicator | crea un fichero con un tamaño, nombre y contenido)
 - `mount fichero /mnt/` (comando - ruta donde se montan los ficheros)
 - `kill -l` (lista los diferentes señales)
   - 1 (iniciar demonios)
@@ -297,18 +310,21 @@ __Variables__
 - `fg %1` (envía un proceso a primer plano) y `bg %1` (envia un proceso a segundo plano)
 - `set, env , printenv` (muestra las variables de entorno) 
 - `PS1` (prompt)
-- `set red blue green` (creo  variables)
+```
+export PS1="\[\e[0;1m\]┌─(\[\e[31;1m\]\u@\H\[\e[0;1m\])»{\[\e[36;1m\]\w\[\e[0;1m\]}\n└──┤ \[\e[0m\]"
+```
+- `set red blue green` (creo variables)
 - `echo $1` (recupero el valor de la variable)
-- `set *`(borro las variables)
+- `set *` (borro las variables)
 - `echo "$*" ` (recupero todas las variables)
 - `shift 1` (quita la variable posicional)
 - `echo ${17}` (muestra el valor de la variable)
 - `unset var` (liberar espacio de memoria)
 - `export var` (exportar variables entre bash's) (se puede introducir en .bashrc)
 - POSIX ( [:UPPER:] )
-- `[ [ ] ]` (evalua la expresion que contiene los dos corchetes en  POSIX ( C ) )
-- `locale` (muestra la forma de interpretar los signos)
-- `echo` ( \ escape )
+- `[ [ ] ]` (evalua la expresión que contiene los dos corchetes en  POSIX ( C ) )
+- `locale` (muestra la forma de interpretar los signos | codificación)
+- `echo` ( imprime por pantall , \ escape )
 - `ls -l A???` (lista detalla que empiece por A mayúscula y sea de cuatro caractéres)
 - 1> , 2> , &> (1 y 2) , >>, tail , head
 - `tee` (visualiza por la pantalla y escribe en el fichero)
@@ -316,15 +332,16 @@ __Variables__
 - `alias nombre="cmd" ` (muestra los alias del usuario)
 - `unalias nombreAlias` (borra de memoria los alias)
 - `type` (muestra información de comando)
-  - `echo --version` , `/usr/bin/echo --version` (comando interno o ejecutable)
-  - (primero los alias (memoria), interno (binario), ejecutable (programa))
-- `whereis` (muestra más información que which)
-- `which -a comando` (muestr:a la ruta del comando o ejecutable)
+- `echo --version` , `/usr/bin/echo --version` (comando interno o ejecutable)
+- (primero los alias (memoria), interno (binario), ejecutable (programa))
+- `whereis comando` (muestra más información que which)
+- `which -a comando` (muestra la ruta del comando o ejecutable)
+- `type comando` (muestra información)
 - `ps -aux --no-heading` (muestra los procesos quitando el head de la información)
 - ` hola mundo ` (contra comilla)
 - `set -o` (lista)  `set -+o noclobber` (opciones de la shell HEREDADAS)(evitar sobreescritura accidental)
 - ` . ` (punto) (se ejecute en el mismo proceso)
-- `w` (muestra quien esta conectado en el servidor o numero de tty)
+- `w` (muestra quien esta conectado en el servidor o número de tty)
 
 ## 📅 25/10/2022
 - `zypper install stat` (forma de instalar paquetes en openSuse)
