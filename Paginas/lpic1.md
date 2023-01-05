@@ -396,18 +396,20 @@ until condición false do comandos done
 - `IFS`
 
 ## 📅 9/11/2022
-- `pkill`
-- `echo $$` (pid de la shell) 
+- [Fedora online](https://bellard.org/jslinux/vm.html?cpu=riscv64&url=fedora33-riscv.cfg&mem=256)
+- `kill` (pid)
+- `pkill` (nombre)
+- `echo $$` (pid de la shell)
 - `echo $?` (pid del proceso en segundo plano) 
 - `echo $!` (pid del último comando)
 - `echo $-` (opciones de la shell)
 - `echo $#` (ver variables posicionales)
-- ver capitulos las variables???
+- ver capítulos las variables???
 - () simples paréntesis
 - (( )) dobles paréntesis
 - `echo $((3/2))`
 - `bc` (basic calculator)
-- `etc/profile` (lo primero que procesa el bash y es común a todos los usuarios)
+- `vi /etc/profile` (lo primero que procesa el bash y es común a todos los usuarios)
 - `/.profile`
 - `/.bash_profile`
 - `/.bashrc`
@@ -434,7 +436,6 @@ until condición false do comandos done
 - `shift` (reorganización de los parámetros)
 
 ## 📅 10/11/2022
-
 - - , l , c , b , s , p , 
 - `test -d /mnt; echo $?` , `[ -d /mnt ]; echo $? `
 - `[[ , {{ , `
@@ -442,22 +443,33 @@ until condición false do comandos done
 - `set -o` (opciones de la shell)
 - `set 1` (define una variable posicional)
 - `echo ${var[1]} `
-- `echo ${var:-4} `
-- `echo ${var:-}` (sino existe lee un valor)
+- `echo ${var:-4} ` (si la var no esta definida o nula es 4)
+- `echo ${var:-} ` (sino existe lee un valor)
+- `echo ${STRING:6:5}` (muestra de la posición 6 al 5)
+- `echo ${STRING%name}`
+- `echo ${STRING/name/string} ` (reemplazo)
+- `echo ${ARRAY[*]##t*}` (elimina lo que empiece por t)
 - `shift` (descargando)
-- `env `
+- `env`
 - if, case, seq, while, until
-- `read -p " texto " ` (capturas la variable)
+- `read -p " texto " dato ` (capturas la variable)
+- `echo $dato`
+- [Curso Bash](https://www.ediciones-eni.com/open/mediabook.aspx?idR=991ee13f3e75e249d95404d083f27360)
 
 ## 📅 11/11/2022
-
 - bc -l <<< "89%5" (calculadora)
 - `eval` 
 - trap comandos señales
 - `kill -l`
 - multiplexores
 - `apt install screen` (ctrl + a y c)
-- `apt install tmux` 
+- ctrl + a y c (nueva ventana)
+- ctrl + a y S (divide horizontal)
+- ctrl + a y | (divide vertical)
+- ctrl + a y tab (cambia de ventana)
+- ctrl + a y x (mata panel)
+- ctrl + a y d (cierra)
+- `apt install tmux` (mejor)
 - ctrl + b y c (crea una ventana)
 - ctrl + b y w (muestra todas las ventanas) 
 - ctrl + b y < (menu)
@@ -472,7 +484,6 @@ until condición false do comandos done
 - `dirname`
 
 ## 📅 14/11/2022
-
 - Discos IDE - PATA
 - Discos Sata
 - S.M.A.R.T
