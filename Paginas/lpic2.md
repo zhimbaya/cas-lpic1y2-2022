@@ -1,65 +1,78 @@
 # LPIC2 (110h) 22d (16d2022-6d2023) 28/11/22 -16/01/2023
 
 ## PLANIFICACIÓN DE LA CAPACIDAD
+
 1. Medición y solución del uso de recursos
 2. Predicción de las necesidades futuras de recursos
-   
+
 ## ESPECIFICACIONES DEL KERNEL DE LINUX
+
 3. Componentes del Kernel
 4. Compilando un Kernel
 5. Gestión del tiempo de ejecución del núcleo y resolución de problemas
-   
+
 ## INICIO DEL SISTEMA
+
 6. Personalización del inicio del sistema SysV-init
 7. Recuperación del sistema
 8. Cargadores de arranque alternativos
-   
+
 ## SISTEMA DE ARCHIVOS Y DISPOSITIVOS
+
 9. Funcionamiento del sistema de archivos de Linux
 10. Mantenimiento de un sistema de archivos Linux
 11. Creación y configuración de las opciones del sistema de archivos
-    
+
 ## ADMINISTRACIÓN AVANZADA DE DISPOSITIVOS DE ALMACENAMIENTO
+
 12. Ajuste del acceso a los dispositivos de almacenamiento
 13. Gestor de volúmenes lógicos
-    
+
 ## CONFIGURACIÓN DE LA RED
+
 14. Configuración básica de la red
 15. Configuración avanzada de la red y resolución de problemas
 16. Solución de problemas de red
-    
+
 ## MANTENIMIENTO DEL SISTEMA
+
 17. Ejecución de ‘Make’ e instalar programas desde el código fuente
 18. Operaciones de copia de seguridad
 19. Notificar a los usuarios los problemas relacionados con el sistema
-    
+
 ## SERVIDOR DE NOMBRES DE DOMINIO
+
 20. Configuración básica del servidor DNS
 21. Crear y mantener zonas DNS
 22. Asegurar un servidor DNS
-    
+
 ## SERVICIOS WEB
+
 23. Implementación de un servidor web
 24. Configuración de Apache para HTTPS
 25. Implementación de un servidor proxy
 26. Implementación de Nginx como servidor web y proxy inverso
-    
+
 ## COMPARTICIÓN DE ARCHIVOS
+
 27. Configuración del servidor SAMBA
 28. Configuración del servidor NFS
-    
+
 ## GESTIÓN DE CLIENTES EN RED
+
 29. Configuración de DHCP
 30. Autenticación PAM
 31. Uso del cliente LDAP
 32. Configuración de un servidor OpenLDAP
-    
+
 ## SERVICIOS DE CORREO ELECTRÓNICO
+
 33. Uso de servidores de correo electrónico
 34. Gestión de la entrega del correo electrónico
 35. Gestión de la entrega remota de correo electrónico
-    
+
 ## SEGURIDAD DEL SISTEMA
+
 36. Configurar un router
 37. Asegurar los servidores FTP
 38. Shell seguro (SSH)
@@ -67,6 +80,7 @@
 40. OpenVPN
 
 ## 📅 29/11/2022
+
 - `date -s "01/01/1970 00:00" ` (no deja cambiar la hora al principio de todo)
 - `hwclock` (muetra el reloj del hardware)`
 - `ntp` (esta un poco en deshuso)
@@ -91,13 +105,14 @@
 - `localectl list-locales`(mirar locales)
 - `localectl set-locale LANG=es_CO` (se cambia)
 - `localectl status` (se comprueba)
-```
+  
+  ```
    - A 00000000 / 01111111 = 0 - 127 / 8 (máscara)
    - B 10000000 / 10111111 = 128 - 191 / 16 
    - C 11000000 / 11011111 = 192 - 223 / 24
    - D 111 MULTICAST
    - E 1111 EXPERIMENTACION
-```
+  ```
 - `bc <<< "obase=2;255" ` (calcular el binario)
 - [Ejercicios Bash](https://es.linux-console.net/?p=632#gsc.tab=0)
 - NAT (network address translation | direcciones públicas y privadas)
@@ -110,6 +125,7 @@
 - ip del route / nuestra ip , gateway , mascara , flag , ventanas, interfaz
 
 ## 📅 30/11/2022
+
 - Cambiar la ip automática a fija.
 - `vi /etc/network/interfaces`
 - `systemctl restart networking`
@@ -159,6 +175,7 @@
 - `systemctl enable httpd.service`
 
 ## 📅 01/12/2022
+
 - `dhclient -v` (asigna una ip, o muestra la información del servidor dhcp)
 - `dhclient -r` (renueva la ip)
 - `dhclient -k` (chekea la ip)
@@ -177,8 +194,8 @@
 - `usermod -u UID username` (0-99 cambiar el uid)
 - `groupmod -n nuevo-nombre viejo-nombre` (cambiar de grupo)
 - `usermod -d /home/nuevo -m nuevo` (cambiar de directorio)
-- 
- ![Tabla Mensaje dhcp](https://d7677e76-a-62cb3a1a-s-sites.googlegroups.com/site/sriasir20152016/dhcp/4-tipos-de-mensajes-dhcp/4.%20dhcp.jpg?attachauth=ANoY7crgMWW4yjgojKglSMFbn3EP0ojWFfoZVcq-YqdV4wvKFgA3uxBcxymUyenjtGFH_GuVwpcuf4ZokhUyxPj4ZlbE2gQM4kiDYGD20tJ1gtVKu63V3hiX6blS6UizFwRvlNtoIY5MWfdC0J1fdHQlkkbxaqdymI3uHOJelJuYhlDOQEFVzlq07Nbkgn70mYkECTtVQ4bJetzmfIFWwdg6x6_iopxHUOhjoA9t2wlkT99MIi2ZV_IpsKctSAULmuj0jJ9Y2iDx&attredirects=0)
+- ![Tabla Mensaje dhcp](https://d7677e76-a-62cb3a1a-s-sites.googlegroups.com/site/sriasir20152016/dhcp/4-tipos-de-mensajes-dhcp/4.%20dhcp.jpg?attachauth=ANoY7crgMWW4yjgojKglSMFbn3EP0ojWFfoZVcq-YqdV4wvKFgA3uxBcxymUyenjtGFH_GuVwpcuf4ZokhUyxPj4ZlbE2gQM4kiDYGD20tJ1gtVKu63V3hiX6blS6UizFwRvlNtoIY5MWfdC0J1fdHQlkkbxaqdymI3uHOJelJuYhlDOQEFVzlq07Nbkgn70mYkECTtVQ4bJetzmfIFWwdg6x6_iopxHUOhjoA9t2wlkT99MIi2ZV_IpsKctSAULmuj0jJ9Y2iDx&attredirects=0)
+  
   ```
   set tabstop=4 
   set shiftwidth=4 
@@ -195,16 +212,19 @@
 - `firewall-cmd --add-port=666/tcp` (se añade un puerto)
 - `apt install isc-dhcp-server` (internet system consourci)
 - `vi /etc/dhcp/dhcpd.conf`
-```
-servidor dhcp
-cambiar el nombre de server
-cambiar el dns
+  
+  ```
+  servidor dhcp
+  cambiar el nombre de server
+  cambiar el dns
+  ```
 
 subnet 10.1.1.0 netmask 255.255.255.0 {
     range 10.1.1.150 10.1.1.200;
     option routers 10.1.1.1;
     option domain-name-servers 172.16.2.2;
 }
+
 ```
 - `systemctl status isc-dhcp-server.service`
 - `systemctl umask | mask isc-dhcp-server.service`
@@ -215,11 +235,13 @@ subnet 10.1.1.0 netmask 255.255.255.0 {
 - `apt install sshfs`
 - [sshfs](https://geekland.eu/montar-sistema-archivos-remoto-con-sshfs/)
 ```
+
 10.1.1.111    cubo
 10.1.1.180    debian
 10.1.1.181    alma
 10.1.1.183    parrot
 10.1.1.208    ubuntu
+
 ```
 - __Crear Cert__
 - `ssh-keygen -t ed25519` (gernerar un cert con el algoritmo)(enter enter) (servidor)
@@ -520,17 +542,28 @@ __Discos__
 ____
 
 - mkdir /meta/BBDD
+
 - mkfs.btrfs -d raid1 -m raid1 /dev/sdc5 /dev/sdd5
+
 - mount /dev/sdc5 /meta/BBDD/
+
 - umount /meta/BBDD/
+
 - btrfs filesystem show
+
 - btrfs device scan
+
 - mkfs.btrfs -f /dev/sdc5 /dev/sdd5
+
 - btrfs device add -f /dev/sde5 /meta/BBDD/
+
 - btrfs subvolume create /meta/BBDD/nodejs
+
 - btrfs subvolume create /meta/BBDD/oracle
+
 - btrfs subvolume snapshot /meta/BBDD/oracle/ /meta/BBDD/.orasnaphot
   __Virtualización__
+
 - app -> virtualbox hypervisor
   
   |so so so|
@@ -540,20 +573,28 @@ ____
   | hardware |
   
   | Vmware |
+
 - qemu (**QEMU** es un emulador genérico y de código abierto de máquinas virtuales)
+
 - instalación de máquinas virtuales con qemu
   __Vagranfile__
+
 - Ver manual de comandos
+
 - `vagrant fichero` (aprovisionamos o creamos las máquinas)
+
 - `vagrant status` (vemos las máquinas)
+
 - y vemos en virtualbox las tres maquinas
+
 - `vagrant ssh master` (nos conectamos al vagrant master por ssh)
 
 ## 20/12/2022
+
 - Metodos de virtualización
 - vmare 
 - paravirtualización ()
-__Contenedores__
+  __Contenedores__
 - Fichero: Vagrant_provision (mirar)
 - Modificar Vagranfile para aprovisionar
 - `vagrant up` ( con el nuevo fichero modificado)
@@ -566,4 +607,118 @@ __Contenedores__
 - alpine apk instalación
 - docker ps -a
 - kamatera (nube)
+
+## 21/12/2022
+
+vagrant up Master
+vagrant ssh Master
+docker run --name siria -d -v src/:/usr/share/nginx/html
+docker stop midocker
+docker rm midocker
+docker images
+echo "SITIO WEB" >> web/inde.html
+mkdir -m 777 web
+tee Dockerfile
+    FROM nginx
+    COPY /web /usr/share/nginx/html
+    EXPOSE 80
+docker build -t rusia .
+docker run --name moscu -d -p 80:80 rusia
+curl localhost
+docker stop moscu
+docker rm moscu
+docker rm rusia
+
+__aprovisionar__
+mkdir -m 777 src
+echo "SITIO WEB DE GUINEA" > src/index.html
+echo "FROM nginx" >> Dockerfile
+echo "COPY /src /usr/share/nginx/html" >> Dockerfile
+echo "EXPOSE 80" >> Dockerfile
+docker build -t guinea .
+docker run --name bissau -d -p 80:80 guinea
+curl localhost
+
+```
+vagrant privision
+
+## 21/12/2022
+- runlevel /etc/inittab
 - 
+- pxe -> tftp
+
+
+## 22/12/2022
+- paquete autofs
+- automountd (demonio)
+__NFS__
+- nfs (network file system)
+- nfs 4 (reestructurado), nfs 3 (lpic-2)
+- __apt install nfs-kernel-server__
+- dnf install nfs-utils
+- systemctl status nfs-server
+- /etc/exports ()
+- cat /etc/passwd | grep nobody
+- mkdir -m 1777 /nfs
+- chown nobody:nogroup /nfs/
+- vi /etc/exports (introducir las carpetas compartidas)
+- /nfs 10.1.1.0/24(rw,sync,no_subtree_check)
+- exportfs -a (a?ado)
+- exportfs (listo)
+- exportfs -ua (desactiva)
+- mount (vemos lo montado)
+- showmount -a (solo con versi?n 3)
+- mount -t nfs -o vers=3 10.1.1.111:/nfs/ /NFS_PROFE/
+- nfsstat
+- rpcinfo -s (resumen)
+- cp /etc/fstab /etc/fstab.old
+- 10.1.1.111:/nfs /NFS_PROFE nfs defaults 0 2
+- exportfs -o ro 10.1.1.0/24:/usr/ (montaje al vuelo)
+- automontar
+- vi /etc/host (escribir la ip y nombre)
+- apt install autofs
+- systemctl status autofs
+- vi /etc/auto.master
+- descomentar /net
+- systemctl restart autofs
+- descomentar /misc
+- /etc/auto*
+__Servidor smb - cifs__
+- apt install samba
+- apt install samba-client
+- /etc/samba
+- testparm (comprobador)
+- crear usuario y contrase?a
+- systemctl restart smbd.service
+- smbpasswd -a windows
+- net use y: \\10.1.1.111\windows /user:curso (en windows)
+- systemctl restart nmbd.service
+- smbclient //10.1.1.111/windows -U curso
+-  apt install cifs-utils
+- mount.cifs //10.1.1.110/share /share -o user=Tardes
+- fstab (permanente)
+- //10.1.1.10/share /share cifs user=Tardes 0 2
+- 
+## 23/12/2022
+- apt install genisoimage (instalar el paquete para isos)
+- ip addr show enp0s3 | grep "inet " | awk '{print $2}'
+- genisoimage -o /nfs/ignoto.iso /usb//ignoto (crear una iso)
+- mount 10.1.1.111:/nfs /mnt/ (montar una carpeta o unidad compartida)
+- isoinfo -d -i fichero.iso (ver que tiene la iso)
+- mount ignoto.iso /mnt/ (montar isos)
+__Encriptar__
+- apt install mcrypt (paquete de instalaci?n)
+- mcrypt fichero (lo encripta .nc)
+- mcrypt -p fichero (lo desencripta)
+__Volumnes encriptados__
+- cryptsetup luksFormat /dev/sde4 (encripto)
+- cryptsetup luksOpen /dev/sde4 nominas (abro, clave y genero una carpeta)
+- cd /dev/mapper/nominas (crea automaticamente la carpeta en la ruta)
+- mount /dev/mapper/nominas /mnt/  (montamos)
+- /etc/udev/rules.d
+- udevadm -h (automontar)
+- udevadm info /dev/sde4
+- udevadm control -R && udevadm trigger
+- https://mega.nz/folder/38kWVazR#SffOX61C8mUYzbd6sW7T1w
+- 
+```

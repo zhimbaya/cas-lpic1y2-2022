@@ -52,5 +52,107 @@
 109. Configuración de red en consola
 - /etc/network/interfaces
 110. Práctica: Configuración de red
+111. Configuración del DNS en un cliente
+- host cliente (consulta dns real)
+- getent cliente (consulta archivos)
+- apt install dnsutilis
+- dig google.com
+- dig @1.1.1.1 google.com
+- dig -t MX google.com
+- dig -t CNAME www.mundo.com
+- dig ANY google.com
+- dig +short google.com
+- dig +trace google.com
+112. Introducción a IPV6
+- 128 bits
+- hexadicimal
+- autoconfigurable
+- sin máscara de red 
+- mas seguro 
+113. Qué aprenderemos?
+- su
+- whoami
+- groups
+- id nombre (ver todos los grupos)
+115. Cambiar propietarios de un fichero o directorio
+- chgrp
+- chown (las dos cosas o independiente)
+- chown :migrupo -r carpeta
+- newgrp fichero (cambiar al grupo secundarios y hacerlo principal)
+116. Permisos de ficheros
+- rwx (lectura, escritura, ejecución)
+117. Permisos de los directorios
+- rwc (listar, crear, modificar)
+118. Cambiar permisos: chmod
+- chmod (+-=)
+119. Chmod con notación octa
+- chmod (421)
+121. Permisos especiales
+- setUID
+- setGID
+- sticky Bit
+122. Práctica: permisos especiales
+- chomd u+s
+- chomd g+s
+- chomd o+t
+123. Información sobre usuarios: last, who y limit
+- su -
+- who
+- w
+- last
+124. Usuarios del sistema. Ampliación
+- /etc/passwd
+- useradd -d -m -g -G -s -k
+125. Contraseñas
+- /etc/shadow
+- $id$salt$hash
+126. Práctica: Usuarios
+- passwd -l user
+- passwd -u user
+127. Práctica: Contraseñas
+128. Administración de Grupos de Usuarios
+- /etc/group
+- groupadd
+- /etc/skel
+- groupdel
+- groupmod
+- usermod -a -G
+- userdel -r
+129. Práctica: Administración de Usuarios y Grupos
+130. Enlaces en el sistema de ficheros de Linux
+- ln (ficheros)
+- ln -s (directorios)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
