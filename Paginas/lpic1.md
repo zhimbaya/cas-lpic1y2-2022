@@ -427,9 +427,9 @@ until condición false do comandos done
 - `eval` (permite una doble evaluación de la línea)
 - Consola solo una, terminales varias clear_console
 - `set -o noclobber` (proteger sobreescritura de un fichero)
-- + (descativa), - (activa)
-- # (comentario)
-- #! (shiban)
+- `+` (descativa), `- `(activa)
+- `#` (comentario)
+- `#! (shiban)
 - `apt install sudo` (etc/sudoers)
 - `apt install figlet` (crear imagenes en asiic)
 - variables posicionales
@@ -548,7 +548,6 @@ until condición false do comandos done
 - `blkid` (muestra el UUID)
 
 ## 📅 16/11/2022
-
 - ver gparte en modo gráfico
 - `/proc/partitions` (muestra las particiones)
 - `df -Th` (muestra las particiones y sus tipos)
@@ -591,7 +590,6 @@ until condición false do comandos done
 - `chmod 2644 fichero - s`
 
 ## 📅 17/11/2022
-
 - Inicio de Linux
 - BIOS - MBR
 - UEFI - GPT
@@ -622,7 +620,6 @@ until condición false do comandos done
 - `/usr/lib/system` (archivos ya estan compilados)
 
 ## 📅 18/11/2022
-
 - systemctl contiene targets llamada a otros archivos
 - `systemctl list-units --type=service --all`
 - `systemctl list-units`
@@ -659,7 +656,6 @@ until condición false do comandos done
 - `make`
 
 ## 📅 21/11/2022
-
 - `lsmod` (lista los módulos)
 - `insmod` (instala los móduos)
 - `rmmod` (desinstala los módulos)
@@ -707,9 +703,8 @@ until condición false do comandos done
 - Existe contraseña para el grupo secundario cuando un usuario que no pertence al grupo quiere pertenecer al grupo.
 
 ## 📅 22/11/2022
-
 - `useradd -D -s /bin/bash` (cambiamos la shell)
-- `adduser` (interactivo)
+- - `adduser` (interactivo)
 - `pwck` (comprobar la integridad de la base de datos)
 - `pwunconv` (solo deja UNA base de datos de passwd y shadow)
 - `pwconv` (devuelve el shadow o lo crea)
