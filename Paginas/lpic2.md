@@ -662,7 +662,15 @@ curl localhost
 - `mount.cifs //10.1.1.110/share /share -o user=Tardes`
 - `fstab` (permanente)
 - `//10.1.1.10/share /share cifs user=Tardes 0 2`
+- `vi /root/cred` (se crea el fichero que leerá)
+
+```
+username=windows
+password=windows
+```
 - `//10.1.1.10/share /share cifs _netdev,credentials=/root/cred 0 2
+- `mount -va` (para montar)
+- `df ` (ver lo montado)
 
 ## 📅 23/12/2022
 - apt install genisoimage (instalar el paquete para isos)
