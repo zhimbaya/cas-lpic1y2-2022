@@ -446,7 +446,7 @@ o algo similar
 - `umount /dev/md127`
 - `mdadm –detail /dev/md127`
 - `mdadm -S /dev/md127`
-- `mdadm –zero-superblock /dev/sdb1`
+- `mdadm --zero-superblock /dev/sdb1`
 - __Si no dispone de la tecnlogía en caliente_
 - `mdadm --stop /dev/md0`
 - `shutdown -h now`
@@ -472,90 +472,77 @@ o algo similar
 - `mdadm --zero-superblock /dev/sd[bcde]4` (nos cargamos los superbloques)
 - `mdadm -S /dev/md` (para el radi0)
 - `wipefs -af /dev/sd[bcd]1` (borramos)
-- __lv (logicos)__
-- vg (volúmenes)
+- lv (logicos)
 - pv (particiones)
+- vg (volúmenes)
 - `pvdisplay`
 - `pvcreate /dev/sdc4`
-- `vgcreate volumen01 /dev/sdb4 /dev/sdb5 /dev/sdc4`
-- `vgdisplay`
-- `vgs`
-- `lvcreate -L+2G volumen01`
-- `lvcreate -L 1G -n lv_linear vg-01`
+- `pvremove /dev/sdc4`
+- `vgcreate vg01 /dev/sda4 /dev/sdb4 /dev/sdc4`
+- `vgextend vg01 /dev/sdd4` 
+- `vgdisplay` (vemos los vg)
+- `vgs` (visualiza)
+- `vgreduce vg01 /dev/sdc4` (quitarmos el disco)
+- `lvcreate -L+2G vg01`
+- `lvcreate -L 1G -n lv01 vg01`
 - `lvrename` (se puede renombrar)
-- `mkfs.ext4 /dev/volumen01/lvol0` (se da formato)
-- `lvextend -L+1G /dev/volumen01/lvol0` (se agrega espacio)
+- `lvdisplay -vm /dev/vg01/lv01`
+- `mkfs.ext4 /dev/vg01/lv01` (se da formato)
+- `lvextend -L +1G /dev/vg01/lv01` (se agrega espacio)
 - __No crece el sistema de ficheros__
-- `resize2fs /dev/mapper/volumen01-lvol0` (se redimensiona el sistema de fichero - manual)
+- `resize2fs /dev/vg01/lv01` (se redimensiona el sistema de fichero - manual)
+- `umount /home/recurso` (se desmontapara reducir el tamaño)
+- `fsck /dev/vg01/lv01` (obligatorio si se desmonta)
+- `resize2fs /dev/vg01/lv01 4G` (si quiero de 4g)
+- `lvreduce -l 4g /dev/vol01/lv01`
+- `pvmove -v /dev/md1 /dev/md2`
+- __Borrar todo__
+- `lvremove /dev/vg01/lv01`
+- `vgremove vg01`
+- `pvremove /dev/md1`
+- `apt install cfdisk` (mejor)
 -  __Openstack__
-- /opt/stack/devstack# ./unstack.sh && ./stack.sh
+- `/opt/stack/devstack# ./unstack.sh && ./stack.sh`
+- https://hub.docker.com/
+- https://vagrantup.com/
 - `vagrant init ubuntu/trusty64`
 - `vagrant up`
 - `vagrant ssh`
 
 ## 📅 19/12/2022
-
-- mdadm --zero-superblock /dev/sd[bcde]4
-  __Creamos un fichero como un disco__
-- `/meta/raid5# dd if=/dev/zero of=./dsk.disk bs=4M count=500`
+- `mdadm --zero-superblock /dev/sd[bcde]4` (eliminamos los discos que se utilizan con raid)
+- __Creamos un fichero como un disco__
+- `/meta/raid5`
+- `dd if=/dev/zero of=./dsk.disk bs=4M count=500`
 - `mkfs.btrfs ./dsk.disk`
 - `mount ./dsk.disk /mnt/ `
-
-____
-
-- mkdir /meta/BBDD
-
-- mkfs.btrfs -d raid1 -m raid1 /dev/sdc5 /dev/sdd5
-
-- mount /dev/sdc5 /meta/BBDD/
-
-- umount /meta/BBDD/
-
-- btrfs filesystem show
-
-- btrfs device scan
-
-- mkfs.btrfs -f /dev/sdc5 /dev/sdd5
-
-- btrfs device add -f /dev/sde5 /meta/BBDD/
-
-- btrfs subvolume create /meta/BBDD/nodejs
-
-- btrfs subvolume create /meta/BBDD/oracle
-
-- btrfs subvolume snapshot /meta/BBDD/oracle/ /meta/BBDD/.orasnaphot
-  __Virtualización__
-
+- `mkdir /meta/BBDD`
+- `mkfs.btrfs -d raid1 -m raid1 /dev/sdc5 /dev/sdd5`
+- `mount /dev/sdc5 /meta/BBDD/`
+- `umount /meta/BBDD/`
+- `btrfs filesystem show`
+- `btrfs device scan`
+- `mkfs.btrfs -f /dev/sdc5 /dev/sdd5`
+- `btrfs device add -f /dev/sde5 /meta/BBDD/`
+- `btrfs subvolume create /meta/BBDD/nodejs`
+- `btrfs subvolume create /meta/BBDD/oracle`
+- `btrfs subvolume snapshot /meta/BBDD/oracle/ /meta/BBDD/.orasnaphot`
+- __Virtualización__
 - app -> virtualbox hypervisor
-  
-  |so so so|
-  
-  | hypervisor |
-  
-  | hardware |
-  
-  | Vmware |
-
+- |so so so| <-> | hypervisor | <->| hardware | <->| Vmware |
 - qemu (**QEMU** es un emulador genérico y de código abierto de máquinas virtuales)
-
 - instalación de máquinas virtuales con qemu
-  __Vagranfile__
-
+- __Vagranfile__
 - Ver manual de comandos
-
 - `vagrant fichero` (aprovisionamos o creamos las máquinas)
-
 - `vagrant status` (vemos las máquinas)
-
 - y vemos en virtualbox las tres maquinas
-
 - `vagrant ssh master` (nos conectamos al vagrant master por ssh)
 
 ## 📅 20/12/2022
-
 - Metodos de virtualización
 - vmare 
-- paravirtualización ()
+- para virtualización ()
   __Contenedores__
 - Fichero: Vagrant_provision (mirar)
 - Modificar Vagranfile para aprovisionar
@@ -567,31 +554,30 @@ ____
 - `docker search alpine`(buscamos por alpine)
 - `docker pull`
 - alpine apk instalación
-- docker ps -a
-- kamatera (nube)
+- `docker ps -a`
+- `kamatera` (nube)
 
 ## 📅 21/12/2022
-
-vagrant up Master
-vagrant ssh Master
-docker run --name siria -d -v src/:/usr/share/nginx/html
-docker stop midocker
-docker rm midocker
-docker images
-echo "SITIO WEB" >> web/inde.html
-mkdir -m 777 web
-tee Dockerfile
+- `vagrant up Master`
+- `vagrant ssh Master`
+- `docker run --name siria -d -v src/:/usr/share/nginx/html`
+- `docker stop midocker`
+- `docker rm midocker`
+- `docker images`
+- echo "SITIO WEB" >> web/index.html
+- mkdir -m 777 web
+- tee Dockerfile
     FROM nginx
     COPY /web /usr/share/nginx/html
     EXPOSE 80
-docker build -t rusia .
-docker run --name moscu -d -p 80:80 rusia
-curl localhost
-docker stop moscu
-docker rm moscu
-docker rm rusia
-
-- __aprovisionar__
+- `docker build -t rusia . `
+- `docker run --name moscu -d -p 80:80 rusia`
+- `curl localhost`
+- `docker stop moscu`
+- `docker rm moscu`
+- `docker rm rusia`
+- __Aprovisionar__
+```
 mkdir -m 777 src
 echo "SITIO WEB DE GUINEA" > src/index.html
 echo "FROM nginx" >> Dockerfile
@@ -602,10 +588,9 @@ docker run --name bissau -d -p 80:80 guinea
 curl localhost
 
 ```
-vagrant privision
-```
-- runlevel /etc/inittab
-- pxe -> tftp
+- `vagrant provision`
+- `runlevel /etc/inittab`
+- `pxe -> tftp`
 
 ## 📅 22/12/2022
 - paquete autofs
@@ -613,50 +598,71 @@ vagrant privision
 - __NFS__
 - nfs (network file system)
 - nfs 4 (reestructurado), nfs 3 (lpic-2)
-- __apt install nfs-kernel-server__
-- dnf install nfs-utils
-- systemctl status nfs-server
-- /etc/exports ()
-- cat /etc/passwd | grep nobody
-- mkdir -m 1777 /nfs
-- chown nobody:nogroup /nfs/
-- vi /etc/exports (introducir las carpetas compartidas)
-- /nfs 10.1.1.0/24(rw,sync,no_subtree_check)
-- exportfs -a (a?ado)
-- exportfs (listo)
-- exportfs -ua (desactiva)
-- mount (vemos lo montado)
-- showmount -a (solo con versi?n 3)
-- mount -t nfs -o vers=3 10.1.1.111:/nfs/ /NFS_PROFE/
-- nfsstat
-- rpcinfo -s (resumen)
-- cp /etc/fstab /etc/fstab.old
-- 10.1.1.111:/nfs /NFS_PROFE nfs defaults 0 2
-- exportfs -o ro 10.1.1.0/24:/usr/ (montaje al vuelo)
-- automontar
-- vi /etc/host (escribir la ip y nombre)
-- apt install autofs
-- systemctl status autofs
-- vi /etc/auto.master
-- descomentar /net
-- systemctl restart autofs
-- descomentar /misc
-- /etc/auto*
+- `apt install nfs-kernel-server` (en el servidor)
+- `dnf install nfs-utils`
+- `systemctl status nfs-server`
+- `vi /etc/exports` (lista de control de acceso)
+- `cat /etc/passwd | grep nobody`
+- `mkdir -m 1777 /nfs`
+- `chown nobody:nogroup /nfs/`
+- `vi /etc/exports` (introducir las carpetas compartidas)
+- `/nfs 10.1.1.0/24(rw,sync,no_subtree_check)`
+- `exportfs -a` (añado)
+- `exportfs` (listo)
+- `exportfs -u` (desactiva)
+- `mount` (vemos lo montado)
+- `showmount -a` (solo con versión 3)
+- `showmount -e | --export ip_sever` (muestra desde el cliente que ficheros se comparten)
+- `mount -t nfs -o vers=3 10.1.1.111:/nfs/ /NFS_PROFE/` (en el cliente)
+- `nfsstat`
+- `rpcinfo -s` (resumen)
+- `cp /etc/fstab /etc/fstab.old` (copia de seguridad)
+- `10.1.1.111:/nfs /NFS_PROFE nfs defaults 0 2` (añado)
+- `exportfs -o ro 10.1.1.0/24:/usr/` (montaje al vuelo)
+- Automontar
+- `vi /etc/host` (escribir la ip y nombre)
+- `apt install autofs` (en el cliente)
+- `systemctl status autofs`
+- `vi /etc/autofs.conf` (archivo de configuración)
+- `browse_mode = yes` (poner yes para que se muestren las carpetas)
+- `vi /etc/auto.master` (archivo de como configurar o crear fichero en auto.master.d)
+- `descomentar /net`
+- `descomentar /misc`
+- Se crea un fichero nfs.autofs
+- `/cliente-nfs /etc/auto.nfs`
+- En etc se crea el fichero auto.nfs
+- `nfs-server -rw,soft,intr   192.168.1.16:/nfs
+- `systemctl restart autofs`
+- `/etc/auto*` (aquí se encuentran todos los auto)
 - __Servidor smb - cifs__
-- apt install samba
-- apt install samba-client
-- /etc/samba
-- testparm (comprobador)
-- crear usuario y contrase?a
-- systemctl restart smbd.service
-- smbpasswd -a windows
-- net use y: \\10.1.1.111\windows /user:curso (en windows)
-- systemctl restart nmbd.service
-- smbclient //10.1.1.111/windows -U curso
--  apt install cifs-utils
-- mount.cifs //10.1.1.110/share /share -o user=Tardes
-- fstab (permanente)
-- //10.1.1.10/share /share cifs user=Tardes 0 2
+- `apt install samba`
+- `apt install samba-client`
+- `/etc/samba/smb.conf` (archivo de configuración)
+```
+[server]
+  comment = Samba en Alma
+  path = /recursos
+  read only = no
+  browsable = yes
+```
+- `testparm` (comprobador)
+- `firewall-cmd --add-service=samba --permanent`
+- `firewall-cmd --reload`
+- `firewall-cmd --list-all`
+- `setenforce 0`(deshabilitar selinux Temporalmente en Alma)
+- `vi /etc/sysconfig/selinux` (SELINUX=disabled permanente)
+- crear usuario y contraseña
+- `systemctl restart smbd.service`
+- `smbpasswd -a windows`
+- `smbclient -L //ip_sever` (listar)
+- `net use y: \\10.1.1.111\windows /user:curso` (en windows)
+- `systemctl restart smbd.service`
+- `smbclient //10.1.1.111/windows -U curso`
+- `apt install cifs-utils`
+- `mount.cifs //10.1.1.110/share /share -o user=Tardes`
+- `fstab` (permanente)
+- `//10.1.1.10/share /share cifs user=Tardes 0 2`
+- `//10.1.1.10/share /share cifs _netdev,credentials=/root/cred 0 2
 
 ## 📅 23/12/2022
 - apt install genisoimage (instalar el paquete para isos)
