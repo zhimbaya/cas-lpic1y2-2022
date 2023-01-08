@@ -69,6 +69,8 @@
 40. OpenVPN
 
 ## 📅 29/11/2022
+- `yum install ncdu` (herramienta de espacio en disco)
+- `df -h --total` (ver espacio total disco)
 - `date -s "01/01/1970 00:00" ` (no deja cambiar la hora al principio de todo)
 - `hwclock` (muetra el reloj del hardware)`
 - `ntp` (esta un poco en deshuso)
@@ -692,6 +694,7 @@ password=windows
 - udevadm -h (automontar)
 - udevadm info /dev/sde4
 - udevadm control -R && udevadm trigger
+- [Cómo instalar el servidor web de Apache](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-centos-7-es)
 - https://mega.nz/folder/38kWVazR#SffOX61C8mUYzbd6sW7T1w
 
 ## EXAMEN 8/01/2023
