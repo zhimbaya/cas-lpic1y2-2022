@@ -69,21 +69,59 @@
 40. OpenVPN
 
 ## 📅 29/11/2022
-- `yum install ncdu` (herramienta de espacio en disco)
-- `df -h --total` (ver espacio total disco)
-- `date -s "01/01/1970 00:00" ` (no deja cambiar la hora al principio de todo)
-- `hwclock` (muetra el reloj del hardware)`
-- `ntp` (esta un poco en deshuso)
-- `timedatectl` (comando que muestra la información de la hora del sistema)
-- `systemctl list-units` (lista los units)
-- `host 2.debian.pool.ntp.org`
-- `systemctl status systemd-timesyncd.service` (debian)
-- `systemctl status chronyd` (alma)
-- `ssh-keygen -f .ssh\known_hosts -R ip` (quitar la keygen) (windows)
-- Protocolo una serie de reglas de los RFCs
-- `/etc/chrony.conf/* ` (varios archivos de configuración)
-- __Parámetros regionales__
-- `locale` (The system locale defines the language and country-specific setting for the programs running on your system and the shell sessions.)
+Herramienta de espacio en disco.
+```
+yum install ncdu
+``` 
+Ver espacio total en disco.
+```
+df -h --total
+```
+No deja cambiar la hora al principio de todo.
+```
+date -s "01/01/1970 00:00" 
+```
+ Muetra el reloj del hardware.
+```
+hwclock
+```
+Esta un poco en deshuso.
+```
+ntp
+```
+Comando que muestra la información de la hora del sistema.
+```
+timedatectl
+```
+Lista los units.
+```
+systemctl list-units
+``` 
+```
+host 2.debian.pool.ntp.org
+```
+Debian
+```
+systemctl status systemd-timesyncd.service
+```
+Alma
+```
+systemctl status chronyd
+```
+Quitar la keygen, Windows.
+```
+ssh-keygen -f .ssh\known_hosts -R ip
+```
+Protocolo, una serie de reglas de los RFCs.
+Varios archivos de configuración.
+```
+/etc/chrony.conf/* 
+``` 
+__Parámetros regionales__
+- The system locale defines the language and country-specific setting for the programs running on your system and the shell sessions.
+```
+locale
+```
 - `cat /etc/locale.conf` (fichero de configuración de locale de alma)
 - `vi /etc/default/locale`(fichero configuración en debian)
 - `update-locale LANG=en_GB.utf8`
@@ -464,6 +502,12 @@ o algo similar
 - `mdadm /dev/md/secos\:r1 -a /dev/sdd2` (se añade el disco)
 - `mdadm /dev/md/secos\:r1 -a /dev/sdc2` (se añade el disco como repuesto | emergencia - spare)
 - `dd if=/dev/zero of=/dev/sdb1 bs=4M count=10` (se crea un fallo en sdb1)
+- 
+Mucho mejor para crear fichero vacio de un tamaño predeterminado.
+```
+fallocate -l 512M /archivogrande
+```
+-  (mejor crear fichero vacio de un tamaño predeterminado)
 - `mdadm -Dvs >> /etc/mdadm/mdadm.conf` (introducir la configuración de los raids en el archivo de conf)
 - `mdadm -C /dev/md/r1_0 -l1 -n2 /dev/sdb4 /dev/sdc4`
 - `mdadm -C /dev/md/r1_1 -l1 -n2 /dev/sdd4 /dev/sde4`
