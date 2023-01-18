@@ -5,20 +5,24 @@
 2.	Principales aplicaciones de código abierto
 3.	Software de código abierto y licencias
 4.	Habilidades TIC y trabajo en Linux
+
 ## ORIENTACIÓN EN UN SISTEMA LINUX
 1.	Fundamentos de la línea de comandos
 2.	Uso de la línea de comandos para obtener ayuda
 3.	Uso de directorios y listado de archivos
 4.	Crear, mover y borrar archivos
+
 ## UTILIZACIÓN DE UNA LÍNEA DE COMANDOS
 1.	Gestión de archivos en la línea de comandos
 2.	Búsqueda y extracción de datos de archivos
 3.	Cómo convertir los comandos en un script
+
 ## ESPECIFICACIONES SOBRE EL SISTEMA OPERATIVO LINUX
 1.	Elección del sistema operativo
 2.	Entender el hardware de los ordenadores
 3.	Dónde se almacenan los datos
 4.	Su ordenador en la red
+
 ## CONFIGURACIÓN SEGURIDAD Y PERMISOS DE ARCHIVOS
 1.	Seguridad básica e identificación de tipos de usuarios
 2.	Creación de usuarios y grupos
@@ -53,22 +57,57 @@
   - CTRL + t (cambiar letras de posición)
   - SHIT + ESC + t (cambiar palabras de posición)
   - CTRL + r (buscar)
-  - CTRL + p (historial)  
-- `hostname` (nombre de máquina)
-- `vi /etc/hostname` (ruta de nombre de máquina)
+  - CTRL + p (historial)
+
+- comando - (opciones) - argumentos
+- Nombre de máquina.
+```
+hostnamectl
+```
+```
+hostname
+```
+- Ruta de nombre de máquina.
+```
+vi /etc/hostname
+```
+```
+hostnamectl set-hostname Debian
+```
 - ($) usuario regular
 - (#) superusuario
-- `pwd` (ruta donde me encuentro)
-- `ls` (listar)
-- `ls -la` (lista detallada total)
-- comando - (opciones) - argumentos
-  - `apt install exa`
-  - `apt instal lsd` (alternativa ls)
-  - `apt install xq` (reemplaza a less)
-- `host -v nombre_host` (muestra las ip's y nombre de máquina)
-- `hostname -I`(muestra la ip)
-- `uname -a` (muestra la información del hardware y S.O)
-- `cat /etc/*relea*` (mirar nombre de la distribución)
+
+- Ruta donde me encuentro.
+```
+pwd
+```
+- Listar
+```
+ls
+```
+- Lista detallada total.
+```
+ls -la
+```
+- `apt install exa`
+- `apt instal lsd` (alternativa ls)
+- `apt install xq` (reemplaza a less)
+-  Muestra las ip's y nombre de máquina
+```
+host -v nombre_host
+```
+- Muestra la ip.
+```
+hostname -I
+```
+- Muestra la información del hardware y S.O.
+```
+uname -a
+``` 
+Mirar nombre de la distribución.
+```
+cat /etc/*relea*
+``` 
 - `man hier` (muestra toda la información de cada directorio de archivo)
 - `man man` (ayuda del man)
 - `man 5 hostname` (ayuda de man en la sección 5)
