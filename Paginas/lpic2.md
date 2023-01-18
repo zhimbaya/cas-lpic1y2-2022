@@ -1,44 +1,53 @@
 # LPIC2 (110h) 22d (16d2022-6d2023) 28/11/22 -16/01/2023
 
 ## PLANIFICACIÓN DE LA CAPACIDAD
+
 1. Medición y solución del uso de recursos
 2. Predicción de las necesidades futuras de recursos
 
 ## ESPECIFICACIONES DEL KERNEL DE LINUX
+
 3. Componentes del Kernel
 4. Compilando un Kernel
 5. Gestión del tiempo de ejecución del núcleo y resolución de problemas
 
 ## INICIO DEL SISTEMA
+
 6. Personalización del inicio del sistema SysV-init
 7. Recuperación del sistema
 8. Cargadores de arranque alternativos
 
 ## SISTEMA DE ARCHIVOS Y DISPOSITIVOS
+
 9. Funcionamiento del sistema de archivos de Linux
 10. Mantenimiento de un sistema de archivos Linux
 11. Creación y configuración de las opciones del sistema de archivos
 
 ## ADMINISTRACIÓN AVANZADA DE DISPOSITIVOS DE ALMACENAMIENTO
+
 12. Ajuste del acceso a los dispositivos de almacenamiento
 13. Gestor de volúmenes lógicos
 
 ## CONFIGURACIÓN DE LA RED
+
 14. Configuración básica de la red
 15. Configuración avanzada de la red y resolución de problemas
 16. Solución de problemas de red
 
 ## MANTENIMIENTO DEL SISTEMA
+
 17. Ejecución de ‘Make’ e instalar programas desde el código fuente
 18. Operaciones de copia de seguridad
 19. Notificar a los usuarios los problemas relacionados con el sistema
 
 ## SERVIDOR DE NOMBRES DE DOMINIO
+
 20. Configuración básica del servidor DNS
 21. Crear y mantener zonas DNS
 22. Asegurar un servidor DNS
 
 ## SERVICIOS WEB
+
 23. Implementación de un servidor web
 24. Configuración de Apache para HTTPS
 25. Implementación de un servidor proxy
@@ -57,11 +66,13 @@
 32. Configuración de un servidor OpenLDAP
 
 ## SERVICIOS DE CORREO ELECTRÓNICO
+
 33. Uso de servidores de correo electrónico
 34. Gestión de la entrega del correo electrónico
 35. Gestión de la entrega remota de correo electrónico
 
 ## SEGURIDAD DEL SISTEMA
+
 36. Configurar un router
 37. Asegurar los servidores FTP
 38. Shell seguro (SSH)
@@ -69,6 +80,7 @@
 40. OpenVPN
 
 ## 📅 29/11/2022
+
 - `yum install ncdu` (herramienta de espacio en disco)
 - `df -h --total` (ver espacio total disco)
 - `date -s "01/01/1970 00:00" ` (no deja cambiar la hora al principio de todo)
@@ -95,7 +107,7 @@
 - `localectl list-locales`(mirar locales)
 - `localectl set-locale LANG=es_CO` (se cambia)
 - `localectl status` (se comprueba)
-  
+
 ```
 - A 00000000 / 01111111 = 0 - 127 / 8 (máscara)
 - B 10000000 / 10111111 = 128 - 191 / 16 
@@ -103,6 +115,7 @@
 - D 111 MULTICAST
 - E 1111 EXPERIMENTACION
 ```
+
 - `bc <<< "obase=2;255" ` (calcular el binario)
 - [Ejercicios Bash](https://es.linux-console.net/?p=632#gsc.tab=0)
 - NAT (network address translation | direcciones públicas y privadas)
@@ -115,6 +128,7 @@
 - ip del route / nuestra ip , gateway , mascara , flag , ventanas, interfaz
 
 ## 📅 30/11/2022
+
 - Cambiar la ip automática a fija.
 - `vi /etc/network/interfaces`
 - `systemctl restart networking`
@@ -164,6 +178,7 @@
 - `systemctl enable httpd.service`
 
 ## 📅 01/12/2022
+
 - `dhclient -v` (asigna una ip, o muestra la información del servidor dhcp)
 - `dhclient -r` (renueva la ip)
 - `dhclient -k` (chekea la ip)
@@ -183,13 +198,14 @@
 - `groupmod -n nuevo-nombre viejo-nombre` (cambiar de grupo)
 - `usermod -d /home/nuevo -m nuevo` (cambiar de directorio)
 - ![Tabla Mensaje dhcp](https://d7677e76-a-62cb3a1a-s-sites.googlegroups.com/site/sriasir20152016/dhcp/4-tipos-de-mensajes-dhcp/4.%20dhcp.jpg?attachauth=ANoY7crgMWW4yjgojKglSMFbn3EP0ojWFfoZVcq-YqdV4wvKFgA3uxBcxymUyenjtGFH_GuVwpcuf4ZokhUyxPj4ZlbE2gQM4kiDYGD20tJ1gtVKu63V3hiX6blS6UizFwRvlNtoIY5MWfdC0J1fdHQlkkbxaqdymI3uHOJelJuYhlDOQEFVzlq07Nbkgn70mYkECTtVQ4bJetzmfIFWwdg6x6_iopxHUOhjoA9t2wlkT99MIi2ZV_IpsKctSAULmuj0jJ9Y2iDx&attredirects=0)
-  
+
 ```
 set tabstop=4 
 set shiftwidth=4 
 set expandtab
 set number
 ```
+
 - xinetd: Se trata de un demonio (daemon, en inglés) y super servicio TCP-wrapped (Envoltorio de TCP) que controla el acceso a un subconjunto de servicios de red populares, incluyendo FTP, IMAP y Telnet. También proporciona opciones de configuración específicas del servicio para control de acceso, registro mejorado, vinculación, redirección y control de utilización de recursos. Su nombre viene del acrónimo en inglés “eXtended InterNET Daemon”, esto es, Demonio Extendido de Internet. Es típico de los sistemas UNIX y like-UNIX. También se considera una extensión mucho más segura del servicio de Internet inetd.
 - `cd /etc/xinetd.d/`
 - `apt install xinetd` (instalación del demonio)
@@ -200,7 +216,7 @@ set number
 - `firewall-cmd --add-port=666/tcp` (se añade un puerto)
 - `apt install isc-dhcp-server` (internet system consourci)
 - `vi /etc/dhcp/dhcpd.conf`
-  
+
 ```
 servidor dhcp
 cambiar el nombre de server
@@ -211,8 +227,8 @@ subnet 10.1.1.0 netmask 255.255.255.0 {
     option routers 10.1.1.1;
     option domain-name-servers 172.16.2.2;
 }
-
 ```
+
 - `systemctl status isc-dhcp-server.service`
 - `systemctl umask | mask isc-dhcp-server.service`
 - __OpenSSH__
@@ -229,6 +245,7 @@ subnet 10.1.1.0 netmask 255.255.255.0 {
 10.1.1.183    parrot
 10.1.1.208    ubuntu
 ```
+
 - __Crear Cert__
 - `ssh-keygen -t ed25519` (gernerar un cert con el algoritmo)(enter enter) (servidor)
 - `ssh-copy-id -i id_ed25519.pub curso@ubuntu` (copiamos la clave pública al cliente)
@@ -238,6 +255,7 @@ subnet 10.1.1.0 netmask 255.255.255.0 {
 - `systemctl restart sshd.service` (alma)
 
 ## 📅 02/12/2022
+
 - __En un solo Servidor__
 - `ssh-keygen -t ed25519` (generamos el cert con la palabra de paso)
 - `ssh-copy-id -i id_ed25519.pub alma` (enviamos el cert pub al servidor)
@@ -268,6 +286,7 @@ subnet 10.1.1.0 netmask 255.255.255.0 {
 - `.` (dns raices)
 
 ## 📅 09/12/2022
+
 - Correo
 - POP3, SMTP,
 - SERVIDOR CLIENTE
@@ -315,6 +334,7 @@ shred file_to_shred.txt
 - [Gestión centralizada de Logs con Rsyslog - YouTube](https://www.youtube.com/watch?v=TpXZmtVoTQg&ab_channel=DenisEspinoza)
 
 ## 📅 12/12/2022
+
 ```
 pct@cas-training.com
 
@@ -328,6 +348,7 @@ Asunto: Renuncia prácticas+Nombre y Apellidos+22/1268
 PLAZO 19/12/22
 Mª José/Jon 91.55.36.162
 ```
+
 - Seguriad
 - netstat
 - nmap
@@ -355,6 +376,7 @@ Mª José/Jon 91.55.36.162
 - `iptables -A INPUT -j DROP -p tcp --dport 23 --source alma`
 
 ## 📅 13/12/2022
+
 - Xwindows 
 - Instalación fedora (8GB, 4 Nucleos, efi, 50, 49 ip bridge, linuxmint 64, 32mb gráfica)
 - Cambiar ip a Suse
@@ -373,6 +395,7 @@ Mª José/Jon 91.55.36.162
 - `netstat -an | grep 3389` (mirar si esta el puerto abierto)
 
 ## 📅 14/2/2022
+
 - `ifdown interface`
 - `ifup interface`
 - `ip link set interface up/down`
@@ -410,6 +433,7 @@ o algo similar
 - `dpkg-reconfigure gdm3` (seleccionar el gestor de inicio o session)
 
 ## 📅 15/12/2022
+
 - __Discos__
 - fdisk
 - sfdisk
@@ -456,6 +480,7 @@ o algo similar
 - ` mdadm --assemble /dev/md0 /dev/sdb1 /dev/sdc1 `
 
 ## 📅 16/12/2022
+
 - `df -Th` (ver los discos)
 - `mdadm -Dvs` (lista los raids)
 - `mdadm -D /dev/md/secos\:r1` (información de los tipos de array creados)
@@ -503,7 +528,7 @@ o algo similar
 - `vgremove vg01`
 - `pvremove /dev/md1`
 - `apt install cfdisk` (mejor)
--  __Openstack__
+- __Openstack__
 - `/opt/stack/devstack# ./unstack.sh && ./stack.sh`
 - https://hub.docker.com/
 - https://vagrantup.com/
@@ -512,6 +537,7 @@ o algo similar
 - `vagrant ssh`
 
 ## 📅 19/12/2022
+
 - `mdadm --zero-superblock /dev/sd[bcde]4` (eliminamos los discos que se utilizan con raid)
 - __Creamos un fichero como un disco__
 - `/meta/raid5`
@@ -542,6 +568,7 @@ o algo similar
 - `vagrant ssh master` (nos conectamos al vagrant master por ssh)
 
 ## 📅 20/12/2022
+
 - Metodos de virtualización
 - vmare 
 - para virtualización ()
@@ -560,6 +587,7 @@ o algo similar
 - `kamatera` (nube)
 
 ## 📅 21/12/2022
+
 - `vagrant up Master`
 - `vagrant ssh Master`
 - `docker run --name siria -d -v src/:/usr/share/nginx/html`
@@ -579,15 +607,17 @@ o algo similar
 - `docker rm moscu`
 - `docker rm rusia`
 - __Aprovisionar__
-```
-mkdir -m 777 src
-echo "SITIO WEB DE GUINEA" > src/index.html
-echo "FROM nginx" >> Dockerfile
-echo "COPY /src /usr/share/nginx/html" >> Dockerfile
-echo "EXPOSE 80" >> Dockerfile
-docker build -t guinea .
-docker run --name bissau -d -p 80:80 guinea
-curl localhost
+  
+  ```
+  mkdir -m 777 src
+  echo "SITIO WEB DE GUINEA" > src/index.html
+  echo "FROM nginx" >> Dockerfile
+  echo "COPY /src /usr/share/nginx/html" >> Dockerfile
+  echo "EXPOSE 80" >> Dockerfile
+  docker build -t guinea .
+  docker run --name bissau -d -p 80:80 guinea
+  curl localhost
+  ```
 
 ```
 - `vagrant provision`
@@ -641,11 +671,13 @@ curl localhost
 - `apt install samba-client`
 - `/etc/samba/smb.conf` (archivo de configuración)
 ```
+
 [server]
   comment = Samba en Alma
   path = /recursos
   read only = no
   browsable = yes
+
 ```
 - `testparm` (comprobador)
 - `firewall-cmd --add-service=samba --permanent`
@@ -665,10 +697,11 @@ curl localhost
 - `fstab` (permanente)
 - `//10.1.1.10/share /share cifs user=Tardes 0 2`
 - `vi /root/cred` (se crea el fichero que leerá)
-
 ```
+
 username=windows
 password=windows
+
 ```
 - `//10.1.1.10/share /share cifs _netdev,credentials=/root/cred 0 2
 - `mount -va` (para montar)
@@ -699,3 +732,4 @@ password=windows
 
 ## EXAMEN 8/01/2023
 ## FIN
+```
