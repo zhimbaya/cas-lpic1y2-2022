@@ -8,6 +8,7 @@ Index:
 - [Linux Essential](Paginas/basic.md)
 - [LPIC 1](Paginas/lpic1.md)
 - [LPIC 2](Paginas/lpic2.md)
+- [Udemy LPIC ESSENTIAL Y 1](Paginas/udemy.md)
 
 Help:
 - [Website of help and interest](Paginas/help.md)
