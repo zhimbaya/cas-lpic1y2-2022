@@ -1,3 +1,4 @@
+# UDEMY LPIC ESSENTIAL
 97. Introdución a las redes
 98. Configurar la red en un entorno gráfico
 99. Comandos de red en CLI: net_tools
@@ -122,37 +123,4 @@
 130. Enlaces en el sistema de ficheros de Linux
 - ln (ficheros)
 - ln -s (directorios)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# LPIC 1
