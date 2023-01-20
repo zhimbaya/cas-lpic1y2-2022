@@ -10,17 +10,17 @@
 
 ### 3. Instalar Linux en Windows con Virtualbox
 ### 4. Descripción del entorno
-Limpiar la terminal
+- Limpiar la terminal
 ```
 clear
 ```
-Ver directorio actual
+- Ver directorio actual
 ```
 pwd
 ```
-Nombreusuario @ nombreservidor ~(path) $ (usurio/root)
+- Nombreusuario @ nombreservidor ~(path) $ (usurio/root)
 ### 5. Componentes de una orden: los parámetros
-Comando - modificador - parámetro
+- Comando - modificador - parámetro
 ```
 ls -l /home
 ```
@@ -58,7 +58,7 @@ ls -lhSrt
 - Cursor hacia arriba y hacia abajo
 - Ayuda del Tabulador (autocompletar)
 - Ayuda - historico
-- Ctrol + r
+- Ctrl + r
 ```
 history
 ```
@@ -196,18 +196,4 @@ p disponible
 c archivos de configuración
 ```
 - Synaptic: en modo gráfico.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### Fin
