@@ -1,0 +1,20 @@
+$TTL 604800
+@ IN SOA ns1.aula11.local. admin.aula11.local. (
+                  2         ; Serial
+             604800         ; Refresh
+              86400         ; Retry
+            2419200         ; Expire
+             604800 )       ; Negative Cache TTL
+;
+@ IN NS ns1.aula11.local.
+@ IN A 10.1.1.100
+@ IN MX 10 mail.aula11.local.
+ns1 IN A 10.1.1.100
+www IN A 10.1.1.100
+w3 IN CNAME www
+red IN CNAME www
+web IN A 10.1.1.100
+web2 IN CNAME web
+mail IN A 10.1.1.100
+dc IN  A 10.1.1.100
+ldap IN  A 172.16.1.22

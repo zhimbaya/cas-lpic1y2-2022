@@ -1,0 +1,16 @@
+$TTL 1D
+
+@ IN SOA aula11.local. root.aula11.local. (
+        0 ; serial
+        604800 ; refresh
+        86400 ; retry
+        2419200 ; expires
+        604800 ; TTL negative cache
+)
+
+@ IN NS ns.aula11.local.
+
+; Registros PTR
+
+100     IN      PTR ns.aula11.local.
+1       IN      PTR router.aula11.local.

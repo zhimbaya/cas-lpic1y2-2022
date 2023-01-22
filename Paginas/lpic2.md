@@ -589,23 +589,38 @@ o algo similar
 ## 📅 21/12/2022
 
 - `vagrant up Master`
+
 - `vagrant ssh Master`
+
 - `docker run --name siria -d -v src/:/usr/share/nginx/html`
+
 - `docker stop midocker`
+
 - `docker rm midocker`
+
 - `docker images`
+
 - echo "SITIO WEB" >> web/index.html
+
 - mkdir -m 777 web
+
 - tee Dockerfile
     FROM nginx
     COPY /web /usr/share/nginx/html
     EXPOSE 80
+
 - `docker build -t rusia . `
+
 - `docker run --name moscu -d -p 80:80 rusia`
+
 - `curl localhost`
+
 - `docker stop moscu`
+
 - `docker rm moscu`
+
 - `docker rm rusia`
+
 - __Aprovisionar__
   
   ```
@@ -731,5 +746,6 @@ password=windows
 - https://mega.nz/folder/38kWVazR#SffOX61C8mUYzbd6sW7T1w
 
 ## EXAMEN 8/01/2023
+
 ## FIN
 ```
