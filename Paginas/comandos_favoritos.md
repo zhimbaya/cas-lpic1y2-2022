@@ -1,5 +1,25 @@
 # Una lista de mis comandos favoritos en Linux.
 
+Instalación de [Multipass orchestrates virtual Ubuntu instances](https://multipass.run/install)
+
+```
+multipass help
+multipass list
+multipass find
+multipass launch --name test
+multipass exec test -- lsb_release -a
+multipass info test
+multipass shell test
+multipass stop test
+multipass start test
+multipass delete test
+multipass purge
+multipass launch -n bar --cloud-init cloud-config.yaml
+multipass launch lts --name ltsInstance --mem 2G --disk 10G --cpus 2
+```
+
+
+
 Privilegios absolutos (root)
 
 ```
@@ -92,7 +112,7 @@ sudo passwd root
 Para ver los grupos a los que pertenece el usuario
 
 ```
-group nombreusuario
+groups nombreusuario
 ```
 
 Para saber el nombre del host
@@ -121,7 +141,7 @@ snap install android-studio --classic
 snap install vlc --classic
 ```
 
-En Arch/Manjaro no necesitamos snap, ya en con ``yay`` encontramos todo lo que necesitamos
+En Arch/Manjaro no necesitamos snap, ya que con ``yay`` encontramos todo lo que necesitamos
 
 ```
 yay -S vim code android-studio vlc
@@ -461,8 +481,6 @@ Browser en terminal
 elinks https://medium.com/learn-love-code/how-to-set-up-your-professional-data-science-environment-6df74eb06aa4
 ```
 
-## Comandos comunes que siempre olvido.
-
 Ver lista de fuentes 
 
 ```
@@ -475,7 +493,7 @@ Controlar los permisos para la accesibilidad de los archivos y carpetas de nuest
 # por ejemplo, dar todo tipo de acceso a un archivo:
  sudo chmod 777 nombrearchivo
  sudo chmod a+rwx nombrearchivo
- #O para que solamente root pueda acceder a ellos:
+# O para que solamente root pueda acceder a ellos:
  sudo chmod 700 nombrearchivo
 ```
 
@@ -863,150 +881,161 @@ Shortcuts: ``Ctrl b`` + ``?``
 
 Básicos:
 
-``i`` -> Modo insertar (insertar texto).
+``i``  Modo insertar (insertar texto).
 
-``ESC`` -> Modo Normal.
+``ESC`` Modo Normal.
 
-``v`` -> Modo visual.
+``v``  Modo visual.
 
-``:w`` -> guardar.
+``:w``  guardar.
 
-``:wq`` -> guardar y salir.
+``:wq``  guardar y salir.
 
-``:qa!`` -> salir sin guardar.
+``:qa!``  salir sin guardar.
 
-``k`` -> subir.
+``k``  subir.
 
-``j`` -> bajar.
+``j``  bajar.
 
-``h`` -> izquierda.
+``h``  izquierda.
 
-``l`` -> derecha.
+``l``  derecha.
 
-``o`` -> insertar + línea adicional.
+``o``  insertar + línea adicional.
 
-``u`` -> undo, deshacer.
+``u``  undo, deshacer.
 
-``Ctrl r`` -> rehacer.
+``Ctrl r``  rehacer.
 
-``y`` -> copiar.
+``y``  copiar.
 
-``d`` -> borrar (cortar).
+``d``  borrar (cortar).
 
-``p`` -> pegar.
+``p``  pegar.
 
-``a`` -> insertar a la derecha del cursor ``A`` -> inserta al final de la línea.
+``a``  insertar a la derecha del cursor ``A`` -> inserta al final de la línea.
 
-``I`` -> insertar al principio de la línea.
+``I``  insertar al principio de la línea.
 
-Desplazamiento:
+__Desplazamiento:__
 
-``e`` -> final de palabra.
+``e``  final de palabra.
 
-``w ``-> comienzo y final de cada palabra.
+``w `` comienzo y final de cada palabra.
 
-``0`` -> principio de línea.
+``0``  principio de línea.
 
-``Shift arrows`` -> desplazar rapidamente por el documento.
+``Shift arrows``  desplazar rapidamente por el documento.
 
-``[[`` -> Ir al primer bloque.
+``[[``  Ir al primer bloque.
 
-``]]`` -> Ir al último bloque.
+``]]``  Ir al último bloque.
 
-``}`` -> Bloque siguiente.
+``}``  Bloque siguiente.
 
-``{`` -> Bloque anterior.
+``{``  Bloque anterior.
 
-``(`` -> Principio de línea.
+``(``  Principio de línea.
 
-``)`` -> Fin de línea.
+``)``  Fin de línea.
 
-``:55`` -> Ir a línea 55.
+``:55``  Ir a línea 55.
 
-``Ctrl O`` -> Navegar entre posiciones.
+``Ctrl O``  Navegar entre posiciones.
 
-`` '' `` -> Navegar a la posición previa. 
+`` '' ``  Navegar a la posición previa. 
 
-``f + {`` -> Va directamente al siguiente ``{``. Funciona para otros caracteres, por ejemplo: ``[ , ( , [a-z], [0-9] ,``, etc.
+``f + {``  Va directamente al siguiente ``{``. 
 
-Selección:
+Funciona para otros caracteres, por ejemplo: ``[ , ( , [a-z], [0-9] ,``, etc.
 
-``v`` -> seleccionar (usar cursor o letras para mover, sirve combiando con Shift).
+__Selección:__
 
-``V`` -> seleccionar línea entera.
+``v``  seleccionar (usar cursor o letras para mover, sirve combiando con Shift).
 
-``:V G`` -> selecciona todo el texto abajo del cursor.
+``V``  seleccionar línea entera.
 
-Seleccionar una función <- ``V }``.
+``:V G``  selecciona todo el texto abajo del cursor.
 
-Seleccionar bloques hacia abajo <- ``v }``.
+`V }` Seleccionar una función
 
-Seleccionar bloques hacia arriba <- ``v {``.
+`v }` Seleccionar bloques hacia abajo
 
-Seleccionar html tag hacia abajo o arriba <- ``vat``
+`v {` Seleccionar bloques hacia arriba
 
-Funcionalidades:
+`vat` Seleccionar html tag hacia abajo o arriba 
 
-Mostrar archivos en path <- ``:!ls``.
+__Funcionalidades:__
 
-Buscar y abrir archivos en path <- ``Ctrl p``.
+Mostrar archivos en path  ``:!ls``
 
-Encontrar patrón en texto <- ``/patron``.
+Buscar y abrir archivos en path  ``Ctrl p``
 
-Borrar una función <-  ``V } d``.
+Encontrar patrón en texto  ``/patron``
 
-Borrar todo dentro de comillas <- ``d i "``
+Borrar una función  ``V } d``
 
-Cambiar entre ventanas <- ``Ctrl + w + k`` o ``Ctrl + w + j``
+Borrar todo dentro de comillas ``d i "``
 
-Borrar 10 líneas abajos <- ``10  dd ``
+Cambiar entre ventanas  ``Ctrl + w + k`` o ``Ctrl + w + j``
 
-Ir al inicio <- ``gg``. Ir al final ``G``. Mostrar status ``Ctrl + g``.
+Borrar 10 líneas abajos ``10 dd ``
 
-Ergonómicos:
+Ir al inicio  ``gg``
 
-Salir <- ``Z Q``
+Ir al final ``G``
 
-``Ctrl c``-> Modo Normal.
+Mostrar status ``Ctrl + g``
 
-``:V G d`` -> borrar todo el documento
+__Ergonómicos:__
 
-Borrar y editar directamente dentro de una función <- ``c i {`` 
+Salir  ``Z Q``
 
-``/`` -> buscar, ``n`` siguiente y ``N`` anterior
+``Ctrl c`` Modo Normal.
 
-``Ctrl v`` -> Bloques visuales
+``:V G d``  borrar todo el documento
 
-``.`` -> Rehace el último comando en un sito nuevo.
+Borrar y editar directamente dentro de una función  ``c i {`` 
 
-Marcas:
+``/``  buscar, ``n`` siguiente y ``N`` anterior
+
+``Ctrl v``  Bloques visuales
+
+``.`` Rehace el último comando en un sito nuevo.
+
+__Marcas:__
 
 Escribe ``:mark a`` en la línea que desea marcar, navega a ella con ``'a``. También puedes navegar entre marcas con ``['`` y ``]'``.
 
-Editar múltiples líneas:
+__Editar múltiples líneas:__
 
 Seleccinamos con ``V`` y luego usamos ``Ctrl V`` seguido de las teclas de desplazamiento (j, k, l, h, etc...) y el texto a agregar.
 
-Sustituir patrón de texto <- ``:%s 'texto a sustituir'/'nuevo texto'``.
+**Para agregar espacios a multiples líneas**
 
-Comentar múltiples líneas:
+seleccionamos con `V` y agregamos `I`, luego con espacios movemos las líneas.
 
-Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``. O, puedes utilizar ``:s/^/# /`` .
+Sustituir patrón de texto ``:%s 'texto a sustituir'/'nuevo texto'``.
 
-Autoindent múltiples líneas (Ideal para programar en Python):
+__Comentar múltiples líneas:__
+
+Comentar. Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``. O, puedes utilizar ``:s/^/# /`` .
+
+__Autoindent múltiples líneas (Ideal para programar en Python):__
 
 Seleccionar líneas con ``V`` y luego ``>>``.
 
 Autocompletar <- ``Ctrl x Ctrl o``, luego seleccionar con ``Ctrl n`` .
 
-Prettier para js, html, css <- ``Ctrl l``. 
+Prettier para js, html, css ``Ctrl l``. 
 
-Editar varias líneas al mismo tiempo:
+__Editar varias líneas al mismo tiempo:__
 
-Encerrar texto seleccionado en un tab <- selecciona con v o V, luego ``S`` y finalmente el tag, por ejemplo, ```<div>```.
-Para agregar espacios a multiples líneas seleccionamos con ``V`` y agregamos ``I``, luego con espacios movemos las líneas.  
+__Encerrar texto seleccionado en un tab__
 
-Editar varios archivos en la misma pantalla
+selecciona con v o V, luego ``S`` y finalmente el tag, por ejemplo, ```<div>```
+
+__Editar varios archivos en la misma pantalla__
 
 Editar un nuevo archivo: ``:e nombre_archivo``
 
@@ -1018,7 +1047,7 @@ Navegar entre pantallas: ``Ctrl w + jklh``
 
 Con ``:hide`` podemos esconder la ventana, o simplemente ``:q``, ``:qa!`` o ``:wq`` para cerrarla.
 
-Abrir la terminal sin salir de Vim:
+__Abrir la terminal sin salir de Vim:__
 
 Podemos usar ``:term`` o ``:vert term`` para que se divida la pantalla verticalmente. 
 
@@ -1554,8 +1583,7 @@ vim /etc/motd
             done 
     
     
-            for i in `seq 1 10`;
-            do
+            for i in `seq 1 10`; do
                     echo $i
             done    
     
@@ -1581,8 +1609,8 @@ vim /etc/motd
 
              if [ hola == hola ]; then
                  echo TRUE;
-                 else 
-                     echo FALSE;
+             else 
+                 echo FALSE;
              fi
     
              VAR="Hello Amit";
