@@ -9,6 +9,7 @@
 > ##### Si consideras útil este curso, apóyalo haciendo "★ Star" en el repositorio. ¡Gracias!
 
 ## Index
+- [Comandos favoritos](Paginas/comandos_favoritos.md)
 - [Clases de iniciación a Linux Essential](Paginas/basic.md)
 - [Clases de LPIC - 1](Paginas/lpic1.md)
 - [Clases de LPIC - 2](Paginas/lpic2.md)
