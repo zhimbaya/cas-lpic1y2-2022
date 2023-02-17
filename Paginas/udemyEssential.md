@@ -28,13 +28,7 @@ Ubuntu, Debian, RedHat.
 
 ### 10. Pricipales aplicaciones de escritorio.
 
-- Libreoffice
-
-- VLC
-
-- Transmition
-
-- Firefox
+- Libreoffice, VLC, Transmition, Firefox, etc.
 
 ### 11. Principales aplicaciones para servidores.
 
@@ -94,7 +88,7 @@ Ubuntu, Debian, RedHat.
 
 - NO Rights Reservados __(CC0)__ versión de Creative Commons de dominio público.
 
-### 15. Cómo ganer dinero con Linux
+### 15. Cómo ganar dinero con Linux
 
 - Instalación, soporte y personalización.
 
@@ -106,12 +100,15 @@ Ubuntu, Debian, RedHat.
 
 ### 16. El entorno de escritorio
 
-- Hardware - Kernel - Shell - Sistemas de Ventanas - Gestor de ventanas - Entorno de escritorio - Usuario
-- Gnome - c - GTK, KDE - c++ - QT
+- Hardware <-> Kernel <-> Shell <-> Sistemas de Ventanas <-> Gestor de ventanas <-> Entorno de escritorio <-> Usuario
 
 ### 17. El entorno gráfico de Gnome.
 
+- Gnome - c - GTK
+
 ### 18. El entorno gráfico de KDE.
+
+- KDE - c++ - QT
 
 ### 19. Usos de entornos profesionales. El terminal.
 
@@ -135,7 +132,7 @@ Ubuntu, Debian, RedHat.
 
 ### 24. Empezando en Bash: el prompt, pwd y man.
 
-Borrar la pantalla.
+Limpiar la pantalla.
 
 ```
 clear
@@ -155,9 +152,11 @@ pwd
 
 ### 25. Partes de un comando: los parámetros.
 
+- Comando opciones parámetros
+
 ### 26. Partes de un comando: las opciones.
 
-Lista (comando opciones parámetros)
+Lista el contenido del directorio.
 
 ```
 ls directorio
@@ -171,7 +170,7 @@ ls directorio
 echo -e "hola \n \t mundo"
 ```
 
-Variables = $variable
+Variables = $VARIABLE
 
 ```
 echo $USER
@@ -200,7 +199,7 @@ type cd
 which cd
 ```
 
-`man`muestra ayuda de comandos, y ficheros de configuración.
+`man` muestra ayuda de comandos, y ficheros de configuración.
 
 `uname` muestra información del sistema.
 
@@ -224,7 +223,7 @@ less /etc/*rele*
 Activamos o desactivamos las opciones.
 
 ```
-set -o +o opción
+set -o | +o opción
 ```
 
 `export` crea o modifica variables de entorno.
@@ -285,7 +284,7 @@ Secciones dentro de una página.
 
 - Descripción
 
-- Optiones
+- Opciones
 
 - Argumentos
 
@@ -321,11 +320,11 @@ Opciones más importantes
 
 ```
 man 5 passwd
-man -f ls (corta informaci)
+man -f ls (corta información)
 man -k wc
 ```
 
-Algunos comando tiene una ayuda rápida y simple.
+Algunos comandos tienen una ayuda rápida y simple.
 
 ```
 -h o --help
@@ -345,7 +344,7 @@ Muestra más información con hiperenlaces.
 info comando
 ```
 
-Base de datos `updatedb`
+Base de datos `updatedb`, busca información de comandos, ficheros o directorios.
 
 ```
 locate comando
@@ -369,7 +368,7 @@ ls -lh /directorio
 ls -lS (tamaño)
 ls -lr (descendente)
 ls -lt (fecha de modificación)
-pwd (directorio donde estoy)(
+pwd (directorio donde estoy)
 cd /var (cambiar de directorio)
 cd (va a mi directorio personal)
 cd -
