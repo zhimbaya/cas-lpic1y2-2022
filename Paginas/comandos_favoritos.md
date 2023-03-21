@@ -227,7 +227,7 @@ history
 
 * Para limpiar el historial ``history -c`` (bash)
 
-Mostrar toda la estructura de los ficheros:
+Mostrar la estructura de ficheros:
 
 ```
 tree
@@ -280,12 +280,6 @@ rm -r /carpeta
 Cuidado, ``#sudo rm -r /*``  destroza nuestro sistema, elimina todo
 
 Crear links a archivos es sencillo, por ejemplo, al "``archivo1``":
-
-```
-link archivo1 archivo2
-```
-
-Opcionalemente podemos utilizar:
 
 ```
 ln archivo1 archivo2
@@ -371,7 +365,7 @@ cat "el archivo wifi"
 ```
 
 Ruta
-
+https://devconnected.com/how-to-add-route-on-linux/
 ```
 ip route
 route -n
