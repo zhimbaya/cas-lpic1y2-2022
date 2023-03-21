@@ -413,6 +413,11 @@ Detalles del Hardware y bios del sistema
 
 ```
 dmidecode
+dmidecode -t processor
+dmidecode -t bios
+dmidecode -t baseboard
+dmidecode -V
+dmidecode --help
 ```
 
 Con neofetch podemos ver detalles de nuestro sistema de manera divertida (``apt install neofetch``)
