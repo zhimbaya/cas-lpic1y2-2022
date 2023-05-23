@@ -1,0 +1,165 @@
+{
+  "main": {
+    "id": "9ca1297c953e6fdf",
+    "type": "split",
+    "children": [
+      {
+        "id": "0f645b6e112f7d6e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9696f10f792cf600",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Paginas/udemyBase.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5294746df48eed3f",
+    "type": "split",
+    "children": [
+      {
+        "id": "92ca4b9400e20895",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f3fdaec99327840b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3d03d91bea689681",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d14db491a898223b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "92eacda529546aa4",
+    "type": "split",
+    "children": [
+      {
+        "id": "a247b69bd5990ff9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "05cc34e01efd4dc7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Paginas/udemyBase.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f79f6c9c543cbe2a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Paginas/udemyBase.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "accca67038ff5175",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "390388ae1ecc098d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Paginas/udemyBase.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir quick switcher": false,
+      "graph:Abrir vista de gráfico": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false
+    }
+  },
+  "active": "9696f10f792cf600",
+  "lastOpenFiles": [
+    "Paginas/SUGEEK LPIC ESENTIAL.md",
+    "Paginas/interesting.md",
+    "Paginas/help.md",
+    "Paginas/comandos_favoritos.md",
+    "Paginas/basic.md",
+    "URLs/url01/URLs_essentials01.pdf",
+    "URLs/url01/LPIC-1_Com.pdf",
+    "URLs/url01/Elige_distro.pdf",
+    "URLs/url01/Ejemplos_RPM.pdf",
+    "URLs/url01/ejemplos_dpkg.pdf",
+    "URLs/url01/Ejemplos_dnf.pdf",
+    "URLs/url01/appimage-snap-flatpak-.pdf",
+    "README.md"
+  ]
+}
