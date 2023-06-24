@@ -1,6 +1,6 @@
 # Una lista de mis comandos favoritos en Linux.
 
-Instalación de [Multipass orchestrates virtual Ubuntu instances](https://multipass.run/install)
+Instalación de [Multipass orchestrates virtual Ubuntu instances](https://multipass.run/install).
 
 ```
 multipass help
@@ -20,40 +20,39 @@ multipass launch lts --name ltsInstance --mem 2G --disk 10G --cpus 2
 
 
 
-Privilegios absolutos (root)
+Privilegios absolutos (root).
 
 ```
 su
 ```
 
-Si el usuario pertenece al grupo de administradores
+Si el usuario pertenece al grupo de administradores.
 
 ```
 sudo -i
 ```
 
-Para ejecutar un comando que requiera permisos de administrador
+Para ejecutar un comando que requiera permisos de administrador.
 
 ```
 sudo comando
 ```
 
-** Si olvidamos escribir sudo y nos da un error por ello, podemos usar `sudo!!` para ejecutar el comando anterior con sudo de prefijo
+** Si olvidamos escribir sudo y nos da un error por ello, podemos usar `sudo!!` para ejecutar el comando anterior con sudo de prefijo.
 
-Para saber que distro de linux tienes
+Para saber que distro de linux tienes.
 
 ```
 uname -a
 ```
 
-Actualizar Debian/Ubuntu
+Actualizar Debian/Ubuntu.
 
 ```
-apt update -y
-apt upgrade -y
+apt update -y && apt upgrade -y
 ```
 
-En Fedora/Centos se utiliza yum para gestionar los paquetes
+En Fedora/Centos se utiliza yum para gestionar los paquetes.
 
 ```
 yum update -y
@@ -66,34 +65,42 @@ pacman -Syy
 pacman -Su
 ```
 
-Puedes usar '&&' para varios comandos seguidos 
+Puedes usar '&&' para varios comandos seguidos.
 
 ```
  apt update -y && apt upgrade -y && apt autoremove -y
 ```
 
-Crear usuario
+Crear un usuario.
 
 ```
 sudo useradd nombreusuario
 ```
 
-Para agregar usuarios a grupos, por ejemplo, grupo sudo
+Cambiar de grupo principal.
+
+```
+usermod usuario -g otroGrupo
+```
+
+Para agregar usuarios a grupos secundarios, por ejemplo, grupo sudo
 
 ```
 sudo usermod -aG sudo nombreusuario
 ```
 
-Eliminar usuario
+Eliminar un usuario.
 
 ```
 sudo userdel nombreusuario
 ```
 
-Ver usuarios y detalles del host
+Ver los usuarios y detalles del host.
 
 ```
 users
+```
+```
 hostnamectl
 ```
 
@@ -109,22 +116,22 @@ Para el root, utilizamos:
 sudo passwd root
 ```
 
-Para ver los grupos a los que pertenece el usuario
+Para ver los grupos a los que pertenece el usuario:
 
 ```
-groups nombreusuario
+groups nombre_usuario
 ```
 
-Para saber el nombre del host
+Para saber el nombre del host:
 
 ```
 hostname
 ```
 
-Para cambiar el nombre
+Para cambiar el nombre.
 
 ```
-hostnamectl set-hostname nuevonombre
+hostnamectl set-hostname nuevo_nombre
 ```
 
 Instalar todo tipo de programas en Linux, por ejemplo, htop: 
@@ -141,26 +148,28 @@ snap install android-studio --classic
 snap install vlc --classic
 ```
 
-En Arch/Manjaro no necesitamos snap, ya que con ``yay`` encontramos todo lo que necesitamos
+En Arch/Manjaro no necesitamos snap, ya que con ``yay`` encontramos todo lo que necesitamos.
 
 ```
 yay -S vim code android-studio vlc
 ```
 
-Crear y navegar a las carpetas
+Crear y navegar a las carpetas.
 
 ```
 mkdir carpeta
+```
+```
 cd /carpeta 
 ```
 
-Regresar al directorio anterior
+Regresar al directorio anterior.
 
 ```
 cd ..
 ```
 
-Saber el directorio en el que estamos
+Saber el directorio en el que estamos.
 
 ```
 pwd
