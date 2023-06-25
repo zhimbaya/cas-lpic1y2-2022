@@ -371,7 +371,7 @@ IP local y Wifi:
  iwconfig
 ```
 
-IP pública
+Muestra la IP pública:
 
 ```
 curl ifconfig.me
@@ -388,24 +388,30 @@ cat "el archivo wifi"
 ```
 
 Ruta
-https://devconnected.com/how-to-add-route-on-linux/
+https://devconnected.com/how-to-add-route-on-linux/:
 ```
 ip route
+```
+```
 route -n
 ```
 
-Enviar peticiones a servidores online o en red local
+Enviar peticiones a servidores online o en red local:
 
 ```
-ping google.com
-ping 192.168.1.1
+ping google.com || ping 192.168.1.1
 ```
 
-Usuario y tiempo conectado
+Usuario y tiempo conectado:
+
+
+```
+uptime -p
+```
+Muestra la versión del kernel:
 
 ```
 uname -r
-uptime -p
 ```
 
 Almacenamiento de los discos ``df``
@@ -415,24 +421,31 @@ Si queremos saber donde está un dispositivo USB, disco duro y sus particiones:
 ```
 sudo fdisk -l
 ```
+```
+lsblk
+```
 
 Los procesos del sistema pueden mostrarse con:
 
 ```
- top
- htop
- ps -ef | less
+top
+```
+```
+htop
+```
+```
+ps -ef | less
 ```
 
 El signo | nos permite concatenar comandos (pipes).
 
-Imprimir todos los procesos en un momento determinado
+Imprimir todos los procesos en un momento determinado:
 
 ```
 ps -ef
 ```
 
-Detalles del Hardware y bios del sistema
+Detalles del Hardware y bios del sistema:
 
 ```
 dmidecode
@@ -443,70 +456,81 @@ dmidecode -V
 dmidecode --help
 ```
 
-Con neofetch podemos ver detalles de nuestro sistema de manera divertida (``apt install neofetch``)
+Con neofetch podemos ver detalles de nuestro sistema de manera divertida (``apt install neofetch``):
 
 ```
 neofetch
 ```
 
-Descomprimir archivos
+Descomprimir archivos:
 
 ```
 unzip * .zip
+```
+```
 gunzip example.txt.gz
 ```
 
-Instalación de aplicaciones .deb. Tambien es posible usar ``gdebi``. 
+Instalación de aplicaciones .deb. Tambien es posible usar ``gdebi``:
 
 ```
- dpkg -i archivo.deb && apt install -f
+dpkg -i archivo.deb && apt install -f
 ```
 
-Los siguientes comandos utilizan systemctl para controlar servicios del sistema.
+Los siguientes comandos utilizan systemctl para controlar servicios del sistema:
 
 ```
- systemctl enable nombreservicio
- systemctl start nombreservicio
- systemctl stop nombreservicio
- systemctl disable nombreservicio
+systemctl enable nombre_servicio
+systemctl start nombre_servicio
+systemctl stop nombre_servicio
+systemctl disable nombre_servicio
 ```
 
-Reiniciar Wifi 
+Reiniciar Wifi:
 
 ```
 service network-manager restart
 ```
 
-``nohup`` para jecutar un comando o script en background, por ejemplo, un scrip de Python.
+``nohup`` mantiene la ejecución de un comando pese a salir de la terminal por ejemplo, un scrip de Python:
 
 ```
-nohub python3 main.py > flask.log 2>&1 &
+nohup python3 main.py > flask.log 2>&1 &
 ```
 
-Detener proceso 
+Detener proceso:
 
 ```
 top
-kill idproceso
+kill id_proceso
 ```
 
-Características del sistema
+Características del sistema:
 
 ```
- lshw
- lscpu
+lshw
+```
+```
+lscpu
 ```
 
-Browser en terminal
+Un browser en el terminal:
 
 ```
 elinks https://medium.com/learn-love-code/how-to-set-up-your-professional-data-science-environment-6df74eb06aa4
 ```
 
-Ver lista de fuentes 
+Ver lista de fuentes:
 
 ```
-nano /etc/apt/sources.list
+vi /etc/apt/sources.list
+```
+Fedora
+```
+dnf repolist
+```
+```
+vi /etc/yum.repos.d/fedora.repo
 ```
 
 Controlar los permisos para la accesibilidad de los archivos y carpetas de nuestro sistema, 
