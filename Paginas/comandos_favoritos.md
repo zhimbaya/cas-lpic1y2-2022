@@ -1,6 +1,6 @@
 # Una lista de mis comandos favoritos en Linux.
 
-Instalación de [Multipass orchestrates virtual Ubuntu instances](https://multipass.run/install).
+Instalación de [Multipass orchestrates virtual Ubuntu instances](https://multipass.run/install):
 
 ```
 multipass help
@@ -20,19 +20,19 @@ multipass launch lts --name ltsInstance --mem 2G --disk 10G --cpus 2
 
 
 
-Privilegios absolutos (root).
+Privilegios absolutos (root):
 
 ```
 su
 ```
 
-Si el usuario pertenece al grupo de administradores.
+Si el usuario pertenece al grupo de administradores:
 
 ```
 sudo -i
 ```
 
-Para ejecutar un comando que requiera permisos de administrador.
+Para ejecutar un comando que requiera permisos de administrador:
 
 ```
 sudo comando
@@ -40,19 +40,19 @@ sudo comando
 
 ** Si olvidamos escribir sudo y nos da un error por ello, podemos usar `sudo!!` para ejecutar el comando anterior con sudo de prefijo.
 
-Para saber que distro de linux tienes.
+Para saber que distro de linux tienes:
 
 ```
 uname -a
 ```
 
-Actualizar Debian/Ubuntu.
+Actualizar Debian/Ubuntu:
 
 ```
 apt update -y && apt upgrade -y
 ```
 
-En Fedora/Centos se utiliza yum para gestionar los paquetes.
+En Fedora/Centos se utiliza yum para gestionar los paquetes:
 
 ```
 yum update -y
@@ -65,37 +65,37 @@ pacman -Syy
 pacman -Su
 ```
 
-Puedes usar '&&' para varios comandos seguidos.
+Puedes usar '&&' para varios comandos seguidos:
 
 ```
  apt update -y && apt upgrade -y && apt autoremove -y
 ```
 
-Crear un usuario.
+Crear un usuario:
 
 ```
 sudo useradd nombreusuario
 ```
 
-Cambiar de grupo principal.
+Cambiar de grupo principal:
 
 ```
 usermod usuario -g otroGrupo
 ```
 
-Para agregar usuarios a grupos secundarios, por ejemplo, grupo sudo
+Para agregar usuarios a grupos secundarios, por ejemplo, grupo sudo:
 
 ```
 sudo usermod -aG sudo nombreusuario
 ```
 
-Eliminar un usuario.
+Eliminar un usuario:
 
 ```
 sudo userdel nombreusuario
 ```
 
-Ver los usuarios y detalles del host.
+Ver los usuarios y detalles del host:
 
 ```
 users
@@ -128,8 +128,7 @@ Para saber el nombre del host:
 hostname
 ```
 
-Para cambiar el nombre.
-
+Para cambiar el nombre:
 ```
 hostnamectl set-hostname nuevo_nombre
 ```
@@ -154,7 +153,7 @@ En Arch/Manjaro no necesitamos snap, ya que con ``yay`` encontramos todo lo que 
 yay -S vim code android-studio vlc
 ```
 
-Crear y navegar a las carpetas.
+Crear y navegar por las carpetas:
 
 ```
 mkdir carpeta
@@ -163,7 +162,7 @@ mkdir carpeta
 cd /carpeta 
 ```
 
-Regresar al directorio anterior.
+Regresar al directorio anterior:
 
 ```
 cd ..
@@ -175,25 +174,25 @@ Saber el directorio en el que estamos.
 pwd
 ```
 
-Crear un archivo vacio:
+Crear un archivo vacío:
 
 ```
- touch nombrearchivo
+ touch nombre_archivo
 ```
 
 Crear un archivo con un texto corto:
 
 ```
- echo "Texto corto" > nombrearchivo
+ echo "Texto corto" > nombre_archivo
 ```
 
-Si utilizamos >> agregamos el texto sin reemplazar el archivo. 
+Si utilizamos `>>` agregamos el texto sin reemplazar el archivo. 
 
 ```
  echo "Agregamos texto nuevo" >> nombrearchivo
 ```
 
-Si queremos aplicar un comando a un archivo, por ejemplo, un sript mysql, usamos "<" 
+Si queremos aplicar un comando a un archivo, por ejemplo, un sript mysql, usamos `<`. 
 
 ```
 mariadb --user=root --password -s < mariadb.sql
@@ -203,21 +202,26 @@ Para echar un ojo a un archivo corto:
 
 ```
 cat archivo
+```
+```
 more archivo
+```
+```
 less archivo
 ```
 
-Con el editor nano podemos ver y editar archivos más grandes:
+Con el editor `nano / vi` podemos ver y editar archivos más grandes:
 
 ```
-nano nombrearchivo
+nano nombre_archivo
 ```
 
-Utilizando Crlt-x guardamos los cambios. 
-Limpiar la pantalla en la terminal
+Utilizando Crlt-x guardamos los cambios.
+
+Limpiar la pantalla en la terminal:
 
 ```
- clear # o Crtl-L
+ clear o Ctrl-L
 ```
 
 Encontrar un archivo en el sistema:
@@ -228,13 +232,19 @@ find / -name archivo
 
 ** En caso de que el archivo se encuentre en una carpeta que requiera permiso, usar `sudo` antes del comando.
 
-Ver la historia del terminal
+Ver el historial del terminal:
 
 ```
 history
 ```
 
-* Para limpiar el historial ``history -c`` (bash)
+** Para limpiar el historial ``history -c`` (bash).
+
+Para ejecutar el comando encontrado:
+
+```
+!53
+```
 
 Mostrar la estructura de ficheros:
 
@@ -242,59 +252,61 @@ Mostrar la estructura de ficheros:
 tree
 ```
 
-Copiar archivos de un sitio a otro:
+Copiar los archivos de un sitio a otro:
 
 ```
 cp carpeta/archivo carpeta/
 ```
 
-Crear copia con nuevo nombre
+Crea una copia con un nuevo nombre:
 
 ```
- cp archivo nuevoarchivo
+ cp archivo nuevo_archivo
 ```
 
-Renombrar archivos (no guarda la copia anterior)
+Renombra los archivos __(no guarda la copia anterior)__:
 
 ```
- mv archivo nuevoarchivo
+ mv archivo nuevo_archivo
 ```
 
-Listar archivos 
+Lista todos ficheros, archivos:
 
 ```
 ls
 ls -l 
 ```
 
-Para mover archivos seguimos el mismo razonamiento que al copiar. Mientras que si es una carpeta debemos agregar -r.
+Para mover archivos seguimos el mismo razonamiento que al copiar. Mientras que si es una carpeta debemos agregar -r:
 
 ```
 mv -r carpeta/ /carpeta/destino
 ```
 
-Mover todos los archivos de una carpeta a otra
+Mueve todos los archivos de una carpeta a otra:
 
 ```
-mv -r carpeta/ * /destino/
+mv -r carpeta/* /destino/
 ```
 
 Para eliminar archivos y carpetas:
 
 ```
-rm nombrearchivo
+rm nombre_archivo
+```
+```
 rm -r /carpeta
 ```
 
-Cuidado, ``#sudo rm -r /*``  destroza nuestro sistema, elimina todo
+Cuidado, ``#sudo rm -r /*``  destroza nuestro sistema, elimina todo.
 
-Crear links a archivos es sencillo, por ejemplo, al "``archivo1``":
+Crear links a archivos es sencillo, por ejemplo, al "``archivo_1``":
 
 ```
-ln archivo1 archivo2
+ln archivo_1 archivo_2
 ```
 
-Para crear links a directorios o entre particiones
+Para crear links a directorios o entre particiones:
 
 ```
 ln -s /dir1 archivos
@@ -306,7 +318,7 @@ Este comando es un combo, ya que permite saber que binarios tenemos instalados:
 ls /bin/ && ls /usr/bin
 ```
 
-Para saber dispositivos conectados a los puertos USB:
+Para saber los dispositivos conectados a los puertos USB:
 
 ```
 lsusb
@@ -320,21 +332,23 @@ Para saber el porcentaje de uso de los discos disponibles:
 df --total -hl
 ```
 
-Para saber la memoria RAM disponible 
+Para saber la memoria RAM disponible:
 
 ```
 grep MemTotal /proc/meminfo
-# o
+
+```
+```
 free -m
 ```
 
-Crear un USB bootable con cualquier imagen de Linux.  
+Crear un USB bootable con cualquier imagen de Linux:  
 
 ```
  sudo dd bs=4M if=arch.iso of=/dev/sdb status=progress
 ```
 
-Ver las conexiones en los sockets de nuestro equipo
+Ver las conexiones en los sockets de nuestro equipo:
 
 ```
 ss
@@ -349,7 +363,7 @@ Para conocer los usuarios logueados en el sistema:
 who
 ```
 
-IP local y Wifi.
+IP local y Wifi:
 
 ```
  ifconfig
