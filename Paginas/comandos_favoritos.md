@@ -1,6 +1,6 @@
 # Una lista de mis comandos favoritos en Linux.
 
-Instalación de [Multipass orchestrates virtual Ubuntu instances](https://multipass.run/install):
+#### Instalación de [Multipass orchestrates virtual Ubuntu instances](https://multipass.run/install):
 
 ```
 multipass help
@@ -20,19 +20,19 @@ multipass launch lts --name ltsInstance --mem 2G --disk 10G --cpus 2
 
 
 
-Privilegios absolutos (root):
+#### Privilegios absolutos (root):
 
 ```
 su
 ```
 
-Si el usuario pertenece al grupo de administradores:
+#### Si el usuario pertenece al grupo de administradores:
 
 ```
 sudo -i
 ```
 
-Para ejecutar un comando que requiera permisos de administrador:
+#### Para ejecutar un comando que requiera permisos de administrador:
 
 ```
 sudo comando
@@ -40,62 +40,62 @@ sudo comando
 
 ** Si olvidamos escribir sudo y nos da un error por ello, podemos usar `sudo!!` para ejecutar el comando anterior con sudo de prefijo.
 
-Para saber que distro de linux tienes:
+#### Para saber que distro de linux tienes:
 
 ```
 uname -a
 ```
 
-Actualizar Debian/Ubuntu:
+#### Actualizar Debian/Ubuntu:
 
 ```
 apt update -y && apt upgrade -y
 ```
 
-En Fedora/Centos se utiliza yum para gestionar los paquetes:
+#### En Fedora/Centos se utiliza yum para gestionar los paquetes:
 
 ```
 yum update -y
 ```
 
-Arch/Manjaro
+#### Arch/Manjaro:
 
 ```
 pacman -Syy
 pacman -Su
 ```
 
-Puedes usar '&&' para varios comandos seguidos:
+#### Puedes usar '&&' para varios comandos seguidos:
 
 ```
  apt update -y && apt upgrade -y && apt autoremove -y
 ```
 
-Crear un usuario:
+#### Crear un usuario:
 
 ```
-sudo useradd nombreusuario
+sudo useradd nombre_usuario
 ```
 
-Cambiar de grupo principal:
+#### Cambiar de grupo principal:
 
 ```
 usermod usuario -g otroGrupo
 ```
 
-Para agregar usuarios a grupos secundarios, por ejemplo, grupo sudo:
+#### Para agregar usuarios a grupos secundarios, por ejemplo, grupo sudo:
 
 ```
 sudo usermod -aG sudo nombreusuario
 ```
 
-Eliminar un usuario:
+#### Eliminar un usuario:
 
 ```
 sudo userdel nombreusuario
 ```
 
-Ver los usuarios y detalles del host:
+#### Ver los usuarios y detalles del host:
 
 ```
 users
@@ -104,42 +104,42 @@ users
 hostnamectl
 ```
 
-Para cambiar la contraseña utilizamos:
+#### Para cambiar la contraseña utilizamos:
 
 ```
 passwd
 ```
 
-Para el root, utilizamos:
+#### Para el root, utilizamos:
 
 ```
 sudo passwd root
 ```
 
-Para ver los grupos a los que pertenece el usuario:
+#### Para ver los grupos a los que pertenece el usuario:
 
 ```
 groups nombre_usuario
 ```
 
-Para saber el nombre del host:
+#### Para saber el nombre del host:
 
 ```
 hostname
 ```
 
-Para cambiar el nombre:
+#### Para cambiar el nombre:
 ```
 hostnamectl set-hostname nuevo_nombre
 ```
 
-Instalar todo tipo de programas en Linux, por ejemplo, htop: 
+#### Instalar todo tipo de programas en Linux, por ejemplo, htop: 
 
 ```
 sudo apt install htop -y
 ```
 
-Instala programas con snap (``apt install snapd`` o ``yum install snapd``), por ejemplo, VScode, Android Studio y VLC:
+#### Instala programas con snap (``apt install snapd`` o ``yum install snapd``), por ejemplo, VScode, Android Studio y VLC:
 
 ```
 snap install code --classic
@@ -147,13 +147,13 @@ snap install android-studio --classic
 snap install vlc --classic
 ```
 
-En Arch/Manjaro no necesitamos snap, ya que con ``yay`` encontramos todo lo que necesitamos.
+#### En Arch/Manjaro no necesitamos snap, ya que con ``yay`` encontramos todo lo que necesitamos.
 
 ```
 yay -S vim code android-studio vlc
 ```
 
-Crear y navegar por las carpetas:
+#### Crear y navegar por las carpetas:
 
 ```
 mkdir carpeta
@@ -162,43 +162,43 @@ mkdir carpeta
 cd /carpeta 
 ```
 
-Regresar al directorio anterior:
+#### Regresar al directorio anterior:
 
 ```
 cd ..
 ```
 
-Saber el directorio en el que estamos.
+#### Saber el directorio en el que estamos.
 
 ```
 pwd
 ```
 
-Crear un archivo vacío:
+#### Crear un archivo vacío:
 
 ```
- touch nombre_archivo
+touch nombre_archivo
 ```
 
-Crear un archivo con un texto corto:
+#### Crear un archivo con un texto corto:
 
 ```
- echo "Texto corto" > nombre_archivo
+echo "Texto corto" > nombre_archivo
 ```
 
-Si utilizamos `>>` agregamos el texto sin reemplazar el archivo. 
+#### Si utilizamos `>>` agregamos el texto sin reemplazar el archivo. 
 
 ```
- echo "Agregamos texto nuevo" >> nombrearchivo
+ echo "Agregamos texto nuevo" >> nombre_archivo
 ```
 
-Si queremos aplicar un comando a un archivo, por ejemplo, un sript mysql, usamos `<`. 
+#### Si queremos aplicar un comando a un archivo, por ejemplo, un script mysql, usamos `<`. 
 
 ```
 mariadb --user=root --password -s < mariadb.sql
 ```
 
-Para echar un ojo a un archivo corto:
+#### Para echar un ojo a un archivo corto:
 
 ```
 cat archivo
@@ -210,21 +210,21 @@ more archivo
 less archivo
 ```
 
-Con el editor `nano / vi` podemos ver y editar archivos más grandes:
+#### Con el editor `nano / vi` podemos ver y editar archivos más grandes:
 
 ```
 nano nombre_archivo
 ```
 
-Utilizando Crlt-x guardamos los cambios.
+#### Utilizando Ctrl-x guardamos los cambios.
 
-Limpiar la pantalla en la terminal:
+#### Limpiar la pantalla en la terminal:
 
 ```
- clear o Ctrl-L
+clear o Ctrl-L
 ```
 
-Encontrar un archivo en el sistema:
+#### Encontrar un archivo en el sistema:
 
 ```
 find / -name archivo
@@ -232,7 +232,7 @@ find / -name archivo
 
 ** En caso de que el archivo se encuentre en una carpeta que requiera permiso, usar `sudo` antes del comando.
 
-Ver el historial del terminal:
+#### Ver el historial del terminal:
 
 ```
 history
@@ -240,56 +240,54 @@ history
 
 ** Para limpiar el historial ``history -c`` (bash).
 
-Para ejecutar el comando encontrado:
+#### Para ejecutar el comando encontrado:
 
 ```
 !53
 ```
 
-Mostrar la estructura de ficheros:
-
+#### Mostrar la estructura de ficheros:
 ```
 tree
 ```
 
-Copiar los archivos de un sitio a otro:
-
+#### Copiar los archivos de un sitio a otro:
 ```
 cp carpeta/archivo carpeta/
 ```
 
-Crea una copia con un nuevo nombre:
+#### Crea una copia con un nuevo nombre:
 
 ```
  cp archivo nuevo_archivo
 ```
 
-Renombra los archivos __(no guarda la copia anterior)__:
+#### Renombra los archivos (no guarda la copia anterior):
 
 ```
  mv archivo nuevo_archivo
 ```
 
-Lista todos ficheros, archivos:
+#### Lista todos ficheros, archivos:
 
 ```
 ls
 ls -l 
 ```
 
-Para mover archivos seguimos el mismo razonamiento que al copiar. Mientras que si es una carpeta debemos agregar -r:
+#### Para mover archivos seguimos el mismo razonamiento que al copiar. Mientras que si es una carpeta debemos agregar -r:
 
 ```
 mv -r carpeta/ /carpeta/destino
 ```
 
-Mueve todos los archivos de una carpeta a otra:
+#### Mueve todos los archivos de una carpeta a otra:
 
 ```
 mv -r carpeta/* /destino/
 ```
 
-Para eliminar archivos y carpetas:
+#### Para eliminar archivos y carpetas:
 
 ```
 rm nombre_archivo
@@ -298,41 +296,44 @@ rm nombre_archivo
 rm -r /carpeta
 ```
 
-Cuidado, ``#sudo rm -r /*``  destroza nuestro sistema, elimina todo.
+#### Cuidado, ``#sudo rm -r /*``  destroza nuestro sistema, elimina todo.
 
-Crear links a archivos es sencillo, por ejemplo, al "``archivo_1``":
+#### Crear links a archivos es sencillo, por ejemplo, al "``archivo_1``":
 
 ```
 ln archivo_1 archivo_2
 ```
 
-Para crear links a directorios o entre particiones:
+#### Para crear links a directorios o entre particiones:
 
 ```
 ln -s /dir1 archivos
 ```
 
-Este comando es un combo, ya que permite saber que binarios tenemos instalados:
+#### Este comando es un combo, ya que permite saber que binarios tenemos instalados:
 
 ```
 ls /bin/ && ls /usr/bin
 ```
 
-Para saber los dispositivos conectados a los puertos USB:
+#### Para saber los dispositivos conectados a los puertos USB:
 
 ```
 lsusb
 ```
 
-Para montar un disco, lo ubicamos con ``fdisk -l`` y luego ``sudo mount -rw /nombre/disco /mnt``.
+#### Para montar un disco, lo ubicamos con ``fdisk -l`` y luego 
+```
+sudo mount -rw /nombre/disco /mnt
+```
 
-Para saber el porcentaje de uso de los discos disponibles:
+#### Para saber el porcentaje de uso de los discos disponibles:
 
 ```
 df --total -hl
 ```
 
-Para saber la memoria RAM disponible:
+#### Para saber la memoria RAM disponible:
 
 ```
 grep MemTotal /proc/meminfo
@@ -342,13 +343,13 @@ grep MemTotal /proc/meminfo
 free -m
 ```
 
-Crear un USB bootable con cualquier imagen de Linux:  
+#### Crear un USB bootable con cualquier imagen de Linux:  
 
 ```
- sudo dd bs=4M if=arch.iso of=/dev/sdb status=progress
+dd bs=4M if=arch.iso of=/dev/sdb status=progress
 ```
 
-Ver las conexiones en los sockets de nuestro equipo:
+#### Ver las conexiones en los sockets de nuestro equipo:
 
 ```
 ss
@@ -357,28 +358,28 @@ ss | grep tcp
 ss -t -a 
 ```
 
-Para conocer los usuarios logueados en el sistema:
+#### Para conocer los usuarios logueados en el sistema:
 
 ```
 who
 ```
 
-IP local y Wifi:
+#### IP local y Wifi:
 
 ```
- ifconfig
- ip address
- iwconfig
+ifconfig
+ip address
+iwconfig
 ```
 
-Muestra la IP pública:
+#### Muestra la IP pública:
 
 ```
 curl ifconfig.me
 curl https://ipinfo.io/ip
 ```
 
-Saber la claves Wi-Fi a la que nos hemos conectado:
+#### Saber la claves Wi-Fi a la que nos hemos conectado:
 
 ```
 sudo -i
@@ -387,7 +388,7 @@ ls
 cat "el archivo wifi"
 ```
 
-Ruta
+#### Ruta
 https://devconnected.com/how-to-add-route-on-linux/:
 ```
 ip route
@@ -396,27 +397,25 @@ ip route
 route -n
 ```
 
-Enviar peticiones a servidores online o en red local:
+#### Enviar peticiones a servidores online o en red local:
 
 ```
 ping google.com || ping 192.168.1.1
 ```
 
-Usuario y tiempo conectado:
-
-
+#### Usuario y tiempo conectado:
 ```
 uptime -p
 ```
-Muestra la versión del kernel:
+#### Muestra la versión del kernel:
 
 ```
 uname -r
 ```
 
-Almacenamiento de los discos ``df``
+#### Almacenamiento de los discos ``df``
 
-Si queremos saber donde está un dispositivo USB, disco duro y sus particiones:
+#### Si queremos saber donde está un dispositivo USB, disco duro y sus particiones:
 
 ```
 sudo fdisk -l
@@ -425,7 +424,7 @@ sudo fdisk -l
 lsblk
 ```
 
-Los procesos del sistema pueden mostrarse con:
+#### Los procesos del sistema pueden mostrarse con:
 
 ```
 top
@@ -437,15 +436,15 @@ htop
 ps -ef | less
 ```
 
-El signo | nos permite concatenar comandos (pipes).
+#### El signo | nos permite concatenar comandos (pipes).
 
-Imprimir todos los procesos en un momento determinado:
+#### Imprimir todos los procesos en un momento determinado:
 
 ```
 ps -ef
 ```
 
-Detalles del Hardware y bios del sistema:
+#### Detalles del Hardware y bios del sistema:
 
 ```
 dmidecode
@@ -456,28 +455,28 @@ dmidecode -V
 dmidecode --help
 ```
 
-Con neofetch podemos ver detalles de nuestro sistema de manera divertida (``apt install neofetch``):
+#### Con neofetch podemos ver detalles de nuestro sistema de manera divertida (``apt install neofetch``):
 
 ```
 neofetch
 ```
 
-Descomprimir archivos:
+#### Descomprimir archivos:
 
 ```
-unzip * .zip
+unzip *.zip
 ```
 ```
 gunzip example.txt.gz
 ```
 
-Instalación de aplicaciones .deb. Tambien es posible usar ``gdebi``:
+#### Instalación de aplicaciones .deb. También es posible usar ``gdebi``:
 
 ```
 dpkg -i archivo.deb && apt install -f
 ```
 
-Los siguientes comandos utilizan systemctl para controlar servicios del sistema:
+#### Los siguientes comandos utilizan systemctl para controlar servicios del sistema:
 
 ```
 systemctl enable nombre_servicio
@@ -486,26 +485,26 @@ systemctl stop nombre_servicio
 systemctl disable nombre_servicio
 ```
 
-Reiniciar Wifi:
+#### Reiniciar Wifi:
 
 ```
 service network-manager restart
 ```
 
-``nohup`` mantiene la ejecución de un comando pese a salir de la terminal por ejemplo, un scrip de Python:
+#### ``nohup`` mantiene la ejecución de un comando pese a salir de la terminal por ejemplo, un scrip de Python:
 
 ```
 nohup python3 main.py > flask.log 2>&1 &
 ```
 
-Detener proceso:
+#### Detener proceso:
 
 ```
 top
 kill id_proceso
 ```
 
-Características del sistema:
+#### Características del sistema:
 
 ```
 lshw
@@ -514,18 +513,18 @@ lshw
 lscpu
 ```
 
-Un browser en el terminal:
+#### Un browser en el terminal:
 
 ```
 elinks https://medium.com/learn-love-code/how-to-set-up-your-professional-data-science-environment-6df74eb06aa4
 ```
 
-Ver lista de fuentes:
+#### Ver lista de repositorios:
 
 ```
 vi /etc/apt/sources.list
 ```
-Fedora
+#### Fedora
 ```
 dnf repolist
 ```
@@ -533,66 +532,66 @@ dnf repolist
 vi /etc/yum.repos.d/fedora.repo
 ```
 
-Controlar los permisos para la accesibilidad de los archivos y carpetas de nuestro sistema, 
-
+#### Controlar los permisos para la accesibilidad de los archivos y carpetas de nuestro sistema, por ejemplo, dar todo tipo de acceso a un archivo:
 ```
-# por ejemplo, dar todo tipo de acceso a un archivo:
- sudo chmod 777 nombrearchivo
- sudo chmod a+rwx nombrearchivo
-# O para que solamente root pueda acceder a ellos:
- sudo chmod 700 nombrearchivo
+sudo chmod 777 nombre_archivo
+sudo chmod a+rwx nombre_archivo
 ```
-
-Acceso a carpeta para todos los usuarios:
-
+#### O para que solamente root pueda acceder a ellos:
 ```
-chmod ugo+rwx nombrecarpeta
+sudo chmod 700 nombre_archivo
 ```
 
-Cambiar el 'owner' de /u y subdirectorios del usuario "root". Útil para acceder a archivos "READ-ONLY"
+#### Acceso a carpeta para todos los usuarios:
+
+```
+chmod ugo+rwx nombre_carpeta
+```
+
+#### Cambiar el 'owner' de /u y subdirectorios del usuario "root". Útil para acceder a archivos "READ-ONLY":
 
 ```
 sudo chown -hR root /u
 ```
 
-## Encontrar palabras con ``grep`` o ``egrep``
+#### Encontrar palabras con ``grep`` o ``egrep`` (usa expresiones regulares extensivas - obsoleto, utilizar `grep -E`):
 
 ```
 touch example
 ls | egrep example
 ```
 
-Buscar palabra en archivo
+#### Buscar palabras en archivo:
 
 ``look texto archivo`` o ``grep texto archivo``
 
- Encontrar después de patrón:
+#### Encontrar después de patrón:
 
 ```
- echo "field1 field2 field3 field4" | grep -oP '(?<=field3 )[^ ]*'
+echo "field1 field2 field3 field4" | grep -oP '(?<=field3 )[^ ]*'
 ```
 
-Antes del patrón:
+#### Antes del patrón:
 
 ```
 echo "field1 field2 field3 field4" | grep -oP '(?<=field2 )\w+'
 ```
 
-## Información de la red
+#### Información de la red
 
- IP del proveedor de Internet
+#### IP del proveedor de Internet:
 
 ```
 grep nameserver  /etc/resolv.conf | awk '{print $2}'
 ```
 
- IP del servidor local
+#### IP del servidor local:
 
 ```
-ip route show |grep default | awk '{print $3}' | cut -d$'\n' -f1
+ip route show | grep default | awk '{print $3}' | cut -d$'\n' -f1
 ```
 
- IP local del dispositivo
+#### IP local del dispositivo:
 
 ```
 ip address show $interface | grep "inet " | awk '{print $2}'
@@ -603,7 +602,7 @@ ip address show $interface | grep "inet " | awk '{print $2}'
 Para listar los archivos que tengan un patrón, por ejemplo, que terminen en .iso. 
 
 ```
-ls | grep * .iso
+ls | grep *.iso
 ```
 
 Para saber el número de archivos en una carpeta:
@@ -612,7 +611,7 @@ Para saber el número de archivos en una carpeta:
 ls | wc -l
 ```
 
-Conocer la cantidad de filas en un archivo
+Conocer la cantidad de filas en un archivo:
 
 ```
 wc -l archivo
@@ -628,7 +627,15 @@ tail -10 archivo
 Si el archivo es demasiado grande, podemos separarlo en varias partes, por ejemplo, cinco:
 
 ```
-split -n l/5 archivo x
+split -n 5 archivo x
+```
+```
+split -a 3 -d -b 10M archivo.txt logs_
+```
+
+Para volver a unirlos:
+```
+cat xa* > log.txt
 ```
 
 Para seleccionar la quinta columna, utilizamos:
@@ -637,44 +644,53 @@ Para seleccionar la quinta columna, utilizamos:
 awk '{print $5}' archivo
 ```
 
-Separar columnas en función de un caracter, por ejemplo, dos puntos (:)
+Separar columnas en función de un carácter, por ejemplo, dos puntos ( : )
 
 ```
 cut -d ':' -f1 archivo
 ```
 
-Obtener la primera fila de datos
+Obtener la primera fila de datos (crear un respaldo):
 
 ```
 sed 1d archivo
 ```
 
-Eliminar la última línea o fila de datos
+Eliminar la última línea o fila de datos:
 
 ```
-sed -i '$ d' archivo
+sed -i '$d' archivo
 ```
 
-Cambiar el orden de columnas
+Cambiar el orden de columnas:
 
 ```
-awk '{ print $3, $1 }' archivo.txt
-
+awk '{print $3, $1}' archivo.txt
+```
+```
 ps -ef | awk -F " " '{print $2}' 
 ```
 
-Cortar una sección intermedia de filas
+Cortar una sección intermedia de filas:
 
 ```
 sed -n '250, 260p' archivo1.txt > archivo2.txt
 ```
 
-Crear un secuencia ``seq 1 10``
+Crear un secuencia:
+```
+seq 1 10
+```
 
-Para buscar archivos
-
+Para buscar archivos:
+ 
 ```
 sudo apt-get install mlocate
+```
+```
+sudo updatedb
+```
+```
 locate -i archivo
 ```
 
@@ -688,44 +704,42 @@ which python
 
 ### SSH
 
-Instalar
+Instalar:
 
 ```
-sudo apt-get install openssh-server -y
+sudo apt install openssh-server -y
 sudo systemctl enable ssh 
 sudo systemctl start ssh
 sudo systemclt status ssh
 ```
 
-Agregar llaves para no usar contraseñas.
+Agregar llaves para no usar contraseñas:
 
 ```
 ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub UserName@RemoteServer
 ssh-add
 ```
+Sí hay una ``ssh key`` requerida: 
 
-Copiar archivos local --> remoto
+```
+ssh -i tu_ssh_key.pem user@server_ip
+```
+
+Copiar archivos local --> remoto:
 
 ```
 scp /dir/al/archivo user@remote.local:~/Destino/
 scp -P 22 -r /dir/ user@remote:~/Destino/
 ```
 
-Copiar archivos remoto --> local
+Copiar archivos remoto --> local:
 
 ```
 scp user@ip:file.txt /path/to/dest 
 ```
 
-Sí hay una ``ssh key`` requerida: 
-Puedes conectar con: 
-
-```
-ssh -i tu_ssh_key.pem user@server_ip
-```
-
-Y copiar archivos con:
+Y copiar archivos con llave:
 
 ```
 scp -r -i tu_ssh_key.pem tu_archivo user@server_ip:~ 
@@ -733,16 +747,21 @@ scp -r -i tu_ssh_key.pem tu_archivo user@server_ip:~
 
 Para ejecutar comandos a distancia:
 
-``ssh user@remote.local ls``
+```
+ssh user@remote.local ls
+```
 
-Para conectar fuera de la red local necesitamos la IP pública del router y haber abierto un túnel para un servidor local
-
-``ssh user@IP`` 
-
-Firewall
+Para conectar fuera de la red local necesitamos la IP pública del router y haber abierto un túnel para un servidor local:
 
 ```
-ufw allow 22/tcp # o ufw allow 2222/tcp
+ssh user@IP
+``` 
+
+Firewall:
+
+```
+ufw allow 22/tcp 
+ufw allow 2222/tcp
 ufw allow from 202.54.1.1 to any port 22
 ufw limit ssh
 ufw status
@@ -792,36 +811,67 @@ git pull origin master
 Los commits y los push también pueden realizarse de esta manera o directamente en GitHub. 
 
 ```
-git add . # Agregar todos los archivos 
-git add /path/to/file # Agregar un archivo concreto
+git add . # Agregar todos los archivos
+```
+
+Agregar un archivo concreto:
+```
+git add /path/to/file
+```
+```
 git diff --cached 
 git commit -m 'comment'
-git commit --amend -m 'my corrected comment' # Para corregir el mensaje del commit anterior. 
+git commit --amend -m 'my corrected comment' # Para corregir el mensaje del commit anterior.
+```
+```
 git push -u origin master
-git checkout -b 'robranch' #o (git switch robranch) # Cambiar de branch
+git checkout -b 'robranch' 
+git switch robranch # Cambiar de branch
+```
+```
 git push origin robranch
 git branch -a # Ver las branchs
-git merge <otra-branch> # Une otra branch con la branch en la te encuentras
+```
+Une otra branch con la branch en la te encuentras
+```
+git merge <otra-branch>
 git merge --squash <otra-branch> # Igual que el anterior pero junta todo los commits(es necesario hacer un nuevo `git add .` y `git commit -m "mensaje"`)
 git fetch --all # Actualizar las branchs
-git rm --cached myarchivo.txt # Elimina el archivo en todo el historial
-git remote update origin --prune # Actualiza las branchs remotas localmente
-git stash save "mensaje" # Para hacer stash ("salvar los cambios" sin commit) y agregar un mensaje a dicho stash.
+```
+Elimina el archivo en todo el historial
+```
+git rm --cached myarchivo.txt
+```
+Actualiza las branchs remotas localmente
+```
+git remote update origin --prune 
+```
+Para hacer stash ("salvar los cambios" sin commit) y agregar un mensaje a dicho stash:
+```
+git stash save "mensaje"
 ```
 
 Más opciones y comandos de git: 
-
 ```
 git init
+```
+Para saber el nombre e email configurados en git:
+```
 git config --global user.name "Your Name Comes Here"
 git config --global user.email you@yourdomain.example.com
-git config --list # para saber el nombre e email configurados en git
+git config --list
+```
+```
 git status
+```
+```
 git log
 git log -p
 git log -S # searchs a word in the commits
 git log --stat --summary
 git log --graph --decorate --oneline
+```
+```
 git help -a 
 git help -g
 ```
@@ -840,20 +890,21 @@ Volver al commit anterior sin guardar cambios agregados:
 git reset --soft HEAD
 ```
 
-Volver a un commit puntual:
+Volver a un commit puntual.
+Busca el commit id con `git log` seguido de:
 
 ```
-# Busca el commit id con `git log` seguido de
 git reset <commit-id>
 ```
 
 En caso que no hayas hecho `git add .`, puedes usar el siguiente comando para volver al commit previo y eliminar los cambios:
 
+Bueno cuando los experimentos no salieron bien y quieres volver al commit anterior:
 ```
-git checkout .     # Bueno cuando los experimentos no salieron bien y quieres volver al commit anterior
+git checkout .
 ```
 
-** Podemos usar HEAD~2 para volver dos commit atras de HEAD.
+** Podemos usar HEAD~2 para volver dos commit a tras de HEAD.
 
 Usando `git reset --hard` seguido del hash del commit, volvemos a dicho commit.
 
@@ -869,7 +920,7 @@ git config --global alias.ac '!git add . && git commit -m'
 
 * Buscar archivos que contengan una palabra específica en el código dentro de todo el repositorio con ``git grep 'palabra(s)'``
 
-* Guardar el estado actual del repositorio sin hacer commit con ``git stash``. Usando ``git stash pop`` volvemos al estado en el que estabamos trabajando. 
+* Guardar el estado actual del repositorio sin hacer commit con ``git stash``. Usando ``git stash pop`` volvemos al estado en el que estábamos trabajando. 
 
 * Tutorial de git
   ``git help tutorial``
@@ -1055,7 +1106,7 @@ Escribe ``:mark a`` en la línea que desea marcar, navega a ella con ``'a``. Tam
 
 __Editar múltiples líneas:__
 
-Seleccinamos con ``V`` y luego usamos ``Ctrl V`` seguido de las teclas de desplazamiento (j, k, l, h, etc...) y el texto a agregar.
+Seleccionamos con ``V`` y luego usamos ``Ctrl V`` seguido de las teclas de desplazamiento (j, k, l, h, etc...) y el texto a agregar.
 
 **Para agregar espacios a multiples líneas**
 
@@ -1133,8 +1184,8 @@ docker logs
 docker exec $ID bash
 docker inspect $ID
 docker network ls
-docker image prune -a # borra las imagenes no utilizadas
-docker system prune # elimina el cache, los containers e imagenes detenidas, etc.
+docker image prune -a # borra las imágenes no utilizadas
+docker system prune # elimina el cache, los containers e imágenes detenidas, etc.
 ```
 
 Para acceder a los puertos del localhost desde el contenedor: 
@@ -1160,7 +1211,7 @@ docker-compose stop
 
 ### Tor
 
-Para navegar de manera anónima.  Simplemente descárgalo de https://www.torproject.org y: 
+Para navegar de manera anónima.  Simplemente descargalo de https://www.torproject.org y: 
 
 ```
  tar -xvJf tor-browser-linux64-9.0.4_en-US.tar.xz 
@@ -1199,17 +1250,19 @@ youtube-dl -F $url
 ffmpeg -i input.avi -strict -2 output.mp4
 ```
 
-### Crear gifs animados (``ImageMagick``):
+#### Crear gifs animados (ImageMagick):
 
 ```
 convert -delay 10 -loop 0 * .png mygif.gif
 ```
 
-### Ver fotos en la terminal(``apt install fbi``:
+#### Ver fotos en la terminal:
+```
+apt install fbi
+fbi foto.png
+```
 
-```fbi foto.png ```
-
-### VLC para controlar la música desde la línea de comandos.
+#### VLC para controlar la música desde la línea de comandos:
 
 ```
 cvlc /music
@@ -1217,16 +1270,22 @@ cvlc /music
 vlc --help
 ```
 
-### Juegos en Terminal
+#### Juegos en Terminal:
 
 ```
 apt-get install bastet moon-buggy ninvaders nsnake pacman4console neofetch figlet -y
+```
+```
 bastet
 moon-buggy
 figlet HOLA AMIGO 
 ```
 
- El próximo comando te hará sentir en la matrix. (apt install cmatrix)
+El próximo comando te hará sentir en la matrix.
+
+```
+apt install cmatrix
+```
 
 ```
 cmatrix 
@@ -1380,10 +1439,13 @@ Ejecutar un script cada vez que iniciemos una sesión, por ejemplo, un programa 
 
 ### Nmap
 
-(``apt install nmap``)
+```
+apt install nmap
+```
 
 ```
 nmap localhost
+```
 
 # Para evaluar la red local entera:
 nmap 192.168.1.1/24 #(o 192.168.0.1/24)
@@ -1402,15 +1464,11 @@ Conectar
 ```
 ssh usuario@servidor.local
 ```
-
- o 
-
 ```
 ssh usuario@IP
 ```
 
- Conectar SSH sin password
-
+Conectar SSH sin password
 ```
 ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub usuario@servidor.local
@@ -1677,17 +1735,14 @@ vim /etc/motd
                exit;
              }
 
-###########################################################################
-
 Como despedida ... salir, reiniciar, apagar en 30 min, apagar ahora, respectivamente.
 
 ```
- exit
- reboot
- shutdown -h +30
- poweroff -f
+exit
+reboot
+shutdown -h +30
+poweroff -f
 ```
-
 # Links a Posts Relacionados:
 
 https://programandoconro.wordpress.com/2019/10/02/mis-99-comandos-favoritos-en-gnu-linux/
