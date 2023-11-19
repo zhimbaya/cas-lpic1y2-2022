@@ -11,11 +11,9 @@
             "id": "9696f10f792cf600",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "Paginas/udemyBase.md",
-                "mode": "source",
-                "source": false
+                "file": "Alumnos/1268 SC-07  APELLIDOS.pdf"
               }
             }
           }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Paginas/udemyBase.md",
+                "file": "Alumnos/1268 SC-07  APELLIDOS.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Paginas/udemyBase.md",
+                "file": "Alumnos/1268 SC-07  APELLIDOS.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Paginas/udemyBase.md"
+                "file": "Alumnos/1268 SC-07  APELLIDOS.pdf"
               }
             }
           }
@@ -148,6 +146,10 @@
   },
   "active": "9696f10f792cf600",
   "lastOpenFiles": [
+    "2023-05-23.md",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "Paginas/udemyBase.md",
     "Paginas/SUGEEK LPIC ESENTIAL.md",
     "Paginas/interesting.md",
     "Paginas/help.md",
