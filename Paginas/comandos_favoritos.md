@@ -1,7 +1,6 @@
 # Una lista de mis comandos favoritos en Linux.
 
 #### Instalación de [Multipass orchestrates virtual Ubuntu instances](https://multipass.run/install):
-
 ```
 multipass help
 multipass list
@@ -19,109 +18,90 @@ multipass launch lts --name ltsInstance --mem 2G --disk 10G --cpus 2
 ```
 
 #### Privilegios absolutos (root):
-
-```
-su
-```
+``su``
 
 #### Si el usuario pertenece al grupo de administradores:
-
-```
-sudo -i
-```
+``sudo -i``
 
 #### Para ejecutar un comando que requiera permisos de administrador:
-
-```
-sudo comando
-```
+``sudo comando``
 
 ** Si olvidamos escribir sudo y nos da un error por ello, podemos usar `sudo !!` para ejecutar el comando anterior con sudo de prefijo.
 
-#### Para saber que distro de linux tienes:
-
+#### Para saber que distro de Linux tenemos:
 ```
 uname -a
 ```
 
 #### Actualizar Debian/Ubuntu:
-
 ```
 apt update -y && apt upgrade -y
 ```
 
 #### En Fedora/Centos se utiliza yum para gestionar los paquetes:
-
 ```
 yum update -y
 ```
 
 #### Arch/Manjaro:
-
 ```
 pacman -Syy
 pacman -Su
 ```
 
 #### Puedes usar '&&' para varios comandos seguidos:
-
 ```
  apt update -y && apt upgrade -y && apt autoremove -y
 ```
 
 #### Crear un usuario:
-
 ```
-sudo useradd nombre_usuario
+useradd nombre_usuario
+
+mejor
+
+adduser nombre_usuario
 ```
 
 #### Cambiar de grupo principal:
-
 ```
-usermod usuario -g otroGrupo
+usermod usuario -g otro_grupo
 ```
 
 #### Para agregar usuarios a grupos secundarios, por ejemplo, grupo sudo:
-
 ```
-sudo usermod -aG sudo nombreusuario
+usermod nombre_usuario -aG sudo
 ```
 
 #### Eliminar un usuario:
-
 ```
-sudo userdel nombreusuario
+userdel nombre_usuario
 ```
 
 #### Ver los usuarios y detalles del host:
-
 ```
-users
+users && groups nombre_usuario
 ```
 ```
 hostnamectl
 ```
 
 #### Para cambiar la contraseña utilizamos:
-
 ```
 passwd
 ```
 
 #### Para el root, utilizamos:
-
 ```
 sudo passwd root
 ```
 
 #### Para ver los grupos a los que pertenece el usuario:
-
 ```
 groups nombre_usuario
 ```
 
 #### Para saber el nombre del host:
-
 ```
 hostname
 ```
@@ -132,13 +112,11 @@ hostnamectl set-hostname nuevo_nombre
 ```
 
 #### Instalar todo tipo de programas en Linux, por ejemplo, htop: 
-
 ```
 sudo apt install htop -y
 ```
 
 #### Instala programas con snap (``apt install snapd`` o ``yum install snapd``), por ejemplo, VScode, Android Studio y VLC:
-
 ```
 snap install code --classic
 snap install android-studio --classic
@@ -146,84 +124,69 @@ snap install vlc --classic
 ```
 
 #### En Arch/Manjaro no necesitamos snap, ya que con ``yay`` encontramos todo lo que necesitamos.
-
 ```
 yay -S vim code android-studio vlc
 ```
 
 #### Crear y navegar por las carpetas:
+```
+mkdir nombre_carpeta
 
-```
-mkdir carpeta
-```
-```
-cd /carpeta
+cd /nombre_carpeta
 ```
 
 #### Regresar al directorio anterior:
-
 ```
 cd ..
 ```
 
-#### Saber el directorio en el que estamos.
-
+#### Saber el directorio en el que estamos:
 ```
 pwd
 ```
 
 #### Crear un archivo vacío:
-
 ```
 touch nombre_archivo
 ```
 
 #### Crear un archivo con un texto corto:
-
 ```
 echo "Texto corto" > nombre_archivo
 ```
 
-#### Si utilizamos `>>` agregamos el texto sin reemplazar el archivo. 
-
+#### Si utilizamos `>>` agregamos el texto sin reemplazar el archivo.
 ```
  echo "Agregamos texto nuevo" >> nombre_archivo
 ```
 
 #### Si queremos aplicar un comando a un archivo, por ejemplo, un script mysql, usamos `<`.
-
 ```
 mariadb --user=root --password -s < mariadb.sql
 ```
 
 #### Para echar un ojo a un archivo corto:
-
 ```
 cat archivo
-```
-```
+
 more archivo
-```
-```
+
 less archivo
 ```
 
 #### Con el editor `nano / vi` podemos ver y editar archivos más grandes:
-
 ```
 nano nombre_archivo
 ```
 
-#### Utilizando Ctrl-x guardamos los cambios.
+** Utilizando Ctrl-x guardamos los cambios.
 
 #### Limpiar la pantalla en la terminal:
-
 ```
 clear o Ctrl-L
 ```
 
 #### Encontrar un archivo en el sistema:
-
 ```
 find / -name archivo
 ```
@@ -231,7 +194,6 @@ find / -name archivo
 ** En caso de que el archivo se encuentre en una carpeta que requiera permiso, usar `sudo` antes del comando.
 
 #### Ver el historial del terminal:
-
 ```
 history
 ```
@@ -239,7 +201,6 @@ history
 ** Para limpiar el historial ``history -c`` (bash).
 
 #### Para ejecutar el comando encontrado:
-
 ```
 !53
 ```
@@ -255,7 +216,6 @@ cp carpeta/archivo carpeta/
 ```
 
 #### Crea una copia con un nuevo nombre:
-
 ```
  cp archivo nuevo_archivo
 ```
@@ -267,20 +227,17 @@ cp carpeta/archivo carpeta/
 ```
 
 #### Lista todos ficheros, archivos:
-
 ```
 ls
 ls -l
 ```
 
 #### Para mover archivos seguimos el mismo razonamiento que al copiar. Mientras que si es una carpeta debemos agregar -r:
-
 ```
 mv -r carpeta/ /carpeta/destino
 ```
 
 #### Mueve todos los archivos de una carpeta a otra:
-
 ```
 mv -r carpeta/* /destino/
 ```
@@ -289,8 +246,6 @@ mv -r carpeta/* /destino/
 
 ```
 rm nombre_archivo
-```
-```
 rm -r /carpeta
 ```
 
