@@ -18,13 +18,19 @@ multipass launch lts --name ltsInstance --mem 2G --disk 10G --cpus 2
 ```
 
 #### Privilegios absolutos (root):
-``su``
+```
+su
+```
 
 #### Si el usuario pertenece al grupo de administradores:
-``sudo -i``
+```
+sudo -i
+```
 
 #### Para ejecutar un comando que requiera permisos de administrador:
-``sudo comando``
+```
+sudo comando
+```
 
 ** Si olvidamos escribir sudo y nos da un error por ello, podemos usar `sudo !!` para ejecutar el comando anterior con sudo de prefijo.
 
@@ -123,7 +129,7 @@ snap install android-studio --classic
 snap install vlc --classic
 ```
 
-#### En Arch/Manjaro no necesitamos snap, ya que con ``yay`` encontramos todo lo que necesitamos.
+#### En Arch/Manjaro no necesitamos snap, ya que con `yay` encontramos todo lo que necesitamos.
 ```
 yay -S vim code android-studio vlc
 ```
@@ -342,7 +348,7 @@ cat "el archivo wifi"
 ```
 
 #### Ruta
-https://devconnected.com/how-to-add-route-on-linux/:
+[IP ROUTE](https://devconnected.com/how-to-add-route-on-linux/)
 ```
 ip route
 ```
@@ -351,7 +357,6 @@ route -n
 ```
 
 #### Enviar peticiones a servidores online o en red local:
-
 ```
 ping google.com || ping 192.168.1.1
 ```
@@ -360,18 +365,18 @@ ping google.com || ping 192.168.1.1
 ```
 uptime -p
 ```
-#### Muestra la versión del kernel:
 
+#### Muestra la versión del kernel:
 ```
 uname -r
 ```
 
-#### Almacenamiento de los discos ``df``
+#### Almacenamiento de los discos `df`
 
 #### Si queremos saber donde está un dispositivo USB, disco duro y sus particiones:
 
 ```
-sudo fdisk -l
+fdisk -l
 ```
 ```
 lsblk
@@ -380,10 +385,7 @@ lsblk
 #### Los procesos del sistema pueden mostrarse con:
 
 ```
-top
-```
-```
-htop
+top && htop
 ```
 ```
 ps -ef | less
