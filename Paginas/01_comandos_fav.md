@@ -1,6 +1,6 @@
 # Una lista de mis comandos favoritos en Linux.
 
-#### Instalación de [Multipass orchestrates virtual Ubuntu instances](https://multipass.run/install):
+**Instalación de [Multipass orchestrates virtual Ubuntu instances](https://multipass.run/install):**
 ```
 multipass help
 multipass list
@@ -17,50 +17,50 @@ multipass launch -n bar --cloud-init cloud-config.yaml
 multipass launch lts --name ltsInstance --mem 2G --disk 10G --cpus 2
 ```
 
-#### Privilegios absolutos (root):
+**Privilegios absolutos (root):**
 ```
 su
 ```
 
-#### Si el usuario pertenece al grupo de administradores:
+**Si el usuario pertenece al grupo de administradores:**
 ```
 sudo -i
 ```
 
-#### Para ejecutar un comando que requiera permisos de administrador:
+**Para ejecutar un comando que requiera permisos de administrador:**
 ```
 sudo comando
 ```
 
-** Si olvidamos escribir sudo y nos da un error por ello, podemos usar `sudo !!` para ejecutar el comando anterior con sudo de prefijo.
+**Si olvidamos escribir sudo y nos da un error por ello, podemos usar `sudo !!` para ejecutar el comando anterior con sudo de prefijo.**
 
-#### Para saber que distro de Linux tenemos:
+**Para saber que distro de Linux tenemos:**
 ```
 uname -a
 ```
 
-#### Actualizar Debian/Ubuntu:
+**Actualizar Debian/Ubuntu:**
 ```
 apt update -y && apt upgrade -y
 ```
 
-#### En Fedora/Centos se utiliza yum para gestionar los paquetes:
+**En Fedora/Centos se utiliza yum para gestionar los paquetes:**
 ```
 yum update -y
 ```
 
-#### Arch/Manjaro:
+**Arch/Manjaro:**
 ```
 pacman -Syy
 pacman -Su
 ```
 
-#### Puedes usar '&&' para varios comandos seguidos:
+**Puedes usar '&&' para varios comandos seguidos:**
 ```
  apt update -y && apt upgrade -y && apt autoremove -y
 ```
 
-#### Crear un usuario:
+**Crear un usuario:**
 ```
 useradd nombre_usuario
 
@@ -69,22 +69,22 @@ mejor
 adduser nombre_usuario
 ```
 
-#### Cambiar de grupo principal:
+**Cambiar de grupo principal:**
 ```
 usermod usuario -g otro_grupo
 ```
 
-#### Para agregar usuarios a grupos secundarios, por ejemplo, grupo sudo:
+**Para agregar usuarios a grupos secundarios, por ejemplo, grupo sudo:**
 ```
 usermod nombre_usuario -aG sudo
 ```
 
-#### Eliminar un usuario:
+**Eliminar un usuario:**
 ```
 userdel nombre_usuario
 ```
 
-#### Ver los usuarios y detalles del host:
+**Ver los usuarios y detalles del host:**
 ```
 users && groups nombre_usuario
 ```
@@ -92,208 +92,197 @@ users && groups nombre_usuario
 hostnamectl
 ```
 
-#### Para cambiar la contraseña utilizamos:
+**Para cambiar la contraseña utilizamos:**
 ```
 passwd
 ```
 
-#### Para el root, utilizamos:
+**Para el root, utilizamos:**
 ```
 sudo passwd root
 ```
 
-#### Para ver los grupos a los que pertenece el usuario:
+**Para ver los grupos a los que pertenece el usuario:**
 ```
 groups nombre_usuario
 ```
 
-#### Para saber el nombre del host:
+**Para saber el nombre del host:**
 ```
 hostname
 ```
 
-#### Para cambiar el nombre:
+**Para cambiar el nombre:**
 ```
 hostnamectl set-hostname nuevo_nombre
 ```
 
-#### Instalar todo tipo de programas en Linux, por ejemplo, htop: 
+**Instalar todo tipo de programas en Linux, por ejemplo, htop:**
 ```
 sudo apt install htop -y
 ```
 
-#### Instala programas con snap (``apt install snapd`` o ``yum install snapd``), por ejemplo, VScode, Android Studio y VLC:
+**Instala programas con snap (`apt install snapd` o `yum install snapd`), por ejemplo, VScode, Android Studio y VLC:**
 ```
 snap install code --classic
 snap install android-studio --classic
 snap install vlc --classic
 ```
 
-#### En Arch/Manjaro no necesitamos snap, ya que con `yay` encontramos todo lo que necesitamos.
+**En Arch/Manjaro no necesitamos snap, ya que con `yay` encontramos todo lo que necesitamos.**
 ```
 yay -S vim code android-studio vlc
 ```
 
-#### Crear y navegar por las carpetas:
+**Crear y navegar por las carpetas:**
 ```
 mkdir nombre_carpeta
-
+```
+```
 cd /nombre_carpeta
 ```
 
-#### Regresar al directorio anterior:
+**Regresar al directorio anterior:**
 ```
 cd ..
 ```
 
-#### Saber el directorio en el que estamos:
+**Saber el directorio en el que estamos:**
 ```
 pwd
 ```
 
-#### Crear un archivo vacío:
+**Crear un archivo vacío:**
 ```
 touch nombre_archivo
 ```
 
-#### Crear un archivo con un texto corto:
+**Crear un archivo con un texto corto:**
 ```
 echo "Texto corto" > nombre_archivo
 ```
 
-#### Si utilizamos `>>` agregamos el texto sin reemplazar el archivo.
+**Si utilizamos `>>` agregamos el texto sin reemplazar el archivo.**
 ```
  echo "Agregamos texto nuevo" >> nombre_archivo
 ```
 
-#### Si queremos aplicar un comando a un archivo, por ejemplo, un script mysql, usamos `<`.
+**Si queremos aplicar un comando a un archivo, por ejemplo, un script mysql, usamos `<`.**
 ```
 mariadb --user=root --password -s < mariadb.sql
 ```
 
-#### Para echar un ojo a un archivo corto:
+**Para echar un ojo a un archivo corto:**
 ```
-cat archivo
-
-more archivo
-
-less archivo
+cat archivo && more archivo && less archivo
 ```
 
-#### Con el editor `nano / vi` podemos ver y editar archivos más grandes:
+**Con el editor `nano / vi` podemos ver y editar archivos más grandes:**
 ```
 nano nombre_archivo
 ```
 
-** Utilizando Ctrl-x guardamos los cambios.
+**Utilizando Ctrl-x guardamos los cambios.**
 
-#### Limpiar la pantalla en la terminal:
+**Limpiar la pantalla en la terminal:**
 ```
 clear o Ctrl-L
 ```
 
-#### Encontrar un archivo en el sistema:
+**Encontrar un archivo en el sistema:**
 ```
 find / -name archivo
 ```
 
-** En caso de que el archivo se encuentre en una carpeta que requiera permiso, usar `sudo` antes del comando.
+**En caso de que el archivo se encuentre en una carpeta que requiera permiso, usar `sudo` antes del comando.**
 
-#### Ver el historial del terminal:
+**Ver el historial del terminal:**
 ```
 history
 ```
 
-** Para limpiar el historial ``history -c`` (bash).
+**Para limpiar el historial `history -c` (bash).**
 
-#### Para ejecutar el comando encontrado:
+**Para ejecutar el comando encontrado:**
 ```
 !53
 ```
 
-#### Mostrar la estructura de ficheros:
+**Mostrar la estructura de ficheros:**
 ```
 tree
 ```
 
-#### Copiar los archivos de un sitio a otro:
+**Copiar los archivos de un sitio a otro:**
 ```
 cp carpeta/archivo carpeta/
 ```
 
-#### Crea una copia con un nuevo nombre:
+**Crea una copia con un nuevo nombre:**
 ```
  cp archivo nuevo_archivo
 ```
 
-#### Renombra los archivos (no guarda la copia anterior):
-
+**Renombra los archivos (no guarda la copia anterior):**
 ```
  mv archivo nuevo_archivo
 ```
 
-#### Lista todos ficheros, archivos:
+**Lista todos ficheros, archivos:**
 ```
 ls
 ls -l
 ```
 
-#### Para mover archivos seguimos el mismo razonamiento que al copiar. Mientras que si es una carpeta debemos agregar -r:
+**Para mover archivos seguimos el mismo razonamiento que al copiar. Mientras que si es una carpeta debemos agregar -r:**
 ```
 mv -r carpeta/ /carpeta/destino
 ```
 
-#### Mueve todos los archivos de una carpeta a otra:
+**Mueve todos los archivos de una carpeta a otra:**
 ```
 mv -r carpeta/* /destino/
 ```
 
-#### Para eliminar archivos y carpetas:
-
+**Para eliminar archivos y carpetas:**
 ```
 rm nombre_archivo
 rm -r /carpeta
 ```
 
-#### Cuidado, ``#sudo rm -r /*``  destroza nuestro sistema, elimina todo.
+**Cuidado, `#sudo rm -r /*`  destroza nuestro sistema, elimina todo.**
 
-#### Crear links a archivos es sencillo, por ejemplo, al "``archivo_1``":
-
+**Crear links a archivos es sencillo, por ejemplo, al "`archivo_1`":**
 ```
 ln archivo_1 archivo_2
 ```
 
-#### Para crear links a directorios o entre particiones:
-
+**Para crear links a directorios o entre particiones:**
 ```
 ln -s /dir1 archivos
 ```
 
-#### Este comando es un combo, ya que permite saber que binarios tenemos instalados:
-
+**Este comando es un combo, ya que permite saber que binarios tenemos instalados:**
 ```
 ls /bin/ && ls /usr/bin
 ```
 
-#### Para saber los dispositivos conectados a los puertos USB:
-
+**Para saber los dispositivos conectados a los puertos USB:**
 ```
 lsusb
 ```
 
-#### Para montar un disco, lo ubicamos con ``fdisk -l`` y luego
+**Para montar un disco, lo ubicamos con `fdisk -l` y luego**
 ```
 sudo mount -rw /nombre/disco /mnt
 ```
 
-#### Para saber el porcentaje de uso de los discos disponibles:
-
+**Para saber el porcentaje de uso de los discos disponibles:**
 ```
 df --total -hl
 ```
 
-#### Para saber la memoria RAM disponible:
-
+**Para saber la memoria RAM disponible:**
 ```
 grep MemTotal /proc/meminfo
 
@@ -302,14 +291,12 @@ grep MemTotal /proc/meminfo
 free -m
 ```
 
-#### Crear un USB bootable con cualquier imagen de Linux:  
-
+**Crear un USB bootable con cualquier imagen de Linux:**
 ```
 dd bs=4M if=arch.iso of=/dev/sdb status=progress
 ```
 
 #### Ver las conexiones en los sockets de nuestro equipo:
-
 ```
 ss
 ss -l
@@ -318,13 +305,11 @@ ss -t -a
 ```
 
 #### Para conocer los usuarios logueados en el sistema:
-
 ```
 who
 ```
 
 #### IP local y Wifi:
-
 ```
 ifconfig
 ip address
@@ -332,14 +317,12 @@ iwconfig
 ```
 
 #### Muestra la IP pública:
-
 ```
 curl ifconfig.me
 curl https://ipinfo.io/ip
 ```
 
 #### Saber la claves Wi-Fi a la que nos hemos conectado:
-
 ```
 sudo -i
 cd /etc/NetworkManager/system-connections
@@ -374,7 +357,6 @@ uname -r
 #### Almacenamiento de los discos `df`
 
 #### Si queremos saber donde está un dispositivo USB, disco duro y sus particiones:
-
 ```
 fdisk -l
 ```
@@ -383,7 +365,6 @@ lsblk
 ```
 
 #### Los procesos del sistema pueden mostrarse con:
-
 ```
 top && htop
 ```
@@ -391,16 +372,14 @@ top && htop
 ps -ef | less
 ```
 
-#### El signo | nos permite concatenar comandos (pipes).
+El signo | nos permite concatenar comandos (pipes).
 
 #### Imprimir todos los procesos en un momento determinado:
-
 ```
 ps -ef
 ```
 
 #### Detalles del Hardware y bios del sistema:
-
 ```
 dmidecode
 dmidecode -t processor
@@ -410,14 +389,12 @@ dmidecode -V
 dmidecode --help
 ```
 
-#### Con neofetch podemos ver detalles de nuestro sistema de manera divertida (``apt install neofetch``):
-
+#### Con neofetch podemos ver detalles de nuestro sistema de manera divertida (`apt install neofetch`):
 ```
 neofetch
 ```
 
 #### Descomprimir archivos:
-
 ```
 unzip *.zip
 ```
@@ -425,14 +402,12 @@ unzip *.zip
 gunzip example.txt.gz
 ```
 
-#### Instalación de aplicaciones .deb. También es posible usar ``gdebi``:
-
+#### Instalación de aplicaciones .deb. También es posible usar `gdebi`:
 ```
 dpkg -i archivo.deb && apt install -f
 ```
 
 #### Los siguientes comandos utilizan systemctl para controlar servicios del sistema:
-
 ```
 systemctl enable nombre_servicio
 systemctl start nombre_servicio
@@ -441,26 +416,23 @@ systemctl disable nombre_servicio
 ```
 
 #### Reiniciar Wifi:
-
 ```
 service network-manager restart
 ```
 
-#### ``nohup`` mantiene la ejecución de un comando pese a salir de la terminal por ejemplo, un scrip de Python:
+#### ``nohup`` mantiene la ejecución de un comando pese a salir de la terminal por ejemplo, un script de Python:
 
 ```
 nohup python3 main.py > flask.log 2>&1 &
 ```
 
 #### Detener proceso:
-
 ```
 top
 kill id_proceso
 ```
 
 #### Características del sistema:
-
 ```
 lshw
 ```
@@ -469,13 +441,11 @@ lscpu
 ```
 
 #### Un browser en el terminal:
-
 ```
 elinks https://medium.com/learn-love-code/how-to-set-up-your-professional-data-science-environment-6df74eb06aa4
 ```
 
 #### Ver lista de repositorios:
-
 ```
 vi /etc/apt/sources.list
 ```
@@ -492,76 +462,64 @@ vi /etc/yum.repos.d/fedora.repo
 sudo chmod 777 nombre_archivo
 sudo chmod a+rwx nombre_archivo
 ```
+
 #### O para que solamente root pueda acceder a ellos:
 ```
 sudo chmod 700 nombre_archivo
 ```
 
 #### Acceso a carpeta para todos los usuarios:
-
 ```
 chmod ugo+rwx nombre_carpeta
 ```
 
 #### Cambiar el 'owner' de /u y subdirectorios del usuario "root". Útil para acceder a archivos "READ-ONLY":
-
 ```
 sudo chown -hR root /u
 ```
 
-#### Encontrar palabras con ``grep`` o ``egrep`` (usa expresiones regulares extensivas - obsoleto, utilizar `grep -E`):
-
+#### Encontrar palabras con `grep` o `egrep` (usa expresiones regulares extensivas - obsoleto, utilizar `grep -E`):
 ```
 touch example
 ls | egrep example
 ```
 
 #### Buscar palabras en archivo:
-
-``look texto archivo`` o ``grep texto archivo``
+`look texto archivo` o `grep texto archivo`
 
 #### Encontrar después de patrón:
-
 ```
 echo "field1 field2 field3 field4" | grep -oP '(?<=field3 )[^ ]*'
 ```
 
 #### Antes del patrón:
-
 ```
 echo "field1 field2 field3 field4" | grep -oP '(?<=field2 )\w+'
 ```
 
-#### Información de la red
-
+## Información de la red
 #### IP del proveedor de Internet:
-
 ```
 grep nameserver  /etc/resolv.conf | awk '{print $2}'
 ```
 
 #### IP del servidor local:
-
 ```
 ip route show | grep default | awk '{print $3}' | cut -d$'\n' -f1
 ```
 
 #### IP local del dispositivo:
-
 ```
 ip address show $interface | grep "inet " | awk '{print $2}'
 ```
 
 ## Manejo de archivos y Data Mining
-
 Para listar los archivos que tengan un patrón, por ejemplo, que terminen en .iso. 
-
 ```
 ls | grep *.iso
 ```
 
 Para saber el número de archivos en una carpeta:
-
 ```
 ls | wc -l
 ```
@@ -573,7 +531,6 @@ wc -l archivo
 ```
 
 Para acceder a las 10 primeras y últimas filas:
-
 ```
 head -10 archivo
 tail -10 archivo
@@ -594,31 +551,26 @@ cat xa* > log.txt
 ```
 
 Para seleccionar la quinta columna, utilizamos:
-
 ```
 awk '{print $5}' archivo
 ```
 
 Separar columnas en función de un carácter, por ejemplo, dos puntos ( : )
-
 ```
 cut -d ':' -f1 archivo
 ```
 
 Obtener la primera fila de datos (crear un respaldo):
-
 ```
 sed 1d archivo
 ```
 
 Eliminar la última línea o fila de datos:
-
 ```
 sed -i '$d' archivo
 ```
 
 Cambiar el orden de columnas:
-
 ```
 awk '{print $3, $1}' archivo.txt
 ```
@@ -627,7 +579,6 @@ ps -ef | awk -F " " '{print $2}'
 ```
 
 Cortar una sección intermedia de filas:
-
 ```
 sed -n '250, 260p' archivo1.txt > archivo2.txt
 ```
@@ -638,7 +589,6 @@ seq 1 10
 ```
 
 Para buscar archivos:
-
 ```
 sudo apt-get install mlocate
 ```
@@ -650,7 +600,6 @@ locate -i archivo
 ```
 
 Localizar un comando:
-
 ```
 which python
 ```
@@ -660,7 +609,6 @@ which python
 ### SSH
 
 Instalar:
-
 ```
 sudo apt install openssh-server -y
 sudo systemctl enable ssh
@@ -669,7 +617,6 @@ sudo systemclt status ssh
 ```
 
 Agregar llaves para no usar contraseñas:
-
 ```
 ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub UserName@RemoteServer
@@ -1665,32 +1612,34 @@ vim /etc/motd
              done
 
 ### If
+```
+if [ hola == hola ]; then
+   echo TRUE;
+else
+   echo FALSE;
+fi
 
-             if [ hola == hola ]; then
-                 echo TRUE;
-             else
-                 echo FALSE;
-             fi
-
-             VAR="Hello Amit";
-             if [[ $VAR == *Amit* ]];
-                 then echo "its Amit";
-                 else
-                     echo "Its not Amit";
-             fi
+VAR="Hello Amit";
+if [[ $VAR == *Amit* ]];
+   then echo "its Amit";
+   else
+       echo "Its not Amit";
+fi
+```
 
 ### Aritmética
-
-             echo $((((2+2-3)*3)/3))
-
+```
+echo $((((2+2-3)*3)/3))
+```
 ### Funciones
+```
+function chao {
+ echo 'Chao amigo!';
+ exit;
+}
+```
 
-             function chao {
-               echo 'Chao amigo!';
-               exit;
-             }
-
-Como despedida ... salir, reiniciar, apagar en 30 min, apagar ahora, respectivamente.
+#### Como despedida ... salir, reiniciar, apagar en 30 min, apagar ahora, respectivamente.
 
 ```
 exit
@@ -1698,8 +1647,3 @@ reboot
 shutdown -h +30
 poweroff -f
 ```
-# Links a Posts Relacionados:
-
-https://programandoconro.wordpress.com/2019/10/02/mis-99-comandos-favoritos-en-gnu-linux/
-https://programandoconro.wordpress.com/2020/01/02/10-trucos-en-linux-para-programadores-principiantes/
-https://programandoconro.wordpress.com/ssh-accede-a-tu-red-local-y-programa-remotamente/
