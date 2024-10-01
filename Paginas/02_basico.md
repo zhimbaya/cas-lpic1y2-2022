@@ -2,9 +2,9 @@
 
 ## CONOCIMIENTO DE LA COMUNIDAD LINUX Y DE UNA CARRERA EN EL CÓDIGO ABIERTO
 1. Evolución de Linux y sistemas operativos populares
-2.	Principales aplicaciones de código abierto
-3.	Software de código abierto y licencias
-4.	Habilidades TIC y trabajo en Linux
+2. Principales aplicaciones de código abierto
+3. Software de código abierto y licencias
+4. Habilidades TIC y trabajo en Linux
 
 ## ORIENTACIÓN EN UN SISTEMA LINUX
 1.	Fundamentos de la línea de comandos
@@ -42,7 +42,7 @@
 
 ## 📅 17/10/2022
 - instalación de SO en VirtualBox
-- debian (distribución que se va a utilizar)
+- Debian (distribución que se va a utilizar)
 - CLI
   - CTRL + l (limpiar)  
   - CTRL + a (inicio)
@@ -60,62 +60,34 @@
   - CTRL + p (historial)
 
 - comando - (opciones) - argumentos
-- Nombre de máquina.
+- Nombre de máquina: ```hostname```
 ```
 hostnamectl
 ```
-```
-hostname
-```
-- Ruta de nombre de máquina.
-```
-vi /etc/hostname
-```
+- Ruta de nombre de máquina: ```vi /etc/hostname```
 ```
 hostnamectl set-hostname Debian
 ```
-- ($) usuario regular
-- (#) superusuario
-
-- Ruta donde me encuentro.
-```
-pwd
-```
-- Listar
-```
-ls
-```
-- Lista detallada total.
-```
-ls -la
-```
+- __($)__ usuario standar
+- __(#)__ usuario administrador
+- Ruta donde me encuentro: ```pwd```
+- Listar: ```ls```
+- Lista detallada total: ```ls -la```
 - `apt install exa`
 - `apt instal lsd` (alternativa ls)
 - `apt install xq` (reemplaza a less)
--  Muestra las ip's y nombre de máquina
-```
-host -v nombre_host
-```
-- Muestra la ip.
-```
-hostname -I
-```
-- Muestra la información del hardware y S.O.
-```
-uname -a
-``` 
-Mirar nombre de la distribución.
-```
-cat /etc/*relea*
-``` 
-- `man hier` (muestra toda la información de cada directorio de archivo)
-- `man man` (ayuda del man)
-- `man 5 hostname` (ayuda de man en la sección 5)
+-  Muestra las ip's y nombre de máquina: ```host -v nombre_host```
+- Muestra la ip: ```hostname -I```
+- Muestra la información del hardware y S.O: ```uname -a```
+- Mirar nombre de la distribución: ```cat /etc/*relea*```
+- Muestra toda la información de cada directorio de archivo: ```man hier```
+- Ayuda del man.```man man```
+- Ayuda de man en la sección 5: ```man 5 hostname```
 - `hostname --help` (muestra la ayuda)
 - `help hostname` (muestra la ayuda)
 - `hostname -h` (muestra la ayuda)
 - . , .. , ~ (virgulilla) , - , ^ (acento circunflejo)
-- usr (unix source)
+- __usr__ (unix source)
 - `cd /ruta`(cambiar de directorio)
 - `cd ..` (directorio anterior)
 - `cd ../..` (directorio anterior, anterior)
@@ -135,7 +107,7 @@ cat /etc/*relea*
   - Cuando ejecutamos `ls -lc` , estamos listando el: ctime
   - `touch -a --date="2001-05-10" fichero-sysadmit.txt`
   - `touch -m --date="2001-05-10" fichero-sysadmit.txt`
-  - Modificamos el change time: `Ahora=$(date)` 
+  - Modificamos el change time: `Ahora=$(date)`
   - Cambiamos la hora del sistema: `date --set "2001-05-10" `
   - Actualizamos la hora del fichero, con la fecha actual: `touch fichero-sysadmit.txt`
   - Volvemos a la fecha actual: `date --set "$Ahora" `
@@ -227,7 +199,7 @@ __Modo ex__
 - `^ ` (acento circunflejo que nos dice que empiece)
 - `/dev/null` (ruta donde no hay nada)
 - `ssh user@ip -p` (conexión shh y puerto)
-- bash (CLI con el que estamos trabajando) 
+- bash (CLI con el que estamos trabajando)
 - `echo $0` (muestra el bash utilizado)
 - __$(comando)__ (variable que guarda lo que el comando muestra)
 
@@ -270,7 +242,7 @@ __Modo ex__
 - `apt install ksh` (echo $0, ver que bash tengo)
 - `top` (muestra los procesos en ejecución) (alt +f)
 - `apt install htop` (aplicación muy parecida a top)
-- `apt install binutils` (aplicación con herramientas muy útiles como strings) 
+- `apt install binutils` (aplicación con herramientas muy útiles como strings)
 - `string /bin/bash` (muestra la información o permite la lectura de ficheros binarios)
 - `apt install lynx` (aplicación navegador web por terminal)
 - `ps -ef` (muestra los procesos)
@@ -300,7 +272,7 @@ __Modo ex__
 - `userdel` (elimina un usuario)
 - `usermod` (cambia los permisos de un usuario o usuarios)
 - `adduser` (crea un usuario de forma interactiva)
-- `deluser` (elimina usarios de fomra interactiva) 
+- `deluser` (elimina usarios de fomra interactiva)
 - Ficheros de configuración:
   - `/etc/sudoers`
   - `/etc/shadow`
@@ -347,7 +319,7 @@ __Modo ex__
 - `echo $$` (muestra el pid)
 - `jobs` (muestra los trabajos en ejecución en segundo plano)
 - `fg %1` (envía un proceso a primer plano) y `bg %1` (envia un proceso a segundo plano)
-- `set, env , printenv` (muestra las variables de entorno) 
+- `set, env , printenv` (muestra las variables de entorno)
 - `PS1` (prompt)
 ```
 export PS1="\[\e[0;1m\]┌─(\[\e[31;1m\]\u@\H\[\e[0;1m\])»{\[\e[36;1m\]\w\[\e[0;1m\]}\n└──┤ \[\e[0m\]"
@@ -415,5 +387,5 @@ export PS1="\[\e[0;1m\]┌─(\[\e[31;1m\]\u@\H\[\e[0;1m\])»{\[\e[36;1m\]\w\[\e
 - `apt list --installed` (paquetes instalados)
 - `dpkg -l` (paquetes instalados)
 - `snap list` (ver paquetes snap)
- 
+
 ## 📅 MARTES 30 PREGUNTAS

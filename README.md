@@ -10,7 +10,7 @@
 
 ## Index
 - [Comandos favoritos](Paginas/01_comandos_fav.md)
-- [Clases de iniciación a Linux Essential](Paginas/basic.md)
+- [Clases de iniciación a Linux Essential](Paginas/02_basico.md)
 - [Clases de LPIC - 1](Paginas/lpic1.md)
 - [Clases de LPIC - 2](Paginas/lpic2.md)
 - [Udemy Bash - Intérprete de Comandos de Linux. Aprende desde cero](Paginas/udemyBase.md)
